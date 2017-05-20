@@ -4,9 +4,10 @@ Toolchain for linux x86_64 host and armv8l-linux-gnueabihf target optimized for 
 Checkout to /usr/local/armv8l-unknown-linux-gnueabihf and add /usr/local/armv8l-unknown-linux-gnueabihf/bin to PATH
 
 #### Components and Versions
-* gcc 5.4.0, glibc 2.24, binutils 2.26, gdb 7.11.1 (built with crosstool-ng)
-* boost 1.63.0 (with context & fiber from HEAD)
-* OpenCV 3.1.0
-* Raspicam (https://github.com/cedricve/raspicam)
-* Qt 5
-* System libraries (X11, OpenGL) are taken from FedBerry 24
+* gcc 7.1.0, glibc 2.25, binutils 2.28, gdb 7.12.1 (built with crosstool-ng)
+* boost 1.64.0
+* OpenCV 3.2.0
+* Raspicam (https://github.com/cedricve/raspicam) c4c0dc1
+* Qt 5.8.1
+* System libraries are taken from FedBerry 25, Linux 4.9.21
+
