@@ -1,0 +1,13 @@
+prefix=/usr/local/armv8l-unknown-linux-gnueabihf/qt5-rpi
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+
+Name: Qt5 3DInput
+Description: Qt 3DInput module
+Version: 5.8.1
+Libs: -L${libdir} -lQt53DInput
+Libs.private: -L/usr/local/armv8l-unknown-linux-gnueabihf/armv8l-unknown-linux-gnueabihf/sysroot/usr/lib/vc -L/usr/local/armv8l-unknown-linux-gnueabihf/qt5-rpi/lib -lQt53DCore -L/usr/local/armv8l-unknown-linux-gnueabihf/qt5-rpi/lib -Wl,-rpath-link,/usr/local/armv8l-unknown-linux-gnueabihf/armv8l-unknown-linux-gnueabihf/sysroot/usr/lib/vc -L/usr/local/armv8l-unknown-linux-gnueabihf/qt5-rpi/lib -lQt5Gamepad -Wl,-rpath-link,/usr/local/armv8l-unknown-linux-gnueabihf/armv8l-unknown-linux-gnueabihf/sysroot/usr/lib/vc -Wl,-rpath-link,/usr/local/armv8l-unknown-linux-gnueabihf/armv8l-unknown-linux-gnueabihf/sysroot/usr/lib/vc -lQt5Gui -Wl,-rpath-link,/usr/local/armv8l-unknown-linux-gnueabihf/armv8l-unknown-linux-gnueabihf/sysroot/usr/lib/vc -lGLESv2 -lqtlibpng -lqtharfbuzz -lQt5Network -lQt5Core -lm -lrt -lz -lqtpcre -ldl -lpthread -Wl,-rpath-link,/usr/local/armv8l-unknown-linux-gnueabihf/armv8l-unknown-linux-gnueabihf/sysroot/usr/lib/vc -lGLESv2 
+Cflags: -I${includedir}/Qt3DInput -I${includedir}
+Requires: Qt5Core Qt5Gui Qt53DCore Qt5Gamepad

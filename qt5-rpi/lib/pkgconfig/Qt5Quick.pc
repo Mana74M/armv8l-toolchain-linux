@@ -1,0 +1,13 @@
+prefix=/usr/local/armv8l-unknown-linux-gnueabihf/qt5-rpi
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+
+Name: Qt5 Quick
+Description: Qt Quick module
+Version: 5.8.1
+Libs: -L${libdir} -lQt5Quick
+Libs.private: -L/usr/local/armv8l-unknown-linux-gnueabihf/armv8l-unknown-linux-gnueabihf/sysroot/usr/lib/vc -L/usr/local/armv8l-unknown-linux-gnueabihf/qt5-rpi/lib -lQt5Gui -Wl,-rpath-link,/usr/local/armv8l-unknown-linux-gnueabihf/armv8l-unknown-linux-gnueabihf/sysroot/usr/lib/vc -lGLESv2 -lqtlibpng -lqtharfbuzz -L/usr/local/armv8l-unknown-linux-gnueabihf/qt5-rpi/lib -lQt5Qml -lQt5Network -lQt5Core -lm -lrt -lz -lqtpcre -ldl -lpthread -lQt5Network -L/usr/local/armv8l-unknown-linux-gnueabihf/qt5-rpi/lib -lQt5Core -lpthread -lm -lrt -lz -lqtpcre -ldl -Wl,-rpath-link,/usr/local/armv8l-unknown-linux-gnueabihf/armv8l-unknown-linux-gnueabihf/sysroot/usr/lib/vc -lGLESv2 
+Cflags: -I${includedir}/QtQuick -I${includedir}
+Requires: Qt5Core Qt5Gui Qt5Qml

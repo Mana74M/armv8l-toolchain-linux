@@ -1,0 +1,14 @@
+prefix=/usr/local/armv8l-unknown-linux-gnueabihf/qt5-rpi
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+
+Name: Qt5 Sql
+Description: Qt Sql module
+Version: 5.8.1
+Libs: -L${libdir} -lQt5Sql 
+Libs.private: -L/usr/local/armv8l-unknown-linux-gnueabihf/qt5-rpi/lib -lQt5Core -lm -lrt -lz -lqtpcre -ldl -lpthread  
+Cflags: -I${includedir}/QtSql -I${includedir}
+Requires: Qt5Core
+

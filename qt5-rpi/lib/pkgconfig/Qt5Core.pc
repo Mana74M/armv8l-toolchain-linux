@@ -1,0 +1,15 @@
+prefix=/usr/local/armv8l-unknown-linux-gnueabihf/qt5-rpi
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+host_bins=/usr/local/armv8l-unknown-linux-gnueabihf/qt5/bin
+qt_config=accessibility release c++11 c++14 c++1z concurrent dbus no-pkg-config mremap reduce_exports release_tools static stl properties animation textcodec big_codecs clock-monotonic codecs textdate datestring doubleconversion eventfd filesystemiterator filesystemwatcher gestures iconv itemmodel proxymodel identityproxymodel inotify library mimetype process statemachine regularexpression settings sharedmemory sortfilterproxymodel stringlistmodel systemsemaphore temporaryfile threadsafe-cloexec translation xmlstream xmlstreamreader xmlstreamwriter
+
+Name: Qt5 Core
+Description: Qt Core module
+Version: 5.8.1
+Libs: -L${libdir} -lQt5Core 
+Libs.private: -lpthread -lm -lrt -lz -L/usr/local/armv8l-unknown-linux-gnueabihf/qt5-rpi/lib -lqtpcre -ldl 
+Cflags: -I${includedir}/QtCore -I${includedir}
+
