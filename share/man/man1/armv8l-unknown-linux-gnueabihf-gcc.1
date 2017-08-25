@@ -129,7 +129,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GCC 1"
-.TH GCC 1 "2017-05-02" "gcc-7.1.0" "GNU"
+.TH GCC 1 "2017-08-14" "gcc-7.2.0" "GNU"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -294,7 +294,8 @@ in the following sections.
 \&\-Wno\-deprecated  \-Wno\-deprecated\-declarations  \-Wno\-designated\-init 
 \&\-Wdisabled\-optimization 
 \&\-Wno\-discarded\-qualifiers  \-Wno\-discarded\-array\-qualifiers 
-\&\-Wno\-div\-by\-zero  \-Wdouble\-promotion  \-Wduplicated\-cond 
+\&\-Wno\-div\-by\-zero  \-Wdouble\-promotion 
+\&\-Wduplicated\-branches  \-Wduplicated\-cond 
 \&\-Wempty\-body  \-Wenum\-compare  \-Wno\-endif\-labels  \-Wexpansion\-to\-defined 
 \&\-Werror  \-Werror=*  \-Wfatal\-errors  \-Wfloat\-equal  \-Wformat  \-Wformat=2 
 \&\-Wno\-format\-contains\-nul  \-Wno\-format\-extra\-args  
@@ -1124,9 +1125,10 @@ See \s-1RS/6000\s0 and PowerPC Options.
 \&\-muser\-mode  \-mno\-user\-mode 
 \&\-mv8plus  \-mno\-v8plus  \-mvis  \-mno\-vis 
 \&\-mvis2  \-mno\-vis2  \-mvis3  \-mno\-vis3 
-\&\-mcbcond  \-mno\-cbcond  \-mfmaf  \-mno\-fmaf  
-\&\-mpopc  \-mno\-popc  \-msubxc  \-mno\-subxc
-\&\-mfix\-at697f  \-mfix\-ut699 
+\&\-mvis4 \-mno\-vis4 \-mvis4b \-mno\-vis4b 
+\&\-mcbcond  \-mno\-cbcond  \-mfmaf  \-mno\-fmaf  \-mfsmuld  \-mno\-fsmuld  
+\&\-mpopc  \-mno\-popc  \-msubxc  \-mno\-subxc 
+\&\-mfix\-at697f  \-mfix\-ut699  \-mfix\-ut700  \-mfix\-gr712rc 
 \&\-mlra  \-mno\-lra\fR
 .Sp
 \&\fI\s-1SPU\s0 Options\fR
@@ -2819,8 +2821,8 @@ Warn when a noexcept-expression evaluates to false because of a call
 to a function that does not have a non-throwing exception
 specification (i.e. \f(CW\*(C`throw()\*(C'\fR or \f(CW\*(C`noexcept\*(C'\fR) but is known by
 the compiler to never throw an exception.
-.IP "\fB\-Wnoexcept\fR (\*(C+ and Objective\-\*(C+ only)" 4
-.IX Item "-Wnoexcept ( and Objective- only)"
+.IP "\fB\-Wnoexcept\-type\fR (\*(C+ and Objective\-\*(C+ only)" 4
+.IX Item "-Wnoexcept-type ( and Objective- only)"
 Warn if the \*(C+1z feature making \f(CW\*(C`noexcept\*(C'\fR part of a function
 type changes the mangled name of a symbol relative to \*(C+14.  Enabled
 by \fB\-Wabi\fR and \fB\-Wc++1z\-compat\fR.
@@ -9192,7 +9194,7 @@ The maximum number of insns of an unswitched loop.
 The maximum number of branches unswitched in a single loop.
 .IP "\fBmax-loop-headers-insns\fR" 4
 .IX Item "max-loop-headers-insns"
-The maximum number of insns in loop header duplicated by he copy loop headers
+The maximum number of insns in loop header duplicated by the copy loop headers
 pass.
 .IP "\fBlim-expensive\fR" 4
 .IX Item "lim-expensive"
@@ -14490,8 +14492,6 @@ Permissible names are: \fBarm2\fR, \fBarm250\fR,
 \&\fBcortex\-m0.small\-multiply\fR,
 \&\fBcortex\-m0plus.small\-multiply\fR,
 \&\fBexynos\-m1\fR,
-\&\fBfalkor\fR,
-\&\fBqdf24xx\fR,
 \&\fBmarvell\-pj4\fR,
 \&\fBxscale\fR, \fBiwmmxt\fR, \fBiwmmxt2\fR, \fBep9312\fR,
 \&\fBfa526\fR, \fBfa626\fR,
@@ -22430,7 +22430,7 @@ for machine type \fIcpu_type\fR.  Supported values for \fIcpu_type\fR are
 \&\fBleon\fR, \fBleon3\fR, \fBleon3v7\fR, \fBsparclite\fR, \fBf930\fR,
 \&\fBf934\fR, \fBsparclite86x\fR, \fBsparclet\fR, \fBtsc701\fR, \fBv9\fR,
 \&\fBultrasparc\fR, \fBultrasparc3\fR, \fBniagara\fR, \fBniagara2\fR,
-\&\fBniagara3\fR, \fBniagara4\fR and \fBniagara7\fR.
+\&\fBniagara3\fR, \fBniagara4\fR, \fBniagara7\fR and \fBm8\fR.
 .Sp
 Native Solaris and GNU/Linux toolchains also support the value \fBnative\fR,
 which selects the best architecture option for the host processor.
@@ -22458,7 +22458,8 @@ f930, f934, sparclite86x
 tsc701
 .IP "v9" 4
 .IX Item "v9"
-ultrasparc, ultrasparc3, niagara, niagara2, niagara3, niagara4, niagara7
+ultrasparc, ultrasparc3, niagara, niagara2, niagara3, niagara4,
+niagara7, m8
 .RE
 .RS 4
 .Sp
@@ -22503,7 +22504,8 @@ additionally optimizes it for Sun UltraSPARC T2 chips. With
 UltraSPARC T3 chips.  With \fB\-mcpu=niagara4\fR, the compiler
 additionally optimizes it for Sun UltraSPARC T4 chips.  With
 \&\fB\-mcpu=niagara7\fR, the compiler additionally optimizes it for
-Oracle \s-1SPARC M7\s0 chips.
+Oracle \s-1SPARC M7\s0 chips.  With \fB\-mcpu=m8\fR, the compiler
+additionally optimizes it for Oracle M8 chips.
 .RE
 .IP "\fB\-mtune=\fR\fIcpu_type\fR" 4
 .IX Item "-mtune=cpu_type"
@@ -22518,8 +22520,8 @@ that select a particular \s-1CPU\s0 implementation.  Those are
 \&\fBleon3\fR, \fBleon3v7\fR, \fBf930\fR, \fBf934\fR,
 \&\fBsparclite86x\fR, \fBtsc701\fR, \fBultrasparc\fR,
 \&\fBultrasparc3\fR, \fBniagara\fR, \fBniagara2\fR, \fBniagara3\fR,
-\&\fBniagara4\fR and \fBniagara7\fR.  With native Solaris and
-GNU/Linux toolchains, \fBnative\fR can also be used.
+\&\fBniagara4\fR, \fBniagara7\fR and \fBm8\fR.  With native Solaris
+and GNU/Linux toolchains, \fBnative\fR can also be used.
 .IP "\fB\-mv8plus\fR" 4
 .IX Item "-mv8plus"
 .PD 0
@@ -22571,6 +22573,19 @@ version 4.0 of the UltraSPARC Visual Instruction Set extensions.  The
 default is \fB\-mvis4\fR when targeting a cpu that supports such
 instructions, such as niagara\-7 and later.  Setting \fB\-mvis4\fR
 also sets \fB\-mvis3\fR, \fB\-mvis2\fR and \fB\-mvis\fR.
+.IP "\fB\-mvis4b\fR" 4
+.IX Item "-mvis4b"
+.PD 0
+.IP "\fB\-mno\-vis4b\fR" 4
+.IX Item "-mno-vis4b"
+.PD
+With \fB\-mvis4b\fR, \s-1GCC\s0 generates code that takes advantage of
+version 4.0 of the UltraSPARC Visual Instruction Set extensions, plus
+the additional \s-1VIS\s0 instructions introduced in the Oracle \s-1SPARC\s0
+Architecture 2017.  The default is \fB\-mvis4b\fR when targeting a
+cpu that supports such instructions, such as m8 and later.  Setting
+\&\fB\-mvis4b\fR also sets \fB\-mvis4\fR, \fB\-mvis3\fR,
+\&\fB\-mvis2\fR and \fB\-mvis\fR.
 .IP "\fB\-mcbcond\fR" 4
 .IX Item "-mcbcond"
 .PD 0
@@ -22591,6 +22606,16 @@ With \fB\-mfmaf\fR, \s-1GCC\s0 generates code that takes advantage of the UltraS
 Fused Multiply-Add Floating-point instructions.  The default is \fB\-mfmaf\fR
 when targeting a \s-1CPU\s0 that supports such instructions, such as Niagara\-3 and
 later.
+.IP "\fB\-mfsmuld\fR" 4
+.IX Item "-mfsmuld"
+.PD 0
+.IP "\fB\-mno\-fsmuld\fR" 4
+.IX Item "-mno-fsmuld"
+.PD
+With \fB\-mfsmuld\fR, \s-1GCC\s0 generates code that takes advantage of the
+Floating-point Multiply Single to Double (FsMULd) instruction.  The default is
+\&\fB\-mfsmuld\fR when targeting a \s-1CPU\s0 supporting the architecture versions V8
+or V9 with \s-1FPU\s0 except \fB\-mcpu=leon\fR.
 .IP "\fB\-mpopc\fR" 4
 .IX Item "-mpopc"
 .PD 0
@@ -22619,6 +22644,14 @@ processor (which corresponds to erratum #13 of the \s-1AT697E\s0 processor).
 .IX Item "-mfix-ut699"
 Enable the documented workarounds for the floating-point errata and the data
 cache nullify errata of the \s-1UT699\s0 processor.
+.IP "\fB\-mfix\-ut700\fR" 4
+.IX Item "-mfix-ut700"
+Enable the documented workaround for the back-to-back store errata of
+the \s-1UT699E/UT700\s0 processor.
+.IP "\fB\-mfix\-gr712rc\fR" 4
+.IX Item "-mfix-gr712rc"
+Enable the documented workaround for the back-to-back store errata of
+the \s-1GR712RC\s0 processor.
 .PP
 These \fB\-m\fR options are supported in addition to the above
 on \s-1SPARC\-V9\s0 processors in 64\-bit environments:
@@ -24119,13 +24152,12 @@ This option instructs \s-1GCC\s0 to use 128\-bit \s-1AVX\s0 instructions instead
 256\-bit \s-1AVX\s0 instructions in the auto-vectorizer.
 .IP "\fB\-mcx16\fR" 4
 .IX Item "-mcx16"
-This option enables \s-1GCC\s0 to generate \f(CW\*(C`CMPXCHG16B\*(C'\fR instructions.
-\&\f(CW\*(C`CMPXCHG16B\*(C'\fR allows for atomic operations on 128\-bit double quadword
-(or oword) data types.  
-This is useful for high-resolution counters that can be updated
-by multiple processors (or cores).  This instruction is generated as part of
-atomic built-in functions: see \fB_\|_sync Builtins\fR or
-\&\fB_\|_atomic Builtins\fR for details.
+This option enables \s-1GCC\s0 to generate \f(CW\*(C`CMPXCHG16B\*(C'\fR instructions in 64\-bit
+code to implement compare-and-exchange operations on 16\-byte aligned 128\-bit
+objects.  This is useful for atomic updates of data structures exceeding one
+machine word in size.  The compiler uses this instruction to implement
+\&\fB_\|_sync Builtins\fR.  However, for \fB_\|_atomic Builtins\fR operating on
+128\-bit integers, a library call is always used.
 .IP "\fB\-msahf\fR" 4
 .IX Item "-msahf"
 This option enables generation of \f(CW\*(C`SAHF\*(C'\fR instructions in 64\-bit code.

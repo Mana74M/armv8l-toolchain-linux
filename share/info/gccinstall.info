@@ -842,6 +842,12 @@ option.
      More documentation about multiarch can be found at
      <https://wiki.debian.org/Multiarch>.
 
+'--enable-sjlj-exceptions'
+     Force use of the 'setjmp'/'longjmp'-based scheme for exceptions.
+     'configure' ordinarily picks the correct value based on the
+     platform.  Only use this option if you are sure you need a
+     different setting.
+
 '--enable-vtable-verify'
      Specify whether to enable or disable the vtable verification
      feature.  Enabling this feature causes libstdc++ to be built with
@@ -4547,7 +4553,7 @@ Concept Index
 * Menu:
 
 * Binaries:                              Binaries.           (line    6)
-* build_configargs:                      Configuration.      (line 1514)
+* build_configargs:                      Configuration.      (line 1520)
 * Configuration:                         Configuration.      (line    6)
 * configurations supported by GCC:       Configurations.     (line    6)
 * Downloading GCC:                       Downloading the source.
@@ -4557,7 +4563,7 @@ Concept Index
 * FDL, GNU Free Documentation License:   GNU Free Documentation License.
                                                              (line    6)
 * Host specific installation:            Specific.           (line    6)
-* host_configargs:                       Configuration.      (line 1518)
+* host_configargs:                       Configuration.      (line 1524)
 * Installing GCC: Binaries:              Binaries.           (line    6)
 * Installing GCC: Building:              Building.           (line    6)
 * Installing GCC: Configuration:         Configuration.      (line    6)
@@ -4567,7 +4573,7 @@ Concept Index
 * Specific installation notes:           Specific.           (line    6)
 * Target specific installation:          Specific.           (line    6)
 * Target specific installation notes:    Specific.           (line    6)
-* target_configargs:                     Configuration.      (line 1522)
+* target_configargs:                     Configuration.      (line 1528)
 * Testing:                               Testing.            (line    6)
 * Testsuite:                             Testing.            (line    6)
 
@@ -4582,99 +4588,99 @@ Node: Configuration15989
 Ref: with-gnu-as31589
 Ref: with-as32484
 Ref: with-gnu-ld33897
-Ref: WithAixSoname54724
-Ref: AixLdCommand55385
-Node: Building88089
-Node: Testing104128
-Node: Final install111545
-Node: Binaries116845
-Node: Specific117899
-Ref: aarch64-x-x118406
-Ref: alpha-x-x119838
-Ref: alpha-dec-osf51120327
-Ref: amd64-x-solaris210120852
-Ref: arc-x-elf32120955
-Ref: arc-linux-uclibc121131
-Ref: arm-x-eabi121272
-Ref: avr121525
-Ref: bfin122106
-Ref: cr16122348
-Ref: cris122764
-Ref: dos123462
-Ref: epiphany-x-elf123785
-Ref: x-x-freebsd123890
-Ref: ft32-x-elf125690
-Ref: h8300-hms125788
-Ref: hppa-hp-hpux126140
-Ref: hppa-hp-hpux10128512
-Ref: hppa-hp-hpux11128925
-Ref: x-x-linux-gnu134327
-Ref: ix86-x-linux134520
-Ref: ix86-x-solaris210134833
-Ref: ia64-x-linux136292
-Ref: ia64-x-hpux137062
-Ref: x-ibm-aix137617
-Ref: TransferAixShobj141279
-Ref: iq2000-x-elf145089
-Ref: lm32-x-elf145229
-Ref: lm32-x-uclinux145333
-Ref: m32c-x-elf145461
-Ref: m32r-x-elf145563
-Ref: m68k-x-x145665
-Ref: m68k-x-uclinux146703
-Ref: microblaze-x-elf146948
-Ref: mips-x-x147067
-Ref: mips-sgi-irix5148977
-Ref: mips-sgi-irix6149057
-Ref: moxie-x-elf149244
-Ref: msp430-x-elf149291
-Ref: nds32le-x-elf149394
-Ref: nds32be-x-elf149466
-Ref: nvptx-x-none149535
-Ref: powerpc-x-x150062
-Ref: powerpc-x-darwin150253
-Ref: powerpc-x-elf150747
-Ref: powerpc-x-linux-gnu150832
-Ref: powerpc-x-netbsd150927
-Ref: powerpc-x-eabisim151015
-Ref: powerpc-x-eabi151141
-Ref: powerpcle-x-elf151217
-Ref: powerpcle-x-eabisim151309
-Ref: powerpcle-x-eabi151442
-Ref: rl78-x-elf151525
-Ref: riscv32-x-elf151631
-Ref: riscv32-x-linux151841
-Ref: riscv64-x-elf152019
-Ref: riscv64-x-linux152229
-Ref: rx-x-elf152407
-Ref: s390-x-linux152453
-Ref: s390x-x-linux152525
-Ref: s390x-ibm-tpf152612
-Ref: x-x-solaris2152743
-Ref: sparc-x-x156656
-Ref: sparc-sun-solaris2157158
-Ref: sparc-sun-solaris210158297
-Ref: sparc-x-linux158672
-Ref: sparc64-x-solaris2158703
-Ref: sparcv9-x-solaris2159036
-Ref: c6x-x-x159123
-Ref: tilegx-*-linux159215
-Ref: tilegxbe-*-linux159357
-Ref: tilepro-*-linux159500
-Ref: visium-x-elf159621
-Ref: x-x-vxworks159729
-Ref: x86-64-x-x161252
-Ref: x86-64-x-solaris210161580
-Ref: xtensa-x-elf162244
-Ref: xtensa-x-linux162915
-Ref: windows163256
-Ref: x-x-cygwin165097
-Ref: x-x-mingw32165650
-Ref: older165876
-Ref: elf167993
-Node: Old168251
-Node: Configurations171384
-Node: GNU Free Documentation License174922
-Node: Concept Index200050
+Ref: WithAixSoname54975
+Ref: AixLdCommand55636
+Node: Building88340
+Node: Testing104379
+Node: Final install111796
+Node: Binaries117096
+Node: Specific118150
+Ref: aarch64-x-x118657
+Ref: alpha-x-x120089
+Ref: alpha-dec-osf51120578
+Ref: amd64-x-solaris210121103
+Ref: arc-x-elf32121206
+Ref: arc-linux-uclibc121382
+Ref: arm-x-eabi121523
+Ref: avr121776
+Ref: bfin122357
+Ref: cr16122599
+Ref: cris123015
+Ref: dos123713
+Ref: epiphany-x-elf124036
+Ref: x-x-freebsd124141
+Ref: ft32-x-elf125941
+Ref: h8300-hms126039
+Ref: hppa-hp-hpux126391
+Ref: hppa-hp-hpux10128763
+Ref: hppa-hp-hpux11129176
+Ref: x-x-linux-gnu134578
+Ref: ix86-x-linux134771
+Ref: ix86-x-solaris210135084
+Ref: ia64-x-linux136543
+Ref: ia64-x-hpux137313
+Ref: x-ibm-aix137868
+Ref: TransferAixShobj141530
+Ref: iq2000-x-elf145340
+Ref: lm32-x-elf145480
+Ref: lm32-x-uclinux145584
+Ref: m32c-x-elf145712
+Ref: m32r-x-elf145814
+Ref: m68k-x-x145916
+Ref: m68k-x-uclinux146954
+Ref: microblaze-x-elf147199
+Ref: mips-x-x147318
+Ref: mips-sgi-irix5149228
+Ref: mips-sgi-irix6149308
+Ref: moxie-x-elf149495
+Ref: msp430-x-elf149542
+Ref: nds32le-x-elf149645
+Ref: nds32be-x-elf149717
+Ref: nvptx-x-none149786
+Ref: powerpc-x-x150313
+Ref: powerpc-x-darwin150504
+Ref: powerpc-x-elf150998
+Ref: powerpc-x-linux-gnu151083
+Ref: powerpc-x-netbsd151178
+Ref: powerpc-x-eabisim151266
+Ref: powerpc-x-eabi151392
+Ref: powerpcle-x-elf151468
+Ref: powerpcle-x-eabisim151560
+Ref: powerpcle-x-eabi151693
+Ref: rl78-x-elf151776
+Ref: riscv32-x-elf151882
+Ref: riscv32-x-linux152092
+Ref: riscv64-x-elf152270
+Ref: riscv64-x-linux152480
+Ref: rx-x-elf152658
+Ref: s390-x-linux152704
+Ref: s390x-x-linux152776
+Ref: s390x-ibm-tpf152863
+Ref: x-x-solaris2152994
+Ref: sparc-x-x156907
+Ref: sparc-sun-solaris2157409
+Ref: sparc-sun-solaris210158548
+Ref: sparc-x-linux158923
+Ref: sparc64-x-solaris2158954
+Ref: sparcv9-x-solaris2159287
+Ref: c6x-x-x159374
+Ref: tilegx-*-linux159466
+Ref: tilegxbe-*-linux159608
+Ref: tilepro-*-linux159751
+Ref: visium-x-elf159872
+Ref: x-x-vxworks159980
+Ref: x86-64-x-x161503
+Ref: x86-64-x-solaris210161831
+Ref: xtensa-x-elf162495
+Ref: xtensa-x-linux163166
+Ref: windows163507
+Ref: x-x-cygwin165348
+Ref: x-x-mingw32165901
+Ref: older166127
+Ref: elf168244
+Node: Old168502
+Node: Configurations171635
+Node: GNU Free Documentation License175173
+Node: Concept Index200301
 
 End Tag Table
