@@ -1,9 +1,9 @@
-This is libc.info, produced by makeinfo version 6.1 from libc.texinfo.
+This is libc.info, produced by makeinfo version 6.4 from libc.texinfo.
 
 This file documents the GNU C Library.
 
    This is ‘The GNU C Library Reference Manual’, for version 2.25
-(crosstool-NG crosstool-ng-1.22.0-234-g531eab4).
+(crosstool-NG crosstool-ng-1.23.0).
 
    Copyright © 1993–2017 Free Software Foundation, Inc.
 
@@ -4200,7 +4200,7 @@ Function and Macro Index
 * argp_failure:                          Argp Helper Functions.
                                                               (line  31)
 * argp_help:                             Argp Help.           (line  14)
-* argp_parse:                            Argp.                (line  34)
+* argp_parse:                            Argp.                (line  49)
 * argp_state_help:                       Argp Helper Functions.
                                                               (line  48)
 * argp_usage:                            Argp Helper Functions.

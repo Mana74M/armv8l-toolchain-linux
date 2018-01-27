@@ -1,9 +1,9 @@
-This is libc.info, produced by makeinfo version 6.1 from libc.texinfo.
+This is libc.info, produced by makeinfo version 6.4 from libc.texinfo.
 
 This file documents the GNU C Library.
 
    This is ‘The GNU C Library Reference Manual’, for version 2.25
-(crosstool-NG crosstool-ng-1.22.0-234-g531eab4).
+(crosstool-NG crosstool-ng-1.23.0).
 
    Copyright © 1993–2017 Free Software Foundation, Inc.
 
@@ -1802,7 +1802,7 @@ Main Menu
 *********
 
 This is ‘The GNU C Library Reference Manual’, for Version 2.25
-(crosstool-NG crosstool-ng-1.22.0-234-g531eab4) of the GNU C Library.
+(crosstool-NG crosstool-ng-1.23.0) of the GNU C Library.
 
 * Menu:
 
@@ -1884,7 +1884,6 @@ Indices
 * Variable Index::               Index of variables and variable-like macros.
 * File Index::                   Index of programs and files.
 
- 
  — The Detailed Node Listing —
 
 Introduction

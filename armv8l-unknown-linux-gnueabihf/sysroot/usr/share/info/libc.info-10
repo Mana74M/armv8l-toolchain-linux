@@ -1,9 +1,9 @@
-This is libc.info, produced by makeinfo version 6.1 from libc.texinfo.
+This is libc.info, produced by makeinfo version 6.4 from libc.texinfo.
 
 This file documents the GNU C Library.
 
    This is ‘The GNU C Library Reference Manual’, for version 2.25
-(crosstool-NG crosstool-ng-1.22.0-234-g531eab4).
+(crosstool-NG crosstool-ng-1.23.0).
 
    Copyright © 1993–2017 Free Software Foundation, Inc.
 
@@ -2015,7 +2015,7 @@ do this:
      void
      fatal_error_signal (int sig)
      {
-       /* Since this handler is established for more than one kind of signal, 
+       /* Since this handler is established for more than one kind of signal,
           it might still get invoked recursively by delivery of some other kind
           of signal.  Use a static variable to keep track of that. */
        if (fatal_error_in_progress)
@@ -4392,6 +4392,21 @@ the libraries.
 
    The header file ‘<argp.h>’ should be included to use argp.
 
+* Menu:
+
+* Argp Global Variables::
+* Argp Parsers::
+* Argp Option Vectors::
+* Argp Parser Functions::
+* Argp Children::
+* Argp Flags::
+* Argp Help Filtering::
+* Argp Help::
+* Argp Help Flags::
+* Argp Examples::
+* Argp User Customization::
+* Suboptions Example::
+
 25.3.1 The ‘argp_parse’ Function
 --------------------------------
 
@@ -5835,6 +5850,10 @@ variable to a comma-separated list of tokens.  Whitespace is ignored:
 ‘rmargin=N’
      This will word wrap help output at or before column N.  The default
      is 79.
+
+* Menu:
+
+* Suboptions::
 
 
 File: libc.info,  Node: Suboptions,  Next: Suboptions Example,  Prev: Argp,  Up: Parsing Program Arguments

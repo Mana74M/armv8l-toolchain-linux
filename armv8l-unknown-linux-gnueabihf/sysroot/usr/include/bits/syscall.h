@@ -38,6 +38,7 @@
 #define SYS_clone __NR_clone
 #define SYS_close __NR_close
 #define SYS_connect __NR_connect
+#define SYS_copy_file_range __NR_copy_file_range
 #define SYS_creat __NR_creat
 #define SYS_delete_module __NR_delete_module
 #define SYS_dup __NR_dup
@@ -197,11 +198,15 @@
 #define SYS_pipe __NR_pipe
 #define SYS_pipe2 __NR_pipe2
 #define SYS_pivot_root __NR_pivot_root
+#define SYS_pkey_alloc __NR_pkey_alloc
+#define SYS_pkey_free __NR_pkey_free
+#define SYS_pkey_mprotect __NR_pkey_mprotect
 #define SYS_poll __NR_poll
 #define SYS_ppoll __NR_ppoll
 #define SYS_prctl __NR_prctl
 #define SYS_pread64 __NR_pread64
 #define SYS_preadv __NR_preadv
+#define SYS_preadv2 __NR_preadv2
 #define SYS_prlimit64 __NR_prlimit64
 #define SYS_process_vm_readv __NR_process_vm_readv
 #define SYS_process_vm_writev __NR_process_vm_writev
@@ -209,6 +214,7 @@
 #define SYS_ptrace __NR_ptrace
 #define SYS_pwrite64 __NR_pwrite64
 #define SYS_pwritev __NR_pwritev
+#define SYS_pwritev2 __NR_pwritev2
 #define SYS_quotactl __NR_quotactl
 #define SYS_read __NR_read
 #define SYS_readahead __NR_readahead
@@ -389,6 +395,7 @@
 #define SYS_clone __NR_clone
 #define SYS_close __NR_close
 #define SYS_connect __NR_connect
+#define SYS_copy_file_range __NR_copy_file_range
 #define SYS_creat __NR_creat
 #define SYS_delete_module __NR_delete_module
 #define SYS_dup __NR_dup
@@ -548,11 +555,15 @@
 #define SYS_pipe __NR_pipe
 #define SYS_pipe2 __NR_pipe2
 #define SYS_pivot_root __NR_pivot_root
+#define SYS_pkey_alloc __NR_pkey_alloc
+#define SYS_pkey_free __NR_pkey_free
+#define SYS_pkey_mprotect __NR_pkey_mprotect
 #define SYS_poll __NR_poll
 #define SYS_ppoll __NR_ppoll
 #define SYS_prctl __NR_prctl
 #define SYS_pread64 __NR_pread64
 #define SYS_preadv __NR_preadv
+#define SYS_preadv2 __NR_preadv2
 #define SYS_prlimit64 __NR_prlimit64
 #define SYS_process_vm_readv __NR_process_vm_readv
 #define SYS_process_vm_writev __NR_process_vm_writev
@@ -560,6 +571,7 @@
 #define SYS_ptrace __NR_ptrace
 #define SYS_pwrite64 __NR_pwrite64
 #define SYS_pwritev __NR_pwritev
+#define SYS_pwritev2 __NR_pwritev2
 #define SYS_quotactl __NR_quotactl
 #define SYS_read __NR_read
 #define SYS_readahead __NR_readahead

@@ -1,9 +1,9 @@
-This is libc.info, produced by makeinfo version 6.1 from libc.texinfo.
+This is libc.info, produced by makeinfo version 6.4 from libc.texinfo.
 
 This file documents the GNU C Library.
 
    This is ‘The GNU C Library Reference Manual’, for version 2.25
-(crosstool-NG crosstool-ng-1.22.0-234-g531eab4).
+(crosstool-NG crosstool-ng-1.23.0).
 
    Copyright © 1993–2017 Free Software Foundation, Inc.
 
@@ -5363,7 +5363,7 @@ wide character stream functions.
            /* Write a space to separate answer from question. */
            fputc (' ', stdout);
            /* Read the first character of the line.
-	      This should be the answer character, but might not be. */
+     	 This should be the answer character, but might not be. */
            c = tolower (fgetc (stdin));
            answer = c;
            /* Discard rest of input line. */
@@ -6924,7 +6924,7 @@ not valid here).
      	wanted = STRUCTURE;
            else
      	switch (argtypes[i] & ~PA_FLAG_MASK)
-	       {
+     	  {
      	  case PA_INT:
      	  case PA_FLOAT:
      	  case PA_DOUBLE:
@@ -6939,12 +6939,12 @@ not valid here).
      	  case PA_POINTER:
      	    wanted = STRUCTURE;
      	    break;
-	       }
+     	  }
            if (TYPE (args[i]) != wanted)
-	     {
+     	{
      	  error ("type mismatch for arg number %d", i);
      	  return 0;
-	     }
+     	}
          }
        return 1;
      }

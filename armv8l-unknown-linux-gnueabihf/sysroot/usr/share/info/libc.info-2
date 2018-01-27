@@ -1,9 +1,9 @@
-This is libc.info, produced by makeinfo version 6.1 from libc.texinfo.
+This is libc.info, produced by makeinfo version 6.4 from libc.texinfo.
 
 This file documents the GNU C Library.
 
    This is ‘The GNU C Library Reference Manual’, for version 2.25
-(crosstool-NG crosstool-ng-1.22.0-234-g531eab4).
+(crosstool-NG crosstool-ng-1.23.0).
 
    Copyright © 1993–2017 Free Software Foundation, Inc.
 
@@ -6120,8 +6120,8 @@ nowadays XPG compliant systems) provide minimal support for this task.
             /* Encode the length. */
             /* Using ‘htonl’ is necessary so that the data can be
                decoded even on machines with different byte order.
-               ‘l64a’ can return a string shorter than 6 bytes, so 
-               we pad it with encoding of 0 ('.') at the end by 
+               ‘l64a’ can return a string shorter than 6 bytes, so
+               we pad it with encoding of 0 ('.') at the end by
                hand. */
 
             p = stpcpy (cp, l64a (htonl (len)));
