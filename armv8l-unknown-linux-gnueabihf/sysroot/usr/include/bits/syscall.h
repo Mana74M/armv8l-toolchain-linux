@@ -317,6 +317,7 @@
 #define SYS_stat64 __NR_stat64
 #define SYS_statfs __NR_statfs
 #define SYS_statfs64 __NR_statfs64
+#define SYS_statx __NR_statx
 #define SYS_swapoff __NR_swapoff
 #define SYS_swapon __NR_swapon
 #define SYS_symlink __NR_symlink
@@ -674,6 +675,7 @@
 #define SYS_stat64 __NR_stat64
 #define SYS_statfs __NR_statfs
 #define SYS_statfs64 __NR_statfs64
+#define SYS_statx __NR_statx
 #define SYS_swapoff __NR_swapoff
 #define SYS_swapon __NR_swapon
 #define SYS_symlink __NR_symlink
