@@ -2,10 +2,10 @@ This is libc.info, produced by makeinfo version 6.5 from libc.texinfo.
 
 This file documents the GNU C Library.
 
-   This is ‘The GNU C Library Reference Manual’, for version 2.26
-(crosstool-NG 1.23.0.420-f79b).
+   This is ‘The GNU C Library Reference Manual’, for version 2.28
+(crosstool-NG 1.23.0.511-576f).
 
-   Copyright © 1993–2017 Free Software Foundation, Inc.
+   Copyright © 1993–2018 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +56,6 @@ START-INFO-DIR-ENTRY
 * CS8: (libc)Control Modes.
 * CSIZE: (libc)Control Modes.
 * CSTOPB: (libc)Control Modes.
-* DES_FAILED: (libc)DES Encryption.
 * DTTOIF: (libc)Directory Entries.
 * E2BIG: (libc)Error Codes.
 * EACCES: (libc)Error Codes.
@@ -326,6 +325,7 @@ START-INFO-DIR-ENTRY
 * O_READ: (libc)Access Modes.
 * O_SHLOCK: (libc)Open-time Flags.
 * O_SYNC: (libc)Operating Modes.
+* O_TMPFILE: (libc)Open-time Flags.
 * O_TRUNC: (libc)Open-time Flags.
 * O_WRITE: (libc)Access Modes.
 * O_WRONLY: (libc)Access Modes.
@@ -489,6 +489,7 @@ START-INFO-DIR-ENTRY
 * __ppc_set_ppr_med_low: (libc)PowerPC.
 * __ppc_set_ppr_very_low: (libc)PowerPC.
 * __ppc_yield: (libc)PowerPC.
+* __riscv_flush_icache: (libc)RISC-V.
 * __va_copy: (libc)Argument Macros.
 * _exit: (libc)Termination Internals.
 * _flushlbf: (libc)Flushing Buffers.
@@ -615,6 +616,7 @@ START-INFO-DIR-ENTRY
 * cacoshfNx: (libc)Hyperbolic Functions.
 * cacoshl: (libc)Hyperbolic Functions.
 * cacosl: (libc)Inverse Trig Functions.
+* call_once: (libc)Call Once.
 * calloc: (libc)Allocating Cleared Space.
 * canonicalize: (libc)FP Bit Twiddling.
 * canonicalize_file_name: (libc)Symbolic Links.
@@ -650,7 +652,6 @@ START-INFO-DIR-ENTRY
 * catclose: (libc)The catgets Functions.
 * catgets: (libc)The catgets Functions.
 * catopen: (libc)The catgets Functions.
-* cbc_crypt: (libc)DES Encryption.
 * cbrt: (libc)Exponents and Logarithms.
 * cbrtf: (libc)Exponents and Logarithms.
 * cbrtfN: (libc)Exponents and Logarithms.
@@ -707,6 +708,12 @@ START-INFO-DIR-ENTRY
 * close: (libc)Opening and Closing Files.
 * closedir: (libc)Reading/Closing Directory.
 * closelog: (libc)closelog.
+* cnd_broadcast: (libc)ISO C Condition Variables.
+* cnd_destroy: (libc)ISO C Condition Variables.
+* cnd_init: (libc)ISO C Condition Variables.
+* cnd_signal: (libc)ISO C Condition Variables.
+* cnd_timedwait: (libc)ISO C Condition Variables.
+* cnd_wait: (libc)ISO C Condition Variables.
 * confstr: (libc)String Parameters.
 * conj: (libc)Operations on Complex.
 * conjf: (libc)Operations on Complex.
@@ -714,6 +721,7 @@ START-INFO-DIR-ENTRY
 * conjfNx: (libc)Operations on Complex.
 * conjl: (libc)Operations on Complex.
 * connect: (libc)Connecting.
+* copy_file_range: (libc)Copying File Data.
 * copysign: (libc)FP Bit Twiddling.
 * copysignf: (libc)FP Bit Twiddling.
 * copysignfN: (libc)FP Bit Twiddling.
@@ -746,8 +754,8 @@ START-INFO-DIR-ENTRY
 * creall: (libc)Operations on Complex.
 * creat64: (libc)Opening and Closing Files.
 * creat: (libc)Opening and Closing Files.
-* crypt: (libc)crypt.
-* crypt_r: (libc)crypt.
+* crypt: (libc)Passphrase Storage.
+* crypt_r: (libc)Passphrase Storage.
 * csin: (libc)Trig Functions.
 * csinf: (libc)Trig Functions.
 * csinfN: (libc)Trig Functions.
@@ -777,27 +785,27 @@ START-INFO-DIR-ENTRY
 * ctime: (libc)Formatting Calendar Time.
 * ctime_r: (libc)Formatting Calendar Time.
 * cuserid: (libc)Who Logged In.
+* daddl: (libc)Misc FP Arithmetic.
 * dcgettext: (libc)Translation with gettext.
 * dcngettext: (libc)Advanced gettext functions.
-* des_setparity: (libc)DES Encryption.
+* ddivl: (libc)Misc FP Arithmetic.
 * dgettext: (libc)Translation with gettext.
 * difftime: (libc)Elapsed Time.
 * dirfd: (libc)Opening a Directory.
 * dirname: (libc)Finding Tokens in a String.
 * div: (libc)Integer Division.
+* dmull: (libc)Misc FP Arithmetic.
 * dngettext: (libc)Advanced gettext functions.
 * drand48: (libc)SVID Random.
 * drand48_r: (libc)SVID Random.
 * drem: (libc)Remainder Functions.
 * dremf: (libc)Remainder Functions.
 * dreml: (libc)Remainder Functions.
+* dsubl: (libc)Misc FP Arithmetic.
 * dup2: (libc)Duplicating Descriptors.
 * dup: (libc)Duplicating Descriptors.
-* ecb_crypt: (libc)DES Encryption.
 * ecvt: (libc)System V Number Conversion.
 * ecvt_r: (libc)System V Number Conversion.
-* encrypt: (libc)DES Encryption.
-* encrypt_r: (libc)DES Encryption.
 * endfsent: (libc)fstab.
 * endgrent: (libc)Scanning All Groups.
 * endhostent: (libc)Host Names.
@@ -860,11 +868,29 @@ START-INFO-DIR-ENTRY
 * expm1fN: (libc)Exponents and Logarithms.
 * expm1fNx: (libc)Exponents and Logarithms.
 * expm1l: (libc)Exponents and Logarithms.
+* fMaddfN: (libc)Misc FP Arithmetic.
+* fMaddfNx: (libc)Misc FP Arithmetic.
+* fMdivfN: (libc)Misc FP Arithmetic.
+* fMdivfNx: (libc)Misc FP Arithmetic.
+* fMmulfN: (libc)Misc FP Arithmetic.
+* fMmulfNx: (libc)Misc FP Arithmetic.
+* fMsubfN: (libc)Misc FP Arithmetic.
+* fMsubfNx: (libc)Misc FP Arithmetic.
+* fMxaddfN: (libc)Misc FP Arithmetic.
+* fMxaddfNx: (libc)Misc FP Arithmetic.
+* fMxdivfN: (libc)Misc FP Arithmetic.
+* fMxdivfNx: (libc)Misc FP Arithmetic.
+* fMxmulfN: (libc)Misc FP Arithmetic.
+* fMxmulfNx: (libc)Misc FP Arithmetic.
+* fMxsubfN: (libc)Misc FP Arithmetic.
+* fMxsubfNx: (libc)Misc FP Arithmetic.
 * fabs: (libc)Absolute Value.
 * fabsf: (libc)Absolute Value.
 * fabsfN: (libc)Absolute Value.
 * fabsfNx: (libc)Absolute Value.
 * fabsl: (libc)Absolute Value.
+* fadd: (libc)Misc FP Arithmetic.
+* faddl: (libc)Misc FP Arithmetic.
 * fchdir: (libc)Working Directory.
 * fchmod: (libc)Setting Permissions.
 * fchown: (libc)File Owner.
@@ -879,6 +905,8 @@ START-INFO-DIR-ENTRY
 * fdimfN: (libc)Misc FP Arithmetic.
 * fdimfNx: (libc)Misc FP Arithmetic.
 * fdiml: (libc)Misc FP Arithmetic.
+* fdiv: (libc)Misc FP Arithmetic.
+* fdivl: (libc)Misc FP Arithmetic.
 * fdopen: (libc)Descriptors and Streams.
 * fdopendir: (libc)Opening a Directory.
 * feclearexcept: (libc)Status bit operations.
@@ -962,6 +990,8 @@ START-INFO-DIR-ENTRY
 * fmodfNx: (libc)Remainder Functions.
 * fmodl: (libc)Remainder Functions.
 * fmtmsg: (libc)Printing Formatted Messages.
+* fmul: (libc)Misc FP Arithmetic.
+* fmull: (libc)Misc FP Arithmetic.
 * fnmatch: (libc)Wildcard Matching.
 * fopen64: (libc)Opening Streams.
 * fopen: (libc)Opening Streams.
@@ -1007,6 +1037,8 @@ START-INFO-DIR-ENTRY
 * fsetpos: (libc)Portable Positioning.
 * fstat64: (libc)Reading Attributes.
 * fstat: (libc)Reading Attributes.
+* fsub: (libc)Misc FP Arithmetic.
+* fsubl: (libc)Misc FP Arithmetic.
 * fsync: (libc)Synchronizing I/O.
 * ftell: (libc)File Positioning.
 * ftello64: (libc)File Positioning.
@@ -1280,6 +1312,7 @@ START-INFO-DIR-ENTRY
 * lgammal: (libc)Special Functions.
 * lgammal_r: (libc)Special Functions.
 * link: (libc)Hard Links.
+* linkat: (libc)Hard Links.
 * lio_listio64: (libc)Asynchronous Reads/Writes.
 * lio_listio: (libc)Asynchronous Reads/Writes.
 * listen: (libc)Listening.
@@ -1370,7 +1403,8 @@ START-INFO-DIR-ENTRY
 * memchr: (libc)Search Functions.
 * memcmp: (libc)String/Array Comparison.
 * memcpy: (libc)Copying Strings and Arrays.
-* memfrob: (libc)Trivial Encryption.
+* memfd_create: (libc)Memory-mapped I/O.
+* memfrob: (libc)Obfuscating Data.
 * memmem: (libc)Search Functions.
 * memmove: (libc)Copying Strings and Arrays.
 * mempcpy: (libc)Copying Strings and Arrays.
@@ -1383,6 +1417,7 @@ START-INFO-DIR-ENTRY
 * mkstemp: (libc)Temporary Files.
 * mktemp: (libc)Temporary Files.
 * mktime: (libc)Broken-down Time.
+* mlock2: (libc)Page Lock Functions.
 * mlock: (libc)Page Lock Functions.
 * mlockall: (libc)Page Lock Functions.
 * mmap64: (libc)Memory-mapped I/O.
@@ -1394,11 +1429,18 @@ START-INFO-DIR-ENTRY
 * modfl: (libc)Rounding Functions.
 * mount: (libc)Mount-Unmount-Remount.
 * mprobe: (libc)Heap Consistency Checking.
+* mprotect: (libc)Memory Protection.
 * mrand48: (libc)SVID Random.
 * mrand48_r: (libc)SVID Random.
 * mremap: (libc)Memory-mapped I/O.
 * msync: (libc)Memory-mapped I/O.
 * mtrace: (libc)Tracing malloc.
+* mtx_destroy: (libc)ISO C Mutexes.
+* mtx_init: (libc)ISO C Mutexes.
+* mtx_lock: (libc)ISO C Mutexes.
+* mtx_timedlock: (libc)ISO C Mutexes.
+* mtx_trylock: (libc)ISO C Mutexes.
+* mtx_unlock: (libc)ISO C Mutexes.
 * munlock: (libc)Page Lock Functions.
 * munlockall: (libc)Page Lock Functions.
 * munmap: (libc)Memory-mapped I/O.
@@ -1482,13 +1524,15 @@ START-INFO-DIR-ENTRY
 * pclose: (libc)Pipe to a Subprocess.
 * perror: (libc)Error Messages.
 * pipe: (libc)Creating a Pipe.
+* pkey_alloc: (libc)Memory Protection.
+* pkey_free: (libc)Memory Protection.
+* pkey_get: (libc)Memory Protection.
+* pkey_mprotect: (libc)Memory Protection.
+* pkey_set: (libc)Memory Protection.
 * popen: (libc)Pipe to a Subprocess.
 * posix_fallocate64: (libc)Storage Allocation.
 * posix_fallocate: (libc)Storage Allocation.
 * posix_memalign: (libc)Aligned Memory Blocks.
-* pow10: (libc)Exponents and Logarithms.
-* pow10f: (libc)Exponents and Logarithms.
-* pow10l: (libc)Exponents and Logarithms.
 * pow: (libc)Exponents and Logarithms.
 * powf: (libc)Exponents and Logarithms.
 * powfN: (libc)Exponents and Logarithms.
@@ -1496,10 +1540,10 @@ START-INFO-DIR-ENTRY
 * powl: (libc)Exponents and Logarithms.
 * pread64: (libc)I/O Primitives.
 * pread: (libc)I/O Primitives.
-* preadv2: (libc)I/O Primitives.
-* preadv64: (libc)I/O Primitives.
-* preadv64v2: (libc)I/O Primitives.
-* preadv: (libc)I/O Primitives.
+* preadv2: (libc)Scatter-Gather.
+* preadv64: (libc)Scatter-Gather.
+* preadv64v2: (libc)Scatter-Gather.
+* preadv: (libc)Scatter-Gather.
 * printf: (libc)Formatted Output Functions.
 * printf_size: (libc)Predefined Printf Handlers.
 * printf_size_info: (libc)Predefined Printf Handlers.
@@ -1528,10 +1572,10 @@ START-INFO-DIR-ENTRY
 * putwchar_unlocked: (libc)Simple Output.
 * pwrite64: (libc)I/O Primitives.
 * pwrite: (libc)I/O Primitives.
-* pwritev2: (libc)I/O Primitives.
-* pwritev64: (libc)I/O Primitives.
-* pwritev64v2: (libc)I/O Primitives.
-* pwritev: (libc)I/O Primitives.
+* pwritev2: (libc)Scatter-Gather.
+* pwritev64: (libc)Scatter-Gather.
+* pwritev64v2: (libc)Scatter-Gather.
+* pwritev: (libc)Scatter-Gather.
 * qecvt: (libc)System V Number Conversion.
 * qecvt_r: (libc)System V Number Conversion.
 * qfcvt: (libc)System V Number Conversion.
@@ -1654,8 +1698,6 @@ START-INFO-DIR-ENTRY
 * sethostname: (libc)Host Identification.
 * setitimer: (libc)Setting an Alarm.
 * setjmp: (libc)Non-Local Details.
-* setkey: (libc)DES Encryption.
-* setkey_r: (libc)DES Encryption.
 * setlinebuf: (libc)Controlling Buffering.
 * setlocale: (libc)Setting the Locale.
 * setlogmask: (libc)setlogmask.
@@ -1773,7 +1815,7 @@ START-INFO-DIR-ENTRY
 * strfromfN: (libc)Printing of Floats.
 * strfromfNx: (libc)Printing of Floats.
 * strfroml: (libc)Printing of Floats.
-* strfry: (libc)strfry.
+* strfry: (libc)Shuffling Bytes.
 * strftime: (libc)Formatting Calendar Time.
 * strlen: (libc)String Length.
 * strncasecmp: (libc)String/Array Comparison.
@@ -1849,6 +1891,14 @@ START-INFO-DIR-ENTRY
 * tgammafN: (libc)Special Functions.
 * tgammafNx: (libc)Special Functions.
 * tgammal: (libc)Special Functions.
+* thrd_create: (libc)ISO C Thread Management.
+* thrd_current: (libc)ISO C Thread Management.
+* thrd_detach: (libc)ISO C Thread Management.
+* thrd_equal: (libc)ISO C Thread Management.
+* thrd_exit: (libc)ISO C Thread Management.
+* thrd_join: (libc)ISO C Thread Management.
+* thrd_sleep: (libc)ISO C Thread Management.
+* thrd_yield: (libc)ISO C Thread Management.
 * time: (libc)Simple Calendar Time.
 * timegm: (libc)Broken-down Time.
 * timelocal: (libc)Broken-down Time.
@@ -1881,6 +1931,10 @@ START-INFO-DIR-ENTRY
 * truncfNx: (libc)Rounding Functions.
 * truncl: (libc)Rounding Functions.
 * tsearch: (libc)Tree Search Function.
+* tss_create: (libc)ISO C Thread-local Storage.
+* tss_delete: (libc)ISO C Thread-local Storage.
+* tss_get: (libc)ISO C Thread-local Storage.
+* tss_set: (libc)ISO C Thread-local Storage.
 * ttyname: (libc)Is It a Terminal.
 * ttyname_r: (libc)Is It a Terminal.
 * twalk: (libc)Tree Search Function.
@@ -2019,6 +2073,1147 @@ START-INFO-DIR-ENTRY
 * ynfNx: (libc)Special Functions.
 * ynl: (libc)Special Functions.
 END-INFO-DIR-ENTRY
+
+
+File: libc.info,  Node: Testing File Type,  Next: File Owner,  Prev: Reading Attributes,  Up: File Attributes
+
+14.9.3 Testing the Type of a File
+---------------------------------
+
+The “file mode”, stored in the ‘st_mode’ field of the file attributes,
+contains two kinds of information: the file type code, and the access
+permission bits.  This section discusses only the type code, which you
+can use to tell whether the file is a directory, socket, symbolic link,
+and so on.  For details about access permissions see *note Permission
+Bits::.
+
+   There are two ways you can access the file type information in a file
+mode.  Firstly, for each file type there is a “predicate macro” which
+examines a given file mode and returns whether it is of that type or
+not.  Secondly, you can mask out the rest of the file mode to leave just
+the file type code, and compare this against constants for each of the
+supported file types.
+
+   All of the symbols listed in this section are defined in the header
+file ‘sys/stat.h’.
+
+   The following predicate macros test the type of a file, given the
+value M which is the ‘st_mode’ field returned by ‘stat’ on that file:
+
+ -- Macro: int S_ISDIR (mode_t M)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns non-zero if the file is a directory.
+
+ -- Macro: int S_ISCHR (mode_t M)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns non-zero if the file is a character special file
+     (a device like a terminal).
+
+ -- Macro: int S_ISBLK (mode_t M)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns non-zero if the file is a block special file (a
+     device like a disk).
+
+ -- Macro: int S_ISREG (mode_t M)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns non-zero if the file is a regular file.
+
+ -- Macro: int S_ISFIFO (mode_t M)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns non-zero if the file is a FIFO special file, or
+     a pipe.  *Note Pipes and FIFOs::.
+
+ -- Macro: int S_ISLNK (mode_t M)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns non-zero if the file is a symbolic link.  *Note
+     Symbolic Links::.
+
+ -- Macro: int S_ISSOCK (mode_t M)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns non-zero if the file is a socket.  *Note
+     Sockets::.
+
+   An alternate non-POSIX method of testing the file type is supported
+for compatibility with BSD. The mode can be bitwise AND-ed with ‘S_IFMT’
+to extract the file type code, and compared to the appropriate constant.
+For example,
+
+     S_ISCHR (MODE)
+
+is equivalent to:
+
+     ((MODE & S_IFMT) == S_IFCHR)
+
+ -- Macro: int S_IFMT
+
+     This is a bit mask used to extract the file type code from a mode
+     value.
+
+   These are the symbolic names for the different file type codes:
+
+‘S_IFDIR’
+
+     This is the file type constant of a directory file.
+
+‘S_IFCHR’
+
+     This is the file type constant of a character-oriented device file.
+
+‘S_IFBLK’
+
+     This is the file type constant of a block-oriented device file.
+
+‘S_IFREG’
+
+     This is the file type constant of a regular file.
+
+‘S_IFLNK’
+
+     This is the file type constant of a symbolic link.
+
+‘S_IFSOCK’
+
+     This is the file type constant of a socket.
+
+‘S_IFIFO’
+
+     This is the file type constant of a FIFO or pipe.
+
+   The POSIX.1b standard introduced a few more objects which possibly
+can be implemented as objects in the filesystem.  These are message
+queues, semaphores, and shared memory objects.  To allow differentiating
+these objects from other files the POSIX standard introduced three new
+test macros.  But unlike the other macros they do not take the value of
+the ‘st_mode’ field as the parameter.  Instead they expect a pointer to
+the whole ‘struct stat’ structure.
+
+ -- Macro: int S_TYPEISMQ (struct stat *S)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     If the system implements POSIX message queues as distinct objects
+     and the file is a message queue object, this macro returns a
+     non-zero value.  In all other cases the result is zero.
+
+ -- Macro: int S_TYPEISSEM (struct stat *S)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     If the system implements POSIX semaphores as distinct objects and
+     the file is a semaphore object, this macro returns a non-zero
+     value.  In all other cases the result is zero.
+
+ -- Macro: int S_TYPEISSHM (struct stat *S)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     If the system implements POSIX shared memory objects as distinct
+     objects and the file is a shared memory object, this macro returns
+     a non-zero value.  In all other cases the result is zero.
+
+
+File: libc.info,  Node: File Owner,  Next: Permission Bits,  Prev: Testing File Type,  Up: File Attributes
+
+14.9.4 File Owner
+-----------------
+
+Every file has an “owner” which is one of the registered user names
+defined on the system.  Each file also has a “group” which is one of the
+defined groups.  The file owner can often be useful for showing you who
+edited the file (especially when you edit with GNU Emacs), but its main
+purpose is for access control.
+
+   The file owner and group play a role in determining access because
+the file has one set of access permission bits for the owner, another
+set that applies to users who belong to the file’s group, and a third
+set of bits that applies to everyone else.  *Note Access Permission::,
+for the details of how access is decided based on this data.
+
+   When a file is created, its owner is set to the effective user ID of
+the process that creates it (*note Process Persona::).  The file’s group
+ID may be set to either the effective group ID of the process, or the
+group ID of the directory that contains the file, depending on the
+system where the file is stored.  When you access a remote file system,
+it behaves according to its own rules, not according to the system your
+program is running on.  Thus, your program must be prepared to encounter
+either kind of behavior no matter what kind of system you run it on.
+
+   You can change the owner and/or group owner of an existing file using
+the ‘chown’ function.  This is the primitive for the ‘chown’ and ‘chgrp’
+shell commands.
+
+   The prototype for this function is declared in ‘unistd.h’.
+
+ -- Function: int chown (const char *FILENAME, uid_t OWNER, gid_t GROUP)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘chown’ function changes the owner of the file FILENAME to
+     OWNER, and its group owner to GROUP.
+
+     Changing the owner of the file on certain systems clears the
+     set-user-ID and set-group-ID permission bits.  (This is because
+     those bits may not be appropriate for the new owner.)  Other file
+     permission bits are not changed.
+
+     The return value is ‘0’ on success and ‘-1’ on failure.  In
+     addition to the usual file name errors (*note File Name Errors::),
+     the following ‘errno’ error conditions are defined for this
+     function:
+
+     ‘EPERM’
+          This process lacks permission to make the requested change.
+
+          Only privileged users or the file’s owner can change the
+          file’s group.  On most file systems, only privileged users can
+          change the file owner; some file systems allow you to change
+          the owner if you are currently the owner.  When you access a
+          remote file system, the behavior you encounter is determined
+          by the system that actually holds the file, not by the system
+          your program is running on.
+
+          *Note Options for Files::, for information about the
+          ‘_POSIX_CHOWN_RESTRICTED’ macro.
+
+     ‘EROFS’
+          The file is on a read-only file system.
+
+ -- Function: int fchown (int FILEDES, uid_t OWNER, gid_t GROUP)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This is like ‘chown’, except that it changes the owner of the open
+     file with descriptor FILEDES.
+
+     The return value from ‘fchown’ is ‘0’ on success and ‘-1’ on
+     failure.  The following ‘errno’ error codes are defined for this
+     function:
+
+     ‘EBADF’
+          The FILEDES argument is not a valid file descriptor.
+
+     ‘EINVAL’
+          The FILEDES argument corresponds to a pipe or socket, not an
+          ordinary file.
+
+     ‘EPERM’
+          This process lacks permission to make the requested change.
+          For details see ‘chmod’ above.
+
+     ‘EROFS’
+          The file resides on a read-only file system.
+
+
+File: libc.info,  Node: Permission Bits,  Next: Access Permission,  Prev: File Owner,  Up: File Attributes
+
+14.9.5 The Mode Bits for Access Permission
+------------------------------------------
+
+The “file mode”, stored in the ‘st_mode’ field of the file attributes,
+contains two kinds of information: the file type code, and the access
+permission bits.  This section discusses only the access permission
+bits, which control who can read or write the file.  *Note Testing File
+Type::, for information about the file type code.
+
+   All of the symbols listed in this section are defined in the header
+file ‘sys/stat.h’.
+
+   These symbolic constants are defined for the file mode bits that
+control access permission for the file:
+
+‘S_IRUSR’
+‘S_IREAD’
+
+     Read permission bit for the owner of the file.  On many systems
+     this bit is 0400.  ‘S_IREAD’ is an obsolete synonym provided for
+     BSD compatibility.
+
+‘S_IWUSR’
+‘S_IWRITE’
+
+     Write permission bit for the owner of the file.  Usually 0200.
+     ‘S_IWRITE’ is an obsolete synonym provided for BSD compatibility.
+
+‘S_IXUSR’
+‘S_IEXEC’
+
+     Execute (for ordinary files) or search (for directories) permission
+     bit for the owner of the file.  Usually 0100.  ‘S_IEXEC’ is an
+     obsolete synonym provided for BSD compatibility.
+
+‘S_IRWXU’
+
+     This is equivalent to ‘(S_IRUSR | S_IWUSR | S_IXUSR)’.
+
+‘S_IRGRP’
+
+     Read permission bit for the group owner of the file.  Usually 040.
+
+‘S_IWGRP’
+
+     Write permission bit for the group owner of the file.  Usually 020.
+
+‘S_IXGRP’
+
+     Execute or search permission bit for the group owner of the file.
+     Usually 010.
+
+‘S_IRWXG’
+
+     This is equivalent to ‘(S_IRGRP | S_IWGRP | S_IXGRP)’.
+
+‘S_IROTH’
+
+     Read permission bit for other users.  Usually 04.
+
+‘S_IWOTH’
+
+     Write permission bit for other users.  Usually 02.
+
+‘S_IXOTH’
+
+     Execute or search permission bit for other users.  Usually 01.
+
+‘S_IRWXO’
+
+     This is equivalent to ‘(S_IROTH | S_IWOTH | S_IXOTH)’.
+
+‘S_ISUID’
+
+     This is the set-user-ID on execute bit, usually 04000.  *Note How
+     Change Persona::.
+
+‘S_ISGID’
+
+     This is the set-group-ID on execute bit, usually 02000.  *Note How
+     Change Persona::.
+
+‘S_ISVTX’
+
+     This is the “sticky” bit, usually 01000.
+
+     For a directory it gives permission to delete a file in that
+     directory only if you own that file.  Ordinarily, a user can either
+     delete all the files in a directory or cannot delete any of them
+     (based on whether the user has write permission for the directory).
+     The same restriction applies—you must have both write permission
+     for the directory and own the file you want to delete.  The one
+     exception is that the owner of the directory can delete any file in
+     the directory, no matter who owns it (provided the owner has given
+     himself write permission for the directory).  This is commonly used
+     for the ‘/tmp’ directory, where anyone may create files but not
+     delete files created by other users.
+
+     Originally the sticky bit on an executable file modified the
+     swapping policies of the system.  Normally, when a program
+     terminated, its pages in core were immediately freed and reused.
+     If the sticky bit was set on the executable file, the system kept
+     the pages in core for a while as if the program were still running.
+     This was advantageous for a program likely to be run many times in
+     succession.  This usage is obsolete in modern systems.  When a
+     program terminates, its pages always remain in core as long as
+     there is no shortage of memory in the system.  When the program is
+     next run, its pages will still be in core if no shortage arose
+     since the last run.
+
+     On some modern systems where the sticky bit has no useful meaning
+     for an executable file, you cannot set the bit at all for a
+     non-directory.  If you try, ‘chmod’ fails with ‘EFTYPE’; *note
+     Setting Permissions::.
+
+     Some systems (particularly SunOS) have yet another use for the
+     sticky bit.  If the sticky bit is set on a file that is _not_
+     executable, it means the opposite: never cache the pages of this
+     file at all.  The main use of this is for the files on an NFS
+     server machine which are used as the swap area of diskless client
+     machines.  The idea is that the pages of the file will be cached in
+     the client’s memory, so it is a waste of the server’s memory to
+     cache them a second time.  With this usage the sticky bit also
+     implies that the filesystem may fail to record the file’s
+     modification time onto disk reliably (the idea being that no-one
+     cares for a swap file).
+
+     This bit is only available on BSD systems (and those derived from
+     them).  Therefore one has to use the ‘_GNU_SOURCE’ feature select
+     macro, or not define any feature test macros, to get the definition
+     (*note Feature Test Macros::).
+
+   The actual bit values of the symbols are listed in the table above so
+you can decode file mode values when debugging your programs.  These bit
+values are correct for most systems, but they are not guaranteed.
+
+   *Warning:* Writing explicit numbers for file permissions is bad
+practice.  Not only is it not portable, it also requires everyone who
+reads your program to remember what the bits mean.  To make your program
+clean use the symbolic names.
+
+
+File: libc.info,  Node: Access Permission,  Next: Setting Permissions,  Prev: Permission Bits,  Up: File Attributes
+
+14.9.6 How Your Access to a File is Decided
+-------------------------------------------
+
+Recall that the operating system normally decides access permission for
+a file based on the effective user and group IDs of the process and its
+supplementary group IDs, together with the file’s owner, group and
+permission bits.  These concepts are discussed in detail in *note
+Process Persona::.
+
+   If the effective user ID of the process matches the owner user ID of
+the file, then permissions for read, write, and execute/search are
+controlled by the corresponding “user” (or “owner”) bits.  Likewise, if
+any of the effective group ID or supplementary group IDs of the process
+matches the group owner ID of the file, then permissions are controlled
+by the “group” bits.  Otherwise, permissions are controlled by the
+“other” bits.
+
+   Privileged users, like ‘root’, can access any file regardless of its
+permission bits.  As a special case, for a file to be executable even by
+a privileged user, at least one of its execute bits must be set.
+
+
+File: libc.info,  Node: Setting Permissions,  Next: Testing File Access,  Prev: Access Permission,  Up: File Attributes
+
+14.9.7 Assigning File Permissions
+---------------------------------
+
+The primitive functions for creating files (for example, ‘open’ or
+‘mkdir’) take a MODE argument, which specifies the file permissions to
+give the newly created file.  This mode is modified by the process’s
+“file creation mask”, or “umask”, before it is used.
+
+   The bits that are set in the file creation mask identify permissions
+that are always to be disabled for newly created files.  For example, if
+you set all the “other” access bits in the mask, then newly created
+files are not accessible at all to processes in the “other” category,
+even if the MODE argument passed to the create function would permit
+such access.  In other words, the file creation mask is the complement
+of the ordinary access permissions you want to grant.
+
+   Programs that create files typically specify a MODE argument that
+includes all the permissions that make sense for the particular file.
+For an ordinary file, this is typically read and write permission for
+all classes of users.  These permissions are then restricted as
+specified by the individual user’s own file creation mask.
+
+   To change the permission of an existing file given its name, call
+‘chmod’.  This function uses the specified permission bits and ignores
+the file creation mask.
+
+   In normal use, the file creation mask is initialized by the user’s
+login shell (using the ‘umask’ shell command), and inherited by all
+subprocesses.  Application programs normally don’t need to worry about
+the file creation mask.  It will automatically do what it is supposed to
+do.
+
+   When your program needs to create a file and bypass the umask for its
+access permissions, the easiest way to do this is to use ‘fchmod’ after
+opening the file, rather than changing the umask.  In fact, changing the
+umask is usually done only by shells.  They use the ‘umask’ function.
+
+   The functions in this section are declared in ‘sys/stat.h’.
+
+ -- Function: mode_t umask (mode_t MASK)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘umask’ function sets the file creation mask of the current
+     process to MASK, and returns the previous value of the file
+     creation mask.
+
+     Here is an example showing how to read the mask with ‘umask’
+     without changing it permanently:
+
+          mode_t
+          read_umask (void)
+          {
+            mode_t mask = umask (0);
+            umask (mask);
+            return mask;
+          }
+
+     However, on GNU/Hurd systems it is better to use ‘getumask’ if you
+     just want to read the mask value, because it is reentrant.
+
+ -- Function: mode_t getumask (void)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Return the current value of the file creation mask for the current
+     process.  This function is a GNU extension and is only available on
+     GNU/Hurd systems.
+
+ -- Function: int chmod (const char *FILENAME, mode_t MODE)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘chmod’ function sets the access permission bits for the file
+     named by FILENAME to MODE.
+
+     If FILENAME is a symbolic link, ‘chmod’ changes the permissions of
+     the file pointed to by the link, not those of the link itself.
+
+     This function returns ‘0’ if successful and ‘-1’ if not.  In
+     addition to the usual file name errors (*note File Name Errors::),
+     the following ‘errno’ error conditions are defined for this
+     function:
+
+     ‘ENOENT’
+          The named file doesn’t exist.
+
+     ‘EPERM’
+          This process does not have permission to change the access
+          permissions of this file.  Only the file’s owner (as judged by
+          the effective user ID of the process) or a privileged user can
+          change them.
+
+     ‘EROFS’
+          The file resides on a read-only file system.
+
+     ‘EFTYPE’
+          MODE has the ‘S_ISVTX’ bit (the “sticky bit”) set, and the
+          named file is not a directory.  Some systems do not allow
+          setting the sticky bit on non-directory files, and some do
+          (and only some of those assign a useful meaning to the bit for
+          non-directory files).
+
+          You only get ‘EFTYPE’ on systems where the sticky bit has no
+          useful meaning for non-directory files, so it is always safe
+          to just clear the bit in MODE and call ‘chmod’ again.  *Note
+          Permission Bits::, for full details on the sticky bit.
+
+ -- Function: int fchmod (int FILEDES, mode_t MODE)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This is like ‘chmod’, except that it changes the permissions of the
+     currently open file given by FILEDES.
+
+     The return value from ‘fchmod’ is ‘0’ on success and ‘-1’ on
+     failure.  The following ‘errno’ error codes are defined for this
+     function:
+
+     ‘EBADF’
+          The FILEDES argument is not a valid file descriptor.
+
+     ‘EINVAL’
+          The FILEDES argument corresponds to a pipe or socket, or
+          something else that doesn’t really have access permissions.
+
+     ‘EPERM’
+          This process does not have permission to change the access
+          permissions of this file.  Only the file’s owner (as judged by
+          the effective user ID of the process) or a privileged user can
+          change them.
+
+     ‘EROFS’
+          The file resides on a read-only file system.
+
+
+File: libc.info,  Node: Testing File Access,  Next: File Times,  Prev: Setting Permissions,  Up: File Attributes
+
+14.9.8 Testing Permission to Access a File
+------------------------------------------
+
+In some situations it is desirable to allow programs to access files or
+devices even if this is not possible with the permissions granted to the
+user.  One possible solution is to set the setuid-bit of the program
+file.  If such a program is started the _effective_ user ID of the
+process is changed to that of the owner of the program file.  So to
+allow write access to files like ‘/etc/passwd’, which normally can be
+written only by the super-user, the modifying program will have to be
+owned by ‘root’ and the setuid-bit must be set.
+
+   But besides the files the program is intended to change the user
+should not be allowed to access any file to which s/he would not have
+access anyway.  The program therefore must explicitly check whether _the
+user_ would have the necessary access to a file, before it reads or
+writes the file.
+
+   To do this, use the function ‘access’, which checks for access
+permission based on the process’s _real_ user ID rather than the
+effective user ID. (The setuid feature does not alter the real user ID,
+so it reflects the user who actually ran the program.)
+
+   There is another way you could check this access, which is easy to
+describe, but very hard to use.  This is to examine the file mode bits
+and mimic the system’s own access computation.  This method is
+undesirable because many systems have additional access control
+features; your program cannot portably mimic them, and you would not
+want to try to keep track of the diverse features that different systems
+have.  Using ‘access’ is simple and automatically does whatever is
+appropriate for the system you are using.
+
+   ‘access’ is _only_ appropriate to use in setuid programs.  A
+non-setuid program will always use the effective ID rather than the real
+ID.
+
+   The symbols in this section are declared in ‘unistd.h’.
+
+ -- Function: int access (const char *FILENAME, int HOW)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘access’ function checks to see whether the file named by
+     FILENAME can be accessed in the way specified by the HOW argument.
+     The HOW argument either can be the bitwise OR of the flags ‘R_OK’,
+     ‘W_OK’, ‘X_OK’, or the existence test ‘F_OK’.
+
+     This function uses the _real_ user and group IDs of the calling
+     process, rather than the _effective_ IDs, to check for access
+     permission.  As a result, if you use the function from a ‘setuid’
+     or ‘setgid’ program (*note How Change Persona::), it gives
+     information relative to the user who actually ran the program.
+
+     The return value is ‘0’ if the access is permitted, and ‘-1’
+     otherwise.  (In other words, treated as a predicate function,
+     ‘access’ returns true if the requested access is _denied_.)
+
+     In addition to the usual file name errors (*note File Name
+     Errors::), the following ‘errno’ error conditions are defined for
+     this function:
+
+     ‘EACCES’
+          The access specified by HOW is denied.
+
+     ‘ENOENT’
+          The file doesn’t exist.
+
+     ‘EROFS’
+          Write permission was requested for a file on a read-only file
+          system.
+
+   These macros are defined in the header file ‘unistd.h’ for use as the
+HOW argument to the ‘access’ function.  The values are integer
+constants.
+
+ -- Macro: int R_OK
+
+     Flag meaning test for read permission.
+
+ -- Macro: int W_OK
+
+     Flag meaning test for write permission.
+
+ -- Macro: int X_OK
+
+     Flag meaning test for execute/search permission.
+
+ -- Macro: int F_OK
+
+     Flag meaning test for existence of the file.
+
+
+File: libc.info,  Node: File Times,  Next: File Size,  Prev: Testing File Access,  Up: File Attributes
+
+14.9.9 File Times
+-----------------
+
+Each file has three time stamps associated with it: its access time, its
+modification time, and its attribute modification time.  These
+correspond to the ‘st_atime’, ‘st_mtime’, and ‘st_ctime’ members of the
+‘stat’ structure; see *note File Attributes::.
+
+   All of these times are represented in calendar time format, as
+‘time_t’ objects.  This data type is defined in ‘time.h’.  For more
+information about representation and manipulation of time values, see
+*note Calendar Time::.
+
+   Reading from a file updates its access time attribute, and writing
+updates its modification time.  When a file is created, all three time
+stamps for that file are set to the current time.  In addition, the
+attribute change time and modification time fields of the directory that
+contains the new entry are updated.
+
+   Adding a new name for a file with the ‘link’ function updates the
+attribute change time field of the file being linked, and both the
+attribute change time and modification time fields of the directory
+containing the new name.  These same fields are affected if a file name
+is deleted with ‘unlink’, ‘remove’ or ‘rmdir’.  Renaming a file with
+‘rename’ affects only the attribute change time and modification time
+fields of the two parent directories involved, and not the times for the
+file being renamed.
+
+   Changing the attributes of a file (for example, with ‘chmod’) updates
+its attribute change time field.
+
+   You can also change some of the time stamps of a file explicitly
+using the ‘utime’ function—all except the attribute change time.  You
+need to include the header file ‘utime.h’ to use this facility.
+
+ -- Data Type: struct utimbuf
+
+     The ‘utimbuf’ structure is used with the ‘utime’ function to
+     specify new access and modification times for a file.  It contains
+     the following members:
+
+     ‘time_t actime’
+          This is the access time for the file.
+
+     ‘time_t modtime’
+          This is the modification time for the file.
+
+ -- Function: int utime (const char *FILENAME, const struct utimbuf
+          *TIMES)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function is used to modify the file times associated with the
+     file named FILENAME.
+
+     If TIMES is a null pointer, then the access and modification times
+     of the file are set to the current time.  Otherwise, they are set
+     to the values from the ‘actime’ and ‘modtime’ members
+     (respectively) of the ‘utimbuf’ structure pointed to by TIMES.
+
+     The attribute modification time for the file is set to the current
+     time in either case (since changing the time stamps is itself a
+     modification of the file attributes).
+
+     The ‘utime’ function returns ‘0’ if successful and ‘-1’ on failure.
+     In addition to the usual file name errors (*note File Name
+     Errors::), the following ‘errno’ error conditions are defined for
+     this function:
+
+     ‘EACCES’
+          There is a permission problem in the case where a null pointer
+          was passed as the TIMES argument.  In order to update the time
+          stamp on the file, you must either be the owner of the file,
+          have write permission for the file, or be a privileged user.
+
+     ‘ENOENT’
+          The file doesn’t exist.
+
+     ‘EPERM’
+          If the TIMES argument is not a null pointer, you must either
+          be the owner of the file or be a privileged user.
+
+     ‘EROFS’
+          The file lives on a read-only file system.
+
+   Each of the three time stamps has a corresponding microsecond part,
+which extends its resolution.  These fields are called ‘st_atime_usec’,
+‘st_mtime_usec’, and ‘st_ctime_usec’; each has a value between 0 and
+999,999, which indicates the time in microseconds.  They correspond to
+the ‘tv_usec’ field of a ‘timeval’ structure; see *note High-Resolution
+Calendar::.
+
+   The ‘utimes’ function is like ‘utime’, but also lets you specify the
+fractional part of the file times.  The prototype for this function is
+in the header file ‘sys/time.h’.
+
+ -- Function: int utimes (const char *FILENAME, const struct timeval
+          TVP[2])
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function sets the file access and modification times of the
+     file FILENAME.  The new file access time is specified by ‘TVP[0]’,
+     and the new modification time by ‘TVP[1]’.  Similar to ‘utime’, if
+     TVP is a null pointer then the access and modification times of the
+     file are set to the current time.  This function comes from BSD.
+
+     The return values and error conditions are the same as for the
+     ‘utime’ function.
+
+ -- Function: int lutimes (const char *FILENAME, const struct timeval
+          TVP[2])
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function is like ‘utimes’, except that it does not follow
+     symbolic links.  If FILENAME is the name of a symbolic link,
+     ‘lutimes’ sets the file access and modification times of the
+     symbolic link special file itself (as seen by ‘lstat’; *note
+     Symbolic Links::) while ‘utimes’ sets the file access and
+     modification times of the file the symbolic link refers to.  This
+     function comes from FreeBSD, and is not available on all platforms
+     (if not available, it will fail with ‘ENOSYS’).
+
+     The return values and error conditions are the same as for the
+     ‘utime’ function.
+
+ -- Function: int futimes (int FD, const struct timeval TVP[2])
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function is like ‘utimes’, except that it takes an open file
+     descriptor as an argument instead of a file name.  *Note Low-Level
+     I/O::.  This function comes from FreeBSD, and is not available on
+     all platforms (if not available, it will fail with ‘ENOSYS’).
+
+     Like ‘utimes’, ‘futimes’ returns ‘0’ on success and ‘-1’ on
+     failure.  The following ‘errno’ error conditions are defined for
+     ‘futimes’:
+
+     ‘EACCES’
+          There is a permission problem in the case where a null pointer
+          was passed as the TIMES argument.  In order to update the time
+          stamp on the file, you must either be the owner of the file,
+          have write permission for the file, or be a privileged user.
+
+     ‘EBADF’
+          The FILEDES argument is not a valid file descriptor.
+
+     ‘EPERM’
+          If the TIMES argument is not a null pointer, you must either
+          be the owner of the file or be a privileged user.
+
+     ‘EROFS’
+          The file lives on a read-only file system.
+
+
+File: libc.info,  Node: File Size,  Next: Storage Allocation,  Prev: File Times,  Up: File Attributes
+
+14.9.10 File Size
+-----------------
+
+Normally file sizes are maintained automatically.  A file begins with a
+size of 0 and is automatically extended when data is written past its
+end.  It is also possible to empty a file completely by an ‘open’ or
+‘fopen’ call.
+
+   However, sometimes it is necessary to _reduce_ the size of a file.
+This can be done with the ‘truncate’ and ‘ftruncate’ functions.  They
+were introduced in BSD Unix.  ‘ftruncate’ was later added to POSIX.1.
+
+   Some systems allow you to extend a file (creating holes) with these
+functions.  This is useful when using memory-mapped I/O (*note
+Memory-mapped I/O::), where files are not automatically extended.
+However, it is not portable but must be implemented if ‘mmap’ allows
+mapping of files (i.e., ‘_POSIX_MAPPED_FILES’ is defined).
+
+   Using these functions on anything other than a regular file gives
+_undefined_ results.  On many systems, such a call will appear to
+succeed, without actually accomplishing anything.
+
+ -- Function: int truncate (const char *FILENAME, off_t LENGTH)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘truncate’ function changes the size of FILENAME to LENGTH.  If
+     LENGTH is shorter than the previous length, data at the end will be
+     lost.  The file must be writable by the user to perform this
+     operation.
+
+     If LENGTH is longer, holes will be added to the end.  However, some
+     systems do not support this feature and will leave the file
+     unchanged.
+
+     When the source file is compiled with ‘_FILE_OFFSET_BITS == 64’ the
+     ‘truncate’ function is in fact ‘truncate64’ and the type ‘off_t’
+     has 64 bits which makes it possible to handle files up to 2^63
+     bytes in length.
+
+     The return value is 0 for success, or -1 for an error.  In addition
+     to the usual file name errors, the following errors may occur:
+
+     ‘EACCES’
+          The file is a directory or not writable.
+
+     ‘EINVAL’
+          LENGTH is negative.
+
+     ‘EFBIG’
+          The operation would extend the file beyond the limits of the
+          operating system.
+
+     ‘EIO’
+          A hardware I/O error occurred.
+
+     ‘EPERM’
+          The file is "append-only" or "immutable".
+
+     ‘EINTR’
+          The operation was interrupted by a signal.
+
+ -- Function: int truncate64 (const char *NAME, off64_t LENGTH)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function is similar to the ‘truncate’ function.  The
+     difference is that the LENGTH argument is 64 bits wide even on 32
+     bits machines, which allows the handling of files with sizes up to
+     2^63 bytes.
+
+     When the source file is compiled with ‘_FILE_OFFSET_BITS == 64’ on
+     a 32 bits machine this function is actually available under the
+     name ‘truncate’ and so transparently replaces the 32 bits
+     interface.
+
+ -- Function: int ftruncate (int FD, off_t LENGTH)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This is like ‘truncate’, but it works on a file descriptor FD for
+     an opened file instead of a file name to identify the object.  The
+     file must be opened for writing to successfully carry out the
+     operation.
+
+     The POSIX standard leaves it implementation defined what happens if
+     the specified new LENGTH of the file is bigger than the original
+     size.  The ‘ftruncate’ function might simply leave the file alone
+     and do nothing or it can increase the size to the desired size.  In
+     this later case the extended area should be zero-filled.  So using
+     ‘ftruncate’ is no reliable way to increase the file size but if it
+     is possible it is probably the fastest way.  The function also
+     operates on POSIX shared memory segments if these are implemented
+     by the system.
+
+     ‘ftruncate’ is especially useful in combination with ‘mmap’.  Since
+     the mapped region must have a fixed size one cannot enlarge the
+     file by writing something beyond the last mapped page.  Instead one
+     has to enlarge the file itself and then remap the file with the new
+     size.  The example below shows how this works.
+
+     When the source file is compiled with ‘_FILE_OFFSET_BITS == 64’ the
+     ‘ftruncate’ function is in fact ‘ftruncate64’ and the type ‘off_t’
+     has 64 bits which makes it possible to handle files up to 2^63
+     bytes in length.
+
+     The return value is 0 for success, or -1 for an error.  The
+     following errors may occur:
+
+     ‘EBADF’
+          FD does not correspond to an open file.
+
+     ‘EACCES’
+          FD is a directory or not open for writing.
+
+     ‘EINVAL’
+          LENGTH is negative.
+
+     ‘EFBIG’
+          The operation would extend the file beyond the limits of the
+          operating system.
+
+     ‘EIO’
+          A hardware I/O error occurred.
+
+     ‘EPERM’
+          The file is "append-only" or "immutable".
+
+     ‘EINTR’
+          The operation was interrupted by a signal.
+
+ -- Function: int ftruncate64 (int ID, off64_t LENGTH)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function is similar to the ‘ftruncate’ function.  The
+     difference is that the LENGTH argument is 64 bits wide even on 32
+     bits machines which allows the handling of files with sizes up to
+     2^63 bytes.
+
+     When the source file is compiled with ‘_FILE_OFFSET_BITS == 64’ on
+     a 32 bits machine this function is actually available under the
+     name ‘ftruncate’ and so transparently replaces the 32 bits
+     interface.
+
+   As announced here is a little example of how to use ‘ftruncate’ in
+combination with ‘mmap’:
+
+     int fd;
+     void *start;
+     size_t len;
+
+     int
+     add (off_t at, void *block, size_t size)
+     {
+       if (at + size > len)
+         {
+           /* Resize the file and remap.  */
+           size_t ps = sysconf (_SC_PAGESIZE);
+           size_t ns = (at + size + ps - 1) & ~(ps - 1);
+           void *np;
+           if (ftruncate (fd, ns) < 0)
+             return -1;
+           np = mmap (NULL, ns, PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0);
+           if (np == MAP_FAILED)
+             return -1;
+           start = np;
+           len = ns;
+         }
+       memcpy ((char *) start + at, block, size);
+       return 0;
+     }
+
+   The function ‘add’ writes a block of memory at an arbitrary position
+in the file.  If the current size of the file is too small it is
+extended.  Note that it is extended by a whole number of pages.  This is
+a requirement of ‘mmap’.  The program has to keep track of the real
+size, and when it has finished a final ‘ftruncate’ call should set the
+real size of the file.
+
+
+File: libc.info,  Node: Storage Allocation,  Prev: File Size,  Up: File Attributes
+
+14.9.11 Storage Allocation
+--------------------------
+
+Most file systems support allocating large files in a non-contiguous
+fashion: the file is split into _fragments_ which are allocated
+sequentially, but the fragments themselves can be scattered across the
+disk.  File systems generally try to avoid such fragmentation because it
+decreases performance, but if a file gradually increases in size, there
+might be no other option than to fragment it.  In addition, many file
+systems support _sparse files_ with _holes_: regions of null bytes for
+which no backing storage has been allocated by the file system.  When
+the holes are finally overwritten with data, fragmentation can occur as
+well.
+
+   Explicit allocation of storage for yet-unwritten parts of the file
+can help the system to avoid fragmentation.  Additionally, if storage
+pre-allocation fails, it is possible to report the out-of-disk error
+early, often without filling up the entire disk.  However, due to
+deduplication, copy-on-write semantics, and file compression, such
+pre-allocation may not reliably prevent the out-of-disk-space error from
+occurring later.  Checking for write errors is still required, and
+writes to memory-mapped regions created with ‘mmap’ can still result in
+‘SIGBUS’.
+
+ -- Function: int posix_fallocate (int FD, off_t OFFSET, off_t LENGTH)
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Allocate backing store for the region of LENGTH bytes starting at
+     byte OFFSET in the file for the descriptor FD.  The file length is
+     increased to ‘LENGTH + OFFSET’ if necessary.
+
+     FD must be a regular file opened for writing, or ‘EBADF’ is
+     returned.  If there is insufficient disk space to fulfill the
+     allocation request, ‘ENOSPC’ is returned.
+
+     *Note:* If ‘fallocate’ is not available (because the file system
+     does not support it), ‘posix_fallocate’ is emulated, which has the
+     following drawbacks:
+
+        • It is very inefficient because all file system blocks in the
+          requested range need to be examined (even if they have been
+          allocated before) and potentially rewritten.  In contrast,
+          with proper ‘fallocate’ support (see below), the file system
+          can examine the internal file allocation data structures and
+          eliminate holes directly, maybe even using unwritten extents
+          (which are pre-allocated but uninitialized on disk).
+
+        • There is a race condition if another thread or process
+          modifies the underlying file in the to-be-allocated area.
+          Non-null bytes could be overwritten with null bytes.
+
+        • If FD has been opened with the ‘O_WRONLY’ flag, the function
+          will fail with an ‘errno’ value of ‘EBADF’.
+
+        • If FD has been opened with the ‘O_APPEND’ flag, the function
+          will fail with an ‘errno’ value of ‘EBADF’.
+
+        • If LENGTH is zero, ‘ftruncate’ is used to increase the file
+          size as requested, without allocating file system blocks.
+          There is a race condition which means that ‘ftruncate’ can
+          accidentally truncate the file if it has been extended
+          concurrently.
+
+     On Linux, if an application does not benefit from emulation or if
+     the emulation is harmful due to its inherent race conditions, the
+     application can use the Linux-specific ‘fallocate’ function, with a
+     zero flag argument.  For the ‘fallocate’ function, the GNU C
+     Library does not perform allocation emulation if the file system
+     does not support allocation.  Instead, an ‘EOPNOTSUPP’ is returned
+     to the caller.
+
+ -- Function: int posix_fallocate64 (int FD, off64_t OFFSET, off64_t
+          LENGTH)
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function is a variant of ‘posix_fallocate64’ which accepts
+     64-bit file offsets on all platforms.
+
+
+File: libc.info,  Node: Making Special Files,  Next: Temporary Files,  Prev: File Attributes,  Up: File System Interface
+
+14.10 Making Special Files
+==========================
+
+The ‘mknod’ function is the primitive for making special files, such as
+files that correspond to devices.  The GNU C Library includes this
+function for compatibility with BSD.
+
+   The prototype for ‘mknod’ is declared in ‘sys/stat.h’.
+
+ -- Function: int mknod (const char *FILENAME, mode_t MODE, dev_t DEV)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘mknod’ function makes a special file with name FILENAME.  The
+     MODE specifies the mode of the file, and may include the various
+     special file bits, such as ‘S_IFCHR’ (for a character special file)
+     or ‘S_IFBLK’ (for a block special file).  *Note Testing File
+     Type::.
+
+     The DEV argument specifies which device the special file refers to.
+     Its exact interpretation depends on the kind of special file being
+     created.
+
+     The return value is ‘0’ on success and ‘-1’ on error.  In addition
+     to the usual file name errors (*note File Name Errors::), the
+     following ‘errno’ error conditions are defined for this function:
+
+     ‘EPERM’
+          The calling process is not privileged.  Only the superuser can
+          create special files.
+
+     ‘ENOSPC’
+          The directory or file system that would contain the new file
+          is full and cannot be extended.
+
+     ‘EROFS’
+          The directory containing the new file can’t be modified
+          because it’s on a read-only file system.
+
+     ‘EEXIST’
+          There is already a file named FILENAME.  If you want to
+          replace this file, you must remove the old file explicitly
+          first.
 
 
 File: libc.info,  Node: Temporary Files,  Prev: Making Special Files,  Up: File System Interface
@@ -2764,7 +3959,7 @@ specified one.
 
    Occasionally a client needs to specify an address because the server
 discriminates based on address; for example, the rsh and rlogin
-protocols look at the client’s socket address and only bypass password
+protocols look at the client’s socket address and only bypass passphrase
 checking if it is less than ‘IPPORT_RESERVED’ (*note Ports::).
 
    The details of socket addresses vary depending on what namespace you
@@ -5658,9 +6853,9 @@ connections, then WAIT *must* be ‘nowait’.
    USER is the user name that the server should run as.  ‘inetd’ runs as
 root, so it can set the user ID of its children arbitrarily.  It’s best
 to avoid using ‘root’ for USER if you can; but some servers, such as
-Telnet and FTP, read a username and password themselves.  These servers
-need to be root initially so they can log in as commanded by the data
-coming over the network.
+Telnet and FTP, read a username and passphrase themselves.  These
+servers need to be root initially so they can log in as commanded by the
+data coming over the network.
 
    PROGRAM together with ARGUMENTS specifies the command to run to start
 the server.  PROGRAM should be an absolute file name specifying the
@@ -5972,6 +7167,7 @@ is and how to open a file descriptor for a terminal device.
 * Line Control::                Sending break sequences, clearing
                                  terminal buffers ...
 * Noncanon Example::            How to read single characters without echo.
+* getpass::                     Prompting the user for a passphrase.
 * Pseudo-Terminals::            How to open a pseudo-terminal.
 
 
@@ -6033,6 +7229,11 @@ associated file name using the ‘ttyname’ function.  See also the
      ‘ERANGE’
           The buffer length LEN is too small to store the string to be
           returned.
+
+     ‘ENODEV’
+          The FILEDES is associated with a terminal device that is a
+          slave pseudo-terminal, but the file name associated with that
+          device could not be determined.  This is a GNU extension.
 
 
 File: libc.info,  Node: I/O Queues,  Next: Canonical or Not,  Prev: Is It a Terminal,  Up: Low-Level Terminal Interface
@@ -6495,1157 +7696,4 @@ rest untouched (*note Setting Modes::).
      a BEL character (code ‘007’) to the terminal to ring the bell.
 
      This is a BSD extension.
-
-
-File: libc.info,  Node: Output Modes,  Next: Control Modes,  Prev: Input Modes,  Up: Terminal Modes
-
-17.4.5 Output Modes
--------------------
-
-This section describes the terminal flags and fields that control how
-output characters are translated and padded for display.  All of these
-are contained in the ‘c_oflag’ member of the ‘struct termios’ structure.
-
-   The ‘c_oflag’ member itself is an integer, and you change the flags
-and fields using the operators ‘&’, ‘|’, and ‘^’.  Don’t try to specify
-the entire value for ‘c_oflag’—instead, change only specific flags and
-leave the rest untouched (*note Setting Modes::).
-
- -- Macro: tcflag_t OPOST
-
-     If this bit is set, output data is processed in some unspecified
-     way so that it is displayed appropriately on the terminal device.
-     This typically includes mapping newline characters (‘'\n'’) onto
-     carriage return and linefeed pairs.
-
-     If this bit isn’t set, the characters are transmitted as-is.
-
-   The following three bits are effective only if ‘OPOST’ is set.
-
- -- Macro: tcflag_t ONLCR
-
-     If this bit is set, convert the newline character on output into a
-     pair of characters, carriage return followed by linefeed.
-
- -- Macro: tcflag_t OXTABS
-
-     If this bit is set, convert tab characters on output into the
-     appropriate number of spaces to emulate a tab stop every eight
-     columns.  This bit exists only on BSD systems and GNU/Hurd systems;
-     on GNU/Linux systems it is available as ‘XTABS’.
-
- -- Macro: tcflag_t ONOEOT
-
-     If this bit is set, discard ‘C-d’ characters (code ‘004’) on
-     output.  These characters cause many dial-up terminals to
-     disconnect.  This bit exists only on BSD systems and GNU/Hurd
-     systems.
-
-
-File: libc.info,  Node: Control Modes,  Next: Local Modes,  Prev: Output Modes,  Up: Terminal Modes
-
-17.4.6 Control Modes
---------------------
-
-This section describes the terminal flags and fields that control
-parameters usually associated with asynchronous serial data
-transmission.  These flags may not make sense for other kinds of
-terminal ports (such as a network connection pseudo-terminal).  All of
-these are contained in the ‘c_cflag’ member of the ‘struct termios’
-structure.
-
-   The ‘c_cflag’ member itself is an integer, and you change the flags
-and fields using the operators ‘&’, ‘|’, and ‘^’.  Don’t try to specify
-the entire value for ‘c_cflag’—instead, change only specific flags and
-leave the rest untouched (*note Setting Modes::).
-
- -- Macro: tcflag_t CLOCAL
-
-     If this bit is set, it indicates that the terminal is connected
-     “locally” and that the modem status lines (such as carrier detect)
-     should be ignored.
-
-     On many systems if this bit is not set and you call ‘open’ without
-     the ‘O_NONBLOCK’ flag set, ‘open’ blocks until a modem connection
-     is established.
-
-     If this bit is not set and a modem disconnect is detected, a
-     ‘SIGHUP’ signal is sent to the controlling process group for the
-     terminal (if it has one).  Normally, this causes the process to
-     exit; see *note Signal Handling::.  Reading from the terminal after
-     a disconnect causes an end-of-file condition, and writing causes an
-     ‘EIO’ error to be returned.  The terminal device must be closed and
-     reopened to clear the condition.
-
- -- Macro: tcflag_t HUPCL
-
-     If this bit is set, a modem disconnect is generated when all
-     processes that have the terminal device open have either closed the
-     file or exited.
-
- -- Macro: tcflag_t CREAD
-
-     If this bit is set, input can be read from the terminal.
-     Otherwise, input is discarded when it arrives.
-
- -- Macro: tcflag_t CSTOPB
-
-     If this bit is set, two stop bits are used.  Otherwise, only one
-     stop bit is used.
-
- -- Macro: tcflag_t PARENB
-
-     If this bit is set, generation and detection of a parity bit are
-     enabled.  *Note Input Modes::, for information on how input parity
-     errors are handled.
-
-     If this bit is not set, no parity bit is added to output
-     characters, and input characters are not checked for correct
-     parity.
-
- -- Macro: tcflag_t PARODD
-
-     This bit is only useful if ‘PARENB’ is set.  If ‘PARODD’ is set,
-     odd parity is used, otherwise even parity is used.
-
-   The control mode flags also includes a field for the number of bits
-per character.  You can use the ‘CSIZE’ macro as a mask to extract the
-value, like this: ‘settings.c_cflag & CSIZE’.
-
- -- Macro: tcflag_t CSIZE
-
-     This is a mask for the number of bits per character.
-
- -- Macro: tcflag_t CS5
-
-     This specifies five bits per byte.
-
- -- Macro: tcflag_t CS6
-
-     This specifies six bits per byte.
-
- -- Macro: tcflag_t CS7
-
-     This specifies seven bits per byte.
-
- -- Macro: tcflag_t CS8
-
-     This specifies eight bits per byte.
-
-   The following four bits are BSD extensions; these exist only on BSD
-systems and GNU/Hurd systems.
-
- -- Macro: tcflag_t CCTS_OFLOW
-
-     If this bit is set, enable flow control of output based on the CTS
-     wire (RS232 protocol).
-
- -- Macro: tcflag_t CRTS_IFLOW
-
-     If this bit is set, enable flow control of input based on the RTS
-     wire (RS232 protocol).
-
- -- Macro: tcflag_t MDMBUF
-
-     If this bit is set, enable carrier-based flow control of output.
-
- -- Macro: tcflag_t CIGNORE
-
-     If this bit is set, it says to ignore the control modes and line
-     speed values entirely.  This is only meaningful in a call to
-     ‘tcsetattr’.
-
-     The ‘c_cflag’ member and the line speed values returned by
-     ‘cfgetispeed’ and ‘cfgetospeed’ will be unaffected by the call.
-     ‘CIGNORE’ is useful if you want to set all the software modes in
-     the other members, but leave the hardware details in ‘c_cflag’
-     unchanged.  (This is how the ‘TCSASOFT’ flag to ‘tcsettattr’
-     works.)
-
-     This bit is never set in the structure filled in by ‘tcgetattr’.
-
-
-File: libc.info,  Node: Local Modes,  Next: Line Speed,  Prev: Control Modes,  Up: Terminal Modes
-
-17.4.7 Local Modes
-------------------
-
-This section describes the flags for the ‘c_lflag’ member of the ‘struct
-termios’ structure.  These flags generally control higher-level aspects
-of input processing than the input modes flags described in *note Input
-Modes::, such as echoing, signals, and the choice of canonical or
-noncanonical input.
-
-   The ‘c_lflag’ member itself is an integer, and you change the flags
-and fields using the operators ‘&’, ‘|’, and ‘^’.  Don’t try to specify
-the entire value for ‘c_lflag’—instead, change only specific flags and
-leave the rest untouched (*note Setting Modes::).
-
- -- Macro: tcflag_t ICANON
-
-     This bit, if set, enables canonical input processing mode.
-     Otherwise, input is processed in noncanonical mode.  *Note
-     Canonical or Not::.
-
- -- Macro: tcflag_t ECHO
-
-     If this bit is set, echoing of input characters back to the
-     terminal is enabled.
-
- -- Macro: tcflag_t ECHOE
-
-     If this bit is set, echoing indicates erasure of input with the
-     ERASE character by erasing the last character in the current line
-     from the screen.  Otherwise, the character erased is re-echoed to
-     show what has happened (suitable for a printing terminal).
-
-     This bit only controls the display behavior; the ‘ICANON’ bit by
-     itself controls actual recognition of the ERASE character and
-     erasure of input, without which ‘ECHOE’ is simply irrelevant.
-
- -- Macro: tcflag_t ECHOPRT
-
-     This bit, like ‘ECHOE’, enables display of the ERASE character in a
-     way that is geared to a hardcopy terminal.  When you type the ERASE
-     character, a ‘\’ character is printed followed by the first
-     character erased.  Typing the ERASE character again just prints the
-     next character erased.  Then, the next time you type a normal
-     character, a ‘/’ character is printed before the character echoes.
-
-     This is a BSD extension, and exists only in BSD systems and
-     GNU/Linux and GNU/Hurd systems.
-
- -- Macro: tcflag_t ECHOK
-
-     This bit enables special display of the KILL character by moving to
-     a new line after echoing the KILL character normally.  The behavior
-     of ‘ECHOKE’ (below) is nicer to look at.
-
-     If this bit is not set, the KILL character echoes just as it would
-     if it were not the KILL character.  Then it is up to the user to
-     remember that the KILL character has erased the preceding input;
-     there is no indication of this on the screen.
-
-     This bit only controls the display behavior; the ‘ICANON’ bit by
-     itself controls actual recognition of the KILL character and
-     erasure of input, without which ‘ECHOK’ is simply irrelevant.
-
- -- Macro: tcflag_t ECHOKE
-
-     This bit is similar to ‘ECHOK’.  It enables special display of the
-     KILL character by erasing on the screen the entire line that has
-     been killed.  This is a BSD extension, and exists only in BSD
-     systems and GNU/Linux and GNU/Hurd systems.
-
- -- Macro: tcflag_t ECHONL
-
-     If this bit is set and the ‘ICANON’ bit is also set, then the
-     newline (‘'\n'’) character is echoed even if the ‘ECHO’ bit is not
-     set.
-
- -- Macro: tcflag_t ECHOCTL
-
-     If this bit is set and the ‘ECHO’ bit is also set, echo control
-     characters with ‘^’ followed by the corresponding text character.
-     Thus, control-A echoes as ‘^A’.  This is usually the preferred mode
-     for interactive input, because echoing a control character back to
-     the terminal could have some undesired effect on the terminal.
-
-     This is a BSD extension, and exists only in BSD systems and
-     GNU/Linux and GNU/Hurd systems.
-
- -- Macro: tcflag_t ISIG
-
-     This bit controls whether the INTR, QUIT, and SUSP characters are
-     recognized.  The functions associated with these characters are
-     performed if and only if this bit is set.  Being in canonical or
-     noncanonical input mode has no effect on the interpretation of
-     these characters.
-
-     You should use caution when disabling recognition of these
-     characters.  Programs that cannot be interrupted interactively are
-     very user-unfriendly.  If you clear this bit, your program should
-     provide some alternate interface that allows the user to
-     interactively send the signals associated with these characters, or
-     to escape from the program.
-
-     *Note Signal Characters::.
-
- -- Macro: tcflag_t IEXTEN
-
-     POSIX.1 gives ‘IEXTEN’ implementation-defined meaning, so you
-     cannot rely on this interpretation on all systems.
-
-     On BSD systems and GNU/Linux and GNU/Hurd systems, it enables the
-     LNEXT and DISCARD characters.  *Note Other Special::.
-
- -- Macro: tcflag_t NOFLSH
-
-     Normally, the INTR, QUIT, and SUSP characters cause input and
-     output queues for the terminal to be cleared.  If this bit is set,
-     the queues are not cleared.
-
- -- Macro: tcflag_t TOSTOP
-
-     If this bit is set and the system supports job control, then
-     ‘SIGTTOU’ signals are generated by background processes that
-     attempt to write to the terminal.  *Note Access to the Terminal::.
-
-   The following bits are BSD extensions; they exist only on BSD systems
-and GNU/Hurd systems.
-
- -- Macro: tcflag_t ALTWERASE
-
-     This bit determines how far the WERASE character should erase.  The
-     WERASE character erases back to the beginning of a word; the
-     question is, where do words begin?
-
-     If this bit is clear, then the beginning of a word is a
-     nonwhitespace character following a whitespace character.  If the
-     bit is set, then the beginning of a word is an alphanumeric
-     character or underscore following a character which is none of
-     those.
-
-     *Note Editing Characters::, for more information about the WERASE
-     character.
-
- -- Macro: tcflag_t FLUSHO
-
-     This is the bit that toggles when the user types the DISCARD
-     character.  While this bit is set, all output is discarded.  *Note
-     Other Special::.
-
- -- Macro: tcflag_t NOKERNINFO
-
-     Setting this bit disables handling of the STATUS character.  *Note
-     Other Special::.
-
- -- Macro: tcflag_t PENDIN
-
-     If this bit is set, it indicates that there is a line of input that
-     needs to be reprinted.  Typing the REPRINT character sets this bit;
-     the bit remains set until reprinting is finished.  *Note Editing
-     Characters::.
-
-
-File: libc.info,  Node: Line Speed,  Next: Special Characters,  Prev: Local Modes,  Up: Terminal Modes
-
-17.4.8 Line Speed
------------------
-
-The terminal line speed tells the computer how fast to read and write
-data on the terminal.
-
-   If the terminal is connected to a real serial line, the terminal
-speed you specify actually controls the line—if it doesn’t match the
-terminal’s own idea of the speed, communication does not work.  Real
-serial ports accept only certain standard speeds.  Also, particular
-hardware may not support even all the standard speeds.  Specifying a
-speed of zero hangs up a dialup connection and turns off modem control
-signals.
-
-   If the terminal is not a real serial line (for example, if it is a
-network connection), then the line speed won’t really affect data
-transmission speed, but some programs will use it to determine the
-amount of padding needed.  It’s best to specify a line speed value that
-matches the actual speed of the actual terminal, but you can safely
-experiment with different values to vary the amount of padding.
-
-   There are actually two line speeds for each terminal, one for input
-and one for output.  You can set them independently, but most often
-terminals use the same speed for both directions.
-
-   The speed values are stored in the ‘struct termios’ structure, but
-don’t try to access them in the ‘struct termios’ structure directly.
-Instead, you should use the following functions to read and store them:
-
- -- Function: speed_t cfgetospeed (const struct termios *TERMIOS-P)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function returns the output line speed stored in the structure
-     ‘*TERMIOS-P’.
-
- -- Function: speed_t cfgetispeed (const struct termios *TERMIOS-P)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function returns the input line speed stored in the structure
-     ‘*TERMIOS-P’.
-
- -- Function: int cfsetospeed (struct termios *TERMIOS-P, speed_t SPEED)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function stores SPEED in ‘*TERMIOS-P’ as the output speed.
-     The normal return value is 0; a value of -1 indicates an error.  If
-     SPEED is not a speed, ‘cfsetospeed’ returns -1.
-
- -- Function: int cfsetispeed (struct termios *TERMIOS-P, speed_t SPEED)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function stores SPEED in ‘*TERMIOS-P’ as the input speed.  The
-     normal return value is 0; a value of -1 indicates an error.  If
-     SPEED is not a speed, ‘cfsetospeed’ returns -1.
-
- -- Function: int cfsetspeed (struct termios *TERMIOS-P, speed_t SPEED)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function stores SPEED in ‘*TERMIOS-P’ as both the input and
-     output speeds.  The normal return value is 0; a value of -1
-     indicates an error.  If SPEED is not a speed, ‘cfsetspeed’ returns
-     -1.  This function is an extension in 4.4 BSD.
-
- -- Data Type: speed_t
-
-     The ‘speed_t’ type is an unsigned integer data type used to
-     represent line speeds.
-
-   The functions ‘cfsetospeed’ and ‘cfsetispeed’ report errors only for
-speed values that the system simply cannot handle.  If you specify a
-speed value that is basically acceptable, then those functions will
-succeed.  But they do not check that a particular hardware device can
-actually support the specified speeds—in fact, they don’t know which
-device you plan to set the speed for.  If you use ‘tcsetattr’ to set the
-speed of a particular device to a value that it cannot handle,
-‘tcsetattr’ returns -1.
-
-   *Portability note:* In the GNU C Library, the functions above accept
-speeds measured in bits per second as input, and return speed values
-measured in bits per second.  Other libraries require speeds to be
-indicated by special codes.  For POSIX.1 portability, you must use one
-of the following symbols to represent the speed; their precise numeric
-values are system-dependent, but each name has a fixed meaning: ‘B110’
-stands for 110 bps, ‘B300’ for 300 bps, and so on.  There is no portable
-way to represent any speed but these, but these are the only speeds that
-typical serial lines can support.
-
-     B0  B50  B75  B110  B134  B150  B200
-     B300  B600  B1200  B1800  B2400  B4800
-     B9600  B19200  B38400  B57600  B115200
-     B230400  B460800
-
-   BSD defines two additional speed symbols as aliases: ‘EXTA’ is an
-alias for ‘B19200’ and ‘EXTB’ is an alias for ‘B38400’.  These aliases
-are obsolete.
-
-
-File: libc.info,  Node: Special Characters,  Next: Noncanonical Input,  Prev: Line Speed,  Up: Terminal Modes
-
-17.4.9 Special Characters
--------------------------
-
-In canonical input, the terminal driver recognizes a number of special
-characters which perform various control functions.  These include the
-ERASE character (usually <DEL>) for editing input, and other editing
-characters.  The INTR character (normally ‘C-c’) for sending a ‘SIGINT’
-signal, and other signal-raising characters, may be available in either
-canonical or noncanonical input mode.  All these characters are
-described in this section.
-
-   The particular characters used are specified in the ‘c_cc’ member of
-the ‘struct termios’ structure.  This member is an array; each element
-specifies the character for a particular role.  Each element has a
-symbolic constant that stands for the index of that element—for example,
-‘VINTR’ is the index of the element that specifies the INTR character,
-so storing ‘'='’ in ‘TERMIOS.c_cc[VINTR]’ specifies ‘=’ as the INTR
-character.
-
-   On some systems, you can disable a particular special character
-function by specifying the value ‘_POSIX_VDISABLE’ for that role.  This
-value is unequal to any possible character code.  *Note Options for
-Files::, for more information about how to tell whether the operating
-system you are using supports ‘_POSIX_VDISABLE’.
-
-* Menu:
-
-* Editing Characters::          Special characters that terminate lines and
-                                  delete text, and other editing functions.
-* Signal Characters::           Special characters that send or raise signals
-                                  to or for certain classes of processes.
-* Start/Stop Characters::       Special characters that suspend or resume
-                                  suspended output.
-* Other Special::		Other special characters for BSD systems:
-				  they can discard output, and print status.
-
-
-File: libc.info,  Node: Editing Characters,  Next: Signal Characters,  Up: Special Characters
-
-17.4.9.1 Characters for Input Editing
-.....................................
-
-These special characters are active only in canonical input mode.  *Note
-Canonical or Not::.
-
- -- Macro: int VEOF
-
-     This is the subscript for the EOF character in the special control
-     character array.  ‘TERMIOS.c_cc[VEOF]’ holds the character itself.
-
-     The EOF character is recognized only in canonical input mode.  It
-     acts as a line terminator in the same way as a newline character,
-     but if the EOF character is typed at the beginning of a line it
-     causes ‘read’ to return a byte count of zero, indicating
-     end-of-file.  The EOF character itself is discarded.
-
-     Usually, the EOF character is ‘C-d’.
-
- -- Macro: int VEOL
-
-     This is the subscript for the EOL character in the special control
-     character array.  ‘TERMIOS.c_cc[VEOL]’ holds the character itself.
-
-     The EOL character is recognized only in canonical input mode.  It
-     acts as a line terminator, just like a newline character.  The EOL
-     character is not discarded; it is read as the last character in the
-     input line.
-
-     You don’t need to use the EOL character to make <RET> end a line.
-     Just set the ICRNL flag.  In fact, this is the default state of
-     affairs.
-
- -- Macro: int VEOL2
-
-     This is the subscript for the EOL2 character in the special control
-     character array.  ‘TERMIOS.c_cc[VEOL2]’ holds the character itself.
-
-     The EOL2 character works just like the EOL character (see above),
-     but it can be a different character.  Thus, you can specify two
-     characters to terminate an input line, by setting EOL to one of
-     them and EOL2 to the other.
-
-     The EOL2 character is a BSD extension; it exists only on BSD
-     systems and GNU/Linux and GNU/Hurd systems.
-
- -- Macro: int VERASE
-
-     This is the subscript for the ERASE character in the special
-     control character array.  ‘TERMIOS.c_cc[VERASE]’ holds the
-     character itself.
-
-     The ERASE character is recognized only in canonical input mode.
-     When the user types the erase character, the previous character
-     typed is discarded.  (If the terminal generates multibyte character
-     sequences, this may cause more than one byte of input to be
-     discarded.)  This cannot be used to erase past the beginning of the
-     current line of text.  The ERASE character itself is discarded.
-
-     Usually, the ERASE character is <DEL>.
-
- -- Macro: int VWERASE
-
-     This is the subscript for the WERASE character in the special
-     control character array.  ‘TERMIOS.c_cc[VWERASE]’ holds the
-     character itself.
-
-     The WERASE character is recognized only in canonical mode.  It
-     erases an entire word of prior input, and any whitespace after it;
-     whitespace characters before the word are not erased.
-
-     The definition of a “word” depends on the setting of the
-     ‘ALTWERASE’ mode; *note Local Modes::.
-
-     If the ‘ALTWERASE’ mode is not set, a word is defined as a sequence
-     of any characters except space or tab.
-
-     If the ‘ALTWERASE’ mode is set, a word is defined as a sequence of
-     characters containing only letters, numbers, and underscores,
-     optionally followed by one character that is not a letter, number,
-     or underscore.
-
-     The WERASE character is usually ‘C-w’.
-
-     This is a BSD extension.
-
- -- Macro: int VKILL
-
-     This is the subscript for the KILL character in the special control
-     character array.  ‘TERMIOS.c_cc[VKILL]’ holds the character itself.
-
-     The KILL character is recognized only in canonical input mode.
-     When the user types the kill character, the entire contents of the
-     current line of input are discarded.  The kill character itself is
-     discarded too.
-
-     The KILL character is usually ‘C-u’.
-
- -- Macro: int VREPRINT
-
-     This is the subscript for the REPRINT character in the special
-     control character array.  ‘TERMIOS.c_cc[VREPRINT]’ holds the
-     character itself.
-
-     The REPRINT character is recognized only in canonical mode.  It
-     reprints the current input line.  If some asynchronous output has
-     come while you are typing, this lets you see the line you are
-     typing clearly again.
-
-     The REPRINT character is usually ‘C-r’.
-
-     This is a BSD extension.
-
-
-File: libc.info,  Node: Signal Characters,  Next: Start/Stop Characters,  Prev: Editing Characters,  Up: Special Characters
-
-17.4.9.2 Characters that Cause Signals
-......................................
-
-These special characters may be active in either canonical or
-noncanonical input mode, but only when the ‘ISIG’ flag is set (*note
-Local Modes::).
-
- -- Macro: int VINTR
-
-     This is the subscript for the INTR character in the special control
-     character array.  ‘TERMIOS.c_cc[VINTR]’ holds the character itself.
-
-     The INTR (interrupt) character raises a ‘SIGINT’ signal for all
-     processes in the foreground job associated with the terminal.  The
-     INTR character itself is then discarded.  *Note Signal Handling::,
-     for more information about signals.
-
-     Typically, the INTR character is ‘C-c’.
-
- -- Macro: int VQUIT
-
-     This is the subscript for the QUIT character in the special control
-     character array.  ‘TERMIOS.c_cc[VQUIT]’ holds the character itself.
-
-     The QUIT character raises a ‘SIGQUIT’ signal for all processes in
-     the foreground job associated with the terminal.  The QUIT
-     character itself is then discarded.  *Note Signal Handling::, for
-     more information about signals.
-
-     Typically, the QUIT character is ‘C-\’.
-
- -- Macro: int VSUSP
-
-     This is the subscript for the SUSP character in the special control
-     character array.  ‘TERMIOS.c_cc[VSUSP]’ holds the character itself.
-
-     The SUSP (suspend) character is recognized only if the
-     implementation supports job control (*note Job Control::).  It
-     causes a ‘SIGTSTP’ signal to be sent to all processes in the
-     foreground job associated with the terminal.  The SUSP character
-     itself is then discarded.  *Note Signal Handling::, for more
-     information about signals.
-
-     Typically, the SUSP character is ‘C-z’.
-
-   Few applications disable the normal interpretation of the SUSP
-character.  If your program does this, it should provide some other
-mechanism for the user to stop the job.  When the user invokes this
-mechanism, the program should send a ‘SIGTSTP’ signal to the process
-group of the process, not just to the process itself.  *Note Signaling
-Another Process::.
-
- -- Macro: int VDSUSP
-
-     This is the subscript for the DSUSP character in the special
-     control character array.  ‘TERMIOS.c_cc[VDSUSP]’ holds the
-     character itself.
-
-     The DSUSP (suspend) character is recognized only if the
-     implementation supports job control (*note Job Control::).  It
-     sends a ‘SIGTSTP’ signal, like the SUSP character, but not right
-     away—only when the program tries to read it as input.  Not all
-     systems with job control support DSUSP; only BSD-compatible systems
-     do (including GNU/Hurd systems).
-
-     *Note Signal Handling::, for more information about signals.
-
-     Typically, the DSUSP character is ‘C-y’.
-
-
-File: libc.info,  Node: Start/Stop Characters,  Next: Other Special,  Prev: Signal Characters,  Up: Special Characters
-
-17.4.9.3 Special Characters for Flow Control
-............................................
-
-These special characters may be active in either canonical or
-noncanonical input mode, but their use is controlled by the flags ‘IXON’
-and ‘IXOFF’ (*note Input Modes::).
-
- -- Macro: int VSTART
-
-     This is the subscript for the START character in the special
-     control character array.  ‘TERMIOS.c_cc[VSTART]’ holds the
-     character itself.
-
-     The START character is used to support the ‘IXON’ and ‘IXOFF’ input
-     modes.  If ‘IXON’ is set, receiving a START character resumes
-     suspended output; the START character itself is discarded.  If
-     ‘IXANY’ is set, receiving any character at all resumes suspended
-     output; the resuming character is not discarded unless it is the
-     START character.  If ‘IXOFF’ is set, the system may also transmit
-     START characters to the terminal.
-
-     The usual value for the START character is ‘C-q’.  You may not be
-     able to change this value—the hardware may insist on using ‘C-q’
-     regardless of what you specify.
-
- -- Macro: int VSTOP
-
-     This is the subscript for the STOP character in the special control
-     character array.  ‘TERMIOS.c_cc[VSTOP]’ holds the character itself.
-
-     The STOP character is used to support the ‘IXON’ and ‘IXOFF’ input
-     modes.  If ‘IXON’ is set, receiving a STOP character causes output
-     to be suspended; the STOP character itself is discarded.  If
-     ‘IXOFF’ is set, the system may also transmit STOP characters to the
-     terminal, to prevent the input queue from overflowing.
-
-     The usual value for the STOP character is ‘C-s’.  You may not be
-     able to change this value—the hardware may insist on using ‘C-s’
-     regardless of what you specify.
-
-
-File: libc.info,  Node: Other Special,  Prev: Start/Stop Characters,  Up: Special Characters
-
-17.4.9.4 Other Special Characters
-.................................
-
- -- Macro: int VLNEXT
-
-     This is the subscript for the LNEXT character in the special
-     control character array.  ‘TERMIOS.c_cc[VLNEXT]’ holds the
-     character itself.
-
-     The LNEXT character is recognized only when ‘IEXTEN’ is set, but in
-     both canonical and noncanonical mode.  It disables any special
-     significance of the next character the user types.  Even if the
-     character would normally perform some editing function or generate
-     a signal, it is read as a plain character.  This is the analogue of
-     the ‘C-q’ command in Emacs.  “LNEXT” stands for “literal next.”
-
-     The LNEXT character is usually ‘C-v’.
-
-     This character is available on BSD systems and GNU/Linux and
-     GNU/Hurd systems.
-
- -- Macro: int VDISCARD
-
-     This is the subscript for the DISCARD character in the special
-     control character array.  ‘TERMIOS.c_cc[VDISCARD]’ holds the
-     character itself.
-
-     The DISCARD character is recognized only when ‘IEXTEN’ is set, but
-     in both canonical and noncanonical mode.  Its effect is to toggle
-     the discard-output flag.  When this flag is set, all program output
-     is discarded.  Setting the flag also discards all output currently
-     in the output buffer.  Typing any other character resets the flag.
-
-     This character is available on BSD systems and GNU/Linux and
-     GNU/Hurd systems.
-
- -- Macro: int VSTATUS
-
-     This is the subscript for the STATUS character in the special
-     control character array.  ‘TERMIOS.c_cc[VSTATUS]’ holds the
-     character itself.
-
-     The STATUS character’s effect is to print out a status message
-     about how the current process is running.
-
-     The STATUS character is recognized only in canonical mode, and only
-     if ‘NOKERNINFO’ is not set.
-
-     This character is available only on BSD systems and GNU/Hurd
-     systems.
-
-
-File: libc.info,  Node: Noncanonical Input,  Prev: Special Characters,  Up: Terminal Modes
-
-17.4.10 Noncanonical Input
---------------------------
-
-In noncanonical input mode, the special editing characters such as ERASE
-and KILL are ignored.  The system facilities for the user to edit input
-are disabled in noncanonical mode, so that all input characters (unless
-they are special for signal or flow-control purposes) are passed to the
-application program exactly as typed.  It is up to the application
-program to give the user ways to edit the input, if appropriate.
-
-   Noncanonical mode offers special parameters called MIN and TIME for
-controlling whether and how long to wait for input to be available.  You
-can even use them to avoid ever waiting—to return immediately with
-whatever input is available, or with no input.
-
-   The MIN and TIME are stored in elements of the ‘c_cc’ array, which is
-a member of the ‘struct termios’ structure.  Each element of this array
-has a particular role, and each element has a symbolic constant that
-stands for the index of that element.  ‘VMIN’ and ‘VTIME’ are the names
-for the indices in the array of the MIN and TIME slots.
-
- -- Macro: int VMIN
-
-     This is the subscript for the MIN slot in the ‘c_cc’ array.  Thus,
-     ‘TERMIOS.c_cc[VMIN]’ is the value itself.
-
-     The MIN slot is only meaningful in noncanonical input mode; it
-     specifies the minimum number of bytes that must be available in the
-     input queue in order for ‘read’ to return.
-
- -- Macro: int VTIME
-
-     This is the subscript for the TIME slot in the ‘c_cc’ array.  Thus,
-     ‘TERMIOS.c_cc[VTIME]’ is the value itself.
-
-     The TIME slot is only meaningful in noncanonical input mode; it
-     specifies how long to wait for input before returning, in units of
-     0.1 seconds.
-
-   The MIN and TIME values interact to determine the criterion for when
-‘read’ should return; their precise meanings depend on which of them are
-nonzero.  There are four possible cases:
-
-   • Both TIME and MIN are nonzero.
-
-     In this case, TIME specifies how long to wait after each input
-     character to see if more input arrives.  After the first character
-     received, ‘read’ keeps waiting until either MIN bytes have arrived
-     in all, or TIME elapses with no further input.
-
-     ‘read’ always blocks until the first character arrives, even if
-     TIME elapses first.  ‘read’ can return more than MIN characters if
-     more than MIN happen to be in the queue.
-
-   • Both MIN and TIME are zero.
-
-     In this case, ‘read’ always returns immediately with as many
-     characters as are available in the queue, up to the number
-     requested.  If no input is immediately available, ‘read’ returns a
-     value of zero.
-
-   • MIN is zero but TIME has a nonzero value.
-
-     In this case, ‘read’ waits for time TIME for input to become
-     available; the availability of a single byte is enough to satisfy
-     the read request and cause ‘read’ to return.  When it returns, it
-     returns as many characters as are available, up to the number
-     requested.  If no input is available before the timer expires,
-     ‘read’ returns a value of zero.
-
-   • TIME is zero but MIN has a nonzero value.
-
-     In this case, ‘read’ waits until at least MIN bytes are available
-     in the queue.  At that time, ‘read’ returns as many characters as
-     are available, up to the number requested.  ‘read’ can return more
-     than MIN characters if more than MIN happen to be in the queue.
-
-   What happens if MIN is 50 and you ask to read just 10 bytes?
-Normally, ‘read’ waits until there are 50 bytes in the buffer (or, more
-generally, the wait condition described above is satisfied), and then
-reads 10 of them, leaving the other 40 buffered in the operating system
-for a subsequent call to ‘read’.
-
-   *Portability note:* On some systems, the MIN and TIME slots are
-actually the same as the EOF and EOL slots.  This causes no serious
-problem because the MIN and TIME slots are used only in noncanonical
-input and the EOF and EOL slots are used only in canonical input, but it
-isn’t very clean.  The GNU C Library allocates separate slots for these
-uses.
-
- -- Function: void cfmakeraw (struct termios *TERMIOS-P)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function provides an easy way to set up ‘*TERMIOS-P’ for what
-     has traditionally been called “raw mode” in BSD. This uses
-     noncanonical input, and turns off most processing to give an
-     unmodified channel to the terminal.
-
-     It does exactly this:
-            TERMIOS-P->c_iflag &= ~(IGNBRK|BRKINT|PARMRK|ISTRIP
-                                          |INLCR|IGNCR|ICRNL|IXON);
-            TERMIOS-P->c_oflag &= ~OPOST;
-            TERMIOS-P->c_lflag &= ~(ECHO|ECHONL|ICANON|ISIG|IEXTEN);
-            TERMIOS-P->c_cflag &= ~(CSIZE|PARENB);
-            TERMIOS-P->c_cflag |= CS8;
-
-
-File: libc.info,  Node: BSD Terminal Modes,  Next: Line Control,  Prev: Terminal Modes,  Up: Low-Level Terminal Interface
-
-17.5 BSD Terminal Modes
-=======================
-
-The usual way to get and set terminal modes is with the functions
-described in *note Terminal Modes::.  However, on some systems you can
-use the BSD-derived functions in this section to do some of the same
-things.  On many systems, these functions do not exist.  Even with the
-GNU C Library, the functions simply fail with ‘errno’ = ‘ENOSYS’ with
-many kernels, including Linux.
-
-   The symbols used in this section are declared in ‘sgtty.h’.
-
- -- Data Type: struct sgttyb
-
-     This structure is an input or output parameter list for ‘gtty’ and
-     ‘stty’.
-
-     ‘char sg_ispeed’
-          Line speed for input
-     ‘char sg_ospeed’
-          Line speed for output
-     ‘char sg_erase’
-          Erase character
-     ‘char sg_kill’
-          Kill character
-     ‘int sg_flags’
-          Various flags
-
- -- Function: int gtty (int FILEDES, struct sgttyb *ATTRIBUTES)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function gets the attributes of a terminal.
-
-     ‘gtty’ sets *ATTRIBUTES to describe the terminal attributes of the
-     terminal which is open with file descriptor FILEDES.
-
- -- Function: int stty (int FILEDES, const struct sgttyb *ATTRIBUTES)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function sets the attributes of a terminal.
-
-     ‘stty’ sets the terminal attributes of the terminal which is open
-     with file descriptor FILEDES to those described by *ATTRIBUTES.
-
-
-File: libc.info,  Node: Line Control,  Next: Noncanon Example,  Prev: BSD Terminal Modes,  Up: Low-Level Terminal Interface
-
-17.6 Line Control Functions
-===========================
-
-These functions perform miscellaneous control actions on terminal
-devices.  As regards terminal access, they are treated like doing
-output: if any of these functions is used by a background process on its
-controlling terminal, normally all processes in the process group are
-sent a ‘SIGTTOU’ signal.  The exception is if the calling process itself
-is ignoring or blocking ‘SIGTTOU’ signals, in which case the operation
-is performed and no signal is sent.  *Note Job Control::.
-
- -- Function: int tcsendbreak (int FILEDES, int DURATION)
-
-     Preliminary: | MT-Unsafe race:tcattr(filedes)/bsd | AS-Unsafe |
-     AC-Unsafe corrupt/bsd | *Note POSIX Safety Concepts::.
-
-     This function generates a break condition by transmitting a stream
-     of zero bits on the terminal associated with the file descriptor
-     FILEDES.  The duration of the break is controlled by the DURATION
-     argument.  If zero, the duration is between 0.25 and 0.5 seconds.
-     The meaning of a nonzero value depends on the operating system.
-
-     This function does nothing if the terminal is not an asynchronous
-     serial data port.
-
-     The return value is normally zero.  In the event of an error, a
-     value of -1 is returned.  The following ‘errno’ error conditions
-     are defined for this function:
-
-     ‘EBADF’
-          The FILEDES is not a valid file descriptor.
-
-     ‘ENOTTY’
-          The FILEDES is not associated with a terminal device.
-
- -- Function: int tcdrain (int FILEDES)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘tcdrain’ function waits until all queued output to the
-     terminal FILEDES has been transmitted.
-
-     This function is a cancellation point in multi-threaded programs.
-     This is a problem if the thread allocates some resources (like
-     memory, file descriptors, semaphores or whatever) at the time
-     ‘tcdrain’ is called.  If the thread gets canceled these resources
-     stay allocated until the program ends.  To avoid this calls to
-     ‘tcdrain’ should be protected using cancellation handlers.
-
-     The return value is normally zero.  In the event of an error, a
-     value of -1 is returned.  The following ‘errno’ error conditions
-     are defined for this function:
-
-     ‘EBADF’
-          The FILEDES is not a valid file descriptor.
-
-     ‘ENOTTY’
-          The FILEDES is not associated with a terminal device.
-
-     ‘EINTR’
-          The operation was interrupted by delivery of a signal.  *Note
-          Interrupted Primitives::.
-
- -- Function: int tcflush (int FILEDES, int QUEUE)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘tcflush’ function is used to clear the input and/or output
-     queues associated with the terminal file FILEDES.  The QUEUE
-     argument specifies which queue(s) to clear, and can be one of the
-     following values:
-
-     ‘TCIFLUSH’
-
-          Clear any input data received, but not yet read.
-
-     ‘TCOFLUSH’
-
-          Clear any output data written, but not yet transmitted.
-
-     ‘TCIOFLUSH’
-
-          Clear both queued input and output.
-
-     The return value is normally zero.  In the event of an error, a
-     value of -1 is returned.  The following ‘errno’ error conditions
-     are defined for this function:
-
-     ‘EBADF’
-          The FILEDES is not a valid file descriptor.
-
-     ‘ENOTTY’
-          The FILEDES is not associated with a terminal device.
-
-     ‘EINVAL’
-          A bad value was supplied as the QUEUE argument.
-
-     It is unfortunate that this function is named ‘tcflush’, because
-     the term “flush” is normally used for quite another
-     operation—waiting until all output is transmitted—and using it for
-     discarding input or output would be confusing.  Unfortunately, the
-     name ‘tcflush’ comes from POSIX and we cannot change it.
-
- -- Function: int tcflow (int FILEDES, int ACTION)
-
-     Preliminary: | MT-Unsafe race:tcattr(filedes)/bsd | AS-Unsafe |
-     AC-Safe | *Note POSIX Safety Concepts::.
-
-     The ‘tcflow’ function is used to perform operations relating to
-     XON/XOFF flow control on the terminal file specified by FILEDES.
-
-     The ACTION argument specifies what operation to perform, and can be
-     one of the following values:
-
-     ‘TCOOFF’
-          Suspend transmission of output.
-
-     ‘TCOON’
-          Restart transmission of output.
-
-     ‘TCIOFF’
-          Transmit a STOP character.
-
-     ‘TCION’
-          Transmit a START character.
-
-     For more information about the STOP and START characters, see *note
-     Special Characters::.
-
-     The return value is normally zero.  In the event of an error, a
-     value of -1 is returned.  The following ‘errno’ error conditions
-     are defined for this function:
-
-     ‘EBADF’
-          The FILEDES is not a valid file descriptor.
-
-     ‘ENOTTY’
-          The FILEDES is not associated with a terminal device.
-
-     ‘EINVAL’
-          A bad value was supplied as the ACTION argument.
-
-
-File: libc.info,  Node: Noncanon Example,  Next: Pseudo-Terminals,  Prev: Line Control,  Up: Low-Level Terminal Interface
-
-17.7 Noncanonical Mode Example
-==============================
-
-Here is an example program that shows how you can set up a terminal
-device to read single characters in noncanonical input mode, without
-echo.
-
-
-     #include <unistd.h>
-     #include <stdio.h>
-     #include <stdlib.h>
-     #include <termios.h>
-
-     /* Use this variable to remember original terminal attributes. */
-
-     struct termios saved_attributes;
-
-     void
-     reset_input_mode (void)
-     {
-       tcsetattr (STDIN_FILENO, TCSANOW, &saved_attributes);
-     }
-
-     void
-     set_input_mode (void)
-     {
-       struct termios tattr;
-       char *name;
-
-       /* Make sure stdin is a terminal. */
-       if (!isatty (STDIN_FILENO))
-         {
-           fprintf (stderr, "Not a terminal.\n");
-           exit (EXIT_FAILURE);
-         }
-
-       /* Save the terminal attributes so we can restore them later. */
-       tcgetattr (STDIN_FILENO, &saved_attributes);
-       atexit (reset_input_mode);
-
-       /* Set the funny terminal modes. */
-       tcgetattr (STDIN_FILENO, &tattr);
-       tattr.c_lflag &= ~(ICANON|ECHO); /* Clear ICANON and ECHO. */
-       tattr.c_cc[VMIN] = 1;
-       tattr.c_cc[VTIME] = 0;
-       tcsetattr (STDIN_FILENO, TCSAFLUSH, &tattr);
-     }
-
-     int
-     main (void)
-     {
-       char c;
-
-       set_input_mode ();
-
-       while (1)
-         {
-           read (STDIN_FILENO, &c, 1);
-           if (c == '\004')          /* ‘C-d’ */
-             break;
-           else
-             putchar (c);
-         }
-
-       return EXIT_SUCCESS;
-     }
-
-   This program is careful to restore the original terminal modes before
-exiting or terminating with a signal.  It uses the ‘atexit’ function
-(*note Cleanups on Exit::) to make sure this is done by ‘exit’.
-
-   The shell is supposed to take care of resetting the terminal modes
-when a process is stopped or continued; see *note Job Control::.  But
-some existing shells do not actually do this, so you may wish to
-establish handlers for job control signals that reset terminal modes.
-The above example does so.
 

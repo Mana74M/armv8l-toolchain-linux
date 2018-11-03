@@ -2,10 +2,10 @@ This is libc.info, produced by makeinfo version 6.5 from libc.texinfo.
 
 This file documents the GNU C Library.
 
-   This is ‘The GNU C Library Reference Manual’, for version 2.26
-(crosstool-NG 1.23.0.420-f79b).
+   This is ‘The GNU C Library Reference Manual’, for version 2.28
+(crosstool-NG 1.23.0.511-576f).
 
-   Copyright © 1993–2017 Free Software Foundation, Inc.
+   Copyright © 1993–2018 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +56,6 @@ START-INFO-DIR-ENTRY
 * CS8: (libc)Control Modes.
 * CSIZE: (libc)Control Modes.
 * CSTOPB: (libc)Control Modes.
-* DES_FAILED: (libc)DES Encryption.
 * DTTOIF: (libc)Directory Entries.
 * E2BIG: (libc)Error Codes.
 * EACCES: (libc)Error Codes.
@@ -326,6 +325,7 @@ START-INFO-DIR-ENTRY
 * O_READ: (libc)Access Modes.
 * O_SHLOCK: (libc)Open-time Flags.
 * O_SYNC: (libc)Operating Modes.
+* O_TMPFILE: (libc)Open-time Flags.
 * O_TRUNC: (libc)Open-time Flags.
 * O_WRITE: (libc)Access Modes.
 * O_WRONLY: (libc)Access Modes.
@@ -489,6 +489,7 @@ START-INFO-DIR-ENTRY
 * __ppc_set_ppr_med_low: (libc)PowerPC.
 * __ppc_set_ppr_very_low: (libc)PowerPC.
 * __ppc_yield: (libc)PowerPC.
+* __riscv_flush_icache: (libc)RISC-V.
 * __va_copy: (libc)Argument Macros.
 * _exit: (libc)Termination Internals.
 * _flushlbf: (libc)Flushing Buffers.
@@ -615,6 +616,7 @@ START-INFO-DIR-ENTRY
 * cacoshfNx: (libc)Hyperbolic Functions.
 * cacoshl: (libc)Hyperbolic Functions.
 * cacosl: (libc)Inverse Trig Functions.
+* call_once: (libc)Call Once.
 * calloc: (libc)Allocating Cleared Space.
 * canonicalize: (libc)FP Bit Twiddling.
 * canonicalize_file_name: (libc)Symbolic Links.
@@ -650,7 +652,6 @@ START-INFO-DIR-ENTRY
 * catclose: (libc)The catgets Functions.
 * catgets: (libc)The catgets Functions.
 * catopen: (libc)The catgets Functions.
-* cbc_crypt: (libc)DES Encryption.
 * cbrt: (libc)Exponents and Logarithms.
 * cbrtf: (libc)Exponents and Logarithms.
 * cbrtfN: (libc)Exponents and Logarithms.
@@ -707,6 +708,12 @@ START-INFO-DIR-ENTRY
 * close: (libc)Opening and Closing Files.
 * closedir: (libc)Reading/Closing Directory.
 * closelog: (libc)closelog.
+* cnd_broadcast: (libc)ISO C Condition Variables.
+* cnd_destroy: (libc)ISO C Condition Variables.
+* cnd_init: (libc)ISO C Condition Variables.
+* cnd_signal: (libc)ISO C Condition Variables.
+* cnd_timedwait: (libc)ISO C Condition Variables.
+* cnd_wait: (libc)ISO C Condition Variables.
 * confstr: (libc)String Parameters.
 * conj: (libc)Operations on Complex.
 * conjf: (libc)Operations on Complex.
@@ -714,6 +721,7 @@ START-INFO-DIR-ENTRY
 * conjfNx: (libc)Operations on Complex.
 * conjl: (libc)Operations on Complex.
 * connect: (libc)Connecting.
+* copy_file_range: (libc)Copying File Data.
 * copysign: (libc)FP Bit Twiddling.
 * copysignf: (libc)FP Bit Twiddling.
 * copysignfN: (libc)FP Bit Twiddling.
@@ -746,8 +754,8 @@ START-INFO-DIR-ENTRY
 * creall: (libc)Operations on Complex.
 * creat64: (libc)Opening and Closing Files.
 * creat: (libc)Opening and Closing Files.
-* crypt: (libc)crypt.
-* crypt_r: (libc)crypt.
+* crypt: (libc)Passphrase Storage.
+* crypt_r: (libc)Passphrase Storage.
 * csin: (libc)Trig Functions.
 * csinf: (libc)Trig Functions.
 * csinfN: (libc)Trig Functions.
@@ -777,27 +785,27 @@ START-INFO-DIR-ENTRY
 * ctime: (libc)Formatting Calendar Time.
 * ctime_r: (libc)Formatting Calendar Time.
 * cuserid: (libc)Who Logged In.
+* daddl: (libc)Misc FP Arithmetic.
 * dcgettext: (libc)Translation with gettext.
 * dcngettext: (libc)Advanced gettext functions.
-* des_setparity: (libc)DES Encryption.
+* ddivl: (libc)Misc FP Arithmetic.
 * dgettext: (libc)Translation with gettext.
 * difftime: (libc)Elapsed Time.
 * dirfd: (libc)Opening a Directory.
 * dirname: (libc)Finding Tokens in a String.
 * div: (libc)Integer Division.
+* dmull: (libc)Misc FP Arithmetic.
 * dngettext: (libc)Advanced gettext functions.
 * drand48: (libc)SVID Random.
 * drand48_r: (libc)SVID Random.
 * drem: (libc)Remainder Functions.
 * dremf: (libc)Remainder Functions.
 * dreml: (libc)Remainder Functions.
+* dsubl: (libc)Misc FP Arithmetic.
 * dup2: (libc)Duplicating Descriptors.
 * dup: (libc)Duplicating Descriptors.
-* ecb_crypt: (libc)DES Encryption.
 * ecvt: (libc)System V Number Conversion.
 * ecvt_r: (libc)System V Number Conversion.
-* encrypt: (libc)DES Encryption.
-* encrypt_r: (libc)DES Encryption.
 * endfsent: (libc)fstab.
 * endgrent: (libc)Scanning All Groups.
 * endhostent: (libc)Host Names.
@@ -860,11 +868,29 @@ START-INFO-DIR-ENTRY
 * expm1fN: (libc)Exponents and Logarithms.
 * expm1fNx: (libc)Exponents and Logarithms.
 * expm1l: (libc)Exponents and Logarithms.
+* fMaddfN: (libc)Misc FP Arithmetic.
+* fMaddfNx: (libc)Misc FP Arithmetic.
+* fMdivfN: (libc)Misc FP Arithmetic.
+* fMdivfNx: (libc)Misc FP Arithmetic.
+* fMmulfN: (libc)Misc FP Arithmetic.
+* fMmulfNx: (libc)Misc FP Arithmetic.
+* fMsubfN: (libc)Misc FP Arithmetic.
+* fMsubfNx: (libc)Misc FP Arithmetic.
+* fMxaddfN: (libc)Misc FP Arithmetic.
+* fMxaddfNx: (libc)Misc FP Arithmetic.
+* fMxdivfN: (libc)Misc FP Arithmetic.
+* fMxdivfNx: (libc)Misc FP Arithmetic.
+* fMxmulfN: (libc)Misc FP Arithmetic.
+* fMxmulfNx: (libc)Misc FP Arithmetic.
+* fMxsubfN: (libc)Misc FP Arithmetic.
+* fMxsubfNx: (libc)Misc FP Arithmetic.
 * fabs: (libc)Absolute Value.
 * fabsf: (libc)Absolute Value.
 * fabsfN: (libc)Absolute Value.
 * fabsfNx: (libc)Absolute Value.
 * fabsl: (libc)Absolute Value.
+* fadd: (libc)Misc FP Arithmetic.
+* faddl: (libc)Misc FP Arithmetic.
 * fchdir: (libc)Working Directory.
 * fchmod: (libc)Setting Permissions.
 * fchown: (libc)File Owner.
@@ -879,6 +905,8 @@ START-INFO-DIR-ENTRY
 * fdimfN: (libc)Misc FP Arithmetic.
 * fdimfNx: (libc)Misc FP Arithmetic.
 * fdiml: (libc)Misc FP Arithmetic.
+* fdiv: (libc)Misc FP Arithmetic.
+* fdivl: (libc)Misc FP Arithmetic.
 * fdopen: (libc)Descriptors and Streams.
 * fdopendir: (libc)Opening a Directory.
 * feclearexcept: (libc)Status bit operations.
@@ -962,6 +990,8 @@ START-INFO-DIR-ENTRY
 * fmodfNx: (libc)Remainder Functions.
 * fmodl: (libc)Remainder Functions.
 * fmtmsg: (libc)Printing Formatted Messages.
+* fmul: (libc)Misc FP Arithmetic.
+* fmull: (libc)Misc FP Arithmetic.
 * fnmatch: (libc)Wildcard Matching.
 * fopen64: (libc)Opening Streams.
 * fopen: (libc)Opening Streams.
@@ -1007,6 +1037,8 @@ START-INFO-DIR-ENTRY
 * fsetpos: (libc)Portable Positioning.
 * fstat64: (libc)Reading Attributes.
 * fstat: (libc)Reading Attributes.
+* fsub: (libc)Misc FP Arithmetic.
+* fsubl: (libc)Misc FP Arithmetic.
 * fsync: (libc)Synchronizing I/O.
 * ftell: (libc)File Positioning.
 * ftello64: (libc)File Positioning.
@@ -1280,6 +1312,7 @@ START-INFO-DIR-ENTRY
 * lgammal: (libc)Special Functions.
 * lgammal_r: (libc)Special Functions.
 * link: (libc)Hard Links.
+* linkat: (libc)Hard Links.
 * lio_listio64: (libc)Asynchronous Reads/Writes.
 * lio_listio: (libc)Asynchronous Reads/Writes.
 * listen: (libc)Listening.
@@ -1370,7 +1403,8 @@ START-INFO-DIR-ENTRY
 * memchr: (libc)Search Functions.
 * memcmp: (libc)String/Array Comparison.
 * memcpy: (libc)Copying Strings and Arrays.
-* memfrob: (libc)Trivial Encryption.
+* memfd_create: (libc)Memory-mapped I/O.
+* memfrob: (libc)Obfuscating Data.
 * memmem: (libc)Search Functions.
 * memmove: (libc)Copying Strings and Arrays.
 * mempcpy: (libc)Copying Strings and Arrays.
@@ -1383,6 +1417,7 @@ START-INFO-DIR-ENTRY
 * mkstemp: (libc)Temporary Files.
 * mktemp: (libc)Temporary Files.
 * mktime: (libc)Broken-down Time.
+* mlock2: (libc)Page Lock Functions.
 * mlock: (libc)Page Lock Functions.
 * mlockall: (libc)Page Lock Functions.
 * mmap64: (libc)Memory-mapped I/O.
@@ -1394,11 +1429,18 @@ START-INFO-DIR-ENTRY
 * modfl: (libc)Rounding Functions.
 * mount: (libc)Mount-Unmount-Remount.
 * mprobe: (libc)Heap Consistency Checking.
+* mprotect: (libc)Memory Protection.
 * mrand48: (libc)SVID Random.
 * mrand48_r: (libc)SVID Random.
 * mremap: (libc)Memory-mapped I/O.
 * msync: (libc)Memory-mapped I/O.
 * mtrace: (libc)Tracing malloc.
+* mtx_destroy: (libc)ISO C Mutexes.
+* mtx_init: (libc)ISO C Mutexes.
+* mtx_lock: (libc)ISO C Mutexes.
+* mtx_timedlock: (libc)ISO C Mutexes.
+* mtx_trylock: (libc)ISO C Mutexes.
+* mtx_unlock: (libc)ISO C Mutexes.
 * munlock: (libc)Page Lock Functions.
 * munlockall: (libc)Page Lock Functions.
 * munmap: (libc)Memory-mapped I/O.
@@ -1482,13 +1524,15 @@ START-INFO-DIR-ENTRY
 * pclose: (libc)Pipe to a Subprocess.
 * perror: (libc)Error Messages.
 * pipe: (libc)Creating a Pipe.
+* pkey_alloc: (libc)Memory Protection.
+* pkey_free: (libc)Memory Protection.
+* pkey_get: (libc)Memory Protection.
+* pkey_mprotect: (libc)Memory Protection.
+* pkey_set: (libc)Memory Protection.
 * popen: (libc)Pipe to a Subprocess.
 * posix_fallocate64: (libc)Storage Allocation.
 * posix_fallocate: (libc)Storage Allocation.
 * posix_memalign: (libc)Aligned Memory Blocks.
-* pow10: (libc)Exponents and Logarithms.
-* pow10f: (libc)Exponents and Logarithms.
-* pow10l: (libc)Exponents and Logarithms.
 * pow: (libc)Exponents and Logarithms.
 * powf: (libc)Exponents and Logarithms.
 * powfN: (libc)Exponents and Logarithms.
@@ -1496,10 +1540,10 @@ START-INFO-DIR-ENTRY
 * powl: (libc)Exponents and Logarithms.
 * pread64: (libc)I/O Primitives.
 * pread: (libc)I/O Primitives.
-* preadv2: (libc)I/O Primitives.
-* preadv64: (libc)I/O Primitives.
-* preadv64v2: (libc)I/O Primitives.
-* preadv: (libc)I/O Primitives.
+* preadv2: (libc)Scatter-Gather.
+* preadv64: (libc)Scatter-Gather.
+* preadv64v2: (libc)Scatter-Gather.
+* preadv: (libc)Scatter-Gather.
 * printf: (libc)Formatted Output Functions.
 * printf_size: (libc)Predefined Printf Handlers.
 * printf_size_info: (libc)Predefined Printf Handlers.
@@ -1528,10 +1572,10 @@ START-INFO-DIR-ENTRY
 * putwchar_unlocked: (libc)Simple Output.
 * pwrite64: (libc)I/O Primitives.
 * pwrite: (libc)I/O Primitives.
-* pwritev2: (libc)I/O Primitives.
-* pwritev64: (libc)I/O Primitives.
-* pwritev64v2: (libc)I/O Primitives.
-* pwritev: (libc)I/O Primitives.
+* pwritev2: (libc)Scatter-Gather.
+* pwritev64: (libc)Scatter-Gather.
+* pwritev64v2: (libc)Scatter-Gather.
+* pwritev: (libc)Scatter-Gather.
 * qecvt: (libc)System V Number Conversion.
 * qecvt_r: (libc)System V Number Conversion.
 * qfcvt: (libc)System V Number Conversion.
@@ -1654,8 +1698,6 @@ START-INFO-DIR-ENTRY
 * sethostname: (libc)Host Identification.
 * setitimer: (libc)Setting an Alarm.
 * setjmp: (libc)Non-Local Details.
-* setkey: (libc)DES Encryption.
-* setkey_r: (libc)DES Encryption.
 * setlinebuf: (libc)Controlling Buffering.
 * setlocale: (libc)Setting the Locale.
 * setlogmask: (libc)setlogmask.
@@ -1773,7 +1815,7 @@ START-INFO-DIR-ENTRY
 * strfromfN: (libc)Printing of Floats.
 * strfromfNx: (libc)Printing of Floats.
 * strfroml: (libc)Printing of Floats.
-* strfry: (libc)strfry.
+* strfry: (libc)Shuffling Bytes.
 * strftime: (libc)Formatting Calendar Time.
 * strlen: (libc)String Length.
 * strncasecmp: (libc)String/Array Comparison.
@@ -1849,6 +1891,14 @@ START-INFO-DIR-ENTRY
 * tgammafN: (libc)Special Functions.
 * tgammafNx: (libc)Special Functions.
 * tgammal: (libc)Special Functions.
+* thrd_create: (libc)ISO C Thread Management.
+* thrd_current: (libc)ISO C Thread Management.
+* thrd_detach: (libc)ISO C Thread Management.
+* thrd_equal: (libc)ISO C Thread Management.
+* thrd_exit: (libc)ISO C Thread Management.
+* thrd_join: (libc)ISO C Thread Management.
+* thrd_sleep: (libc)ISO C Thread Management.
+* thrd_yield: (libc)ISO C Thread Management.
 * time: (libc)Simple Calendar Time.
 * timegm: (libc)Broken-down Time.
 * timelocal: (libc)Broken-down Time.
@@ -1881,6 +1931,10 @@ START-INFO-DIR-ENTRY
 * truncfNx: (libc)Rounding Functions.
 * truncl: (libc)Rounding Functions.
 * tsearch: (libc)Tree Search Function.
+* tss_create: (libc)ISO C Thread-local Storage.
+* tss_delete: (libc)ISO C Thread-local Storage.
+* tss_get: (libc)ISO C Thread-local Storage.
+* tss_set: (libc)ISO C Thread-local Storage.
 * ttyname: (libc)Is It a Terminal.
 * ttyname_r: (libc)Is It a Terminal.
 * twalk: (libc)Tree Search Function.
@@ -2019,6 +2073,1969 @@ START-INFO-DIR-ENTRY
 * ynfNx: (libc)Special Functions.
 * ynl: (libc)Special Functions.
 END-INFO-DIR-ENTRY
+
+
+File: libc.info,  Node: Terminal Access Functions,  Prev: Process Group Functions,  Up: Functions for Job Control
+
+28.7.3 Functions for Controlling Terminal Access
+------------------------------------------------
+
+These are the functions for reading or setting the foreground process
+group of a terminal.  You should include the header files ‘sys/types.h’
+and ‘unistd.h’ in your application to use these functions.
+
+   Although these functions take a file descriptor argument to specify
+the terminal device, the foreground job is associated with the terminal
+file itself and not a particular open file descriptor.
+
+ -- Function: pid_t tcgetpgrp (int FILEDES)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function returns the process group ID of the foreground
+     process group associated with the terminal open on descriptor
+     FILEDES.
+
+     If there is no foreground process group, the return value is a
+     number greater than ‘1’ that does not match the process group ID of
+     any existing process group.  This can happen if all of the
+     processes in the job that was formerly the foreground job have
+     terminated, and no other job has yet been moved into the
+     foreground.
+
+     In case of an error, a value of ‘-1’ is returned.  The following
+     ‘errno’ error conditions are defined for this function:
+
+     ‘EBADF’
+          The FILEDES argument is not a valid file descriptor.
+
+     ‘ENOSYS’
+          The system doesn’t support job control.
+
+     ‘ENOTTY’
+          The terminal file associated with the FILEDES argument isn’t
+          the controlling terminal of the calling process.
+
+ -- Function: int tcsetpgrp (int FILEDES, pid_t PGID)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function is used to set a terminal’s foreground process group
+     ID. The argument FILEDES is a descriptor which specifies the
+     terminal; PGID specifies the process group.  The calling process
+     must be a member of the same session as PGID and must have the same
+     controlling terminal.
+
+     For terminal access purposes, this function is treated as output.
+     If it is called from a background process on its controlling
+     terminal, normally all processes in the process group are sent a
+     ‘SIGTTOU’ signal.  The exception is if the calling process itself
+     is ignoring or blocking ‘SIGTTOU’ signals, in which case the
+     operation is performed and no signal is sent.
+
+     If successful, ‘tcsetpgrp’ returns ‘0’.  A return value of ‘-1’
+     indicates an error.  The following ‘errno’ error conditions are
+     defined for this function:
+
+     ‘EBADF’
+          The FILEDES argument is not a valid file descriptor.
+
+     ‘EINVAL’
+          The PGID argument is not valid.
+
+     ‘ENOSYS’
+          The system doesn’t support job control.
+
+     ‘ENOTTY’
+          The FILEDES isn’t the controlling terminal of the calling
+          process.
+
+     ‘EPERM’
+          The PGID isn’t a process group in the same session as the
+          calling process.
+
+ -- Function: pid_t tcgetsid (int FILDES)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function is used to obtain the process group ID of the session
+     for which the terminal specified by FILDES is the controlling
+     terminal.  If the call is successful the group ID is returned.
+     Otherwise the return value is ‘(pid_t) -1’ and the global variable
+     ERRNO is set to the following value:
+     ‘EBADF’
+          The FILEDES argument is not a valid file descriptor.
+
+     ‘ENOTTY’
+          The calling process does not have a controlling terminal, or
+          the file is not the controlling terminal.
+
+
+File: libc.info,  Node: Name Service Switch,  Next: Users and Groups,  Prev: Job Control,  Up: Top
+
+29 System Databases and Name Service Switch
+*******************************************
+
+Various functions in the C Library need to be configured to work
+correctly in the local environment.  Traditionally, this was done by
+using files (e.g., ‘/etc/passwd’), but other nameservices (like the
+Network Information Service (NIS) and the Domain Name Service (DNS))
+became popular, and were hacked into the C library, usually with a fixed
+search order.
+
+   The GNU C Library contains a cleaner solution to this problem.  It is
+designed after a method used by Sun Microsystems in the C library of
+Solaris 2.  The GNU C Library follows their name and calls this scheme
+“Name Service Switch” (NSS).
+
+   Though the interface might be similar to Sun’s version there is no
+common code.  We never saw any source code of Sun’s implementation and
+so the internal interface is incompatible.  This also manifests in the
+file names we use as we will see later.
+
+* Menu:
+
+* NSS Basics::                  What is this NSS good for.
+* NSS Configuration File::      Configuring NSS.
+* NSS Module Internals::        How does it work internally.
+* Extending NSS::               What to do to add services or databases.
+
+
+File: libc.info,  Node: NSS Basics,  Next: NSS Configuration File,  Prev: Name Service Switch,  Up: Name Service Switch
+
+29.1 NSS Basics
+===============
+
+The basic idea is to put the implementation of the different services
+offered to access the databases in separate modules.  This has some
+advantages:
+
+  1. Contributors can add new services without adding them to the GNU C
+     Library.
+  2. The modules can be updated separately.
+  3. The C library image is smaller.
+
+   To fulfill the first goal above, the ABI of the modules will be
+described below.  For getting the implementation of a new service right
+it is important to understand how the functions in the modules get
+called.  They are in no way designed to be used by the programmer
+directly.  Instead the programmer should only use the documented and
+standardized functions to access the databases.
+
+The databases available in the NSS are
+
+‘aliases’
+     Mail aliases
+‘ethers’
+     Ethernet numbers,
+‘group’
+     Groups of users, *note Group Database::.
+‘hosts’
+     Host names and numbers, *note Host Names::.
+‘netgroup’
+     Network wide list of host and users, *note Netgroup Database::.
+‘networks’
+     Network names and numbers, *note Networks Database::.
+‘protocols’
+     Network protocols, *note Protocols Database::.
+‘passwd’
+     User identities, *note User Database::.
+‘rpc’
+     Remote procedure call names and numbers.
+‘services’
+     Network services, *note Services Database::.
+‘shadow’
+     User passphrase hashes and related information.
+
+There will be some more added later (‘automount’, ‘bootparams’,
+‘netmasks’, and ‘publickey’).
+
+
+File: libc.info,  Node: NSS Configuration File,  Next: NSS Module Internals,  Prev: NSS Basics,  Up: Name Service Switch
+
+29.2 The NSS Configuration File
+===============================
+
+Somehow the NSS code must be told about the wishes of the user.  For
+this reason there is the file ‘/etc/nsswitch.conf’.  For each database,
+this file contains a specification of how the lookup process should
+work.  The file could look like this:
+
+     # /etc/nsswitch.conf
+     #
+     # Name Service Switch configuration file.
+     #
+
+     passwd:     db files nis
+     shadow:     files
+     group:      db files nis
+
+     hosts:      files nisplus nis dns
+     networks:   nisplus [NOTFOUND=return] files
+
+     ethers:     nisplus [NOTFOUND=return] db files
+     protocols:  nisplus [NOTFOUND=return] db files
+     rpc:        nisplus [NOTFOUND=return] db files
+     services:   nisplus [NOTFOUND=return] db files
+
+   The first column is the database as you can guess from the table
+above.  The rest of the line specifies how the lookup process works.
+Please note that you specify the way it works for each database
+individually.  This cannot be done with the old way of a monolithic
+implementation.
+
+   The configuration specification for each database can contain two
+different items:
+
+   • the service specification like ‘files’, ‘db’, or ‘nis’.
+   • the reaction on lookup result like ‘[NOTFOUND=return]’.
+
+* Menu:
+
+* Services in the NSS configuration::  Service names in the NSS configuration.
+* Actions in the NSS configuration::  React appropriately to the lookup result.
+* Notes on NSS Configuration File::  Things to take care about while
+                                     configuring NSS.
+
+
+File: libc.info,  Node: Services in the NSS configuration,  Next: Actions in the NSS configuration,  Prev: NSS Configuration File,  Up: NSS Configuration File
+
+29.2.1 Services in the NSS configuration File
+---------------------------------------------
+
+The above example file mentions five different services: ‘files’, ‘db’,
+‘dns’, ‘nis’, and ‘nisplus’.  This does not mean these services are
+available on all sites and neither does it mean these are all the
+services which will ever be available.
+
+   In fact, these names are simply strings which the NSS code uses to
+find the implicitly addressed functions.  The internal interface will be
+described later.  Visible to the user are the modules which implement an
+individual service.
+
+   Assume the service NAME shall be used for a lookup.  The code for
+this service is implemented in a module called ‘libnss_NAME’.  On a
+system supporting shared libraries this is in fact a shared library with
+the name (for example) ‘libnss_NAME.so.2’.  The number at the end is the
+currently used version of the interface which will not change
+frequently.  Normally the user should not have to be cognizant of these
+files since they should be placed in a directory where they are found
+automatically.  Only the names of all available services are important.
+
+
+File: libc.info,  Node: Actions in the NSS configuration,  Next: Notes on NSS Configuration File,  Prev: Services in the NSS configuration,  Up: NSS Configuration File
+
+29.2.2 Actions in the NSS configuration
+---------------------------------------
+
+The second item in the specification gives the user much finer control
+on the lookup process.  Action items are placed between two service
+names and are written within brackets.  The general form is
+
+     ‘[’ ( ‘!’? STATUS ‘=’ ACTION )+ ‘]’
+
+where
+
+     STATUS ⇒ success | notfound | unavail | tryagain
+     ACTION ⇒ return | continue
+
+   The case of the keywords is insignificant.  The STATUS values are the
+results of a call to a lookup function of a specific service.  They
+mean:
+
+‘success’
+     No error occurred and the wanted entry is returned.  The default
+     action for this is ‘return’.
+
+‘notfound’
+     The lookup process works ok but the needed value was not found.
+     The default action is ‘continue’.
+
+‘unavail’
+     The service is permanently unavailable.  This can either mean the
+     needed file is not available, or, for DNS, the server is not
+     available or does not allow queries.  The default action is
+     ‘continue’.
+
+‘tryagain’
+     The service is temporarily unavailable.  This could mean a file is
+     locked or a server currently cannot accept more connections.  The
+     default action is ‘continue’.
+
+The ACTION values mean:
+
+‘return’
+
+     If the status matches, stop the lookup process at this service
+     specification.  If an entry is available, provide it to the
+     application.  If an error occurred, report it to the application.
+     In case of a prior ‘merge’ action, the data is combined with
+     previous lookup results, as explained below.
+
+‘continue’
+
+     If the status matches, proceed with the lookup process at the next
+     entry, discarding the result of the current lookup (and any merged
+     data).  An exception is the ‘initgroups’ database and the ‘success’
+     status, where ‘continue’ acts like ‘merge’ below.
+
+‘merge’
+
+     Proceed with the lookup process, retaining the current lookup
+     result.  This action is useful only with the ‘success’ status.  If
+     a subsequent service lookup succeeds and has a matching ‘return’
+     specification, the results are merged, the lookup process ends, and
+     the merged results are returned to the application.  If the
+     following service has a matching ‘merge’ action, the lookup process
+     continues, retaining the combined data from this and any previous
+     lookups.
+
+     After a ‘merge’ action, errors from subsequent lookups are ignored,
+     and the data gathered so far will be returned.
+
+     The ‘merge’ only applies to the ‘success’ status.  It is currently
+     implemented for the ‘group’ database and its group members field,
+     ‘gr_mem’.  If specified for other databases, it causes the lookup
+     to fail (if the STATUS matches).
+
+     When processing ‘merge’ for ‘group’ membership, the group GID and
+     name must be identical for both entries.  If only one or the other
+     is a match, the behavior is undefined.
+
+If we have a line like
+
+     ethers: nisplus [NOTFOUND=return] db files
+
+this is equivalent to
+
+     ethers: nisplus [SUCCESS=return NOTFOUND=return UNAVAIL=continue
+                      TRYAGAIN=continue]
+             db      [SUCCESS=return NOTFOUND=continue UNAVAIL=continue
+                      TRYAGAIN=continue]
+             files
+
+(except that it would have to be written on one line).  The default
+value for the actions are normally what you want, and only need to be
+changed in exceptional cases.
+
+   If the optional ‘!’ is placed before the STATUS this means the
+following action is used for all statuses but STATUS itself.  I.e., ‘!’
+is negation as in the C language (and others).
+
+   Before we explain the exception which makes this action item
+necessary one more remark: obviously it makes no sense to add another
+action item after the ‘files’ service.  Since there is no other service
+following the action _always_ is ‘return’.
+
+   Now, why is this ‘[NOTFOUND=return]’ action useful?  To understand
+this we should know that the ‘nisplus’ service is often complete; i.e.,
+if an entry is not available in the NIS+ tables it is not available
+anywhere else.  This is what is expressed by this action item: it is
+useless to examine further services since they will not give us a
+result.
+
+   The situation would be different if the NIS+ service is not available
+because the machine is booting.  In this case the return value of the
+lookup function is not ‘notfound’ but instead ‘unavail’.  And as you can
+see in the complete form above: in this situation the ‘db’ and ‘files’
+services are used.  Neat, isn’t it?  The system administrator need not
+pay special care for the time the system is not completely ready to work
+(while booting or shutdown or network problems).
+
+
+File: libc.info,  Node: Notes on NSS Configuration File,  Prev: Actions in the NSS configuration,  Up: NSS Configuration File
+
+29.2.3 Notes on the NSS Configuration File
+------------------------------------------
+
+Finally a few more hints.  The NSS implementation is not completely
+helpless if ‘/etc/nsswitch.conf’ does not exist.  For all supported
+databases there is a default value so it should normally be possible to
+get the system running even if the file is corrupted or missing.
+
+   For the ‘hosts’ and ‘networks’ databases the default value is ‘dns
+[!UNAVAIL=return] files’.  I.e., the system is prepared for the DNS
+service not to be available but if it is available the answer it returns
+is definitive.
+
+   The ‘passwd’, ‘group’, and ‘shadow’ databases are traditionally
+handled in a special way.  The appropriate files in the ‘/etc’ directory
+are read but if an entry with a name starting with a ‘+’ character is
+found NIS is used.  This kind of lookup remains possible if the GNU C
+Library was configured with the ‘--enable-obsolete-nsl’ option and the
+special lookup service ‘compat’ is used.  If the GNU C Library was
+configured with the ‘--enable-obsolete-nsl’ option the default value for
+the three databases above is ‘compat [NOTFOUND=return] files’.  If the
+‘--enable-obsolete-nsl’ option was not used the default value for the
+services is ‘files’.
+
+   For all other databases the default value is ‘files’ unless the GNU C
+Library was configured with ‘--enable-obsolete-rpc’ option, in which
+case it the default value is ‘nis [NOTFOUND=return] files’.
+
+   A second point is that the user should try to optimize the lookup
+process.  The different service have different response times.  A simple
+file look up on a local file could be fast, but if the file is long and
+the needed entry is near the end of the file this may take quite some
+time.  In this case it might be better to use the ‘db’ service which
+allows fast local access to large data sets.
+
+   Often the situation is that some global information like NIS must be
+used.  So it is unavoidable to use service entries like ‘nis’ etc.  But
+one should avoid slow services like this if possible.
+
+
+File: libc.info,  Node: NSS Module Internals,  Next: Extending NSS,  Prev: NSS Configuration File,  Up: Name Service Switch
+
+29.3 NSS Module Internals
+=========================
+
+Now it is time to describe what the modules look like.  The functions
+contained in a module are identified by their names.  I.e., there is no
+jump table or the like.  How this is done is of no interest here; those
+interested in this topic should read about Dynamic Linking.
+
+* Menu:
+
+* NSS Module Names::            Construction of the interface function of
+                                the NSS modules.
+* NSS Modules Interface::       Programming interface in the NSS module
+                                functions.
+
+
+File: libc.info,  Node: NSS Module Names,  Next: NSS Modules Interface,  Prev: NSS Module Internals,  Up: NSS Module Internals
+
+29.3.1 The Naming Scheme of the NSS Modules
+-------------------------------------------
+
+The name of each function consists of various parts:
+
+     _nss_SERVICE_FUNCTION
+
+   SERVICE of course corresponds to the name of the module this function
+is found in.(1)  The FUNCTION part is derived from the interface
+function in the C library itself.  If the user calls the function
+‘gethostbyname’ and the service used is ‘files’ the function
+
+            _nss_files_gethostbyname_r
+
+in the module
+
+            libnss_files.so.2
+
+is used.  You see, what is explained above in not the whole truth.  In
+fact the NSS modules only contain reentrant versions of the lookup
+functions.  I.e., if the user would call the ‘gethostbyname_r’ function
+this also would end in the above function.  For all user interface
+functions the C library maps this call to a call to the reentrant
+function.  For reentrant functions this is trivial since the interface
+is (nearly) the same.  For the non-reentrant version the library keeps
+internal buffers which are used to replace the user supplied buffer.
+
+   I.e., the reentrant functions _can_ have counterparts.  No service
+module is forced to have functions for all databases and all kinds to
+access them.  If a function is not available it is simply treated as if
+the function would return ‘unavail’ (*note Actions in the NSS
+configuration::).
+
+   The file name ‘libnss_files.so.2’ would be on a Solaris 2 system
+‘nss_files.so.2’.  This is the difference mentioned above.  Sun’s NSS
+modules are usable as modules which get indirectly loaded only.
+
+   The NSS modules in the GNU C Library are prepared to be used as
+normal libraries themselves.  This is _not_ true at the moment, though.
+However, the organization of the name space in the modules does not make
+it impossible like it is for Solaris.  Now you can see why the modules
+are still libraries.(2)
+
+   ---------- Footnotes ----------
+
+   (1) Now you might ask why this information is duplicated.  The answer
+is that we want to make it possible to link directly with these shared
+objects.
+
+   (2) There is a second explanation: we were too lazy to change the
+Makefiles to allow the generation of shared objects not starting with
+‘lib’ but don’t tell this to anybody.
+
+
+File: libc.info,  Node: NSS Modules Interface,  Prev: NSS Module Names,  Up: NSS Module Internals
+
+29.3.2 The Interface of the Function in NSS Modules
+---------------------------------------------------
+
+Now we know about the functions contained in the modules.  It is now
+time to describe the types.  When we mentioned the reentrant versions of
+the functions above, this means there are some additional arguments
+(compared with the standard, non-reentrant versions).  The prototypes
+for the non-reentrant and reentrant versions of our function above are:
+
+     struct hostent *gethostbyname (const char *name)
+
+     int gethostbyname_r (const char *name, struct hostent *result_buf,
+                          char *buf, size_t buflen, struct hostent **result,
+                          int *h_errnop)
+
+The actual prototype of the function in the NSS modules in this case is
+
+     enum nss_status _nss_files_gethostbyname_r (const char *name,
+                                                 struct hostent *result_buf,
+                                                 char *buf, size_t buflen,
+                                                 int *errnop, int *h_errnop)
+
+   I.e., the interface function is in fact the reentrant function with
+the change of the return value, the omission of the RESULT parameter,
+and the addition of the ERRNOP parameter.  While the user-level function
+returns a pointer to the result the reentrant function return an ‘enum
+nss_status’ value:
+
+‘NSS_STATUS_TRYAGAIN’
+     numeric value ‘-2’
+
+‘NSS_STATUS_UNAVAIL’
+     numeric value ‘-1’
+
+‘NSS_STATUS_NOTFOUND’
+     numeric value ‘0’
+
+‘NSS_STATUS_SUCCESS’
+     numeric value ‘1’
+
+Now you see where the action items of the ‘/etc/nsswitch.conf’ file are
+used.
+
+   If you study the source code you will find there is a fifth value:
+‘NSS_STATUS_RETURN’.  This is an internal use only value, used by a few
+functions in places where none of the above value can be used.  If
+necessary the source code should be examined to learn about the details.
+
+   In case the interface function has to return an error it is important
+that the correct error code is stored in ‘*ERRNOP’.  Some return status
+values have only one associated error code, others have more.
+
+‘NSS_STATUS_TRYAGAIN’  ‘EAGAIN’       One of the functions used ran
+                                      temporarily out of resources or a
+                                      service is currently not
+                                      available.
+                       ‘ERANGE’       The provided buffer is not large
+                                      enough.  The function should be
+                                      called again with a larger buffer.
+‘NSS_STATUS_UNAVAIL’   ‘ENOENT’       A necessary input file cannot be
+                                      found.
+‘NSS_STATUS_NOTFOUND’  ‘ENOENT’       The requested entry is not
+                                      available.
+                                      
+‘NSS_STATUS_NOTFOUND’  ‘SUCCESS’      There are no entries.  Use this to
+                                      avoid returning errors for
+                                      inactive services which may be
+                                      enabled at a later time.  This is
+                                      not the same as the service being
+                                      temporarily unavailable.
+
+   These are proposed values.  There can be other error codes and the
+described error codes can have different meaning.  *With one exception:*
+when returning ‘NSS_STATUS_TRYAGAIN’ the error code ‘ERANGE’ _must_ mean
+that the user provided buffer is too small.  Everything else is
+non-critical.
+
+   In statically linked programs, the main application and NSS modules
+do not share the same thread-local variable ‘errno’, which is the reason
+why there is an explicit ERRNOP function argument.
+
+   The above function has something special which is missing for almost
+all the other module functions.  There is an argument H_ERRNOP.  This
+points to a variable which will be filled with the error code in case
+the execution of the function fails for some reason.  (In statically
+linked programs, the thread-local variable ‘h_errno’ is not shared with
+the main application.)
+
+   The ‘getXXXbyYYY’ functions are the most important functions in the
+NSS modules.  But there are others which implement the other ways to
+access system databases (say for the user database, there are
+‘setpwent’, ‘getpwent’, and ‘endpwent’).  These will be described in
+more detail later.  Here we give a general way to determine the
+signature of the module function:
+
+   • the return value is ‘enum nss_status’;
+   • the name (*note NSS Module Names::);
+   • the first arguments are identical to the arguments of the
+     non-reentrant function;
+   • the next four arguments are:
+
+     ‘STRUCT_TYPE *result_buf’
+          pointer to buffer where the result is stored.  ‘STRUCT_TYPE’
+          is normally a struct which corresponds to the database.
+     ‘char *buffer’
+          pointer to a buffer where the function can store additional
+          data for the result etc.
+     ‘size_t buflen’
+          length of the buffer pointed to by BUFFER.
+     ‘int *errnop’
+          the low-level error code to return to the application.  If the
+          return value is not ‘NSS_STATUS_SUCCESS’, ‘*ERRNOP’ needs to
+          be set to a non-zero value.  An NSS module should never set
+          ‘*ERRNOP’ to zero.  The value ‘ERANGE’ is special, as
+          described above.
+
+   • possibly a last argument H_ERRNOP, for the host name and network
+     name lookup functions.  If the return value is not
+     ‘NSS_STATUS_SUCCESS’, ‘*H_ERRNOP’ needs to be set to a non-zero
+     value.  A generic error code is ‘NETDB_INTERNAL’, which instructs
+     the caller to examine ‘*ERRNOP’ for further details.  (This
+     includes the ‘ERANGE’ special case.)
+
+This table is correct for all functions but the ‘set...ent’ and
+‘end...ent’ functions.
+
+
+File: libc.info,  Node: Extending NSS,  Prev: NSS Module Internals,  Up: Name Service Switch
+
+29.4 Extending NSS
+==================
+
+One of the advantages of NSS mentioned above is that it can be extended
+quite easily.  There are two ways in which the extension can happen:
+adding another database or adding another service.  The former is
+normally done only by the C library developers.  It is here only
+important to remember that adding another database is independent from
+adding another service because a service need not support all databases
+or lookup functions.
+
+   A designer/implementer of a new service is therefore free to choose
+the databases s/he is interested in and leave the rest for later (or
+completely aside).
+
+* Menu:
+
+* Adding another Service to NSS::  What is to do to add a new service.
+* NSS Module Function Internals::  Guidelines for writing new NSS
+                                        service functions.
+
+
+File: libc.info,  Node: Adding another Service to NSS,  Next: NSS Module Function Internals,  Prev: Extending NSS,  Up: Extending NSS
+
+29.4.1 Adding another Service to NSS
+------------------------------------
+
+The sources for a new service need not (and should not) be part of the
+GNU C Library itself.  The developer retains complete control over the
+sources and its development.  The links between the C library and the
+new service module consists solely of the interface functions.
+
+   Each module is designed following a specific interface specification.
+For now the version is 2 (the interface in version 1 was not adequate)
+and this manifests in the version number of the shared library object of
+the NSS modules: they have the extension ‘.2’.  If the interface changes
+again in an incompatible way, this number will be increased.  Modules
+using the old interface will still be usable.
+
+   Developers of a new service will have to make sure that their module
+is created using the correct interface number.  This means the file
+itself must have the correct name and on ELF systems the “soname”
+(Shared Object Name) must also have this number.  Building a module from
+a bunch of object files on an ELF system using GNU CC could be done like
+this:
+
+     gcc -shared -o libnss_NAME.so.2 -Wl,-soname,libnss_NAME.so.2 OBJECTS
+
+*note Options for Linking: (gcc)Link Options, to learn more about this
+command line.
+
+   To use the new module the library must be able to find it.  This can
+be achieved by using options for the dynamic linker so that it will
+search the directory where the binary is placed.  For an ELF system this
+could be done by adding the wanted directory to the value of
+‘LD_LIBRARY_PATH’.
+
+   But this is not always possible since some programs (those which run
+under IDs which do not belong to the user) ignore this variable.
+Therefore the stable version of the module should be placed into a
+directory which is searched by the dynamic linker.  Normally this should
+be the directory ‘$prefix/lib’, where ‘$prefix’ corresponds to the value
+given to configure using the ‘--prefix’ option.  But be careful: this
+should only be done if it is clear the module does not cause any harm.
+System administrators should be careful.
+
+
+File: libc.info,  Node: NSS Module Function Internals,  Prev: Adding another Service to NSS,  Up: Extending NSS
+
+29.4.2 Internals of the NSS Module Functions
+--------------------------------------------
+
+Until now we only provided the syntactic interface for the functions in
+the NSS module.  In fact there is not much more we can say since the
+implementation obviously is different for each function.  But a few
+general rules must be followed by all functions.
+
+   In fact there are four kinds of different functions which may appear
+in the interface.  All derive from the traditional ones for system
+databases.  DB in the following table is normally an abbreviation for
+the database (e.g., it is ‘pw’ for the user database).
+
+‘enum nss_status _nss_DATABASE_setDBent (void)’
+     This function prepares the service for following operations.  For a
+     simple file based lookup this means files could be opened, for
+     other services this function simply is a noop.
+
+     One special case for this function is that it takes an additional
+     argument for some DATABASEs (i.e., the interface is ‘int setDBent
+     (int)’).  *note Host Names::, which describes the ‘sethostent’
+     function.
+
+     The return value should be NSS_STATUS_SUCCESS or according to the
+     table above in case of an error (*note NSS Modules Interface::).
+
+‘enum nss_status _nss_DATABASE_endDBent (void)’
+     This function simply closes all files which are still open or
+     removes buffer caches.  If there are no files or buffers to remove
+     this is again a simple noop.
+
+     There normally is no return value other than NSS_STATUS_SUCCESS.
+
+‘enum nss_status _nss_DATABASE_getDBent_r (STRUCTURE *result, char *buffer, size_t buflen, int *errnop)’
+     Since this function will be called several times in a row to
+     retrieve one entry after the other it must keep some kind of state.
+     But this also means the functions are not really reentrant.  They
+     are reentrant only in that simultaneous calls to this function will
+     not try to write the retrieved data in the same place (as it would
+     be the case for the non-reentrant functions); instead, it writes to
+     the structure pointed to by the RESULT parameter.  But the calls
+     share a common state and in the case of a file access this means
+     they return neighboring entries in the file.
+
+     The buffer of length BUFLEN pointed to by BUFFER can be used for
+     storing some additional data for the result.  It is _not_
+     guaranteed that the same buffer will be passed for the next call of
+     this function.  Therefore one must not misuse this buffer to save
+     some state information from one call to another.
+
+     Before the function returns with a failure code, the implementation
+     should store the value of the local ERRNO variable in the variable
+     pointed to be ERRNOP.  This is important to guarantee the module
+     working in statically linked programs.  The stored value must not
+     be zero.
+
+     As explained above this function could also have an additional last
+     argument.  This depends on the database used; it happens only for
+     ‘host’ and ‘networks’.
+
+     The function shall return ‘NSS_STATUS_SUCCESS’ as long as there are
+     more entries.  When the last entry was read it should return
+     ‘NSS_STATUS_NOTFOUND’.  When the buffer given as an argument is too
+     small for the data to be returned ‘NSS_STATUS_TRYAGAIN’ should be
+     returned.  When the service was not formerly initialized by a call
+     to ‘_nss_DATABASE_setDBent’ all return values allowed for this
+     function can also be returned here.
+
+‘enum nss_status _nss_DATABASE_getDBbyXX_r (PARAMS, STRUCTURE *result, char *buffer, size_t buflen, int *errnop)’
+     This function shall return the entry from the database which is
+     addressed by the PARAMS.  The type and number of these arguments
+     vary.  It must be individually determined by looking to the
+     user-level interface functions.  All arguments given to the
+     non-reentrant version are here described by PARAMS.
+
+     The result must be stored in the structure pointed to by RESULT.
+     If there are additional data to return (say strings, where the
+     RESULT structure only contains pointers) the function must use the
+     BUFFER of length BUFLEN.  There must not be any references to
+     non-constant global data.
+
+     The implementation of this function should honor the STAYOPEN flag
+     set by the ‘setDBent’ function whenever this makes sense.
+
+     Before the function returns, the implementation should store the
+     value of the local ERRNO variable in the variable pointed to by
+     ERRNOP.  This is important to guarantee the module works in
+     statically linked programs.
+
+     Again, this function takes an additional last argument for the
+     ‘host’ and ‘networks’ database.
+
+     The return value should as always follow the rules given above
+     (*note NSS Modules Interface::).
+
+
+File: libc.info,  Node: Users and Groups,  Next: System Management,  Prev: Name Service Switch,  Up: Top
+
+30 Users and Groups
+*******************
+
+Every user who can log in on the system is identified by a unique number
+called the “user ID”. Each process has an effective user ID which says
+which user’s access permissions it has.
+
+   Users are classified into “groups” for access control purposes.  Each
+process has one or more “group ID values” which say which groups the
+process can use for access to files.
+
+   The effective user and group IDs of a process collectively form its
+“persona”.  This determines which files the process can access.
+Normally, a process inherits its persona from the parent process, but
+under special circumstances a process can change its persona and thus
+change its access permissions.
+
+   Each file in the system also has a user ID and a group ID. Access
+control works by comparing the user and group IDs of the file with those
+of the running process.
+
+   The system keeps a database of all the registered users, and another
+database of all the defined groups.  There are library functions you can
+use to examine these databases.
+
+* Menu:
+
+* User and Group IDs::          Each user has a unique numeric ID;
+				 likewise for groups.
+* Process Persona::             The user IDs and group IDs of a process.
+* Why Change Persona::          Why a program might need to change
+				 its user and/or group IDs.
+* How Change Persona::          Changing the user and group IDs.
+* Reading Persona::             How to examine the user and group IDs.
+
+* Setting User ID::             Functions for setting the user ID.
+* Setting Groups::              Functions for setting the group IDs.
+
+* Enable/Disable Setuid::       Turning setuid access on and off.
+* Setuid Program Example::      The pertinent parts of one sample program.
+* Tips for Setuid::             How to avoid granting unlimited access.
+
+* Who Logged In::               Getting the name of the user who logged in,
+				 or of the real user ID of the current process.
+
+* User Accounting Database::    Keeping information about users and various
+                                 actions in databases.
+
+* User Database::               Functions and data structures for
+                        	 accessing the user database.
+* Group Database::              Functions and data structures for
+                        	 accessing the group database.
+* Database Example::            Example program showing the use of database
+				 inquiry functions.
+* Netgroup Database::           Functions for accessing the netgroup database.
+
+
+File: libc.info,  Node: User and Group IDs,  Next: Process Persona,  Up: Users and Groups
+
+30.1 User and Group IDs
+=======================
+
+Each user account on a computer system is identified by a “user name”
+(or “login name”) and “user ID”. Normally, each user name has a unique
+user ID, but it is possible for several login names to have the same
+user ID. The user names and corresponding user IDs are stored in a data
+base which you can access as described in *note User Database::.
+
+   Users are classified in “groups”.  Each user name belongs to one
+“default group” and may also belong to any number of “supplementary
+groups”.  Users who are members of the same group can share resources
+(such as files) that are not accessible to users who are not a member of
+that group.  Each group has a “group name” and “group ID”. *Note Group
+Database::, for how to find information about a group ID or group name.
+
+
+File: libc.info,  Node: Process Persona,  Next: Why Change Persona,  Prev: User and Group IDs,  Up: Users and Groups
+
+30.2 The Persona of a Process
+=============================
+
+At any time, each process has an “effective user ID”, a “effective group
+ID”, and a set of “supplementary group IDs”.  These IDs determine the
+privileges of the process.  They are collectively called the “persona”
+of the process, because they determine “who it is” for purposes of
+access control.
+
+   Your login shell starts out with a persona which consists of your
+user ID, your default group ID, and your supplementary group IDs (if you
+are in more than one group).  In normal circumstances, all your other
+processes inherit these values.
+
+   A process also has a “real user ID” which identifies the user who
+created the process, and a “real group ID” which identifies that user’s
+default group.  These values do not play a role in access control, so we
+do not consider them part of the persona.  But they are also important.
+
+   Both the real and effective user ID can be changed during the
+lifetime of a process.  *Note Why Change Persona::.
+
+   For details on how a process’s effective user ID and group IDs affect
+its permission to access files, see *note Access Permission::.
+
+   The effective user ID of a process also controls permissions for
+sending signals using the ‘kill’ function.  *Note Signaling Another
+Process::.
+
+   Finally, there are many operations which can only be performed by a
+process whose effective user ID is zero.  A process with this user ID is
+a “privileged process”.  Commonly the user name ‘root’ is associated
+with user ID 0, but there may be other user names with this ID.
+
+
+File: libc.info,  Node: Why Change Persona,  Next: How Change Persona,  Prev: Process Persona,  Up: Users and Groups
+
+30.3 Why Change the Persona of a Process?
+=========================================
+
+The most obvious situation where it is necessary for a process to change
+its user and/or group IDs is the ‘login’ program.  When ‘login’ starts
+running, its user ID is ‘root’.  Its job is to start a shell whose user
+and group IDs are those of the user who is logging in.  (To accomplish
+this fully, ‘login’ must set the real user and group IDs as well as its
+persona.  But this is a special case.)
+
+   The more common case of changing persona is when an ordinary user
+program needs access to a resource that wouldn’t ordinarily be
+accessible to the user actually running it.
+
+   For example, you may have a file that is controlled by your program
+but that shouldn’t be read or modified directly by other users, either
+because it implements some kind of locking protocol, or because you want
+to preserve the integrity or privacy of the information it contains.
+This kind of restricted access can be implemented by having the program
+change its effective user or group ID to match that of the resource.
+
+   Thus, imagine a game program that saves scores in a file.  The game
+program itself needs to be able to update this file no matter who is
+running it, but if users can write the file without going through the
+game, they can give themselves any scores they like.  Some people
+consider this undesirable, or even reprehensible.  It can be prevented
+by creating a new user ID and login name (say, ‘games’) to own the
+scores file, and make the file writable only by this user.  Then, when
+the game program wants to update this file, it can change its effective
+user ID to be that for ‘games’.  In effect, the program must adopt the
+persona of ‘games’ so it can write to the scores file.
+
+
+File: libc.info,  Node: How Change Persona,  Next: Reading Persona,  Prev: Why Change Persona,  Up: Users and Groups
+
+30.4 How an Application Can Change Persona
+==========================================
+
+The ability to change the persona of a process can be a source of
+unintentional privacy violations, or even intentional abuse.  Because of
+the potential for problems, changing persona is restricted to special
+circumstances.
+
+   You can’t arbitrarily set your user ID or group ID to anything you
+want; only privileged processes can do that.  Instead, the normal way
+for a program to change its persona is that it has been set up in
+advance to change to a particular user or group.  This is the function
+of the setuid and setgid bits of a file’s access mode.  *Note Permission
+Bits::.
+
+   When the setuid bit of an executable file is on, executing that file
+gives the process a third user ID: the “file user ID”. This ID is set to
+the owner ID of the file.  The system then changes the effective user ID
+to the file user ID. The real user ID remains as it was.  Likewise, if
+the setgid bit is on, the process is given a “file group ID” equal to
+the group ID of the file, and its effective group ID is changed to the
+file group ID.
+
+   If a process has a file ID (user or group), then it can at any time
+change its effective ID to its real ID and back to its file ID. Programs
+use this feature to relinquish their special privileges except when they
+actually need them.  This makes it less likely that they can be tricked
+into doing something inappropriate with their privileges.
+
+   *Portability Note:* Older systems do not have file IDs.  To determine
+if a system has this feature, you can test the compiler define
+‘_POSIX_SAVED_IDS’.  (In the POSIX standard, file IDs are known as saved
+IDs.)
+
+   *Note File Attributes::, for a more general discussion of file modes
+and accessibility.
+
+
+File: libc.info,  Node: Reading Persona,  Next: Setting User ID,  Prev: How Change Persona,  Up: Users and Groups
+
+30.5 Reading the Persona of a Process
+=====================================
+
+Here are detailed descriptions of the functions for reading the user and
+group IDs of a process, both real and effective.  To use these
+facilities, you must include the header files ‘sys/types.h’ and
+‘unistd.h’.
+
+ -- Data Type: uid_t
+
+     This is an integer data type used to represent user IDs.  In the
+     GNU C Library, this is an alias for ‘unsigned int’.
+
+ -- Data Type: gid_t
+
+     This is an integer data type used to represent group IDs.  In the
+     GNU C Library, this is an alias for ‘unsigned int’.
+
+ -- Function: uid_t getuid (void)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘getuid’ function returns the real user ID of the process.
+
+ -- Function: gid_t getgid (void)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘getgid’ function returns the real group ID of the process.
+
+ -- Function: uid_t geteuid (void)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘geteuid’ function returns the effective user ID of the
+     process.
+
+ -- Function: gid_t getegid (void)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘getegid’ function returns the effective group ID of the
+     process.
+
+ -- Function: int getgroups (int COUNT, gid_t *GROUPS)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘getgroups’ function is used to inquire about the supplementary
+     group IDs of the process.  Up to COUNT of these group IDs are
+     stored in the array GROUPS; the return value from the function is
+     the number of group IDs actually stored.  If COUNT is smaller than
+     the total number of supplementary group IDs, then ‘getgroups’
+     returns a value of ‘-1’ and ‘errno’ is set to ‘EINVAL’.
+
+     If COUNT is zero, then ‘getgroups’ just returns the total number of
+     supplementary group IDs.  On systems that do not support
+     supplementary groups, this will always be zero.
+
+     Here’s how to use ‘getgroups’ to read all the supplementary group
+     IDs:
+
+          gid_t *
+          read_all_groups (void)
+          {
+            int ngroups = getgroups (0, NULL);
+            gid_t *groups
+              = (gid_t *) xmalloc (ngroups * sizeof (gid_t));
+            int val = getgroups (ngroups, groups);
+            if (val < 0)
+              {
+                free (groups);
+                return NULL;
+              }
+            return groups;
+          }
+
+
+File: libc.info,  Node: Setting User ID,  Next: Setting Groups,  Prev: Reading Persona,  Up: Users and Groups
+
+30.6 Setting the User ID
+========================
+
+This section describes the functions for altering the user ID (real
+and/or effective) of a process.  To use these facilities, you must
+include the header files ‘sys/types.h’ and ‘unistd.h’.
+
+ -- Function: int seteuid (uid_t NEWEUID)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
+     POSIX Safety Concepts::.
+
+     This function sets the effective user ID of a process to NEWEUID,
+     provided that the process is allowed to change its effective user
+     ID. A privileged process (effective user ID zero) can change its
+     effective user ID to any legal value.  An unprivileged process with
+     a file user ID can change its effective user ID to its real user ID
+     or to its file user ID. Otherwise, a process may not change its
+     effective user ID at all.
+
+     The ‘seteuid’ function returns a value of ‘0’ to indicate
+     successful completion, and a value of ‘-1’ to indicate an error.
+     The following ‘errno’ error conditions are defined for this
+     function:
+
+     ‘EINVAL’
+          The value of the NEWEUID argument is invalid.
+
+     ‘EPERM’
+          The process may not change to the specified ID.
+
+     Older systems (those without the ‘_POSIX_SAVED_IDS’ feature) do not
+     have this function.
+
+ -- Function: int setuid (uid_t NEWUID)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
+     POSIX Safety Concepts::.
+
+     If the calling process is privileged, this function sets both the
+     real and effective user IDs of the process to NEWUID.  It also
+     deletes the file user ID of the process, if any.  NEWUID may be any
+     legal value.  (Once this has been done, there is no way to recover
+     the old effective user ID.)
+
+     If the process is not privileged, and the system supports the
+     ‘_POSIX_SAVED_IDS’ feature, then this function behaves like
+     ‘seteuid’.
+
+     The return values and error conditions are the same as for
+     ‘seteuid’.
+
+ -- Function: int setreuid (uid_t RUID, uid_t EUID)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
+     POSIX Safety Concepts::.
+
+     This function sets the real user ID of the process to RUID and the
+     effective user ID to EUID.  If RUID is ‘-1’, it means not to change
+     the real user ID; likewise if EUID is ‘-1’, it means not to change
+     the effective user ID.
+
+     The ‘setreuid’ function exists for compatibility with 4.3 BSD Unix,
+     which does not support file IDs.  You can use this function to swap
+     the effective and real user IDs of the process.  (Privileged
+     processes are not limited to this particular usage.)  If file IDs
+     are supported, you should use that feature instead of this
+     function.  *Note Enable/Disable Setuid::.
+
+     The return value is ‘0’ on success and ‘-1’ on failure.  The
+     following ‘errno’ error conditions are defined for this function:
+
+     ‘EPERM’
+          The process does not have the appropriate privileges; you do
+          not have permission to change to the specified ID.
+
+
+File: libc.info,  Node: Setting Groups,  Next: Enable/Disable Setuid,  Prev: Setting User ID,  Up: Users and Groups
+
+30.7 Setting the Group IDs
+==========================
+
+This section describes the functions for altering the group IDs (real
+and effective) of a process.  To use these facilities, you must include
+the header files ‘sys/types.h’ and ‘unistd.h’.
+
+ -- Function: int setegid (gid_t NEWGID)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
+     POSIX Safety Concepts::.
+
+     This function sets the effective group ID of the process to NEWGID,
+     provided that the process is allowed to change its group ID. Just
+     as with ‘seteuid’, if the process is privileged it may change its
+     effective group ID to any value; if it isn’t, but it has a file
+     group ID, then it may change to its real group ID or file group ID;
+     otherwise it may not change its effective group ID.
+
+     Note that a process is only privileged if its effective _user_ ID
+     is zero.  The effective group ID only affects access permissions.
+
+     The return values and error conditions for ‘setegid’ are the same
+     as those for ‘seteuid’.
+
+     This function is only present if ‘_POSIX_SAVED_IDS’ is defined.
+
+ -- Function: int setgid (gid_t NEWGID)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
+     POSIX Safety Concepts::.
+
+     This function sets both the real and effective group ID of the
+     process to NEWGID, provided that the process is privileged.  It
+     also deletes the file group ID, if any.
+
+     If the process is not privileged, then ‘setgid’ behaves like
+     ‘setegid’.
+
+     The return values and error conditions for ‘setgid’ are the same as
+     those for ‘seteuid’.
+
+ -- Function: int setregid (gid_t RGID, gid_t EGID)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
+     POSIX Safety Concepts::.
+
+     This function sets the real group ID of the process to RGID and the
+     effective group ID to EGID.  If RGID is ‘-1’, it means not to
+     change the real group ID; likewise if EGID is ‘-1’, it means not to
+     change the effective group ID.
+
+     The ‘setregid’ function is provided for compatibility with 4.3 BSD
+     Unix, which does not support file IDs.  You can use this function
+     to swap the effective and real group IDs of the process.
+     (Privileged processes are not limited to this usage.)  If file IDs
+     are supported, you should use that feature instead of using this
+     function.  *Note Enable/Disable Setuid::.
+
+     The return values and error conditions for ‘setregid’ are the same
+     as those for ‘setreuid’.
+
+   ‘setuid’ and ‘setgid’ behave differently depending on whether the
+effective user ID at the time is zero.  If it is not zero, they behave
+like ‘seteuid’ and ‘setegid’.  If it is, they change both effective and
+real IDs and delete the file ID. To avoid confusion, we recommend you
+always use ‘seteuid’ and ‘setegid’ except when you know the effective
+user ID is zero and your intent is to change the persona permanently.
+This case is rare—most of the programs that need it, such as ‘login’ and
+‘su’, have already been written.
+
+   Note that if your program is setuid to some user other than ‘root’,
+there is no way to drop privileges permanently.
+
+   The system also lets privileged processes change their supplementary
+group IDs.  To use ‘setgroups’ or ‘initgroups’, your programs should
+include the header file ‘grp.h’.
+
+ -- Function: int setgroups (size_t COUNT, const gid_t *GROUPS)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
+     POSIX Safety Concepts::.
+
+     This function sets the process’s supplementary group IDs.  It can
+     only be called from privileged processes.  The COUNT argument
+     specifies the number of group IDs in the array GROUPS.
+
+     This function returns ‘0’ if successful and ‘-1’ on error.  The
+     following ‘errno’ error conditions are defined for this function:
+
+     ‘EPERM’
+          The calling process is not privileged.
+
+ -- Function: int initgroups (const char *USER, gid_t GROUP)
+
+     Preliminary: | MT-Safe locale | AS-Unsafe dlopen plugin heap lock |
+     AC-Unsafe corrupt mem fd lock | *Note POSIX Safety Concepts::.
+
+     The ‘initgroups’ function sets the process’s supplementary group
+     IDs to be the normal default for the user name USER.  The group
+     GROUP is automatically included.
+
+     This function works by scanning the group database for all the
+     groups USER belongs to.  It then calls ‘setgroups’ with the list it
+     has constructed.
+
+     The return values and error conditions are the same as for
+     ‘setgroups’.
+
+   If you are interested in the groups a particular user belongs to, but
+do not want to change the process’s supplementary group IDs, you can use
+‘getgrouplist’.  To use ‘getgrouplist’, your programs should include the
+header file ‘grp.h’.
+
+ -- Function: int getgrouplist (const char *USER, gid_t GROUP, gid_t
+          *GROUPS, int *NGROUPS)
+
+     Preliminary: | MT-Safe locale | AS-Unsafe dlopen plugin heap lock |
+     AC-Unsafe corrupt mem fd lock | *Note POSIX Safety Concepts::.
+
+     The ‘getgrouplist’ function scans the group database for all the
+     groups USER belongs to.  Up to *NGROUPS group IDs corresponding to
+     these groups are stored in the array GROUPS; the return value from
+     the function is the number of group IDs actually stored.  If
+     *NGROUPS is smaller than the total number of groups found, then
+     ‘getgrouplist’ returns a value of ‘-1’ and stores the actual number
+     of groups in *NGROUPS.  The group GROUP is automatically included
+     in the list of groups returned by ‘getgrouplist’.
+
+     Here’s how to use ‘getgrouplist’ to read all supplementary groups
+     for USER:
+
+          gid_t *
+          supplementary_groups (char *user)
+          {
+            int ngroups = 16;
+            gid_t *groups
+              = (gid_t *) xmalloc (ngroups * sizeof (gid_t));
+            struct passwd *pw = getpwnam (user);
+
+            if (pw == NULL)
+              return NULL;
+
+            if (getgrouplist (pw->pw_name, pw->pw_gid, groups, &ngroups) < 0)
+              {
+                groups = xrealloc (ngroups * sizeof (gid_t));
+                getgrouplist (pw->pw_name, pw->pw_gid, groups, &ngroups);
+              }
+            return groups;
+          }
+
+
+File: libc.info,  Node: Enable/Disable Setuid,  Next: Setuid Program Example,  Prev: Setting Groups,  Up: Users and Groups
+
+30.8 Enabling and Disabling Setuid Access
+=========================================
+
+A typical setuid program does not need its special access all of the
+time.  It’s a good idea to turn off this access when it isn’t needed, so
+it can’t possibly give unintended access.
+
+   If the system supports the ‘_POSIX_SAVED_IDS’ feature, you can
+accomplish this with ‘seteuid’.  When the game program starts, its real
+user ID is ‘jdoe’, its effective user ID is ‘games’, and its saved user
+ID is also ‘games’.  The program should record both user ID values once
+at the beginning, like this:
+
+     user_user_id = getuid ();
+     game_user_id = geteuid ();
+
+   Then it can turn off game file access with
+
+     seteuid (user_user_id);
+
+and turn it on with
+
+     seteuid (game_user_id);
+
+Throughout this process, the real user ID remains ‘jdoe’ and the file
+user ID remains ‘games’, so the program can always set its effective
+user ID to either one.
+
+   On other systems that don’t support file user IDs, you can turn
+setuid access on and off by using ‘setreuid’ to swap the real and
+effective user IDs of the process, as follows:
+
+     setreuid (geteuid (), getuid ());
+
+This special case is always allowed—it cannot fail.
+
+   Why does this have the effect of toggling the setuid access?  Suppose
+a game program has just started, and its real user ID is ‘jdoe’ while
+its effective user ID is ‘games’.  In this state, the game can write the
+scores file.  If it swaps the two uids, the real becomes ‘games’ and the
+effective becomes ‘jdoe’; now the program has only ‘jdoe’ access.
+Another swap brings ‘games’ back to the effective user ID and restores
+access to the scores file.
+
+   In order to handle both kinds of systems, test for the saved user ID
+feature with a preprocessor conditional, like this:
+
+     #ifdef _POSIX_SAVED_IDS
+       seteuid (user_user_id);
+     #else
+       setreuid (geteuid (), getuid ());
+     #endif
+
+
+File: libc.info,  Node: Setuid Program Example,  Next: Tips for Setuid,  Prev: Enable/Disable Setuid,  Up: Users and Groups
+
+30.9 Setuid Program Example
+===========================
+
+Here’s an example showing how to set up a program that changes its
+effective user ID.
+
+   This is part of a game program called ‘caber-toss’ that manipulates a
+file ‘scores’ that should be writable only by the game program itself.
+The program assumes that its executable file will be installed with the
+setuid bit set and owned by the same user as the ‘scores’ file.
+Typically, a system administrator will set up an account like ‘games’
+for this purpose.
+
+   The executable file is given mode ‘4755’, so that doing an ‘ls -l’ on
+it produces output like:
+
+     -rwsr-xr-x   1 games    184422 Jul 30 15:17 caber-toss
+
+The setuid bit shows up in the file modes as the ‘s’.
+
+   The scores file is given mode ‘644’, and doing an ‘ls -l’ on it
+shows:
+
+     -rw-r--r--  1 games           0 Jul 31 15:33 scores
+
+   Here are the parts of the program that show how to set up the changed
+user ID. This program is conditionalized so that it makes use of the
+file IDs feature if it is supported, and otherwise uses ‘setreuid’ to
+swap the effective and real user IDs.
+
+     #include <stdio.h>
+     #include <sys/types.h>
+     #include <unistd.h>
+     #include <stdlib.h>
+
+
+     /* Remember the effective and real UIDs. */
+
+     static uid_t euid, ruid;
+
+
+     /* Restore the effective UID to its original value. */
+
+     void
+     do_setuid (void)
+     {
+       int status;
+
+     #ifdef _POSIX_SAVED_IDS
+       status = seteuid (euid);
+     #else
+       status = setreuid (ruid, euid);
+     #endif
+       if (status < 0) {
+         fprintf (stderr, "Couldn't set uid.\n");
+         exit (status);
+         }
+     }
+
+
+     /* Set the effective UID to the real UID. */
+
+     void
+     undo_setuid (void)
+     {
+       int status;
+
+     #ifdef _POSIX_SAVED_IDS
+       status = seteuid (ruid);
+     #else
+       status = setreuid (euid, ruid);
+     #endif
+       if (status < 0) {
+         fprintf (stderr, "Couldn't set uid.\n");
+         exit (status);
+         }
+     }
+
+     /* Main program. */
+
+     int
+     main (void)
+     {
+       /* Remember the real and effective user IDs.  */
+       ruid = getuid ();
+       euid = geteuid ();
+       undo_setuid ();
+
+       /* Do the game and record the score.  */
+       ...
+     }
+
+   Notice how the first thing the ‘main’ function does is to set the
+effective user ID back to the real user ID. This is so that any other
+file accesses that are performed while the user is playing the game use
+the real user ID for determining permissions.  Only when the program
+needs to open the scores file does it switch back to the file user ID,
+like this:
+
+     /* Record the score. */
+
+     int
+     record_score (int score)
+     {
+       FILE *stream;
+       char *myname;
+
+       /* Open the scores file. */
+       do_setuid ();
+       stream = fopen (SCORES_FILE, "a");
+       undo_setuid ();
+
+       /* Write the score to the file. */
+       if (stream)
+         {
+           myname = cuserid (NULL);
+           if (score < 0)
+             fprintf (stream, "%10s: Couldn't lift the caber.\n", myname);
+           else
+             fprintf (stream, "%10s: %d feet.\n", myname, score);
+           fclose (stream);
+           return 0;
+         }
+       else
+         return -1;
+     }
+
+
+File: libc.info,  Node: Tips for Setuid,  Next: Who Logged In,  Prev: Setuid Program Example,  Up: Users and Groups
+
+30.10 Tips for Writing Setuid Programs
+======================================
+
+It is easy for setuid programs to give the user access that isn’t
+intended—in fact, if you want to avoid this, you need to be careful.
+Here are some guidelines for preventing unintended access and minimizing
+its consequences when it does occur:
+
+   • Don’t have ‘setuid’ programs with privileged user IDs such as
+     ‘root’ unless it is absolutely necessary.  If the resource is
+     specific to your particular program, it’s better to define a new,
+     nonprivileged user ID or group ID just to manage that resource.
+     It’s better if you can write your program to use a special group
+     than a special user.
+
+   • Be cautious about using the ‘exec’ functions in combination with
+     changing the effective user ID. Don’t let users of your program
+     execute arbitrary programs under a changed user ID. Executing a
+     shell is especially bad news.  Less obviously, the ‘execlp’ and
+     ‘execvp’ functions are a potential risk (since the program they
+     execute depends on the user’s ‘PATH’ environment variable).
+
+     If you must ‘exec’ another program under a changed ID, specify an
+     absolute file name (*note File Name Resolution::) for the
+     executable, and make sure that the protections on that executable
+     and _all_ containing directories are such that ordinary users
+     cannot replace it with some other program.
+
+     You should also check the arguments passed to the program to make
+     sure they do not have unexpected effects.  Likewise, you should
+     examine the environment variables.  Decide which arguments and
+     variables are safe, and reject all others.
+
+     You should never use ‘system’ in a privileged program, because it
+     invokes a shell.
+
+   • Only use the user ID controlling the resource in the part of the
+     program that actually uses that resource.  When you’re finished
+     with it, restore the effective user ID back to the actual user’s
+     user ID. *Note Enable/Disable Setuid::.
+
+   • If the ‘setuid’ part of your program needs to access other files
+     besides the controlled resource, it should verify that the real
+     user would ordinarily have permission to access those files.  You
+     can use the ‘access’ function (*note Access Permission::) to check
+     this; it uses the real user and group IDs, rather than the
+     effective IDs.
+
+
+File: libc.info,  Node: Who Logged In,  Next: User Accounting Database,  Prev: Tips for Setuid,  Up: Users and Groups
+
+30.11 Identifying Who Logged In
+===============================
+
+You can use the functions listed in this section to determine the login
+name of the user who is running a process, and the name of the user who
+logged in the current session.  See also the function ‘getuid’ and
+friends (*note Reading Persona::).  How this information is collected by
+the system and how to control/add/remove information from the background
+storage is described in *note User Accounting Database::.
+
+   The ‘getlogin’ function is declared in ‘unistd.h’, while ‘cuserid’
+and ‘L_cuserid’ are declared in ‘stdio.h’.
+
+ -- Function: char * getlogin (void)
+
+     Preliminary: | MT-Unsafe race:getlogin race:utent sig:ALRM timer
+     locale | AS-Unsafe dlopen plugin heap lock | AC-Unsafe corrupt lock
+     fd mem | *Note POSIX Safety Concepts::.
+
+     The ‘getlogin’ function returns a pointer to a string containing
+     the name of the user logged in on the controlling terminal of the
+     process, or a null pointer if this information cannot be
+     determined.  The string is statically allocated and might be
+     overwritten on subsequent calls to this function or to ‘cuserid’.
+
+ -- Function: char * cuserid (char *STRING)
+
+     Preliminary: | MT-Unsafe race:cuserid/!string locale | AS-Unsafe
+     dlopen plugin heap lock | AC-Unsafe corrupt lock fd mem | *Note
+     POSIX Safety Concepts::.
+
+     The ‘cuserid’ function returns a pointer to a string containing a
+     user name associated with the effective ID of the process.  If
+     STRING is not a null pointer, it should be an array that can hold
+     at least ‘L_cuserid’ characters; the string is returned in this
+     array.  Otherwise, a pointer to a string in a static area is
+     returned.  This string is statically allocated and might be
+     overwritten on subsequent calls to this function or to ‘getlogin’.
+
+     The use of this function is deprecated since it is marked to be
+     withdrawn in XPG4.2 and has already been removed from newer
+     revisions of POSIX.1.
+
+ -- Macro: int L_cuserid
+
+     An integer constant that indicates how long an array you might need
+     to store a user name.
+
+   These functions let your program identify positively the user who is
+running or the user who logged in this session.  (These can differ when
+setuid programs are involved; see *note Process Persona::.)  The user
+cannot do anything to fool these functions.
+
+   For most purposes, it is more useful to use the environment variable
+‘LOGNAME’ to find out who the user is.  This is more flexible precisely
+because the user can set ‘LOGNAME’ arbitrarily.  *Note Standard
+Environment::.
+
+
+File: libc.info,  Node: User Accounting Database,  Next: User Database,  Prev: Who Logged In,  Up: Users and Groups
+
+30.12 The User Accounting Database
+==================================
+
+Most Unix-like operating systems keep track of logged in users by
+maintaining a user accounting database.  This user accounting database
+stores for each terminal, who has logged on, at what time, the process
+ID of the user’s login shell, etc., etc., but also stores information
+about the run level of the system, the time of the last system reboot,
+and possibly more.
+
+   The user accounting database typically lives in ‘/etc/utmp’,
+‘/var/adm/utmp’ or ‘/var/run/utmp’.  However, these files should *never*
+be accessed directly.  For reading information from and writing
+information to the user accounting database, the functions described in
+this section should be used.
+
+* Menu:
+
+* Manipulating the Database::   Scanning and modifying the user
+                                 accounting database.
+* XPG Functions::               A standardized way for doing the same thing.
+* Logging In and Out::          Functions from BSD that modify the user
+                                 accounting database.
+
+
+File: libc.info,  Node: Manipulating the Database,  Next: XPG Functions,  Up: User Accounting Database
+
+30.12.1 Manipulating the User Accounting Database
+-------------------------------------------------
+
+These functions and the corresponding data structures are declared in
+the header file ‘utmp.h’.
+
+ -- Data Type: struct exit_status
+
+     The ‘exit_status’ data structure is used to hold information about
+     the exit status of processes marked as ‘DEAD_PROCESS’ in the user
+     accounting database.
+
+     ‘short int e_termination’
+          The exit status of the process.
+
+     ‘short int e_exit’
+          The exit status of the process.
+
+ -- Data Type: struct utmp
+     The ‘utmp’ data structure is used to hold information about entries
+     in the user accounting database.  On GNU systems it has the
+     following members:
+
+     ‘short int ut_type’
+          Specifies the type of login; one of ‘EMPTY’, ‘RUN_LVL’,
+          ‘BOOT_TIME’, ‘OLD_TIME’, ‘NEW_TIME’, ‘INIT_PROCESS’,
+          ‘LOGIN_PROCESS’, ‘USER_PROCESS’, ‘DEAD_PROCESS’ or
+          ‘ACCOUNTING’.
+
+     ‘pid_t ut_pid’
+          The process ID number of the login process.
+
+     ‘char ut_line[]’
+          The device name of the tty (without ‘/dev/’).
+
+     ‘char ut_id[]’
+          The inittab ID of the process.
+
+     ‘char ut_user[]’
+          The user’s login name.
+
+     ‘char ut_host[]’
+          The name of the host from which the user logged in.
+
+     ‘struct exit_status ut_exit’
+          The exit status of a process marked as ‘DEAD_PROCESS’.
+
+     ‘long ut_session’
+          The Session ID, used for windowing.
+
+     ‘struct timeval ut_tv’
+          Time the entry was made.  For entries of type ‘OLD_TIME’ this
+          is the time when the system clock changed, and for entries of
+          type ‘NEW_TIME’ this is the time the system clock was set to.
+
+     ‘int32_t ut_addr_v6[4]’
+          The Internet address of a remote host.
+
+   The ‘ut_type’, ‘ut_pid’, ‘ut_id’, ‘ut_tv’, and ‘ut_host’ fields are
+not available on all systems.  Portable applications therefore should be
+prepared for these situations.  To help do this the ‘utmp.h’ header
+provides macros ‘_HAVE_UT_TYPE’, ‘_HAVE_UT_PID’, ‘_HAVE_UT_ID’,
+‘_HAVE_UT_TV’, and ‘_HAVE_UT_HOST’ if the respective field is available.
+The programmer can handle the situations by using ‘#ifdef’ in the
+program code.
+
+   The following macros are defined for use as values for the ‘ut_type’
+member of the ‘utmp’ structure.  The values are integer constants.
+
+‘EMPTY’
+
+     This macro is used to indicate that the entry contains no valid
+     user accounting information.
+
+‘RUN_LVL’
+
+     This macro is used to identify the system’s runlevel.
+
+‘BOOT_TIME’
+
+     This macro is used to identify the time of system boot.
+
+‘OLD_TIME’
+
+     This macro is used to identify the time when the system clock
+     changed.
+
+‘NEW_TIME’
+
+     This macro is used to identify the time after the system clock
+     changed.
+
+‘INIT_PROCESS’
+
+     This macro is used to identify a process spawned by the init
+     process.
+
+‘LOGIN_PROCESS’
+
+     This macro is used to identify the session leader of a logged in
+     user.
+
+‘USER_PROCESS’
+
+     This macro is used to identify a user process.
+
+‘DEAD_PROCESS’
+
+     This macro is used to identify a terminated process.
+
+‘ACCOUNTING’
+
+     ???
+
+   The size of the ‘ut_line’, ‘ut_id’, ‘ut_user’ and ‘ut_host’ arrays
+can be found using the ‘sizeof’ operator.
+
+   Many older systems have, instead of an ‘ut_tv’ member, an ‘ut_time’
+member, usually of type ‘time_t’, for representing the time associated
+with the entry.  Therefore, for backwards compatibility only, ‘utmp.h’
+defines ‘ut_time’ as an alias for ‘ut_tv.tv_sec’.
+
+ -- Function: void setutent (void)
+
+     Preliminary: | MT-Unsafe race:utent | AS-Unsafe lock | AC-Unsafe
+     lock fd | *Note POSIX Safety Concepts::.
+
+     This function opens the user accounting database to begin scanning
+     it.  You can then call ‘getutent’, ‘getutid’ or ‘getutline’ to read
+     entries and ‘pututline’ to write entries.
+
+     If the database is already open, it resets the input to the
+     beginning of the database.
+
+ -- Function: struct utmp * getutent (void)
+
+     Preliminary: | MT-Unsafe init race:utent race:utentbuf sig:ALRM
+     timer | AS-Unsafe heap lock | AC-Unsafe lock fd mem | *Note POSIX
+     Safety Concepts::.
+
+     The ‘getutent’ function reads the next entry from the user
+     accounting database.  It returns a pointer to the entry, which is
+     statically allocated and may be overwritten by subsequent calls to
+     ‘getutent’.  You must copy the contents of the structure if you
+     wish to save the information or you can use the ‘getutent_r’
+     function which stores the data in a user-provided buffer.
+
+     A null pointer is returned in case no further entry is available.
+
+ -- Function: void endutent (void)
+
+     Preliminary: | MT-Unsafe race:utent | AS-Unsafe lock | AC-Unsafe
+     lock fd | *Note POSIX Safety Concepts::.
+
+     This function closes the user accounting database.
+
+ -- Function: struct utmp * getutid (const struct utmp *ID)
+
+     Preliminary: | MT-Unsafe init race:utent sig:ALRM timer | AS-Unsafe
+     lock heap | AC-Unsafe lock mem fd | *Note POSIX Safety Concepts::.
+
+     This function searches forward from the current point in the
+     database for an entry that matches ID.  If the ‘ut_type’ member of
+     the ID structure is one of ‘RUN_LVL’, ‘BOOT_TIME’, ‘OLD_TIME’ or
+     ‘NEW_TIME’ the entries match if the ‘ut_type’ members are
+     identical.  If the ‘ut_type’ member of the ID structure is
+     ‘INIT_PROCESS’, ‘LOGIN_PROCESS’, ‘USER_PROCESS’ or ‘DEAD_PROCESS’,
+     the entries match if the ‘ut_type’ member of the entry read from
+     the database is one of these four, and the ‘ut_id’ members match.
+     However if the ‘ut_id’ member of either the ID structure or the
+     entry read from the database is empty it checks if the ‘ut_line’
+     members match instead.  If a matching entry is found, ‘getutid’
+     returns a pointer to the entry, which is statically allocated, and
+     may be overwritten by a subsequent call to ‘getutent’, ‘getutid’ or
+     ‘getutline’.  You must copy the contents of the structure if you
+     wish to save the information.
+
+     A null pointer is returned in case the end of the database is
+     reached without a match.
+
+     The ‘getutid’ function may cache the last read entry.  Therefore,
+     if you are using ‘getutid’ to search for multiple occurrences, it
+     is necessary to zero out the static data after each call.
+     Otherwise ‘getutid’ could just return a pointer to the same entry
+     over and over again.
+
+ -- Function: struct utmp * getutline (const struct utmp *LINE)
+
+     Preliminary: | MT-Unsafe init race:utent sig:ALRM timer | AS-Unsafe
+     heap lock | AC-Unsafe lock fd mem | *Note POSIX Safety Concepts::.
+
+     This function searches forward from the current point in the
+     database until it finds an entry whose ‘ut_type’ value is
+     ‘LOGIN_PROCESS’ or ‘USER_PROCESS’, and whose ‘ut_line’ member
+     matches the ‘ut_line’ member of the LINE structure.  If it finds
+     such an entry, it returns a pointer to the entry which is
+     statically allocated, and may be overwritten by a subsequent call
+     to ‘getutent’, ‘getutid’ or ‘getutline’.  You must copy the
+     contents of the structure if you wish to save the information.
+
+     A null pointer is returned in case the end of the database is
+     reached without a match.
+
+     The ‘getutline’ function may cache the last read entry.  Therefore
+     if you are using ‘getutline’ to search for multiple occurrences, it
+     is necessary to zero out the static data after each call.
+     Otherwise ‘getutline’ could just return a pointer to the same entry
+     over and over again.
+
+ -- Function: struct utmp * pututline (const struct utmp *UTMP)
+
+     Preliminary: | MT-Unsafe race:utent sig:ALRM timer | AS-Unsafe lock
+     | AC-Unsafe lock fd | *Note POSIX Safety Concepts::.
+
+     The ‘pututline’ function inserts the entry ‘*UTMP’ at the
+     appropriate place in the user accounting database.  If it finds
+     that it is not already at the correct place in the database, it
+     uses ‘getutid’ to search for the position to insert the entry,
+     however this will not modify the static structure returned by
+     ‘getutent’, ‘getutid’ and ‘getutline’.  If this search fails, the
+     entry is appended to the database.
+
+     The ‘pututline’ function returns a pointer to a copy of the entry
+     inserted in the user accounting database, or a null pointer if the
+     entry could not be added.  The following ‘errno’ error conditions
+     are defined for this function:
+
+     ‘EPERM’
+          The process does not have the appropriate privileges; you
+          cannot modify the user accounting database.
+
+   All the ‘get*’ functions mentioned before store the information they
+return in a static buffer.  This can be a problem in multi-threaded
+programs since the data returned for the request is overwritten by the
+return value data in another thread.  Therefore the GNU C Library
+provides as extensions three more functions which return the data in a
+user-provided buffer.
+
+ -- Function: int getutent_r (struct utmp *BUFFER, struct utmp **RESULT)
+
+     Preliminary: | MT-Unsafe race:utent sig:ALRM timer | AS-Unsafe lock
+     | AC-Unsafe lock fd | *Note POSIX Safety Concepts::.
+
+     The ‘getutent_r’ is equivalent to the ‘getutent’ function.  It
+     returns the next entry from the database.  But instead of storing
+     the information in a static buffer it stores it in the buffer
+     pointed to by the parameter BUFFER.
+
+     If the call was successful, the function returns ‘0’ and the
+     pointer variable pointed to by the parameter RESULT contains a
+     pointer to the buffer which contains the result (this is most
+     probably the same value as BUFFER).  If something went wrong during
+     the execution of ‘getutent_r’ the function returns ‘-1’.
+
+     This function is a GNU extension.
+
+ -- Function: int getutid_r (const struct utmp *ID, struct utmp *BUFFER,
+          struct utmp **RESULT)
+
+     Preliminary: | MT-Unsafe race:utent sig:ALRM timer | AS-Unsafe lock
+     | AC-Unsafe lock fd | *Note POSIX Safety Concepts::.
+
+     This function retrieves just like ‘getutid’ the next entry matching
+     the information stored in ID.  But the result is stored in the
+     buffer pointed to by the parameter BUFFER.
+
+     If successful the function returns ‘0’ and the pointer variable
+     pointed to by the parameter RESULT contains a pointer to the buffer
+     with the result (probably the same as RESULT.  If not successful
+     the function return ‘-1’.
+
+     This function is a GNU extension.
+
+ -- Function: int getutline_r (const struct utmp *LINE, struct utmp
+          *BUFFER, struct utmp **RESULT)
+
+     Preliminary: | MT-Unsafe race:utent sig:ALRM timer | AS-Unsafe lock
+     | AC-Unsafe lock fd | *Note POSIX Safety Concepts::.
+
+     This function retrieves just like ‘getutline’ the next entry
+     matching the information stored in LINE.  But the result is stored
+     in the buffer pointed to by the parameter BUFFER.
+
+     If successful the function returns ‘0’ and the pointer variable
+     pointed to by the parameter RESULT contains a pointer to the buffer
+     with the result (probably the same as RESULT.  If not successful
+     the function return ‘-1’.
+
+     This function is a GNU extension.
+
+   In addition to the user accounting database, most systems keep a
+number of similar databases.  For example most systems keep a log file
+with all previous logins (usually in ‘/etc/wtmp’ or ‘/var/log/wtmp’).
+
+   For specifying which database to examine, the following function
+should be used.
+
+ -- Function: int utmpname (const char *FILE)
+
+     Preliminary: | MT-Unsafe race:utent | AS-Unsafe lock heap |
+     AC-Unsafe lock mem | *Note POSIX Safety Concepts::.
+
+     The ‘utmpname’ function changes the name of the database to be
+     examined to FILE, and closes any previously opened database.  By
+     default ‘getutent’, ‘getutid’, ‘getutline’ and ‘pututline’ read
+     from and write to the user accounting database.
+
+     The following macros are defined for use as the FILE argument:
+
+      -- Macro: char * _PATH_UTMP
+          This macro is used to specify the user accounting database.
+
+      -- Macro: char * _PATH_WTMP
+          This macro is used to specify the user accounting log file.
+
+     The ‘utmpname’ function returns a value of ‘0’ if the new name was
+     successfully stored, and a value of ‘-1’ to indicate an error.
+     Note that ‘utmpname’ does not try to open the database, and that
+     therefore the return value does not say anything about whether the
+     database can be successfully opened.
+
+   Specially for maintaining log-like databases the GNU C Library
+provides the following function:
+
+ -- Function: void updwtmp (const char *WTMP_FILE, const struct utmp
+          *UTMP)
+
+     Preliminary: | MT-Unsafe sig:ALRM timer | AS-Unsafe | AC-Unsafe fd
+     | *Note POSIX Safety Concepts::.
+
+     The ‘updwtmp’ function appends the entry *UTMP to the database
+     specified by WTMP_FILE.  For possible values for the WTMP_FILE
+     argument see the ‘utmpname’ function.
+
+   *Portability Note:* Although many operating systems provide a subset
+of these functions, they are not standardized.  There are often subtle
+differences in the return types, and there are considerable differences
+between the various definitions of ‘struct utmp’.  When programming for
+the GNU C Library, it is probably best to stick with the functions
+described in this section.  If however, you want your program to be
+portable, consider using the XPG functions described in *note XPG
+Functions::, or take a look at the BSD compatible functions in *note
+Logging In and Out::.
 
 
 File: libc.info,  Node: XPG Functions,  Next: Logging In and Out,  Prev: Manipulating the Database,  Up: User Accounting Database
@@ -2266,6 +4283,16 @@ users.  The database itself is kept in the file ‘/etc/passwd’ on most
 systems, but on some systems a special network server gives access to
 it.
 
+   Historically, this database included one-way hashes of user
+passphrases (*note Passphrase Storage::) as well as public information
+about each user (such as their user ID and full name).  Many of the
+functions and data structures associated with this database, and the
+filename ‘/etc/passwd’ itself, reflect this history.  However, the
+information in this database is available to all users, and it is no
+longer considered safe to make passphrase hashes available to all users,
+so they have been moved to a “shadow” database that can only be accessed
+with special privileges.
+
 * Menu:
 
 * User Data Structure::         What each user record contains.
@@ -2291,8 +4318,11 @@ are declared in the header file ‘pwd.h’.
      ‘char *pw_name’
           The user’s login name.
 
-     ‘char *pw_passwd.’
-          The encrypted password string.
+     ‘char *pw_passwd’
+          Historically, this field would hold the one-way hash of the
+          user’s passphrase.  Nowadays, it will almost always be the
+          single character ‘x’, indicating that the hash is in the
+          shadow database.
 
      ‘uid_t pw_uid’
           The user ID number.
@@ -2410,7 +4440,7 @@ particular file.
      contents of the structure if you wish to save the information.
 
      The stream must correspond to a file in the same format as the
-     standard password database file.
+     standard user database file.
 
  -- Function: int fgetpwent_r (FILE *STREAM, struct passwd *RESULT_BUF,
           char *BUFFER, size_t BUFLEN, struct passwd **RESULT)
@@ -2426,7 +4456,7 @@ particular file.
      the elements of the result structure.
 
      The stream must correspond to a file in the same format as the
-     standard password database file.
+     standard user database file.
 
      If the function returns zero RESULT points to the structure with
      the wanted data (normally this is in RESULT_BUF).  If errors
@@ -4775,6 +6805,80 @@ enumeration type values).
      Inquire about the number of functions which can be registered as
      termination functions for ‘atexit’; *note Cleanups on Exit::.
 
+‘_SC_LEVEL1_ICACHE_SIZE’
+
+     Inquire about the size of the Level 1 instruction cache.
+
+‘_SC_LEVEL1_ICACHE_ASSOC’
+
+     Inquire about the associativity of the Level 1 instruction cache.
+
+‘_SC_LEVEL1_ICACHE_LINESIZE’
+
+     Inquire about the line length of the Level 1 instruction cache.
+
+     On aarch64, the cache line size returned is the minimum instruction
+     cache line size observable by userspace.  This is typically the
+     same as the L1 icache size but on some cores it may not be so.
+     However, it is specified in the architecture that operations such
+     as cache line invalidation are consistent with the size reported
+     with this variable.
+
+‘_SC_LEVEL1_DCACHE_SIZE’
+
+     Inquire about the size of the Level 1 data cache.
+
+‘_SC_LEVEL1_DCACHE_ASSOC’
+
+     Inquire about the associativity of the Level 1 data cache.
+
+‘_SC_LEVEL1_DCACHE_LINESIZE’
+
+     Inquire about the line length of the Level 1 data cache.
+
+     On aarch64, the cache line size returned is the minimum data cache
+     line size observable by userspace.  This is typically the same as
+     the L1 dcache size but on some cores it may not be so.  However, it
+     is specified in the architecture that operations such as cache line
+     invalidation are consistent with the size reported with this
+     variable.
+
+‘_SC_LEVEL2_CACHE_SIZE’
+
+     Inquire about the size of the Level 2 cache.
+
+‘_SC_LEVEL2_CACHE_ASSOC’
+
+     Inquire about the associativity of the Level 2 cache.
+
+‘_SC_LEVEL2_CACHE_LINESIZE’
+
+     Inquire about the line length of the Level 2 cache.
+
+‘_SC_LEVEL3_CACHE_SIZE’
+
+     Inquire about the size of the Level 3 cache.
+
+‘_SC_LEVEL3_CACHE_ASSOC’
+
+     Inquire about the associativity of the Level 3 cache.
+
+‘_SC_LEVEL3_CACHE_LINESIZE’
+
+     Inquire about the line length of the Level 3 cache.
+
+‘_SC_LEVEL4_CACHE_SIZE’
+
+     Inquire about the size of the Level 4 cache.
+
+‘_SC_LEVEL4_CACHE_ASSOC’
+
+     Inquire about the associativity of the Level 4 cache.
+
+‘_SC_LEVEL4_CACHE_LINESIZE’
+
+     Inquire about the line length of the Level 4 cache.
+
 ‘_SC_XOPEN_VERSION’
 
      Inquire about the parameter corresponding to ‘_XOPEN_VERSION’.
@@ -4802,7 +6906,9 @@ enumeration type values).
 
 ‘_SC_XOPEN_CRYPT’
 
-     Inquire about the parameter corresponding to ‘_XOPEN_CRYPT’.
+     Inquire about the parameter corresponding to ‘_XOPEN_CRYPT’.  The
+     GNU C Library no longer implements the ‘_XOPEN_CRYPT’ extensions,
+     so ‘sysconf (_SC_XOPEN_CRYPT)’ always returns ‘-1’.
 
 ‘_SC_XOPEN_ENH_I18N’
 
@@ -4866,7 +6972,7 @@ enumeration type values).
      Inquire about the value used to internally represent the zero
      priority level for the process execution.
 
-‘SC_SSIZE_MAX’
+‘_SC_SSIZE_MAX’
 
      Inquire about the maximum value which can be stored in a variable
      of type ‘ssize_t’.
@@ -5620,1713 +7726,3 @@ like this:
 
        return buffer;
      }
-
-
-File: libc.info,  Node: Cryptographic Functions,  Next: Debugging Support,  Prev: System Configuration,  Up: Top
-
-33 DES Encryption and Password Handling
-***************************************
-
-On many systems, it is unnecessary to have any kind of user
-authentication; for instance, a workstation which is not connected to a
-network probably does not need any user authentication, because to use
-the machine an intruder must have physical access.
-
-   Sometimes, however, it is necessary to be sure that a user is
-authorized to use some service a machine provides—for instance, to log
-in as a particular user id (*note Users and Groups::).  One traditional
-way of doing this is for each user to choose a secret “password”; then,
-the system can ask someone claiming to be a user what the user’s
-password is, and if the person gives the correct password then the
-system can grant the appropriate privileges.
-
-   If all the passwords are just stored in a file somewhere, then this
-file has to be very carefully protected.  To avoid this, passwords are
-run through a “one-way function”, a function which makes it difficult to
-work out what its input was by looking at its output, before storing in
-the file.
-
-   The GNU C Library provides a one-way function that is compatible with
-the behavior of the ‘crypt’ function introduced in FreeBSD 2.0.  It
-supports two one-way algorithms: one based on the MD5 message-digest
-algorithm that is compatible with modern BSD systems, and the other
-based on the Data Encryption Standard (DES) that is compatible with Unix
-systems.
-
-   It also provides support for Secure RPC, and some library functions
-that can be used to perform normal DES encryption.  The ‘AUTH_DES’
-authentication flavor in Secure RPC, as provided by the GNU C Library,
-uses DES and does not comply with FIPS 140-2 nor does any other use of
-DES within the GNU C Library.  It is recommended that Secure RPC should
-not be used for systems that need to comply with FIPS 140-2 since all
-flavors of encrypted authentication use normal DES.
-
-* Menu:
-
-* Legal Problems::              This software can get you locked up, or worse.
-* getpass::                     Prompting the user for a password.
-* crypt::                       A one-way function for passwords.
-* DES Encryption::              Routines for DES encryption.
-* Unpredictable Bytes::         Randomness for cryptography purposes.
-
-
-File: libc.info,  Node: Legal Problems,  Next: getpass,  Up: Cryptographic Functions
-
-33.1 Legal Problems
-===================
-
-Because of the continuously changing state of the law, it’s not possible
-to provide a definitive survey of the laws affecting cryptography.
-Instead, this section warns you of some of the known trouble spots; this
-may help you when you try to find out what the laws of your country are.
-
-   Some countries require that you have a license to use, possess, or
-import cryptography.  These countries are believed to include
-Byelorussia, Burma, India, Indonesia, Israel, Kazakhstan, Pakistan,
-Russia, and Saudi Arabia.
-
-   Some countries restrict the transmission of encrypted messages by
-radio; some telecommunications carriers restrict the transmission of
-encrypted messages over their network.
-
-   Many countries have some form of export control for encryption
-software.  The Wassenaar Arrangement is a multilateral agreement between
-33 countries (Argentina, Australia, Austria, Belgium, Bulgaria, Canada,
-the Czech Republic, Denmark, Finland, France, Germany, Greece, Hungary,
-Ireland, Italy, Japan, Luxembourg, the Netherlands, New Zealand, Norway,
-Poland, Portugal, the Republic of Korea, Romania, the Russian
-Federation, the Slovak Republic, Spain, Sweden, Switzerland, Turkey,
-Ukraine, the United Kingdom and the United States) which restricts some
-kinds of encryption exports.  Different countries apply the arrangement
-in different ways; some do not allow the exception for certain kinds of
-“public domain” software (which would include this library), some only
-restrict the export of software in tangible form, and others impose
-significant additional restrictions.
-
-   The United States has additional rules.  This software would
-generally be exportable under 15 CFR 740.13(e), which permits exports of
-“encryption source code” which is “publicly available” and which is “not
-subject to an express agreement for the payment of a licensing fee or
-royalty for commercial production or sale of any product developed with
-the source code” to most countries.
-
-   The rules in this area are continuously changing.  If you know of any
-information in this manual that is out-of-date, please report it to the
-bug database.  *Note Reporting Bugs::.
-
-
-File: libc.info,  Node: getpass,  Next: crypt,  Prev: Legal Problems,  Up: Cryptographic Functions
-
-33.2 Reading Passwords
-======================
-
-When reading in a password, it is desirable to avoid displaying it on
-the screen, to help keep it secret.  The following function handles this
-in a convenient way.
-
- -- Function: char * getpass (const char *PROMPT)
-
-     Preliminary: | MT-Unsafe term | AS-Unsafe heap lock corrupt |
-     AC-Unsafe term lock corrupt | *Note POSIX Safety Concepts::.
-
-     ‘getpass’ outputs PROMPT, then reads a string in from the terminal
-     without echoing it.  It tries to connect to the real terminal,
-     ‘/dev/tty’, if possible, to encourage users not to put plaintext
-     passwords in files; otherwise, it uses ‘stdin’ and ‘stderr’.
-     ‘getpass’ also disables the INTR, QUIT, and SUSP characters on the
-     terminal using the ‘ISIG’ terminal attribute (*note Local Modes::).
-     The terminal is flushed before and after ‘getpass’, so that
-     characters of a mistyped password are not accidentally visible.
-
-     In other C libraries, ‘getpass’ may only return the first
-     ‘PASS_MAX’ bytes of a password.  The GNU C Library has no limit, so
-     ‘PASS_MAX’ is undefined.
-
-     The prototype for this function is in ‘unistd.h’.  ‘PASS_MAX’ would
-     be defined in ‘limits.h’.
-
-   This precise set of operations may not suit all possible situations.
-In this case, it is recommended that users write their own ‘getpass’
-substitute.  For instance, a very simple substitute is as follows:
-
-
-     #include <termios.h>
-     #include <stdio.h>
-
-     ssize_t
-     my_getpass (char **lineptr, size_t *n, FILE *stream)
-     {
-       struct termios old, new;
-       int nread;
-
-       /* Turn echoing off and fail if we can’t. */
-       if (tcgetattr (fileno (stream), &old) != 0)
-         return -1;
-       new = old;
-       new.c_lflag &= ~ECHO;
-       if (tcsetattr (fileno (stream), TCSAFLUSH, &new) != 0)
-         return -1;
-
-       /* Read the password. */
-       nread = getline (lineptr, n, stream);
-
-       /* Restore terminal. */
-       (void) tcsetattr (fileno (stream), TCSAFLUSH, &old);
-
-       return nread;
-     }
-
-   The substitute takes the same parameters as ‘getline’ (*note Line
-Input::); the user must print any prompt desired.
-
-
-File: libc.info,  Node: crypt,  Next: DES Encryption,  Prev: getpass,  Up: Cryptographic Functions
-
-33.3 Encrypting Passwords
-=========================
-
- -- Function: char * crypt (const char *KEY, const char *SALT)
-
-     Preliminary: | MT-Unsafe race:crypt | AS-Unsafe corrupt lock heap
-     dlopen | AC-Unsafe lock mem | *Note POSIX Safety Concepts::.
-
-     The ‘crypt’ function takes a password, KEY, as a string, and a SALT
-     character array which is described below, and returns a printable
-     ASCII string which starts with another salt.  It is believed that,
-     given the output of the function, the best way to find a KEY that
-     will produce that output is to guess values of KEY until the
-     original value of KEY is found.
-
-     The SALT parameter does two things.  Firstly, it selects which
-     algorithm is used, the MD5-based one or the DES-based one.
-     Secondly, it makes life harder for someone trying to guess
-     passwords against a file containing many passwords; without a SALT,
-     an intruder can make a guess, run ‘crypt’ on it once, and compare
-     the result with all the passwords.  With a SALT, the intruder must
-     run ‘crypt’ once for each different salt.
-
-     For the MD5-based algorithm, the SALT should consist of the string
-     ‘$1$’, followed by up to 8 characters, terminated by either another
-     ‘$’ or the end of the string.  The result of ‘crypt’ will be the
-     SALT, followed by a ‘$’ if the salt didn’t end with one, followed
-     by 22 characters from the alphabet ‘./0-9A-Za-z’, up to 34
-     characters total.  Every character in the KEY is significant.
-
-     For the DES-based algorithm, the SALT should consist of two
-     characters from the alphabet ‘./0-9A-Za-z’, and the result of
-     ‘crypt’ will be those two characters followed by 11 more from the
-     same alphabet, 13 in total.  Only the first 8 characters in the KEY
-     are significant.
-
-     The MD5-based algorithm has no limit on the useful length of the
-     password used, and is slightly more secure.  It is therefore
-     preferred over the DES-based algorithm.
-
-     When the user enters their password for the first time, the SALT
-     should be set to a new string which is reasonably random.  To
-     verify a password against the result of a previous call to ‘crypt’,
-     pass the result of the previous call as the SALT.
-
-   The following short program is an example of how to use ‘crypt’ the
-first time a password is entered.  Note that the SALT generation is just
-barely acceptable; in particular, it is not unique between machines, and
-in many applications it would not be acceptable to let an attacker know
-what time the user’s password was last set.
-
-
-     #include <stdio.h>
-     #include <time.h>
-     #include <unistd.h>
-     #include <crypt.h>
-
-     int
-     main(void)
-     {
-       unsigned long seed[2];
-       char salt[] = "$1$........";
-       const char *const seedchars =
-         "./0123456789ABCDEFGHIJKLMNOPQRST"
-         "UVWXYZabcdefghijklmnopqrstuvwxyz";
-       char *password;
-       int i;
-
-       /* Generate a (not very) random seed.
-          You should do it better than this... */
-       seed[0] = time(NULL);
-       seed[1] = getpid() ^ (seed[0] >> 14 & 0x30000);
-
-       /* Turn it into printable characters from ‘seedchars’. */
-       for (i = 0; i < 8; i++)
-         salt[3+i] = seedchars[(seed[i/5] >> (i%5)*6) & 0x3f];
-
-       /* Read in the user’s password and encrypt it. */
-       password = crypt(getpass("Password:"), salt);
-
-       /* Print the results. */
-       puts(password);
-       return 0;
-     }
-
-   The next program shows how to verify a password.  It prompts the user
-for a password and prints “Access granted.” if the user types ‘GNU libc
-manual’.
-
-
-     #include <stdio.h>
-     #include <string.h>
-     #include <unistd.h>
-     #include <crypt.h>
-
-     int
-     main(void)
-     {
-       /* Hashed form of "GNU libc manual". */
-       const char *const pass = "$1$/iSaq7rB$EoUw5jJPPvAPECNaaWzMK/";
-
-       char *result;
-       int ok;
-
-       /* Read in the user’s password and encrypt it,
-          passing the expected password in as the salt. */
-       result = crypt(getpass("Password:"), pass);
-
-       /* Test the result. */
-       ok = strcmp (result, pass) == 0;
-
-       puts(ok ? "Access granted." : "Access denied.");
-       return ok ? 0 : 1;
-     }
-
- -- Function: char * crypt_r (const char *KEY, const char *SALT, struct
-          crypt_data * DATA)
-
-     Preliminary: | MT-Safe | AS-Unsafe corrupt lock heap dlopen |
-     AC-Unsafe lock mem | *Note POSIX Safety Concepts::.
-
-     The ‘crypt_r’ function does the same thing as ‘crypt’, but takes an
-     extra parameter which includes space for its result (among other
-     things), so it can be reentrant.  ‘data->initialized’ must be
-     cleared to zero before the first time ‘crypt_r’ is called.
-
-     The ‘crypt_r’ function is a GNU extension.
-
-   The ‘crypt’ and ‘crypt_r’ functions are prototyped in the header
-‘crypt.h’.
-
-
-File: libc.info,  Node: DES Encryption,  Next: Unpredictable Bytes,  Prev: crypt,  Up: Cryptographic Functions
-
-33.4 DES Encryption
-===================
-
-The Data Encryption Standard is described in the US Government Federal
-Information Processing Standards (FIPS) 46-3 published by the National
-Institute of Standards and Technology.  The DES has been very thoroughly
-analyzed since it was developed in the late 1970s, and no new
-significant flaws have been found.
-
-   However, the DES uses only a 56-bit key (plus 8 parity bits), and a
-machine has been built in 1998 which can search through all possible
-keys in about 6 days, which cost about US$200000; faster searches would
-be possible with more money.  This makes simple DES insecure for most
-purposes, and NIST no longer permits new US government systems to use
-simple DES.
-
-   For serious encryption functionality, it is recommended that one of
-the many free encryption libraries be used instead of these routines.
-
-   The DES is a reversible operation which takes a 64-bit block and a
-64-bit key, and produces another 64-bit block.  Usually the bits are
-numbered so that the most-significant bit, the first bit, of each block
-is numbered 1.
-
-   Under that numbering, every 8th bit of the key (the 8th, 16th, and so
-on) is not used by the encryption algorithm itself.  But the key must
-have odd parity; that is, out of bits 1 through 8, and 9 through 16, and
-so on, there must be an odd number of ‘1’ bits, and this completely
-specifies the unused bits.
-
- -- Function: void setkey (const char *KEY)
-
-     Preliminary: | MT-Unsafe race:crypt | AS-Unsafe corrupt lock |
-     AC-Unsafe lock | *Note POSIX Safety Concepts::.
-
-     The ‘setkey’ function sets an internal data structure to be an
-     expanded form of KEY.  KEY is specified as an array of 64 bits each
-     stored in a ‘char’, the first bit is ‘key[0]’ and the 64th bit is
-     ‘key[63]’.  The KEY should have the correct parity.
-
- -- Function: void encrypt (char *BLOCK, int EDFLAG)
-
-     Preliminary: | MT-Unsafe race:crypt | AS-Unsafe corrupt lock |
-     AC-Unsafe lock | *Note POSIX Safety Concepts::.
-
-     The ‘encrypt’ function encrypts BLOCK if EDFLAG is 0, otherwise it
-     decrypts BLOCK, using a key previously set by ‘setkey’.  The result
-     is placed in BLOCK.
-
-     Like ‘setkey’, BLOCK is specified as an array of 64 bits each
-     stored in a ‘char’, but there are no parity bits in BLOCK.
-
- -- Function: void setkey_r (const char *KEY, struct crypt_data * DATA)
- -- Function: void encrypt_r (char *BLOCK, int EDFLAG, struct crypt_data
-          * DATA)
-
-     Preliminary: | MT-Safe | AS-Unsafe corrupt lock | AC-Unsafe lock |
-     *Note POSIX Safety Concepts::.
-
-     These are reentrant versions of ‘setkey’ and ‘encrypt’.  The only
-     difference is the extra parameter, which stores the expanded
-     version of KEY.  Before calling ‘setkey_r’ the first time,
-     ‘data->initialized’ must be cleared to zero.
-
-   The ‘setkey_r’ and ‘encrypt_r’ functions are GNU extensions.
-‘setkey’, ‘encrypt’, ‘setkey_r’, and ‘encrypt_r’ are defined in
-‘crypt.h’.
-
- -- Function: int ecb_crypt (char *KEY, char *BLOCKS, unsigned int LEN,
-          unsigned int MODE)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The function ‘ecb_crypt’ encrypts or decrypts one or more blocks
-     using DES. Each block is encrypted independently.
-
-     The BLOCKS and the KEY are stored packed in 8-bit bytes, so that
-     the first bit of the key is the most-significant bit of ‘key[0]’
-     and the 63rd bit of the key is stored as the least-significant bit
-     of ‘key[7]’.  The KEY should have the correct parity.
-
-     LEN is the number of bytes in BLOCKS.  It should be a multiple of 8
-     (so that there are a whole number of blocks to encrypt).  LEN is
-     limited to a maximum of ‘DES_MAXDATA’ bytes.
-
-     The result of the encryption replaces the input in BLOCKS.
-
-     The MODE parameter is the bitwise OR of two of the following:
-
-     ‘DES_ENCRYPT’
-
-          This constant, used in the MODE parameter, specifies that
-          BLOCKS is to be encrypted.
-
-     ‘DES_DECRYPT’
-
-          This constant, used in the MODE parameter, specifies that
-          BLOCKS is to be decrypted.
-
-     ‘DES_HW’
-
-          This constant, used in the MODE parameter, asks to use a
-          hardware device.  If no hardware device is available,
-          encryption happens anyway, but in software.
-
-     ‘DES_SW’
-
-          This constant, used in the MODE parameter, specifies that no
-          hardware device is to be used.
-
-     The result of the function will be one of these values:
-
-     ‘DESERR_NONE’
-
-          The encryption succeeded.
-
-     ‘DESERR_NOHWDEVICE’
-
-          The encryption succeeded, but there was no hardware device
-          available.
-
-     ‘DESERR_HWERROR’
-
-          The encryption failed because of a hardware problem.
-
-     ‘DESERR_BADPARAM’
-
-          The encryption failed because of a bad parameter, for instance
-          LEN is not a multiple of 8 or LEN is larger than
-          ‘DES_MAXDATA’.
-
- -- Function: int DES_FAILED (int ERR)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This macro returns 1 if ERR is a ‘success’ result code from
-     ‘ecb_crypt’ or ‘cbc_crypt’, and 0 otherwise.
-
- -- Function: int cbc_crypt (char *KEY, char *BLOCKS, unsigned int LEN,
-          unsigned int MODE, char *IVEC)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The function ‘cbc_crypt’ encrypts or decrypts one or more blocks
-     using DES in Cipher Block Chaining mode.
-
-     For encryption in CBC mode, each block is exclusive-ored with IVEC
-     before being encrypted, then IVEC is replaced with the result of
-     the encryption, then the next block is processed.  Decryption is
-     the reverse of this process.
-
-     This has the advantage that blocks which are the same before being
-     encrypted are very unlikely to be the same after being encrypted,
-     making it much harder to detect patterns in the data.
-
-     Usually, IVEC is set to 8 random bytes before encryption starts.
-     Then the 8 random bytes are transmitted along with the encrypted
-     data (without themselves being encrypted), and passed back in as
-     IVEC for decryption.  Another possibility is to set IVEC to 8
-     zeroes initially, and have the first block encrypted consist of 8
-     random bytes.
-
-     Otherwise, all the parameters are similar to those for ‘ecb_crypt’.
-
- -- Function: void des_setparity (char *KEY)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The function ‘des_setparity’ changes the 64-bit KEY, stored packed
-     in 8-bit bytes, to have odd parity by altering the low bits of each
-     byte.
-
-   The ‘ecb_crypt’, ‘cbc_crypt’, and ‘des_setparity’ functions and their
-accompanying macros are all defined in the header ‘rpc/des_crypt.h’.
-
-
-File: libc.info,  Node: Unpredictable Bytes,  Prev: DES Encryption,  Up: Cryptographic Functions
-
-33.5 Generating Unpredictable Bytes
-===================================
-
-Some cryptographic applications (such as session key generation) need
-unpredictable bytes.
-
-   In general, application code should use a deterministic random bit
-generator, which could call the ‘getentropy’ function described below
-internally to obtain randomness to seed the generator.  The ‘getrandom’
-function is intended for low-level applications which need additional
-control over the blocking behavior.
-
- -- Function: int getentropy (void *BUFFER, size_t LENGTH)
-
-     | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety Concepts::.
-
-     This function writes LENGTH bytes of random data to the array
-     starting at BUFFER, which must be at most 256 bytes long.  The
-     function returns zero on success.  On failure, it returns ‘-1’ and
-     ‘errno’ is updated accordingly.
-
-     The ‘getentropy’ function is declared in the header file
-     ‘sys/random.h’.  It is derived from OpenBSD.
-
-     The ‘getentropy’ function is not a cancellation point.  A call to
-     ‘getentropy’ can block if the system has just booted and the kernel
-     entropy pool has not yet been initialized.  In this case, the
-     function will keep blocking even if a signal arrives, and return
-     only after the entropy pool has been initialized.
-
-     The ‘getentropy’ function can fail with several errors, some of
-     which are listed below.
-
-     ‘ENOSYS’
-          The kernel does not implement the required system call.
-
-     ‘EFAULT’
-          The combination of BUFFER and LENGTH arguments specifies an
-          invalid memory range.
-
-     ‘EIO’
-          More than 256 bytes of randomness have been requested, or the
-          buffer could not be overwritten with random data for an
-          unspecified reason.
-
- -- Function: ssize_t getrandom (void *BUFFER, size_t LENGTH, unsigned
-          int FLAGS)
-
-     | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety Concepts::.
-
-     This function writes LENGTH bytes of random data to the array
-     starting at BUFFER.  On success, this function returns the number
-     of bytes which have been written to the buffer (which can be less
-     than LENGTH).  On error, ‘-1’ is returned, and ‘errno’ is updated
-     accordingly.
-
-     The ‘getrandom’ function is declared in the header file
-     ‘sys/random.h’.  It is a GNU extension.
-
-     The following flags are defined for the FLAGS argument:
-
-     ‘GRND_RANDOM’
-          Use the ‘/dev/random’ (blocking) pool instead of the
-          ‘/dev/urandom’ (non-blocking) pool to obtain randomness.  If
-          the ‘GRND_RANDOM’ flag is specified, the ‘getrandom’ function
-          can block even after the randomness source has been
-          initialized.
-
-     ‘GRND_NONBLOCK’
-          Instead of blocking, return to the caller immediately if no
-          data is available.
-
-     The ‘getrandom’ function is a cancellation point.
-
-     Obtaining randomness from the ‘/dev/urandom’ pool (i.e., a call
-     without the ‘GRND_RANDOM’ flag) can block if the system has just
-     booted and the pool has not yet been initialized.
-
-     The ‘getrandom’ function can fail with several errors, some of
-     which are listed below.  In addition, the function may not fill the
-     buffer completely and return a value less than LENGTH.
-
-     ‘ENOSYS’
-          The kernel does not implement the ‘getrandom’ system call.
-
-     ‘EAGAIN’
-          No random data was available and ‘GRND_NONBLOCK’ was specified
-          in FLAGS.
-
-     ‘EFAULT’
-          The combination of BUFFER and LENGTH arguments specifies an
-          invalid memory range.
-
-     ‘EINTR’
-          The system call was interrupted.  During the system boot
-          process, before the kernel randomness pool is initialized,
-          this can happen even if FLAGS is zero.
-
-     ‘EINVAL’
-          The FLAGS argument contains an invalid combination of flags.
-
-
-File: libc.info,  Node: Debugging Support,  Next: POSIX Threads,  Prev: Cryptographic Functions,  Up: Top
-
-34 Debugging support
-********************
-
-Applications are usually debugged using dedicated debugger programs.
-But sometimes this is not possible and, in any case, it is useful to
-provide the developer with as much information as possible at the time
-the problems are experienced.  For this reason a few functions are
-provided which a program can use to help the developer more easily
-locate the problem.
-
-* Menu:
-
-* Backtraces::                Obtaining and printing a back trace of the
-                               current stack.
-
-
-File: libc.info,  Node: Backtraces,  Up: Debugging Support
-
-34.1 Backtraces
-===============
-
-A “backtrace” is a list of the function calls that are currently active
-in a thread.  The usual way to inspect a backtrace of a program is to
-use an external debugger such as gdb.  However, sometimes it is useful
-to obtain a backtrace programmatically from within a program, e.g., for
-the purposes of logging or diagnostics.
-
-   The header file ‘execinfo.h’ declares three functions that obtain and
-manipulate backtraces of the current thread.
-
- -- Function: int backtrace (void **BUFFER, int SIZE)
-
-     Preliminary: | MT-Safe | AS-Unsafe init heap dlopen plugin lock |
-     AC-Unsafe init mem lock fd | *Note POSIX Safety Concepts::.
-
-     The ‘backtrace’ function obtains a backtrace for the current
-     thread, as a list of pointers, and places the information into
-     BUFFER.  The argument SIZE should be the number of ‘void *’
-     elements that will fit into BUFFER.  The return value is the actual
-     number of entries of BUFFER that are obtained, and is at most SIZE.
-
-     The pointers placed in BUFFER are actually return addresses
-     obtained by inspecting the stack, one return address per stack
-     frame.
-
-     Note that certain compiler optimizations may interfere with
-     obtaining a valid backtrace.  Function inlining causes the inlined
-     function to not have a stack frame; tail call optimization replaces
-     one stack frame with another; frame pointer elimination will stop
-     ‘backtrace’ from interpreting the stack contents correctly.
-
- -- Function: char ** backtrace_symbols (void *const *BUFFER, int SIZE)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap | AC-Unsafe mem lock |
-     *Note POSIX Safety Concepts::.
-
-     The ‘backtrace_symbols’ function translates the information
-     obtained from the ‘backtrace’ function into an array of strings.
-     The argument BUFFER should be a pointer to an array of addresses
-     obtained via the ‘backtrace’ function, and SIZE is the number of
-     entries in that array (the return value of ‘backtrace’).
-
-     The return value is a pointer to an array of strings, which has
-     SIZE entries just like the array BUFFER.  Each string contains a
-     printable representation of the corresponding element of BUFFER.
-     It includes the function name (if this can be determined), an
-     offset into the function, and the actual return address (in
-     hexadecimal).
-
-     Currently, the function name and offset can only be obtained on
-     systems that use the ELF binary format for programs and libraries.
-     On other systems, only the hexadecimal return address will be
-     present.  Also, you may need to pass additional flags to the linker
-     to make the function names available to the program.  (For example,
-     on systems using GNU ld, you must pass ‘-rdynamic’.)
-
-     The return value of ‘backtrace_symbols’ is a pointer obtained via
-     the ‘malloc’ function, and it is the responsibility of the caller
-     to ‘free’ that pointer.  Note that only the return value need be
-     freed, not the individual strings.
-
-     The return value is ‘NULL’ if sufficient memory for the strings
-     cannot be obtained.
-
- -- Function: void backtrace_symbols_fd (void *const *BUFFER, int SIZE,
-          int FD)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Unsafe lock | *Note POSIX
-     Safety Concepts::.
-
-     The ‘backtrace_symbols_fd’ function performs the same translation
-     as the function ‘backtrace_symbols’ function.  Instead of returning
-     the strings to the caller, it writes the strings to the file
-     descriptor FD, one per line.  It does not use the ‘malloc’
-     function, and can therefore be used in situations where that
-     function might fail.
-
-   The following program illustrates the use of these functions.  Note
-that the array to contain the return addresses returned by ‘backtrace’
-is allocated on the stack.  Therefore code like this can be used in
-situations where the memory handling via ‘malloc’ does not work anymore
-(in which case the ‘backtrace_symbols’ has to be replaced by a
-‘backtrace_symbols_fd’ call as well).  The number of return addresses is
-normally not very large.  Even complicated programs rather seldom have a
-nesting level of more than, say, 50 and with 200 possible entries
-probably all programs should be covered.
-
-
-     #include <execinfo.h>
-     #include <stdio.h>
-     #include <stdlib.h>
-
-     /* Obtain a backtrace and print it to ‘stdout’. */
-     void
-     print_trace (void)
-     {
-       void *array[10];
-       size_t size;
-       char **strings;
-       size_t i;
-
-       size = backtrace (array, 10);
-       strings = backtrace_symbols (array, size);
-
-       printf ("Obtained %zd stack frames.\n", size);
-
-       for (i = 0; i < size; i++)
-          printf ("%s\n", strings[i]);
-
-       free (strings);
-     }
-
-     /* A dummy function to make the backtrace more interesting. */
-     void
-     dummy_function (void)
-     {
-       print_trace ();
-     }
-
-     int
-     main (void)
-     {
-       dummy_function ();
-       return 0;
-     }
-
-
-File: libc.info,  Node: POSIX Threads,  Next: Internal Probes,  Prev: Debugging Support,  Up: Top
-
-35 POSIX Threads
-****************
-
-This chapter describes the GNU C Library POSIX Threads implementation.
-
-* Menu:
-
-* Thread-specific Data::          Support for creating and
-				  managing thread-specific data
-* Non-POSIX Extensions::          Additional functions to extend
-				  POSIX Thread functionality
-
-
-File: libc.info,  Node: Thread-specific Data,  Next: Non-POSIX Extensions,  Up: POSIX Threads
-
-35.1 Thread-specific Data
-=========================
-
-The GNU C Library implements functions to allow users to create and
-manage data specific to a thread.  Such data may be destroyed at thread
-exit, if a destructor is provided.  The following functions are defined:
-
- -- Function: int pthread_key_create (pthread_key_t *KEY, void
-          (*DESTRUCTOR)(void*))
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     Create a thread-specific data key for the calling thread,
-     referenced by KEY.
-
-     Objects declared with the C++11 ‘thread_local’ keyword are
-     destroyed before thread-specific data, so they should not be used
-     in thread-specific data destructors or even as members of the
-     thread-specific data, since the latter is passed as an argument to
-     the destructor function.
-
- -- Function: int pthread_key_delete (pthread_key_t KEY)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     Destroy the thread-specific data KEY in the calling thread.  The
-     destructor for the thread-specific data is not called during
-     destruction, nor is it called during thread exit.
-
- -- Function: void *pthread_getspecific (pthread_key_t KEY)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     Return the thread-specific data associated with KEY in the calling
-     thread.
-
- -- Function: int pthread_setspecific (pthread_key_t KEY, const void
-          *VALUE)
-
-     Preliminary: | MT-Safe | AS-Unsafe corrupt heap | AC-Unsafe corrupt
-     mem | *Note POSIX Safety Concepts::.
-
-     Associate the thread-specific VALUE with KEY in the calling thread.
-
-
-File: libc.info,  Node: Non-POSIX Extensions,  Prev: Thread-specific Data,  Up: POSIX Threads
-
-35.2 Non-POSIX Extensions
-=========================
-
-In addition to implementing the POSIX API for threads, the GNU C Library
-provides additional functions and interfaces to provide functionality
-not specified in the standard.
-
-* Menu:
-
-* Default Thread Attributes::             Setting default attributes for
-					  threads in a process.
-
-
-File: libc.info,  Node: Default Thread Attributes,  Up: Non-POSIX Extensions
-
-35.2.1 Setting Process-wide defaults for thread attributes
-----------------------------------------------------------
-
-The GNU C Library provides non-standard API functions to set and get the
-default attributes used in the creation of threads in a process.
-
- -- Function: int pthread_getattr_default_np (pthread_attr_t *ATTR)
-
-     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
-     POSIX Safety Concepts::.
-
-     Get the default attribute values and set ATTR to match.  This
-     function returns 0 on success and a non-zero error code on failure.
-
- -- Function: int pthread_setattr_default_np (pthread_attr_t *ATTR)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap lock | AC-Unsafe lock mem |
-     *Note POSIX Safety Concepts::.
-
-     Set the default attribute values to match the values in ATTR.  The
-     function returns 0 on success and a non-zero error code on failure.
-     The following error codes are defined for this function:
-
-     ‘EINVAL’
-          At least one of the values in ATTR does not qualify as valid
-          for the attributes or the stack address is set in the
-          attribute.
-     ‘ENOMEM’
-          The system does not have sufficient memory.
-
-
-File: libc.info,  Node: Internal Probes,  Next: Tunables,  Prev: POSIX Threads,  Up: Top
-
-36 Internal probes
-******************
-
-In order to aid in debugging and monitoring internal behavior, the GNU C
-Library exposes nearly-zero-overhead SystemTap probes marked with the
-‘libc’ provider.
-
-   These probes are not part of the GNU C Library stable ABI, and they
-are subject to change or removal across releases.  Our only promise with
-regard to them is that, if we find a need to remove or modify the
-arguments of a probe, the modified probe will have a different name, so
-that program monitors relying on the old probe will not get unexpected
-arguments.
-
-* Menu:
-
-* Memory Allocation Probes::  Probes in the memory allocation subsystem
-* Mathematical Function Probes::  Probes in mathematical functions
-* Non-local Goto Probes::  Probes in setjmp and longjmp
-
-
-File: libc.info,  Node: Memory Allocation Probes,  Next: Mathematical Function Probes,  Up: Internal Probes
-
-36.1 Memory Allocation Probes
-=============================
-
-These probes are designed to signal relatively unusual situations within
-the virtual memory subsystem of the GNU C Library.
-
- -- Probe: memory_sbrk_more (void *$ARG1, size_t $ARG2)
-     This probe is triggered after the main arena is extended by calling
-     ‘sbrk’.  Argument $ARG1 is the additional size requested to ‘sbrk’,
-     and $ARG2 is the pointer that marks the end of the ‘sbrk’ area,
-     returned in response to the request.
-
- -- Probe: memory_sbrk_less (void *$ARG1, size_t $ARG2)
-     This probe is triggered after the size of the main arena is
-     decreased by calling ‘sbrk’.  Argument $ARG1 is the size released
-     by ‘sbrk’ (the positive value, rather than the negative value
-     passed to ‘sbrk’), and $ARG2 is the pointer that marks the end of
-     the ‘sbrk’ area, returned in response to the request.
-
- -- Probe: memory_heap_new (void *$ARG1, size_t $ARG2)
-     This probe is triggered after a new heap is ‘mmap’ed.  Argument
-     $ARG1 is a pointer to the base of the memory area, where the
-     ‘heap_info’ data structure is held, and $ARG2 is the size of the
-     heap.
-
- -- Probe: memory_heap_free (void *$ARG1, size_t $ARG2)
-     This probe is triggered _before_ (unlike the other sbrk and heap
-     probes) a heap is completely removed via ‘munmap’.  Argument $ARG1
-     is a pointer to the heap, and $ARG2 is the size of the heap.
-
- -- Probe: memory_heap_more (void *$ARG1, size_t $ARG2)
-     This probe is triggered after a trailing portion of an ‘mmap’ed
-     heap is extended.  Argument $ARG1 is a pointer to the heap, and
-     $ARG2 is the new size of the heap.
-
- -- Probe: memory_heap_less (void *$ARG1, size_t $ARG2)
-     This probe is triggered after a trailing portion of an ‘mmap’ed
-     heap is released.  Argument $ARG1 is a pointer to the heap, and
-     $ARG2 is the new size of the heap.
-
- -- Probe: memory_malloc_retry (size_t $ARG1)
- -- Probe: memory_realloc_retry (size_t $ARG1, void *$ARG2)
- -- Probe: memory_memalign_retry (size_t $ARG1, size_t $ARG2)
- -- Probe: memory_calloc_retry (size_t $ARG1)
-     These probes are triggered when the corresponding functions fail to
-     obtain the requested amount of memory from the arena in use, before
-     they call ‘arena_get_retry’ to select an alternate arena in which
-     to retry the allocation.  Argument $ARG1 is the amount of memory
-     requested by the user; in the ‘calloc’ case, that is the total size
-     computed from both function arguments.  In the ‘realloc’ case,
-     $ARG2 is the pointer to the memory area being resized.  In the
-     ‘memalign’ case, $ARG2 is the alignment to be used for the request,
-     which may be stricter than the value passed to the ‘memalign’
-     function.  A ‘memalign’ probe is also used by functions
-     ‘posix_memalign, valloc’ and ‘pvalloc’.
-
-     Note that the argument order does _not_ match that of the
-     corresponding two-argument functions, so that in all of these
-     probes the user-requested allocation size is in $ARG1.
-
- -- Probe: memory_arena_retry (size_t $ARG1, void *$ARG2)
-     This probe is triggered within ‘arena_get_retry’ (the function
-     called to select the alternate arena in which to retry an
-     allocation that failed on the first attempt), before the selection
-     of an alternate arena.  This probe is redundant, but much easier to
-     use when it’s not important to determine which of the various
-     memory allocation functions is failing to allocate on the first
-     try.  Argument $ARG1 is the same as in the function-specific
-     probes, except for extra room for padding introduced by functions
-     that have to ensure stricter alignment.  Argument $ARG2 is the
-     arena in which allocation failed.
-
- -- Probe: memory_arena_new (void *$ARG1, size_t $ARG2)
-     This probe is triggered when ‘malloc’ allocates and initializes an
-     additional arena (not the main arena), but before the arena is
-     assigned to the running thread or inserted into the internal linked
-     list of arenas.  The arena’s ‘malloc_state’ internal data structure
-     is located at $ARG1, within a newly-allocated heap big enough to
-     hold at least $ARG2 bytes.
-
- -- Probe: memory_arena_reuse (void *$ARG1, void *$ARG2)
-     This probe is triggered when ‘malloc’ has just selected an existing
-     arena to reuse, and (temporarily) reserved it for exclusive use.
-     Argument $ARG1 is a pointer to the newly-selected arena, and $ARG2
-     is a pointer to the arena previously used by that thread.
-
-     This occurs within ‘reused_arena’, right after the mutex mentioned
-     in probe ‘memory_arena_reuse_wait’ is acquired; argument $ARG1 will
-     point to the same arena.  In this configuration, this will usually
-     only occur once per thread.  The exception is when a thread first
-     selected the main arena, but a subsequent allocation from it fails:
-     then, and only then, may we switch to another arena to retry that
-     allocation, and for further allocations within that thread.
-
- -- Probe: memory_arena_reuse_wait (void *$ARG1, void *$ARG2, void
-          *$ARG3)
-     This probe is triggered when ‘malloc’ is about to wait for an arena
-     to become available for reuse.  Argument $ARG1 holds a pointer to
-     the mutex the thread is going to wait on, $ARG2 is a pointer to a
-     newly-chosen arena to be reused, and $ARG3 is a pointer to the
-     arena previously used by that thread.
-
-     This occurs within ‘reused_arena’, when a thread first tries to
-     allocate memory or needs a retry after a failure to allocate from
-     the main arena, there isn’t any free arena, the maximum number of
-     arenas has been reached, and an existing arena was chosen for
-     reuse, but its mutex could not be immediately acquired.  The mutex
-     in $ARG1 is the mutex of the selected arena.
-
- -- Probe: memory_arena_reuse_free_list (void *$ARG1)
-     This probe is triggered when ‘malloc’ has chosen an arena that is
-     in the free list for use by a thread, within the ‘get_free_list’
-     function.  The argument $ARG1 holds a pointer to the selected
-     arena.
-
- -- Probe: memory_mallopt (int $ARG1, int $ARG2)
-     This probe is triggered when function ‘mallopt’ is called to change
-     ‘malloc’ internal configuration parameters, before any change to
-     the parameters is made.  The arguments $ARG1 and $ARG2 are the ones
-     passed to the ‘mallopt’ function.
-
- -- Probe: memory_mallopt_mxfast (int $ARG1, int $ARG2)
-     This probe is triggered shortly after the ‘memory_mallopt’ probe,
-     when the parameter to be changed is ‘M_MXFAST’, and the requested
-     value is in an acceptable range.  Argument $ARG1 is the requested
-     value, and $ARG2 is the previous value of this ‘malloc’ parameter.
-
- -- Probe: memory_mallopt_trim_threshold (int $ARG1, int $ARG2, int
-          $ARG3)
-     This probe is triggered shortly after the ‘memory_mallopt’ probe,
-     when the parameter to be changed is ‘M_TRIM_THRESHOLD’.  Argument
-     $ARG1 is the requested value, $ARG2 is the previous value of this
-     ‘malloc’ parameter, and $ARG3 is nonzero if dynamic threshold
-     adjustment was already disabled.
-
- -- Probe: memory_mallopt_top_pad (int $ARG1, int $ARG2, int $ARG3)
-     This probe is triggered shortly after the ‘memory_mallopt’ probe,
-     when the parameter to be changed is ‘M_TOP_PAD’.  Argument $ARG1 is
-     the requested value, $ARG2 is the previous value of this ‘malloc’
-     parameter, and $ARG3 is nonzero if dynamic threshold adjustment was
-     already disabled.
-
- -- Probe: memory_mallopt_mmap_threshold (int $ARG1, int $ARG2, int
-          $ARG3)
-     This probe is triggered shortly after the ‘memory_mallopt’ probe,
-     when the parameter to be changed is ‘M_MMAP_THRESHOLD’, and the
-     requested value is in an acceptable range.  Argument $ARG1 is the
-     requested value, $ARG2 is the previous value of this ‘malloc’
-     parameter, and $ARG3 is nonzero if dynamic threshold adjustment was
-     already disabled.
-
- -- Probe: memory_mallopt_mmap_max (int $ARG1, int $ARG2, int $ARG3)
-     This probe is triggered shortly after the ‘memory_mallopt’ probe,
-     when the parameter to be changed is ‘M_MMAP_MAX’.  Argument $ARG1
-     is the requested value, $ARG2 is the previous value of this
-     ‘malloc’ parameter, and $ARG3 is nonzero if dynamic threshold
-     adjustment was already disabled.
-
- -- Probe: memory_mallopt_check_action (int $ARG1, int $ARG2)
-     This probe is triggered shortly after the ‘memory_mallopt’ probe,
-     when the parameter to be changed is ‘M_CHECK_ACTION’.  Argument
-     $ARG1 is the requested value, and $ARG2 is the previous value of
-     this ‘malloc’ parameter.
-
- -- Probe: memory_mallopt_perturb (int $ARG1, int $ARG2)
-     This probe is triggered shortly after the ‘memory_mallopt’ probe,
-     when the parameter to be changed is ‘M_PERTURB’.  Argument $ARG1 is
-     the requested value, and $ARG2 is the previous value of this
-     ‘malloc’ parameter.
-
- -- Probe: memory_mallopt_arena_test (int $ARG1, int $ARG2)
-     This probe is triggered shortly after the ‘memory_mallopt’ probe,
-     when the parameter to be changed is ‘M_ARENA_TEST’, and the
-     requested value is in an acceptable range.  Argument $ARG1 is the
-     requested value, and $ARG2 is the previous value of this ‘malloc’
-     parameter.
-
- -- Probe: memory_mallopt_arena_max (int $ARG1, int $ARG2)
-     This probe is triggered shortly after the ‘memory_mallopt’ probe,
-     when the parameter to be changed is ‘M_ARENA_MAX’, and the
-     requested value is in an acceptable range.  Argument $ARG1 is the
-     requested value, and $ARG2 is the previous value of this ‘malloc’
-     parameter.
-
- -- Probe: memory_mallopt_free_dyn_thresholds (int $ARG1, int $ARG2)
-     This probe is triggered when function ‘free’ decides to adjust the
-     dynamic brk/mmap thresholds.  Argument $ARG1 and $ARG2 are the
-     adjusted mmap and trim thresholds, respectively.
-
- -- Probe: memory_tunable_tcache_max_bytes (int $ARG1, int $ARG2)
-     This probe is triggered when the ‘glibc.malloc.tcache_max’ tunable
-     is set.  Argument $ARG1 is the requested value, and $ARG2 is the
-     previous value of this tunable.
-
- -- Probe: memory_tunable_tcache_count (int $ARG1, int $ARG2)
-     This probe is triggered when the ‘glibc.malloc.tcache_count’
-     tunable is set.  Argument $ARG1 is the requested value, and $ARG2
-     is the previous value of this tunable.
-
- -- Probe: memory_tunable_tcache_unsorted_limit (int $ARG1, int $ARG2)
-     This probe is triggered when the
-     ‘glibc.malloc.tcache_unsorted_limit’ tunable is set.  Argument
-     $ARG1 is the requested value, and $ARG2 is the previous value of
-     this tunable.
-
-
-File: libc.info,  Node: Mathematical Function Probes,  Next: Non-local Goto Probes,  Prev: Memory Allocation Probes,  Up: Internal Probes
-
-36.2 Mathematical Function Probes
-=================================
-
-Some mathematical functions fall back to multiple precision arithmetic
-for some inputs to get last bit precision for their return values.  This
-multiple precision fallback is much slower than the default algorithms
-and may have a significant impact on application performance.  The
-systemtap probe markers described in this section may help you determine
-if your application calls mathematical functions with inputs that may
-result in multiple-precision arithmetic.
-
-   Unless explicitly mentioned otherwise, a precision of 1 implies 24
-bits of precision in the mantissa of the multiple precision number.
-Hence, a precision level of 32 implies 768 bits of precision in the
-mantissa.
-
- -- Probe: slowexp_p6 (double $ARG1, double $ARG2)
-     This probe is triggered when the ‘exp’ function is called with an
-     input that results in multiple precision computation with precision
-     6.  Argument $ARG1 is the input value and $ARG2 is the computed
-     output.
-
- -- Probe: slowexp_p32 (double $ARG1, double $ARG2)
-     This probe is triggered when the ‘exp’ function is called with an
-     input that results in multiple precision computation with precision
-     32.  Argument $ARG1 is the input value and $ARG2 is the computed
-     output.
-
- -- Probe: slowpow_p10 (double $ARG1, double $ARG2, double $ARG3, double
-          $ARG4)
-     This probe is triggered when the ‘pow’ function is called with
-     inputs that result in multiple precision computation with precision
-     10.  Arguments $ARG1 and $ARG2 are the input values, ‘$arg3’ is the
-     value computed in the fast phase of the algorithm and ‘$arg4’ is
-     the final accurate value.
-
- -- Probe: slowpow_p32 (double $ARG1, double $ARG2, double $ARG3, double
-          $ARG4)
-     This probe is triggered when the ‘pow’ function is called with an
-     input that results in multiple precision computation with precision
-     32.  Arguments $ARG1 and $ARG2 are the input values, ‘$arg3’ is the
-     value computed in the fast phase of the algorithm and ‘$arg4’ is
-     the final accurate value.
-
- -- Probe: slowlog (int $ARG1, double $ARG2, double $ARG3)
-     This probe is triggered when the ‘log’ function is called with an
-     input that results in multiple precision computation.  Argument
-     $ARG1 is the precision with which the computation succeeded.
-     Argument $ARG2 is the input and $ARG3 is the computed output.
-
- -- Probe: slowlog_inexact (int $ARG1, double $ARG2, double $ARG3)
-     This probe is triggered when the ‘log’ function is called with an
-     input that results in multiple precision computation and none of
-     the multiple precision computations result in an accurate result.
-     Argument $ARG1 is the maximum precision with which computations
-     were performed.  Argument $ARG2 is the input and $ARG3 is the
-     computed output.
-
- -- Probe: slowatan2 (int $ARG1, double $ARG2, double $ARG3, double
-          $ARG4)
-     This probe is triggered when the ‘atan2’ function is called with an
-     input that results in multiple precision computation.  Argument
-     $ARG1 is the precision with which computation succeeded.  Arguments
-     $ARG2 and $ARG3 are inputs to the ‘atan2’ function and $ARG4 is the
-     computed result.
-
- -- Probe: slowatan2_inexact (int $ARG1, double $ARG2, double $ARG3,
-          double $ARG4)
-     This probe is triggered when the ‘atan’ function is called with an
-     input that results in multiple precision computation and none of
-     the multiple precision computations result in an accurate result.
-     Argument $ARG1 is the maximum precision with which computations
-     were performed.  Arguments $ARG2 and $ARG3 are inputs to the
-     ‘atan2’ function and $ARG4 is the computed result.
-
- -- Probe: slowatan (int $ARG1, double $ARG2, double $ARG3)
-     This probe is triggered when the ‘atan’ function is called with an
-     input that results in multiple precision computation.  Argument
-     $ARG1 is the precision with which computation succeeded.  Argument
-     $ARG2 is the input to the ‘atan’ function and $ARG3 is the computed
-     result.
-
- -- Probe: slowatan_inexact (int $ARG1, double $ARG2, double $ARG3)
-     This probe is triggered when the ‘atan’ function is called with an
-     input that results in multiple precision computation and none of
-     the multiple precision computations result in an accurate result.
-     Argument $ARG1 is the maximum precision with which computations
-     were performed.  Argument $ARG2 is the input to the ‘atan’ function
-     and $ARG3 is the computed result.
-
- -- Probe: slowtan (double $ARG1, double $ARG2)
-     This probe is triggered when the ‘tan’ function is called with an
-     input that results in multiple precision computation with precision
-     32.  Argument $ARG1 is the input to the function and $ARG2 is the
-     computed result.
-
- -- Probe: slowasin (double $ARG1, double $ARG2)
-     This probe is triggered when the ‘asin’ function is called with an
-     input that results in multiple precision computation with precision
-     32.  Argument $ARG1 is the input to the function and $ARG2 is the
-     computed result.
-
- -- Probe: slowacos (double $ARG1, double $ARG2)
-     This probe is triggered when the ‘acos’ function is called with an
-     input that results in multiple precision computation with precision
-     32.  Argument $ARG1 is the input to the function and $ARG2 is the
-     computed result.
-
- -- Probe: slowsin (double $ARG1, double $ARG2)
-     This probe is triggered when the ‘sin’ function is called with an
-     input that results in multiple precision computation with precision
-     32.  Argument $ARG1 is the input to the function and $ARG2 is the
-     computed result.
-
- -- Probe: slowcos (double $ARG1, double $ARG2)
-     This probe is triggered when the ‘cos’ function is called with an
-     input that results in multiple precision computation with precision
-     32.  Argument $ARG1 is the input to the function and $ARG2 is the
-     computed result.
-
- -- Probe: slowsin_dx (double $ARG1, double $ARG2, double $ARG3)
-     This probe is triggered when the ‘sin’ function is called with an
-     input that results in multiple precision computation with precision
-     32.  Argument $ARG1 is the input to the function, $ARG2 is the
-     error bound of $ARG1 and $ARG3 is the computed result.
-
- -- Probe: slowcos_dx (double $ARG1, double $ARG2, double $ARG3)
-     This probe is triggered when the ‘cos’ function is called with an
-     input that results in multiple precision computation with precision
-     32.  Argument $ARG1 is the input to the function, $ARG2 is the
-     error bound of $ARG1 and $ARG3 is the computed result.
-
-
-File: libc.info,  Node: Non-local Goto Probes,  Prev: Mathematical Function Probes,  Up: Internal Probes
-
-36.3 Non-local Goto Probes
-==========================
-
-These probes are used to signal calls to ‘setjmp’, ‘sigsetjmp’,
-‘longjmp’ or ‘siglongjmp’.
-
- -- Probe: setjmp (void *$ARG1, int $ARG2, void *$ARG3)
-     This probe is triggered whenever ‘setjmp’ or ‘sigsetjmp’ is called.
-     Argument $ARG1 is a pointer to the ‘jmp_buf’ passed as the first
-     argument of ‘setjmp’ or ‘sigsetjmp’, $ARG2 is the second argument
-     of ‘sigsetjmp’ or zero if this is a call to ‘setjmp’ and $ARG3 is a
-     pointer to the return address that will be stored in the ‘jmp_buf’.
-
- -- Probe: longjmp (void *$ARG1, int $ARG2, void *$ARG3)
-     This probe is triggered whenever ‘longjmp’ or ‘siglongjmp’ is
-     called.  Argument $ARG1 is a pointer to the ‘jmp_buf’ passed as the
-     first argument of ‘longjmp’ or ‘siglongjmp’, $ARG2 is the return
-     value passed as the second argument of ‘longjmp’ or ‘siglongjmp’
-     and $ARG3 is a pointer to the return address ‘longjmp’ or
-     ‘siglongjmp’ will return to.
-
-     The ‘longjmp’ probe is triggered at a point where the registers
-     have not yet been restored to the values in the ‘jmp_buf’ and
-     unwinding will show a call stack including the caller of ‘longjmp’
-     or ‘siglongjmp’.
-
- -- Probe: longjmp_target (void *$ARG1, int $ARG2, void *$ARG3)
-     This probe is triggered under the same conditions and with the same
-     arguments as the ‘longjmp’ probe.
-
-     The ‘longjmp_target’ probe is triggered at a point where the
-     registers have been restored to the values in the ‘jmp_buf’ and
-     unwinding will show a call stack including the caller of ‘setjmp’
-     or ‘sigsetjmp’.
-
-
-File: libc.info,  Node: Tunables,  Next: Language Features,  Prev: Internal Probes,  Up: Top
-
-37 Tunables
-***********
-
-“Tunables” are a feature in the GNU C Library that allows application
-authors and distribution maintainers to alter the runtime library
-behavior to match their workload.  These are implemented as a set of
-switches that may be modified in different ways.  The current default
-method to do this is via the ‘GLIBC_TUNABLES’ environment variable by
-setting it to a string of colon-separated NAME=VALUE pairs.  For
-example, the following example enables malloc checking and sets the
-malloc trim threshold to 128 bytes:
-
-     GLIBC_TUNABLES=glibc.malloc.trim_threshold=128:glibc.malloc.check=3
-     export GLIBC_TUNABLES
-
-   Tunables are not part of the GNU C Library stable ABI, and they are
-subject to change or removal across releases.  Additionally, the method
-to modify tunable values may change between releases and across
-distributions.  It is possible to implement multiple ‘frontends’ for the
-tunables allowing distributions to choose their preferred method at
-build time.
-
-   Finally, the set of tunables available may vary between distributions
-as the tunables feature allows distributions to add their own tunables
-under their own namespace.
-
-* Menu:
-
-* Tunable names::  The structure of a tunable name
-* Memory Allocation Tunables::  Tunables in the memory allocation subsystem
-* Hardware Capability Tunables::  Tunables that modify the hardware
-				  capabilities seen by the GNU C Library
-
-
-File: libc.info,  Node: Tunable names,  Next: Memory Allocation Tunables,  Up: Tunables
-
-37.1 Tunable names
-==================
-
-A tunable name is split into three components, a top namespace, a
-tunable namespace and the tunable name.  The top namespace for tunables
-implemented in the GNU C Library is ‘glibc’.  Distributions that choose
-to add custom tunables in their maintained versions of the GNU C Library
-may choose to do so under their own top namespace.
-
-   The tunable namespace is a logical grouping of tunables in a single
-module.  This currently holds no special significance, although that may
-change in the future.
-
-   The tunable name is the actual name of the tunable.  It is possible
-that different tunable namespaces may have tunables within them that
-have the same name, likewise for top namespaces.  Hence, we only support
-identification of tunables by their full name, i.e.  with the top
-namespace, tunable namespace and tunable name, separated by periods.
-
-
-File: libc.info,  Node: Memory Allocation Tunables,  Next: Hardware Capability Tunables,  Prev: Tunable names,  Up: Tunables
-
-37.2 Memory Allocation Tunables
-===============================
-
- -- Tunable namespace: glibc.malloc
-     Memory allocation behavior can be modified by setting any of the
-     following tunables in the ‘malloc’ namespace:
-
- -- Tunable: glibc.malloc.check
-     This tunable supersedes the ‘MALLOC_CHECK_’ environment variable
-     and is identical in features.
-
-     Setting this tunable enables a special (less efficient) memory
-     allocator for the malloc family of functions that is designed to be
-     tolerant against simple errors such as double calls of free with
-     the same argument, or overruns of a single byte (off-by-one bugs).
-     Not all such errors can be protected against, however, and memory
-     leaks can result.  The following list describes the values that
-     this tunable can take and the effect they have on malloc
-     functionality:
-
-        • ‘0’ Ignore all errors.  The default allocator continues to be
-          in use, but all errors are silently ignored.
-        • ‘1’ Report errors.  The alternate allocator is selected and
-          heap corruption, if detected, is reported as diagnostic
-          messages to ‘stderr’ and the program continues execution.
-        • ‘2’ Abort on errors.  The alternate allocator is selected and
-          if heap corruption is detected, the program is ended
-          immediately by calling ‘abort’.
-        • ‘3’ Fully enabled.  The alternate allocator is selected and is
-          fully functional.  That is, if heap corruption is detected, a
-          verbose diagnostic message is printed to ‘stderr’ and the
-          program is ended by calling ‘abort’.
-
-     Like ‘MALLOC_CHECK_’, ‘glibc.malloc.check’ has a problem in that it
-     diverges from normal program behavior by writing to ‘stderr’, which
-     could by exploited in SUID and SGID binaries.  Therefore,
-     ‘glibc.malloc.check’ is disabled by default for SUID and SGID
-     binaries.  This can be enabled again by the system administrator by
-     adding a file ‘/etc/suid-debug’; the content of the file could be
-     anything or even empty.
-
- -- Tunable: glibc.malloc.top_pad
-     This tunable supersedes the ‘MALLOC_TOP_PAD_’ environment variable
-     and is identical in features.
-
-     This tunable determines the amount of extra memory in bytes to
-     obtain from the system when any of the arenas need to be extended.
-     It also specifies the number of bytes to retain when shrinking any
-     of the arenas.  This provides the necessary hysteresis in heap size
-     such that excessive amounts of system calls can be avoided.
-
-     The default value of this tunable is ‘0’.
-
- -- Tunable: glibc.malloc.perturb
-     This tunable supersedes the ‘MALLOC_PERTURB_’ environment variable
-     and is identical in features.
-
-     If set to a non-zero value, memory blocks are initialized with
-     values depending on some low order bits of this tunable when they
-     are allocated (except when allocated by calloc) and freed.  This
-     can be used to debug the use of uninitialized or freed heap memory.
-     Note that this option does not guarantee that the freed block will
-     have any specific values.  It only guarantees that the content the
-     block had before it was freed will be overwritten.
-
-     The default value of this tunable is ‘0’.
-
- -- Tunable: glibc.malloc.mmap_threshold
-     This tunable supersedes the ‘MALLOC_MMAP_THRESHOLD_’ environment
-     variable and is identical in features.
-
-     When this tunable is set, all chunks larger than this value in
-     bytes are allocated outside the normal heap, using the ‘mmap’
-     system call.  This way it is guaranteed that the memory for these
-     chunks can be returned to the system on ‘free’.  Note that requests
-     smaller than this threshold might still be allocated via ‘mmap’.
-
-     If this tunable is not set, the default value is set to ‘131072’
-     bytes and the threshold is adjusted dynamically to suit the
-     allocation patterns of the program.  If the tunable is set, the
-     dynamic adjustment is disabled and the value is set as static.
-
- -- Tunable: glibc.malloc.trim_threshold
-     This tunable supersedes the ‘MALLOC_TRIM_THRESHOLD_’ environment
-     variable and is identical in features.
-
-     The value of this tunable is the minimum size (in bytes) of the
-     top-most, releasable chunk in an arena that will trigger a system
-     call in order to return memory to the system from that arena.
-
-     If this tunable is not set, the default value is set as 128 KB and
-     the threshold is adjusted dynamically to suit the allocation
-     patterns of the program.  If the tunable is set, the dynamic
-     adjustment is disabled and the value is set as static.
-
- -- Tunable: glibc.malloc.mmap_max
-     This tunable supersedes the ‘MALLOC_MMAP_MAX_’ environment variable
-     and is identical in features.
-
-     The value of this tunable is maximum number of chunks to allocate
-     with ‘mmap’.  Setting this to zero disables all use of ‘mmap’.
-
-     The default value of this tunable is ‘65536’.
-
- -- Tunable: glibc.malloc.arena_test
-     This tunable supersedes the ‘MALLOC_ARENA_TEST’ environment
-     variable and is identical in features.
-
-     The ‘glibc.malloc.arena_test’ tunable specifies the number of
-     arenas that can be created before the test on the limit to the
-     number of arenas is conducted.  The value is ignored if
-     ‘glibc.malloc.arena_max’ is set.
-
-     The default value of this tunable is 2 for 32-bit systems and 8 for
-     64-bit systems.
-
- -- Tunable: glibc.malloc.arena_max
-     This tunable supersedes the ‘MALLOC_ARENA_MAX’ environment variable
-     and is identical in features.
-
-     This tunable sets the number of arenas to use in a process
-     regardless of the number of cores in the system.
-
-     The default value of this tunable is ‘0’, meaning that the limit on
-     the number of arenas is determined by the number of CPU cores
-     online.  For 32-bit systems the limit is twice the number of cores
-     online and on 64-bit systems, it is 8 times the number of cores
-     online.
-
- -- Tunable: glibc.malloc.tcache_max
-     The maximum size of a request (in bytes) which may be met via the
-     per-thread cache.  The default (and maximum) value is 1032 bytes on
-     64-bit systems and 516 bytes on 32-bit systems.
-
- -- Tunable: glibc.malloc.tcache_count
-     The maximum number of chunks of each size to cache.  The default is
-     7.  There is no upper limit, other than available system memory.
-     If set to zero, the per-thread cache is effectively disabled.
-
-     The approximate maximum overhead of the per-thread cache is thus
-     equal to the number of bins times the chunk count in each bin times
-     the size of each chunk.  With defaults, the approximate maximum
-     overhead of the per-thread cache is approximately 236 KB on 64-bit
-     systems and 118 KB on 32-bit systems.
-
- -- Tunable: glibc.malloc.tcache_unsorted_limit
-     When the user requests memory and the request cannot be met via the
-     per-thread cache, the arenas are used to meet the request.  At this
-     time, additional chunks will be moved from existing arena lists to
-     pre-fill the corresponding cache.  While copies from the fastbins,
-     smallbins, and regular bins are bounded and predictable due to the
-     bin sizes, copies from the unsorted bin are not bounded, and incur
-     additional time penalties as they need to be sorted as they’re
-     scanned.  To make scanning the unsorted list more predictable and
-     bounded, the user may set this tunable to limit the number of
-     chunks that are scanned from the unsorted list while searching for
-     chunks to pre-fill the per-thread cache with.  The default, or when
-     set to zero, is no limit.
-
-
-File: libc.info,  Node: Hardware Capability Tunables,  Prev: Memory Allocation Tunables,  Up: Tunables
-
-37.3 Hardware Capability Tunables
-=================================
-
- -- Tunable namespace: glibc.tune
-     Behavior of the GNU C Library can be tuned to assume specific
-     hardware capabilities by setting the following tunables in the
-     ‘tune’ namespace:
-
- -- Tunable: glibc.tune.hwcap_mask
-     This tunable supersedes the ‘LD_HWCAP_MASK’ environment variable
-     and is identical in features.
-
-     The ‘AT_HWCAP’ key in the Auxilliary Vector specifies instruction
-     set extensions available in the processor at runtime for some
-     architectures.  The ‘glibc.tune.hwcap_mask’ tunable allows the user
-     to mask out those capabilities at runtime, thus disabling use of
-     those extensions.
-
- -- Tunable: glibc.tune.hwcaps
-     The ‘glibc.tune.hwcaps=-xxx,yyy,-zzz...’ tunable allows the user to
-     enable CPU/ARCH feature ‘yyy’, disable CPU/ARCH feature ‘xxx’ and
-     ‘zzz’ where the feature name is case-sensitive and has to match the
-     ones in ‘sysdeps/x86/cpu-features.h’.
-
-     This tunable is specific to i386 and x86-64.
-
- -- Tunable: glibc.tune.cpu
-     The ‘glibc.tune.cpu=xxx’ tunable allows the user to tell the GNU C
-     Library to assume that the CPU is ‘xxx’ where xxx may have one of
-     these values: ‘generic’, ‘thunderxt88’.
-
-     This tunable is specific to aarch64.
-
- -- Tunable: glibc.tune.x86_data_cache_size
-     The ‘glibc.tune.x86_data_cache_size’ tunable allows the user to set
-     data cache size in bytes for use in memory and string routines.
-
-     This tunable is specific to i386 and x86-64.
-
- -- Tunable: glibc.tune.x86_shared_cache_size
-     The ‘glibc.tune.x86_shared_cache_size’ tunable allows the user to
-     set shared cache size in bytes for use in memory and string
-     routines.
-
- -- Tunable: glibc.tune.x86_non_temporal_threshold
-     The ‘glibc.tune.x86_non_temporal_threshold’ tunable allows the user
-     to set threshold in bytes for non temporal store.
-
-     This tunable is specific to i386 and x86-64.
-
-
-File: libc.info,  Node: Language Features,  Next: Library Summary,  Prev: Tunables,  Up: Top
-
-Appendix A C Language Facilities in the Library
-***********************************************
-
-Some of the facilities implemented by the C library really should be
-thought of as parts of the C language itself.  These facilities ought to
-be documented in the C Language Manual, not in the library manual; but
-since we don’t have the language manual yet, and documentation for these
-features has been written, we are publishing it here.
-
-* Menu:
-
-* Consistency Checking::        Using ‘assert’ to abort if
-				 something “impossible” happens.
-* Variadic Functions::          Defining functions with varying numbers
-                                 of args.
-* Null Pointer Constant::       The macro ‘NULL’.
-* Important Data Types::        Data types for object sizes.
-* Data Type Measurements::      Parameters of data type representations.
-
-
-File: libc.info,  Node: Consistency Checking,  Next: Variadic Functions,  Up: Language Features
-
-A.1 Explicitly Checking Internal Consistency
-============================================
-
-When you’re writing a program, it’s often a good idea to put in checks
-at strategic places for “impossible” errors or violations of basic
-assumptions.  These kinds of checks are helpful in debugging problems
-with the interfaces between different parts of the program, for example.
-
-   The ‘assert’ macro, defined in the header file ‘assert.h’, provides a
-convenient way to abort the program while printing a message about where
-in the program the error was detected.
-
-   Once you think your program is debugged, you can disable the error
-checks performed by the ‘assert’ macro by recompiling with the macro
-‘NDEBUG’ defined.  This means you don’t actually have to change the
-program source code to disable these checks.
-
-   But disabling these consistency checks is undesirable unless they
-make the program significantly slower.  All else being equal, more error
-checking is good no matter who is running the program.  A wise user
-would rather have a program crash, visibly, than have it return nonsense
-without indicating anything might be wrong.
-
- -- Macro: void assert (int EXPRESSION)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap corrupt | AC-Unsafe mem
-     lock corrupt | *Note POSIX Safety Concepts::.
-
-     Verify the programmer’s belief that EXPRESSION is nonzero at this
-     point in the program.
-
-     If ‘NDEBUG’ is not defined, ‘assert’ tests the value of EXPRESSION.
-     If it is false (zero), ‘assert’ aborts the program (*note Aborting
-     a Program::) after printing a message of the form:
-
-          FILE:LINENUM: FUNCTION: Assertion `EXPRESSION' failed.
-
-     on the standard error stream ‘stderr’ (*note Standard Streams::).
-     The filename and line number are taken from the C preprocessor
-     macros ‘__FILE__’ and ‘__LINE__’ and specify where the call to
-     ‘assert’ was made.  When using the GNU C compiler, the name of the
-     function which calls ‘assert’ is taken from the built-in variable
-     ‘__PRETTY_FUNCTION__’; with older compilers, the function name and
-     following colon are omitted.
-
-     If the preprocessor macro ‘NDEBUG’ is defined before ‘assert.h’ is
-     included, the ‘assert’ macro is defined to do absolutely nothing.
-
-     *Warning:* Even the argument expression EXPRESSION is not evaluated
-     if ‘NDEBUG’ is in effect.  So never use ‘assert’ with arguments
-     that involve side effects.  For example, ‘assert (++i > 0);’ is a
-     bad idea, because ‘i’ will not be incremented if ‘NDEBUG’ is
-     defined.
-
-   Sometimes the “impossible” condition you want to check for is an
-error return from an operating system function.  Then it is useful to
-display not only where the program crashes, but also what error was
-returned.  The ‘assert_perror’ macro makes this easy.
-
- -- Macro: void assert_perror (int ERRNUM)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap corrupt | AC-Unsafe mem
-     lock corrupt | *Note POSIX Safety Concepts::.
-
-     Similar to ‘assert’, but verifies that ERRNUM is zero.
-
-     If ‘NDEBUG’ is not defined, ‘assert_perror’ tests the value of
-     ERRNUM.  If it is nonzero, ‘assert_perror’ aborts the program after
-     printing a message of the form:
-
-          FILE:LINENUM: FUNCTION: ERROR TEXT
-
-     on the standard error stream.  The file name, line number, and
-     function name are as for ‘assert’.  The error text is the result of
-     ‘strerror (ERRNUM)’.  *Note Error Messages::.
-
-     Like ‘assert’, if ‘NDEBUG’ is defined before ‘assert.h’ is
-     included, the ‘assert_perror’ macro does absolutely nothing.  It
-     does not evaluate the argument, so ERRNUM should not have any side
-     effects.  It is best for ERRNUM to be just a simple variable
-     reference; often it will be ‘errno’.
-
-     This macro is a GNU extension.
-
-   *Usage note:* The ‘assert’ facility is designed for detecting
-_internal inconsistency_; it is not suitable for reporting invalid input
-or improper usage by the _user_ of the program.
-
-   The information in the diagnostic messages printed by the ‘assert’
-and ‘assert_perror’ macro is intended to help you, the programmer, track
-down the cause of a bug, but is not really useful for telling a user of
-your program why his or her input was invalid or why a command could not
-be carried out.  What’s more, your program should not abort when given
-invalid input, as ‘assert’ would do—it should exit with nonzero status
-(*note Exit Status::) after printing its error messages, or perhaps read
-another command or move on to the next input file.
-
-   *Note Error Messages::, for information on printing error messages
-for problems that _do not_ represent bugs in the program.
-
-
-File: libc.info,  Node: Variadic Functions,  Next: Null Pointer Constant,  Prev: Consistency Checking,  Up: Language Features
-
-A.2 Variadic Functions
-======================
-
-ISO C defines a syntax for declaring a function to take a variable
-number or type of arguments.  (Such functions are referred to as
-“varargs functions” or “variadic functions”.)  However, the language
-itself provides no mechanism for such functions to access their
-non-required arguments; instead, you use the variable arguments macros
-defined in ‘stdarg.h’.
-
-   This section describes how to declare variadic functions, how to
-write them, and how to call them properly.
-
-   *Compatibility Note:* Many older C dialects provide a similar, but
-incompatible, mechanism for defining functions with variable numbers of
-arguments, using ‘varargs.h’.
-
-* Menu:
-
-* Why Variadic::                Reasons for making functions take
-                                 variable arguments.
-* How Variadic::                How to define and call variadic functions.
-* Variadic Example::            A complete example.
-
-
-File: libc.info,  Node: Why Variadic,  Next: How Variadic,  Up: Variadic Functions
-
-A.2.1 Why Variadic Functions are Used
--------------------------------------
-
-Ordinary C functions take a fixed number of arguments.  When you define
-a function, you specify the data type for each argument.  Every call to
-the function should supply the expected number of arguments, with types
-that can be converted to the specified ones.  Thus, if the function
-‘foo’ is declared with ‘int foo (int, char *);’ then you must call it
-with two arguments, a number (any kind will do) and a string pointer.
-
-   But some functions perform operations that can meaningfully accept an
-unlimited number of arguments.
-
-   In some cases a function can handle any number of values by operating
-on all of them as a block.  For example, consider a function that
-allocates a one-dimensional array with ‘malloc’ to hold a specified set
-of values.  This operation makes sense for any number of values, as long
-as the length of the array corresponds to that number.  Without
-facilities for variable arguments, you would have to define a separate
-function for each possible array size.
-
-   The library function ‘printf’ (*note Formatted Output::) is an
-example of another class of function where variable arguments are
-useful.  This function prints its arguments (which can vary in type as
-well as number) under the control of a format template string.
-
-   These are good reasons to define a “variadic” function which can
-handle as many arguments as the caller chooses to pass.
-
-   Some functions such as ‘open’ take a fixed set of arguments, but
-occasionally ignore the last few.  Strict adherence to ISO C requires
-these functions to be defined as variadic; in practice, however, the GNU
-C compiler and most other C compilers let you define such a function to
-take a fixed set of arguments—the most it can ever use—and then only
-_declare_ the function as variadic (or not declare its arguments at
-all!).
-

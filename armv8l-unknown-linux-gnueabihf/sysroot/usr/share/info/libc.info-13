@@ -2,10 +2,10 @@ This is libc.info, produced by makeinfo version 6.5 from libc.texinfo.
 
 This file documents the GNU C Library.
 
-   This is ‘The GNU C Library Reference Manual’, for version 2.26
-(crosstool-NG 1.23.0.420-f79b).
+   This is ‘The GNU C Library Reference Manual’, for version 2.28
+(crosstool-NG 1.23.0.511-576f).
 
-   Copyright © 1993–2017 Free Software Foundation, Inc.
+   Copyright © 1993–2018 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +56,6 @@ START-INFO-DIR-ENTRY
 * CS8: (libc)Control Modes.
 * CSIZE: (libc)Control Modes.
 * CSTOPB: (libc)Control Modes.
-* DES_FAILED: (libc)DES Encryption.
 * DTTOIF: (libc)Directory Entries.
 * E2BIG: (libc)Error Codes.
 * EACCES: (libc)Error Codes.
@@ -326,6 +325,7 @@ START-INFO-DIR-ENTRY
 * O_READ: (libc)Access Modes.
 * O_SHLOCK: (libc)Open-time Flags.
 * O_SYNC: (libc)Operating Modes.
+* O_TMPFILE: (libc)Open-time Flags.
 * O_TRUNC: (libc)Open-time Flags.
 * O_WRITE: (libc)Access Modes.
 * O_WRONLY: (libc)Access Modes.
@@ -489,6 +489,7 @@ START-INFO-DIR-ENTRY
 * __ppc_set_ppr_med_low: (libc)PowerPC.
 * __ppc_set_ppr_very_low: (libc)PowerPC.
 * __ppc_yield: (libc)PowerPC.
+* __riscv_flush_icache: (libc)RISC-V.
 * __va_copy: (libc)Argument Macros.
 * _exit: (libc)Termination Internals.
 * _flushlbf: (libc)Flushing Buffers.
@@ -615,6 +616,7 @@ START-INFO-DIR-ENTRY
 * cacoshfNx: (libc)Hyperbolic Functions.
 * cacoshl: (libc)Hyperbolic Functions.
 * cacosl: (libc)Inverse Trig Functions.
+* call_once: (libc)Call Once.
 * calloc: (libc)Allocating Cleared Space.
 * canonicalize: (libc)FP Bit Twiddling.
 * canonicalize_file_name: (libc)Symbolic Links.
@@ -650,7 +652,6 @@ START-INFO-DIR-ENTRY
 * catclose: (libc)The catgets Functions.
 * catgets: (libc)The catgets Functions.
 * catopen: (libc)The catgets Functions.
-* cbc_crypt: (libc)DES Encryption.
 * cbrt: (libc)Exponents and Logarithms.
 * cbrtf: (libc)Exponents and Logarithms.
 * cbrtfN: (libc)Exponents and Logarithms.
@@ -707,6 +708,12 @@ START-INFO-DIR-ENTRY
 * close: (libc)Opening and Closing Files.
 * closedir: (libc)Reading/Closing Directory.
 * closelog: (libc)closelog.
+* cnd_broadcast: (libc)ISO C Condition Variables.
+* cnd_destroy: (libc)ISO C Condition Variables.
+* cnd_init: (libc)ISO C Condition Variables.
+* cnd_signal: (libc)ISO C Condition Variables.
+* cnd_timedwait: (libc)ISO C Condition Variables.
+* cnd_wait: (libc)ISO C Condition Variables.
 * confstr: (libc)String Parameters.
 * conj: (libc)Operations on Complex.
 * conjf: (libc)Operations on Complex.
@@ -714,6 +721,7 @@ START-INFO-DIR-ENTRY
 * conjfNx: (libc)Operations on Complex.
 * conjl: (libc)Operations on Complex.
 * connect: (libc)Connecting.
+* copy_file_range: (libc)Copying File Data.
 * copysign: (libc)FP Bit Twiddling.
 * copysignf: (libc)FP Bit Twiddling.
 * copysignfN: (libc)FP Bit Twiddling.
@@ -746,8 +754,8 @@ START-INFO-DIR-ENTRY
 * creall: (libc)Operations on Complex.
 * creat64: (libc)Opening and Closing Files.
 * creat: (libc)Opening and Closing Files.
-* crypt: (libc)crypt.
-* crypt_r: (libc)crypt.
+* crypt: (libc)Passphrase Storage.
+* crypt_r: (libc)Passphrase Storage.
 * csin: (libc)Trig Functions.
 * csinf: (libc)Trig Functions.
 * csinfN: (libc)Trig Functions.
@@ -777,27 +785,27 @@ START-INFO-DIR-ENTRY
 * ctime: (libc)Formatting Calendar Time.
 * ctime_r: (libc)Formatting Calendar Time.
 * cuserid: (libc)Who Logged In.
+* daddl: (libc)Misc FP Arithmetic.
 * dcgettext: (libc)Translation with gettext.
 * dcngettext: (libc)Advanced gettext functions.
-* des_setparity: (libc)DES Encryption.
+* ddivl: (libc)Misc FP Arithmetic.
 * dgettext: (libc)Translation with gettext.
 * difftime: (libc)Elapsed Time.
 * dirfd: (libc)Opening a Directory.
 * dirname: (libc)Finding Tokens in a String.
 * div: (libc)Integer Division.
+* dmull: (libc)Misc FP Arithmetic.
 * dngettext: (libc)Advanced gettext functions.
 * drand48: (libc)SVID Random.
 * drand48_r: (libc)SVID Random.
 * drem: (libc)Remainder Functions.
 * dremf: (libc)Remainder Functions.
 * dreml: (libc)Remainder Functions.
+* dsubl: (libc)Misc FP Arithmetic.
 * dup2: (libc)Duplicating Descriptors.
 * dup: (libc)Duplicating Descriptors.
-* ecb_crypt: (libc)DES Encryption.
 * ecvt: (libc)System V Number Conversion.
 * ecvt_r: (libc)System V Number Conversion.
-* encrypt: (libc)DES Encryption.
-* encrypt_r: (libc)DES Encryption.
 * endfsent: (libc)fstab.
 * endgrent: (libc)Scanning All Groups.
 * endhostent: (libc)Host Names.
@@ -860,11 +868,29 @@ START-INFO-DIR-ENTRY
 * expm1fN: (libc)Exponents and Logarithms.
 * expm1fNx: (libc)Exponents and Logarithms.
 * expm1l: (libc)Exponents and Logarithms.
+* fMaddfN: (libc)Misc FP Arithmetic.
+* fMaddfNx: (libc)Misc FP Arithmetic.
+* fMdivfN: (libc)Misc FP Arithmetic.
+* fMdivfNx: (libc)Misc FP Arithmetic.
+* fMmulfN: (libc)Misc FP Arithmetic.
+* fMmulfNx: (libc)Misc FP Arithmetic.
+* fMsubfN: (libc)Misc FP Arithmetic.
+* fMsubfNx: (libc)Misc FP Arithmetic.
+* fMxaddfN: (libc)Misc FP Arithmetic.
+* fMxaddfNx: (libc)Misc FP Arithmetic.
+* fMxdivfN: (libc)Misc FP Arithmetic.
+* fMxdivfNx: (libc)Misc FP Arithmetic.
+* fMxmulfN: (libc)Misc FP Arithmetic.
+* fMxmulfNx: (libc)Misc FP Arithmetic.
+* fMxsubfN: (libc)Misc FP Arithmetic.
+* fMxsubfNx: (libc)Misc FP Arithmetic.
 * fabs: (libc)Absolute Value.
 * fabsf: (libc)Absolute Value.
 * fabsfN: (libc)Absolute Value.
 * fabsfNx: (libc)Absolute Value.
 * fabsl: (libc)Absolute Value.
+* fadd: (libc)Misc FP Arithmetic.
+* faddl: (libc)Misc FP Arithmetic.
 * fchdir: (libc)Working Directory.
 * fchmod: (libc)Setting Permissions.
 * fchown: (libc)File Owner.
@@ -879,6 +905,8 @@ START-INFO-DIR-ENTRY
 * fdimfN: (libc)Misc FP Arithmetic.
 * fdimfNx: (libc)Misc FP Arithmetic.
 * fdiml: (libc)Misc FP Arithmetic.
+* fdiv: (libc)Misc FP Arithmetic.
+* fdivl: (libc)Misc FP Arithmetic.
 * fdopen: (libc)Descriptors and Streams.
 * fdopendir: (libc)Opening a Directory.
 * feclearexcept: (libc)Status bit operations.
@@ -962,6 +990,8 @@ START-INFO-DIR-ENTRY
 * fmodfNx: (libc)Remainder Functions.
 * fmodl: (libc)Remainder Functions.
 * fmtmsg: (libc)Printing Formatted Messages.
+* fmul: (libc)Misc FP Arithmetic.
+* fmull: (libc)Misc FP Arithmetic.
 * fnmatch: (libc)Wildcard Matching.
 * fopen64: (libc)Opening Streams.
 * fopen: (libc)Opening Streams.
@@ -1007,6 +1037,8 @@ START-INFO-DIR-ENTRY
 * fsetpos: (libc)Portable Positioning.
 * fstat64: (libc)Reading Attributes.
 * fstat: (libc)Reading Attributes.
+* fsub: (libc)Misc FP Arithmetic.
+* fsubl: (libc)Misc FP Arithmetic.
 * fsync: (libc)Synchronizing I/O.
 * ftell: (libc)File Positioning.
 * ftello64: (libc)File Positioning.
@@ -1280,6 +1312,7 @@ START-INFO-DIR-ENTRY
 * lgammal: (libc)Special Functions.
 * lgammal_r: (libc)Special Functions.
 * link: (libc)Hard Links.
+* linkat: (libc)Hard Links.
 * lio_listio64: (libc)Asynchronous Reads/Writes.
 * lio_listio: (libc)Asynchronous Reads/Writes.
 * listen: (libc)Listening.
@@ -1370,7 +1403,8 @@ START-INFO-DIR-ENTRY
 * memchr: (libc)Search Functions.
 * memcmp: (libc)String/Array Comparison.
 * memcpy: (libc)Copying Strings and Arrays.
-* memfrob: (libc)Trivial Encryption.
+* memfd_create: (libc)Memory-mapped I/O.
+* memfrob: (libc)Obfuscating Data.
 * memmem: (libc)Search Functions.
 * memmove: (libc)Copying Strings and Arrays.
 * mempcpy: (libc)Copying Strings and Arrays.
@@ -1383,6 +1417,7 @@ START-INFO-DIR-ENTRY
 * mkstemp: (libc)Temporary Files.
 * mktemp: (libc)Temporary Files.
 * mktime: (libc)Broken-down Time.
+* mlock2: (libc)Page Lock Functions.
 * mlock: (libc)Page Lock Functions.
 * mlockall: (libc)Page Lock Functions.
 * mmap64: (libc)Memory-mapped I/O.
@@ -1394,11 +1429,18 @@ START-INFO-DIR-ENTRY
 * modfl: (libc)Rounding Functions.
 * mount: (libc)Mount-Unmount-Remount.
 * mprobe: (libc)Heap Consistency Checking.
+* mprotect: (libc)Memory Protection.
 * mrand48: (libc)SVID Random.
 * mrand48_r: (libc)SVID Random.
 * mremap: (libc)Memory-mapped I/O.
 * msync: (libc)Memory-mapped I/O.
 * mtrace: (libc)Tracing malloc.
+* mtx_destroy: (libc)ISO C Mutexes.
+* mtx_init: (libc)ISO C Mutexes.
+* mtx_lock: (libc)ISO C Mutexes.
+* mtx_timedlock: (libc)ISO C Mutexes.
+* mtx_trylock: (libc)ISO C Mutexes.
+* mtx_unlock: (libc)ISO C Mutexes.
 * munlock: (libc)Page Lock Functions.
 * munlockall: (libc)Page Lock Functions.
 * munmap: (libc)Memory-mapped I/O.
@@ -1482,13 +1524,15 @@ START-INFO-DIR-ENTRY
 * pclose: (libc)Pipe to a Subprocess.
 * perror: (libc)Error Messages.
 * pipe: (libc)Creating a Pipe.
+* pkey_alloc: (libc)Memory Protection.
+* pkey_free: (libc)Memory Protection.
+* pkey_get: (libc)Memory Protection.
+* pkey_mprotect: (libc)Memory Protection.
+* pkey_set: (libc)Memory Protection.
 * popen: (libc)Pipe to a Subprocess.
 * posix_fallocate64: (libc)Storage Allocation.
 * posix_fallocate: (libc)Storage Allocation.
 * posix_memalign: (libc)Aligned Memory Blocks.
-* pow10: (libc)Exponents and Logarithms.
-* pow10f: (libc)Exponents and Logarithms.
-* pow10l: (libc)Exponents and Logarithms.
 * pow: (libc)Exponents and Logarithms.
 * powf: (libc)Exponents and Logarithms.
 * powfN: (libc)Exponents and Logarithms.
@@ -1496,10 +1540,10 @@ START-INFO-DIR-ENTRY
 * powl: (libc)Exponents and Logarithms.
 * pread64: (libc)I/O Primitives.
 * pread: (libc)I/O Primitives.
-* preadv2: (libc)I/O Primitives.
-* preadv64: (libc)I/O Primitives.
-* preadv64v2: (libc)I/O Primitives.
-* preadv: (libc)I/O Primitives.
+* preadv2: (libc)Scatter-Gather.
+* preadv64: (libc)Scatter-Gather.
+* preadv64v2: (libc)Scatter-Gather.
+* preadv: (libc)Scatter-Gather.
 * printf: (libc)Formatted Output Functions.
 * printf_size: (libc)Predefined Printf Handlers.
 * printf_size_info: (libc)Predefined Printf Handlers.
@@ -1528,10 +1572,10 @@ START-INFO-DIR-ENTRY
 * putwchar_unlocked: (libc)Simple Output.
 * pwrite64: (libc)I/O Primitives.
 * pwrite: (libc)I/O Primitives.
-* pwritev2: (libc)I/O Primitives.
-* pwritev64: (libc)I/O Primitives.
-* pwritev64v2: (libc)I/O Primitives.
-* pwritev: (libc)I/O Primitives.
+* pwritev2: (libc)Scatter-Gather.
+* pwritev64: (libc)Scatter-Gather.
+* pwritev64v2: (libc)Scatter-Gather.
+* pwritev: (libc)Scatter-Gather.
 * qecvt: (libc)System V Number Conversion.
 * qecvt_r: (libc)System V Number Conversion.
 * qfcvt: (libc)System V Number Conversion.
@@ -1654,8 +1698,6 @@ START-INFO-DIR-ENTRY
 * sethostname: (libc)Host Identification.
 * setitimer: (libc)Setting an Alarm.
 * setjmp: (libc)Non-Local Details.
-* setkey: (libc)DES Encryption.
-* setkey_r: (libc)DES Encryption.
 * setlinebuf: (libc)Controlling Buffering.
 * setlocale: (libc)Setting the Locale.
 * setlogmask: (libc)setlogmask.
@@ -1773,7 +1815,7 @@ START-INFO-DIR-ENTRY
 * strfromfN: (libc)Printing of Floats.
 * strfromfNx: (libc)Printing of Floats.
 * strfroml: (libc)Printing of Floats.
-* strfry: (libc)strfry.
+* strfry: (libc)Shuffling Bytes.
 * strftime: (libc)Formatting Calendar Time.
 * strlen: (libc)String Length.
 * strncasecmp: (libc)String/Array Comparison.
@@ -1849,6 +1891,14 @@ START-INFO-DIR-ENTRY
 * tgammafN: (libc)Special Functions.
 * tgammafNx: (libc)Special Functions.
 * tgammal: (libc)Special Functions.
+* thrd_create: (libc)ISO C Thread Management.
+* thrd_current: (libc)ISO C Thread Management.
+* thrd_detach: (libc)ISO C Thread Management.
+* thrd_equal: (libc)ISO C Thread Management.
+* thrd_exit: (libc)ISO C Thread Management.
+* thrd_join: (libc)ISO C Thread Management.
+* thrd_sleep: (libc)ISO C Thread Management.
+* thrd_yield: (libc)ISO C Thread Management.
 * time: (libc)Simple Calendar Time.
 * timegm: (libc)Broken-down Time.
 * timelocal: (libc)Broken-down Time.
@@ -1881,6 +1931,10 @@ START-INFO-DIR-ENTRY
 * truncfNx: (libc)Rounding Functions.
 * truncl: (libc)Rounding Functions.
 * tsearch: (libc)Tree Search Function.
+* tss_create: (libc)ISO C Thread-local Storage.
+* tss_delete: (libc)ISO C Thread-local Storage.
+* tss_get: (libc)ISO C Thread-local Storage.
+* tss_set: (libc)ISO C Thread-local Storage.
 * ttyname: (libc)Is It a Terminal.
 * ttyname_r: (libc)Is It a Terminal.
 * twalk: (libc)Tree Search Function.
@@ -2019,6 +2073,2131 @@ START-INFO-DIR-ENTRY
 * ynfNx: (libc)Special Functions.
 * ynl: (libc)Special Functions.
 END-INFO-DIR-ENTRY
+
+
+
+File: libc.info,  Node: Cryptographic Functions,  Next: Debugging Support,  Prev: System Configuration,  Up: Top
+
+33 Cryptographic Functions
+**************************
+
+The GNU C Library includes only a few special-purpose cryptographic
+functions: one-way hash functions for passphrase storage, and access to
+a cryptographic randomness source, if one is provided by the operating
+system.  Programs that need general-purpose cryptography should use a
+dedicated cryptography library, such as libgcrypt.
+
+   Many countries place legal restrictions on the import, export,
+possession, or use of cryptographic software.  We deplore these
+restrictions, but we must still warn you that the GNU C Library may be
+subject to them, even if you do not use the functions in this chapter
+yourself.  The restrictions vary from place to place and are changed
+often, so we cannot give any more specific advice than this warning.
+
+* Menu:
+
+* Passphrase Storage::          One-way hashing for passphrases.
+* Unpredictable Bytes::         Randomness for cryptographic purposes.
+
+
+File: libc.info,  Node: Passphrase Storage,  Next: Unpredictable Bytes,  Up: Cryptographic Functions
+
+33.1 Passphrase Storage
+=======================
+
+Sometimes it is necessary to be sure that a user is authorized to use
+some service a machine provides—for instance, to log in as a particular
+user id (*note Users and Groups::).  One traditional way of doing this
+is for each user to choose a secret “passphrase”; then, the system can
+ask someone claiming to be a user what the user’s passphrase is, and if
+the person gives the correct passphrase then the system can grant the
+appropriate privileges.  (Traditionally, these were called “passwords,”
+but nowadays a single word is too easy to guess.)
+
+   Programs that handle passphrases must take special care not to reveal
+them to anyone, no matter what.  It is not enough to keep them in a file
+that is only accessible with special privileges.  The file might be
+“leaked” via a bug or misconfiguration, and system administrators
+shouldn’t learn everyone’s passphrase even if they have to edit that
+file for some reason.  To avoid this, passphrases should also be
+converted into “one-way hashes”, using a “one-way function”, before they
+are stored.
+
+   A one-way function is easy to compute, but there is no known way to
+compute its inverse.  This means the system can easily check
+passphrases, by hashing them and comparing the result with the stored
+hash.  But an attacker who discovers someone’s passphrase hash can only
+discover the passphrase it corresponds to by guessing and checking.  The
+one-way functions are designed to make this process impractically slow,
+for all but the most obvious guesses.  (Do not use a word from the
+dictionary as your passphrase.)
+
+   The GNU C Library provides an interface to four one-way functions,
+based on the SHA-2-512, SHA-2-256, MD5, and DES cryptographic
+primitives.  New passphrases should be hashed with either of the
+SHA-based functions.  The others are too weak for newly set passphrases,
+but we continue to support them for verifying old passphrases.  The
+DES-based hash is especially weak, because it ignores all but the first
+eight characters of its input.
+
+ -- Function: char * crypt (const char *PHRASE, const char *SALT)
+
+     Preliminary: | MT-Unsafe race:crypt | AS-Unsafe corrupt lock heap
+     dlopen | AC-Unsafe lock mem | *Note POSIX Safety Concepts::.
+
+     The function ‘crypt’ converts a passphrase string, PHRASE, into a
+     one-way hash suitable for storage in the user database.  The string
+     that it returns will consist entirely of printable ASCII
+     characters.  It will not contain whitespace, nor any of the
+     characters ‘:’, ‘;’, ‘*’, ‘!’, or ‘\’.
+
+     The SALT parameter controls which one-way function is used, and it
+     also ensures that the output of the one-way function is different
+     for every user, even if they have the same passphrase.  This makes
+     it harder to guess passphrases from a large user database.  Without
+     salt, the attacker could make a guess, run ‘crypt’ on it once, and
+     compare the result with all the hashes.  Salt forces the attacker
+     to make separate calls to ‘crypt’ for each user.
+
+     To verify a passphrase, pass the previously hashed passphrase as
+     the SALT.  To hash a new passphrase for storage, set SALT to a
+     string consisting of a prefix plus a sequence of randomly chosen
+     characters, according to this table:
+
+     One-way        Prefix  Random sequence
+     function
+     ----------------------------------------------
+     SHA-2-512      ‘$6$’   16 characters
+     SHA-2-256      ‘$5$’   16 characters
+     MD5            ‘$1$’   8 characters
+     DES            ‘’      2 characters
+
+     In all cases, the random characters should be chosen from the
+     alphabet ‘./0-9A-Za-z’.
+
+     With all of the hash functions _except_ DES, PHRASE can be
+     arbitrarily long, and all eight bits of each byte are significant.
+     With DES, only the first eight characters of PHRASE affect the
+     output, and the eighth bit of each byte is also ignored.
+
+     ‘crypt’ can fail.  Some implementations return ‘NULL’ on failure,
+     and others return an _invalid_ hashed passphrase, which will begin
+     with a ‘*’ and will not be the same as SALT.  In either case,
+     ‘errno’ will be set to indicate the problem.  Some of the possible
+     error codes are:
+
+     ‘EINVAL’
+          SALT is invalid; neither a previously hashed passphrase, nor a
+          well-formed new salt for any of the supported hash functions.
+
+     ‘EPERM’
+          The system configuration forbids use of the hash function
+          selected by SALT.
+
+     ‘ENOMEM’
+          Failed to allocate internal scratch storage.
+
+     ‘ENOSYS’
+     ‘EOPNOTSUPP’
+          Hashing passphrases is not supported at all, or the hash
+          function selected by SALT is not supported.  The GNU C Library
+          does not use these error codes, but they may be encountered on
+          other operating systems.
+
+     ‘crypt’ uses static storage for both internal scratchwork and the
+     string it returns.  It is not safe to call ‘crypt’ from multiple
+     threads simultaneously, and the string it returns will be
+     overwritten by any subsequent call to ‘crypt’.
+
+     ‘crypt’ is specified in the X/Open Portability Guide and is present
+     on nearly all historical Unix systems.  However, the XPG does not
+     specify any one-way functions.
+
+     ‘crypt’ is declared in ‘unistd.h’.  The GNU C Library also declares
+     this function in ‘crypt.h’.
+
+ -- Function: char * crypt_r (const char *PHRASE, const char *SALT,
+          struct crypt_data *DATA)
+
+     Preliminary: | MT-Safe | AS-Unsafe corrupt lock heap dlopen |
+     AC-Unsafe lock mem | *Note POSIX Safety Concepts::.
+
+     The function ‘crypt_r’ is a thread-safe version of ‘crypt’.
+     Instead of static storage, it uses the memory pointed to by its
+     DATA argument for both scratchwork and the string it returns.  It
+     can safely be used from multiple threads, as long as different DATA
+     objects are used in each thread.  The string it returns will still
+     be overwritten by another call with the same DATA.
+
+     DATA must point to a ‘struct crypt_data’ object allocated by the
+     caller.  All of the fields of ‘struct crypt_data’ are private, but
+     before one of these objects is used for the first time, it must be
+     initialized to all zeroes, using ‘memset’ or similar.  After that,
+     it can be reused for many calls to ‘crypt_r’ without erasing it
+     again.  ‘struct crypt_data’ is very large, so it is best to
+     allocate it with ‘malloc’ rather than as a local variable.  *Note
+     Memory Allocation::.
+
+     ‘crypt_r’ is a GNU extension.  It is declared in ‘crypt.h’, as is
+     ‘struct crypt_data’.
+
+   The following program shows how to use ‘crypt’ the first time a
+passphrase is entered.  It uses ‘getentropy’ to make the salt as
+unpredictable as possible; *note Unpredictable Bytes::.
+
+
+     #include <stdio.h>
+     #include <unistd.h>
+     #include <crypt.h>
+
+     int
+     main(void)
+     {
+       unsigned char ubytes[16];
+       char salt[20];
+       const char *const saltchars =
+         "./0123456789ABCDEFGHIJKLMNOPQRST"
+         "UVWXYZabcdefghijklmnopqrstuvwxyz";
+       char *hash;
+       int i;
+
+       /* Retrieve 16 unpredictable bytes from the operating system. */
+       if (getentropy (ubytes, sizeof ubytes))
+         {
+           perror ("getentropy");
+           return 1;
+         }
+
+       /* Use them to fill in the salt string. */
+       salt[0] = '$';
+       salt[1] = '5'; /* SHA-256 */
+       salt[2] = '$';
+       for (i = 0; i < 16; i++)
+         salt[3+i] = saltchars[ubytes[i] & 0x3f];
+       salt[3+i] = '\0';
+
+       /* Read in the user’s passphrase and hash it. */
+       hash = crypt (getpass ("Enter new passphrase: "), salt);
+       if (!hash || hash[0] == '*')
+         {
+           perror ("crypt");
+           return 1;
+         }
+
+       /* Print the results. */
+       puts (hash);
+       return 0;
+     }
+
+   The next program demonstrates how to verify a passphrase.  It checks
+a hash hardcoded into the program, because looking up real users’ hashed
+passphrases may require special privileges (*note User Database::).  It
+also shows that different one-way functions produce different hashes for
+the same passphrase.
+
+
+     #include <stdio.h>
+     #include <string.h>
+     #include <unistd.h>
+     #include <crypt.h>
+
+     /* ‘GNU's Not Unix’ hashed using SHA-256, MD5, and DES. */
+     static const char hash_sha[] =
+       "$5$DQ2z5NHf1jNJnChB$kV3ZTR0aUaosujPhLzR84Llo3BsspNSe4/tsp7VoEn6";
+     static const char hash_md5[] = "$1$A3TxDv41$rtXVTUXl2LkeSV0UU5xxs1";
+     static const char hash_des[] = "FgkTuF98w5DaI";
+
+     int
+     main(void)
+     {
+       char *phrase;
+       int status = 0;
+
+       /* Prompt for a passphrase. */
+       phrase = getpass ("Enter passphrase: ");
+
+       /* Compare against the stored hashes.  Any input that begins with
+          ‘GNU's No’ will match the DES hash, but the other two will
+          only match ‘GNU's Not Unix’. */
+
+       if (strcmp (crypt (phrase, hash_sha), hash_sha))
+         {
+           puts ("SHA: not ok");
+           status = 1;
+         }
+       else
+         puts ("SHA: ok");
+
+       if (strcmp (crypt (phrase, hash_md5), hash_md5))
+         {
+           puts ("MD5: not ok");
+           status = 1;
+         }
+       else
+         puts ("MD5: ok");
+
+       if (strcmp (crypt (phrase, hash_des), hash_des))
+         {
+           puts ("DES: not ok");
+           status = 1;
+         }
+       else
+         puts ("DES: ok");
+
+       return status;
+     }
+
+
+File: libc.info,  Node: Unpredictable Bytes,  Prev: Passphrase Storage,  Up: Cryptographic Functions
+
+33.2 Generating Unpredictable Bytes
+===================================
+
+Cryptographic applications often need some random data that will be as
+difficult as possible for a hostile eavesdropper to guess.  For
+instance, encryption keys should be chosen at random, and the “salt”
+strings used by ‘crypt’ (*note Passphrase Storage::) should also be
+chosen at random.
+
+   Some pseudo-random number generators do not provide
+unpredictable-enough output for cryptographic applications; *note
+Pseudo-Random Numbers::.  Such applications need to use a “cryptographic
+random number generator” (CRNG), also sometimes called a
+“cryptographically strong pseudo-random number generator” (CSPRNG) or
+“deterministic random bit generator” (DRBG).
+
+   Currently, the GNU C Library does not provide a cryptographic random
+number generator, but it does provide functions that read random data
+from a “randomness source” supplied by the operating system.  The
+randomness source is a CRNG at heart, but it also continually “re-seeds”
+itself from physical sources of randomness, such as electronic noise and
+clock jitter.  This means applications do not need to do anything to
+ensure that the random numbers it produces are different on each run.
+
+   The catch, however, is that these functions will only produce
+relatively short random strings in any one call.  Often this is not a
+problem, but applications that need more than a few kilobytes of
+cryptographically strong random data should call these functions once
+and use their output to seed a CRNG.
+
+   Most applications should use ‘getentropy’.  The ‘getrandom’ function
+is intended for low-level applications which need additional control
+over blocking behavior.
+
+ -- Function: int getentropy (void *BUFFER, size_t LENGTH)
+
+     | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety Concepts::.
+
+     This function writes exactly LENGTH bytes of random data to the
+     array starting at BUFFER.  LENGTH can be no more than 256.  On
+     success, it returns zero.  On failure, it returns -1, and ‘errno’
+     is set to indicate the problem.  Some of the possible errors are
+     listed below.
+
+     ‘ENOSYS’
+          The operating system does not implement a randomness source,
+          or does not support this way of accessing it.  (For instance,
+          the system call used by this function was added to the Linux
+          kernel in version 3.17.)
+
+     ‘EFAULT’
+          The combination of BUFFER and LENGTH arguments specifies an
+          invalid memory range.
+
+     ‘EIO’
+          LENGTH is larger than 256, or the kernel entropy pool has
+          suffered a catastrophic failure.
+
+     A call to ‘getentropy’ can only block when the system has just
+     booted and the randomness source has not yet been initialized.
+     However, if it does block, it cannot be interrupted by signals or
+     thread cancellation.  Programs intended to run in very early stages
+     of the boot process may need to use ‘getrandom’ in non-blocking
+     mode instead, and be prepared to cope with random data not being
+     available at all.
+
+     The ‘getentropy’ function is declared in the header file
+     ‘sys/random.h’.  It is derived from OpenBSD.
+
+ -- Function: ssize_t getrandom (void *BUFFER, size_t LENGTH, unsigned
+          int FLAGS)
+
+     | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety Concepts::.
+
+     This function writes up to LENGTH bytes of random data to the array
+     starting at BUFFER.  The FLAGS argument should be either zero, or
+     the bitwise OR of some of the following flags:
+
+     ‘GRND_RANDOM’
+          Use the ‘/dev/random’ (blocking) source instead of the
+          ‘/dev/urandom’ (non-blocking) source to obtain randomness.
+
+          If this flag is specified, the call may block, potentially for
+          quite some time, even after the randomness source has been
+          initialized.  If it is not specified, the call can only block
+          when the system has just booted and the randomness source has
+          not yet been initialized.
+
+     ‘GRND_NONBLOCK’
+          Instead of blocking, return to the caller immediately if no
+          data is available.
+
+     Unlike ‘getentropy’, the ‘getrandom’ function is a cancellation
+     point, and if it blocks, it can be interrupted by signals.
+
+     On success, ‘getrandom’ returns the number of bytes which have been
+     written to the buffer, which may be less than LENGTH.  On error, it
+     returns -1, and ‘errno’ is set to indicate the problem.  Some of
+     the possible errors are:
+
+     ‘ENOSYS’
+          The operating system does not implement a randomness source,
+          or does not support this way of accessing it.  (For instance,
+          the system call used by this function was added to the Linux
+          kernel in version 3.17.)
+
+     ‘EAGAIN’
+          No random data was available and ‘GRND_NONBLOCK’ was specified
+          in FLAGS.
+
+     ‘EFAULT’
+          The combination of BUFFER and LENGTH arguments specifies an
+          invalid memory range.
+
+     ‘EINTR’
+          The system call was interrupted.  During the system boot
+          process, before the kernel randomness pool is initialized,
+          this can happen even if FLAGS is zero.
+
+     ‘EINVAL’
+          The FLAGS argument contains an invalid combination of flags.
+
+     The ‘getrandom’ function is declared in the header file
+     ‘sys/random.h’.  It is a GNU extension.
+
+
+File: libc.info,  Node: Debugging Support,  Next: Threads,  Prev: Cryptographic Functions,  Up: Top
+
+34 Debugging support
+********************
+
+Applications are usually debugged using dedicated debugger programs.
+But sometimes this is not possible and, in any case, it is useful to
+provide the developer with as much information as possible at the time
+the problems are experienced.  For this reason a few functions are
+provided which a program can use to help the developer more easily
+locate the problem.
+
+* Menu:
+
+* Backtraces::                Obtaining and printing a back trace of the
+                               current stack.
+
+
+File: libc.info,  Node: Backtraces,  Up: Debugging Support
+
+34.1 Backtraces
+===============
+
+A “backtrace” is a list of the function calls that are currently active
+in a thread.  The usual way to inspect a backtrace of a program is to
+use an external debugger such as gdb.  However, sometimes it is useful
+to obtain a backtrace programmatically from within a program, e.g., for
+the purposes of logging or diagnostics.
+
+   The header file ‘execinfo.h’ declares three functions that obtain and
+manipulate backtraces of the current thread.
+
+ -- Function: int backtrace (void **BUFFER, int SIZE)
+
+     Preliminary: | MT-Safe | AS-Unsafe init heap dlopen plugin lock |
+     AC-Unsafe init mem lock fd | *Note POSIX Safety Concepts::.
+
+     The ‘backtrace’ function obtains a backtrace for the current
+     thread, as a list of pointers, and places the information into
+     BUFFER.  The argument SIZE should be the number of ‘void *’
+     elements that will fit into BUFFER.  The return value is the actual
+     number of entries of BUFFER that are obtained, and is at most SIZE.
+
+     The pointers placed in BUFFER are actually return addresses
+     obtained by inspecting the stack, one return address per stack
+     frame.
+
+     Note that certain compiler optimizations may interfere with
+     obtaining a valid backtrace.  Function inlining causes the inlined
+     function to not have a stack frame; tail call optimization replaces
+     one stack frame with another; frame pointer elimination will stop
+     ‘backtrace’ from interpreting the stack contents correctly.
+
+ -- Function: char ** backtrace_symbols (void *const *BUFFER, int SIZE)
+
+     Preliminary: | MT-Safe | AS-Unsafe heap | AC-Unsafe mem lock |
+     *Note POSIX Safety Concepts::.
+
+     The ‘backtrace_symbols’ function translates the information
+     obtained from the ‘backtrace’ function into an array of strings.
+     The argument BUFFER should be a pointer to an array of addresses
+     obtained via the ‘backtrace’ function, and SIZE is the number of
+     entries in that array (the return value of ‘backtrace’).
+
+     The return value is a pointer to an array of strings, which has
+     SIZE entries just like the array BUFFER.  Each string contains a
+     printable representation of the corresponding element of BUFFER.
+     It includes the function name (if this can be determined), an
+     offset into the function, and the actual return address (in
+     hexadecimal).
+
+     Currently, the function name and offset can only be obtained on
+     systems that use the ELF binary format for programs and libraries.
+     On other systems, only the hexadecimal return address will be
+     present.  Also, you may need to pass additional flags to the linker
+     to make the function names available to the program.  (For example,
+     on systems using GNU ld, you must pass ‘-rdynamic’.)
+
+     The return value of ‘backtrace_symbols’ is a pointer obtained via
+     the ‘malloc’ function, and it is the responsibility of the caller
+     to ‘free’ that pointer.  Note that only the return value need be
+     freed, not the individual strings.
+
+     The return value is ‘NULL’ if sufficient memory for the strings
+     cannot be obtained.
+
+ -- Function: void backtrace_symbols_fd (void *const *BUFFER, int SIZE,
+          int FD)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Unsafe lock | *Note POSIX
+     Safety Concepts::.
+
+     The ‘backtrace_symbols_fd’ function performs the same translation
+     as the function ‘backtrace_symbols’ function.  Instead of returning
+     the strings to the caller, it writes the strings to the file
+     descriptor FD, one per line.  It does not use the ‘malloc’
+     function, and can therefore be used in situations where that
+     function might fail.
+
+   The following program illustrates the use of these functions.  Note
+that the array to contain the return addresses returned by ‘backtrace’
+is allocated on the stack.  Therefore code like this can be used in
+situations where the memory handling via ‘malloc’ does not work anymore
+(in which case the ‘backtrace_symbols’ has to be replaced by a
+‘backtrace_symbols_fd’ call as well).  The number of return addresses is
+normally not very large.  Even complicated programs rather seldom have a
+nesting level of more than, say, 50 and with 200 possible entries
+probably all programs should be covered.
+
+
+     #include <execinfo.h>
+     #include <stdio.h>
+     #include <stdlib.h>
+
+     /* Obtain a backtrace and print it to ‘stdout’. */
+     void
+     print_trace (void)
+     {
+       void *array[10];
+       size_t size;
+       char **strings;
+       size_t i;
+
+       size = backtrace (array, 10);
+       strings = backtrace_symbols (array, size);
+
+       printf ("Obtained %zd stack frames.\n", size);
+
+       for (i = 0; i < size; i++)
+          printf ("%s\n", strings[i]);
+
+       free (strings);
+     }
+
+     /* A dummy function to make the backtrace more interesting. */
+     void
+     dummy_function (void)
+     {
+       print_trace ();
+     }
+
+     int
+     main (void)
+     {
+       dummy_function ();
+       return 0;
+     }
+
+
+File: libc.info,  Node: Threads,  Next: Internal Probes,  Prev: Debugging Support,  Up: Top
+
+35 Threads
+**********
+
+This chapter describes functions used for managing threads.  The GNU C
+Library provides two threading implementations: ISO C threads and POSIX
+threads.
+
+* Menu:
+
+* ISO C Threads::	Threads based on the ISO C specification.
+* POSIX Threads::	Threads based on the POSIX specification.
+
+
+File: libc.info,  Node: ISO C Threads,  Next: POSIX Threads,  Up: Threads
+
+35.1 ISO C Threads
+==================
+
+This section describes the GNU C Library ISO C threads implementation.
+To have a deeper understanding of this API, it is strongly recommended
+to read ISO/IEC 9899:2011, section 7.26, in which ISO C threads were
+originally specified.  All types and function prototypes are declared in
+the header file ‘threads.h’.
+
+* Menu:
+
+* ISO C Threads Return Values:: Symbolic constants that represent a
+				function’s return value.
+* ISO C Thread Management::	Support for basic threading.
+* Call Once::			Single-call functions and macros.
+* ISO C Mutexes::		A low-level mechanism for mutual exclusion.
+* ISO C Condition Variables::	High-level objects for thread synchronization.
+* ISO C Thread-local Storage::	Functions to support thread-local storage.
+
+
+File: libc.info,  Node: ISO C Threads Return Values,  Next: ISO C Thread Management,  Up: ISO C Threads
+
+35.1.1 Return Values
+--------------------
+
+The ISO C thread specification provides the following enumeration
+constants for return values from functions in the API:
+
+‘thrd_timedout’
+
+     A specified time was reached without acquiring the requested
+     resource, usually a mutex or condition variable.
+
+‘thrd_success’
+
+     The requested operation succeeded.
+
+‘thrd_busy’
+
+     The requested operation failed because a requested resource is
+     already in use.
+
+‘thrd_error’
+
+     The requested operation failed.
+
+‘thrd_nomem’
+
+     The requested operation failed because it was unable to allocate
+     enough memory.
+
+
+File: libc.info,  Node: ISO C Thread Management,  Next: Call Once,  Prev: ISO C Threads Return Values,  Up: ISO C Threads
+
+35.1.2 Creation and Control
+---------------------------
+
+The GNU C Library implements a set of functions that allow the user to
+easily create and use threads.  Additional functionality is provided to
+control the behavior of threads.
+
+   The following data types are defined for managing threads:
+
+ -- Data Type: thrd_t
+
+     A unique object that identifies a thread.
+
+ -- Data Type: thrd_start_t
+
+     This data type is an ‘int (*) (void *)’ typedef that is passed to
+     ‘thrd_create’ when creating a new thread.  It should point to the
+     first function that thread will run.
+
+   The following functions are used for working with threads:
+
+ -- Function: int thrd_create (thrd_t *THR, thrd_start_t FUNC, void
+          *ARG)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘thrd_create’ creates a new thread that will execute the function
+     FUNC.  The object pointed to by ARG will be used as the argument to
+     FUNC.  If successful, THR is set to the new thread identifier.
+
+     This function may return ‘thrd_success’, ‘thrd_nomem’, or
+     ‘thrd_error’.
+
+ -- Function: thrd_t thrd_current (void)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function returns the identifier of the calling thread.
+
+ -- Function: int thrd_equal (thrd_t LHS, thrd_t RHS)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘thrd_equal’ checks whether LHS and RHS refer to the same thread.
+     If LHS and RHS are different threads, this function returns 0;
+     otherwise, the return value is non-zero.
+
+ -- Function: int thrd_sleep (const struct timespec *TIME_POINT, struct
+          timespec *REMAINING)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘thrd_sleep’ blocks the execution of the current thread for at
+     least until the elapsed time pointed to by TIME_POINT has been
+     reached.  This function does not take an absolute time, but a
+     duration that the thread is required to be blocked.  *Note Time
+     Basics::, and *note Elapsed Time::.
+
+     The thread may wake early if a signal that is not ignored is
+     received.  In such a case, if ‘remaining’ is not NULL, the
+     remaining time duration is stored in the object pointed to by
+     REMAINING.
+
+     ‘thrd_sleep’ returns 0 if it blocked for at least the amount of
+     time in ‘time_point’, -1 if it was interrupted by a signal, or a
+     negative number on failure.
+
+ -- Function: void thrd_yield (void)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘thrd_yield’ provides a hint to the implementation to reschedule
+     the execution of the current thread, allowing other threads to run.
+
+ -- Function: _Noreturn void thrd_exit (int RES)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘thrd_exit’ terminates execution of the calling thread and sets its
+     result code to RES.
+
+     If this function is called from a single-threaded process, the call
+     is equivalent to calling ‘exit’ with ‘EXIT_SUCCESS’ (*note Normal
+     Termination::).  Also note that returning from a function that
+     started a thread is equivalent to calling ‘thrd_exit’.
+
+ -- Function: int thrd_detach (thrd_t THR)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘thrd_detach’ detaches the thread identified by ‘thr’ from the
+     current control thread.  The resources held by the detached thread
+     will be freed automatically once the thread exits.  The parent
+     thread will never be notified by any THR signal.
+
+     Calling ‘thrd_detach’ on a thread that was previously detached or
+     joined by another thread results in undefined behavior.
+
+     This function returns either ‘thrd_success’ or ‘thrd_error’.
+
+ -- Function: int thrd_join (thrd_t THR, int *RES)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘thrd_join’ blocks the current thread until the thread identified
+     by ‘thr’ finishes execution.  If ‘res’ is not NULL, the result code
+     of the thread is put into the location pointed to by RES.  The
+     termination of the thread “synchronizes-with” the completion of
+     this function, meaning both threads have arrived at a common point
+     in their execution.
+
+     Calling ‘thrd_join’ on a thread that was previously detached or
+     joined by another thread results in undefined behavior.
+
+     This function returns either ‘thrd_success’ or ‘thrd_error’.
+
+
+File: libc.info,  Node: Call Once,  Next: ISO C Mutexes,  Prev: ISO C Thread Management,  Up: ISO C Threads
+
+35.1.3 Call Once
+----------------
+
+In order to guarantee single access to a function, the GNU C Library
+implements a “call once function” to ensure a function is only called
+once in the presence of multiple, potentially calling threads.
+
+ -- Data Type: once_flag
+
+     A complete object type capable of holding a flag used by
+     ‘call_once’.
+
+ -- Macro: ONCE_FLAG_INIT
+
+     This value is used to initialize an object of type ‘once_flag’.
+
+ -- Function: void call_once (once_flag *FLAG, void (*FUNC) (void))
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘call_once’ calls function FUNC exactly once, even if invoked from
+     several threads.  The completion of the function FUNC
+     synchronizes-with all previous or subsequent calls to ‘call_once’
+     with the same ‘flag’ variable.
+
+
+File: libc.info,  Node: ISO C Mutexes,  Next: ISO C Condition Variables,  Prev: Call Once,  Up: ISO C Threads
+
+35.1.4 Mutexes
+--------------
+
+To have better control of resources and how threads access them, the GNU
+C Library implements a “mutex” object, which can help avoid race
+conditions and other concurrency issues.  The term “mutex” refers to
+mutual exclusion.
+
+   The fundamental data type for a mutex is the ‘mtx_t’:
+
+ -- Data Type: mtx_t
+
+     The ‘mtx_t’ data type uniquely identifies a mutex object.
+
+   The ISO C standard defines several types of mutexes.  They are
+represented by the following symbolic constants:
+
+‘mtx_plain’
+
+     A mutex that does not support timeout, or test and return.
+
+‘mtx_recursive’
+
+     A mutex that supports recursive locking, which means that the
+     owning thread can lock it more than once without causing deadlock.
+
+‘mtx_timed’
+
+     A mutex that supports timeout.
+
+   The following functions are used for working with mutexes:
+
+ -- Function: int mtx_init (mtx_t *MUTEX, int TYPE)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘mtx_init’ creates a new mutex object with type TYPE.  The object
+     pointed to by MUTEX is set to the identifier of the newly created
+     mutex.
+
+     Not all combinations of mutex types are valid for the ‘type’
+     argument.  Valid uses of mutex types for the ‘type’ argument are:
+
+     ‘mtx_plain’
+          A non-recursive mutex that does not support timeout.
+
+     ‘mtx_timed’
+          A non-recursive mutex that does support timeout.
+
+     ‘mtx_plain | mtx_recursive’
+          A recursive mutex that does not support timeout.
+
+     ‘mtx_timed | mtx_recursive’
+          A recursive mutex that does support timeout.
+
+     This function returns either ‘thrd_success’ or ‘thrd_error’.
+
+ -- Function: int mtx_lock (mtx_t *MUTEX)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
+     POSIX Safety Concepts::.
+
+     ‘mtx_lock’ blocks the current thread until the mutex pointed to by
+     MUTEX is locked.  The behavior is undefined if the current thread
+     has already locked the mutex and the mutex is not recursive.
+
+     Prior calls to ‘mtx_unlock’ on the same mutex synchronize-with this
+     operation (if this operation succeeds), and all lock/unlock
+     operations on any given mutex form a single total order (similar to
+     the modification order of an atomic).
+
+     This function returns either ‘thrd_success’ or ‘thrd_error’.
+
+ -- Function: int mtx_timedlock (mtx_t *restrict MUTEX, const struct
+          timespec *restrict TIME_POINT)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
+     POSIX Safety Concepts::.
+
+     ‘mtx_timedlock’ blocks the current thread until the mutex pointed
+     to by MUTEX is locked or until the calendar time pointed to by
+     TIME_POINT has been reached.  Since this function takes an absolute
+     time, if a duration is required, the calendar time must be
+     calculated manually.  *Note Time Basics::, and *note Calendar
+     Time::.
+
+     If the current thread has already locked the mutex and the mutex is
+     not recursive, or if the mutex does not support timeout, the
+     behavior of this function is undefined.
+
+     Prior calls to ‘mtx_unlock’ on the same mutex synchronize-with this
+     operation (if this operation succeeds), and all lock/unlock
+     operations on any given mutex form a single total order (similar to
+     the modification order of an atomic).
+
+     This function returns either ‘thrd_success’ or ‘thrd_error’.
+
+ -- Function: int mtx_trylock (mtx_t *MUTEX)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
+     POSIX Safety Concepts::.
+
+     ‘mtx_trylock’ tries to lock the mutex pointed to by MUTEX without
+     blocking.  It returns immediately if the mutex is already locked.
+
+     Prior calls to ‘mtx_unlock’ on the same mutex synchronize-with this
+     operation (if this operation succeeds), and all lock/unlock
+     operations on any given mutex form a single total order (similar to
+     the modification order of an atomic).
+
+     This function returns ‘thrd_success’ if the lock was obtained,
+     ‘thrd_busy’ if the mutex is already locked, and ‘thrd_error’ on
+     failure.
+
+ -- Function: int mtx_unlock (mtx_t *MUTEX)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘mtx_unlock’ unlocks the mutex pointed to by MUTEX.  The behavior
+     is undefined if the mutex is not locked by the calling thread.
+
+     This function synchronizes-with subsequent ‘mtx_lock’,
+     ‘mtx_trylock’, and ‘mtx_timedlock’ calls on the same mutex.  All
+     lock/unlock operations on any given mutex form a single total order
+     (similar to the modification order of an atomic).
+
+     This function returns either ‘thrd_success’ or ‘thrd_error’.
+
+ -- Function: void mtx_destroy (mtx_t *MUTEX)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘mtx_destroy’ destroys the mutex pointed to by MUTEX.  If there are
+     any threads waiting on the mutex, the behavior is undefined.
+
+
+File: libc.info,  Node: ISO C Condition Variables,  Next: ISO C Thread-local Storage,  Prev: ISO C Mutexes,  Up: ISO C Threads
+
+35.1.5 Condition Variables
+--------------------------
+
+Mutexes are not the only synchronization mechanisms available.  For some
+more complex tasks, the GNU C Library also implements “condition
+variables”, which allow the programmer to think at a higher level when
+solving complex synchronization problems.  They are used to synchronize
+threads waiting on a certain condition to happen.
+
+   The fundamental data type for condition variables is the ‘cnd_t’:
+
+ -- Data Type: cnd_t
+
+     The ‘cnd_t’ uniquely identifies a condition variable object.
+
+   The following functions are used for working with condition
+variables:
+
+ -- Function: int cnd_init (cnd_t *COND)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘cnd_init’ initializes a new condition variable, identified by
+     COND.
+
+     This function may return ‘thrd_success’, ‘thrd_nomem’, or
+     ‘thrd_error’.
+
+ -- Function: int cnd_signal (cnd_t *COND)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘cnd_signal’ unblocks one thread that is currently waiting on the
+     condition variable pointed to by COND.  If a thread is successfully
+     unblocked, this function returns ‘thrd_success’.  If no threads are
+     blocked, this function does nothing and returns ‘thrd_success’.
+     Otherwise, this function returns ‘thrd_error’.
+
+ -- Function: int cnd_broadcast (cnd_t *COND)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘cnd_broadcast’ unblocks all the threads that are currently waiting
+     on the condition variable pointed to by COND.  This function
+     returns ‘thrd_success’ on success.  If no threads are blocked, this
+     function does nothing and returns ‘thrd_success’.  Otherwise, this
+     function returns ‘thrd_error’.
+
+ -- Function: int cnd_wait (cnd_t *COND, mtx_t *MUTEX)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
+     POSIX Safety Concepts::.
+
+     ‘cnd_wait’ atomically unlocks the mutex pointed to by MUTEX and
+     blocks on the condition variable pointed to by COND until the
+     thread is signaled by ‘cnd_signal’ or ‘cnd_broadcast’.  The mutex
+     is locked again before the function returns.
+
+     This function returns either ‘thrd_success’ or ‘thrd_error’.
+
+ -- Function: int cnd_timedwait (cnd_t *restrict COND, mtx_t *restrict
+          MUTEX, const struct timespec *restrict TIME_POINT)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
+     POSIX Safety Concepts::.
+
+     ‘cnd_timedwait’ atomically unlocks the mutex pointed to by MUTEX
+     and blocks on the condition variable pointed to by COND until the
+     thread is signaled by ‘cnd_signal’ or ‘cnd_broadcast’, or until the
+     calendar time pointed to by TIME_POINT has been reached.  The mutex
+     is locked again before the function returns.
+
+     As for ‘mtx_timedlock’, since this function takes an absolute time,
+     if a duration is required, the calendar time must be calculated
+     manually.  *Note Time Basics::, and *note Calendar Time::.
+
+     This function may return ‘thrd_success’, ‘thrd_nomem’, or
+     ‘thrd_error’.
+
+ -- Function: void cnd_destroy (cnd_t *COND)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘cnd_destroy’ destroys the condition variable pointed to by COND.
+     If there are threads waiting on COND, the behavior is undefined.
+
+
+File: libc.info,  Node: ISO C Thread-local Storage,  Prev: ISO C Condition Variables,  Up: ISO C Threads
+
+35.1.6 Thread-local Storage
+---------------------------
+
+The GNU C Library implements functions to provide “thread-local
+storage”, a mechanism by which variables can be defined to have unique
+per-thread storage, lifetimes that match the thread lifetime, and
+destructors that cleanup the unique per-thread storage.
+
+   Several data types and macros exist for working with thread-local
+storage:
+
+ -- Data Type: tss_t
+
+     The ‘tss_t’ data type identifies a thread-specific storage object.
+     Even if shared, every thread will have its own instance of the
+     variable, with different values.
+
+ -- Data Type: tss_dtor_t
+
+     The ‘tss_dtor_t’ is a function pointer of type ‘void (*) (void *)’,
+     to be used as a thread-specific storage destructor.  The function
+     will be called when the current thread calls ‘thrd_exit’ (but never
+     when calling ‘tss_delete’ or ‘exit’).
+
+ -- Macro: thread_local
+
+     ‘thread_local’ is used to mark a variable with thread storage
+     duration, which means it is created when the thread starts and
+     cleaned up when the thread ends.
+
+     _Note:_ For C++, C++11 or later is required to use the
+     ‘thread_local’ keyword.
+
+ -- Macro: TSS_DTOR_ITERATIONS
+
+     ‘TSS_DTOR_ITERATIONS’ is an integer constant expression
+     representing the maximum number of iterations over all thread-local
+     destructors at the time of thread termination.  This value provides
+     a bounded limit to the destruction of thread-local storage; e.g.,
+     consider a destructor that creates more thread-local storage.
+
+   The following functions are used to manage thread-local storage:
+
+ -- Function: int tss_create (tss_t *TSS_KEY, tss_dtor_t DESTRUCTOR)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘tss_create’ creates a new thread-specific storage key and stores
+     it in the object pointed to by TSS_KEY.  Although the same key
+     value may be used by different threads, the values bound to the key
+     by ‘tss_set’ are maintained on a per-thread basis and persist for
+     the life of the calling thread.
+
+     If ‘destructor’ is not NULL, a destructor function will be set, and
+     called when the thread finishes its execution by calling
+     ‘thrd_exit’.
+
+     This function returns ‘thrd_success’ if ‘tss_key’ is successfully
+     set to a unique value for the thread; otherwise, ‘thrd_error’ is
+     returned and the value of ‘tss_key’ is undefined.
+
+ -- Function: int tss_set (tss_t TSS_KEY, void *VAL)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘tss_set’ sets the value of the thread-specific storage identified
+     by TSS_KEY for the current thread to VAL.  Different threads may
+     set different values to the same key.
+
+     This function returns either ‘thrd_success’ or ‘thrd_error’.
+
+ -- Function: void * tss_get (tss_t TSS_KEY)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘tss_get’ returns the value identified by TSS_KEY held in
+     thread-specific storage for the current thread.  Different threads
+     may get different values identified by the same key.  On failure,
+     ‘tss_get’ returns zero.
+
+ -- Function: void tss_delete (tss_t TSS_KEY)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     ‘tss_delete’ destroys the thread-specific storage identified by
+     TSS_KEY.
+
+
+File: libc.info,  Node: POSIX Threads,  Prev: ISO C Threads,  Up: Threads
+
+35.2 POSIX Threads
+==================
+
+This section describes the GNU C Library POSIX Threads implementation.
+
+* Menu:
+
+* Thread-specific Data::          Support for creating and
+				  managing thread-specific data
+* Non-POSIX Extensions::          Additional functions to extend
+				  POSIX Thread functionality
+
+
+File: libc.info,  Node: Thread-specific Data,  Next: Non-POSIX Extensions,  Up: POSIX Threads
+
+35.2.1 Thread-specific Data
+---------------------------
+
+The GNU C Library implements functions to allow users to create and
+manage data specific to a thread.  Such data may be destroyed at thread
+exit, if a destructor is provided.  The following functions are defined:
+
+ -- Function: int pthread_key_create (pthread_key_t *KEY, void
+          (*DESTRUCTOR)(void*))
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Create a thread-specific data key for the calling thread,
+     referenced by KEY.
+
+     Objects declared with the C++11 ‘thread_local’ keyword are
+     destroyed before thread-specific data, so they should not be used
+     in thread-specific data destructors or even as members of the
+     thread-specific data, since the latter is passed as an argument to
+     the destructor function.
+
+ -- Function: int pthread_key_delete (pthread_key_t KEY)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Destroy the thread-specific data KEY in the calling thread.  The
+     destructor for the thread-specific data is not called during
+     destruction, nor is it called during thread exit.
+
+ -- Function: void *pthread_getspecific (pthread_key_t KEY)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Return the thread-specific data associated with KEY in the calling
+     thread.
+
+ -- Function: int pthread_setspecific (pthread_key_t KEY, const void
+          *VALUE)
+
+     Preliminary: | MT-Safe | AS-Unsafe corrupt heap | AC-Unsafe corrupt
+     mem | *Note POSIX Safety Concepts::.
+
+     Associate the thread-specific VALUE with KEY in the calling thread.
+
+
+File: libc.info,  Node: Non-POSIX Extensions,  Prev: Thread-specific Data,  Up: POSIX Threads
+
+35.2.2 Non-POSIX Extensions
+---------------------------
+
+In addition to implementing the POSIX API for threads, the GNU C Library
+provides additional functions and interfaces to provide functionality
+not specified in the standard.
+
+* Menu:
+
+* Default Thread Attributes::             Setting default attributes for
+					  threads in a process.
+
+
+File: libc.info,  Node: Default Thread Attributes,  Up: Non-POSIX Extensions
+
+35.2.2.1 Setting Process-wide defaults for thread attributes
+............................................................
+
+The GNU C Library provides non-standard API functions to set and get the
+default attributes used in the creation of threads in a process.
+
+ -- Function: int pthread_getattr_default_np (pthread_attr_t *ATTR)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
+     POSIX Safety Concepts::.
+
+     Get the default attribute values and set ATTR to match.  This
+     function returns 0 on success and a non-zero error code on failure.
+
+ -- Function: int pthread_setattr_default_np (pthread_attr_t *ATTR)
+
+     Preliminary: | MT-Safe | AS-Unsafe heap lock | AC-Unsafe lock mem |
+     *Note POSIX Safety Concepts::.
+
+     Set the default attribute values to match the values in ATTR.  The
+     function returns 0 on success and a non-zero error code on failure.
+     The following error codes are defined for this function:
+
+     ‘EINVAL’
+          At least one of the values in ATTR does not qualify as valid
+          for the attributes or the stack address is set in the
+          attribute.
+     ‘ENOMEM’
+          The system does not have sufficient memory.
+
+
+File: libc.info,  Node: Internal Probes,  Next: Tunables,  Prev: Threads,  Up: Top
+
+36 Internal probes
+******************
+
+In order to aid in debugging and monitoring internal behavior, the GNU C
+Library exposes nearly-zero-overhead SystemTap probes marked with the
+‘libc’ provider.
+
+   These probes are not part of the GNU C Library stable ABI, and they
+are subject to change or removal across releases.  Our only promise with
+regard to them is that, if we find a need to remove or modify the
+arguments of a probe, the modified probe will have a different name, so
+that program monitors relying on the old probe will not get unexpected
+arguments.
+
+* Menu:
+
+* Memory Allocation Probes::  Probes in the memory allocation subsystem
+* Mathematical Function Probes::  Probes in mathematical functions
+* Non-local Goto Probes::  Probes in setjmp and longjmp
+
+
+File: libc.info,  Node: Memory Allocation Probes,  Next: Mathematical Function Probes,  Up: Internal Probes
+
+36.1 Memory Allocation Probes
+=============================
+
+These probes are designed to signal relatively unusual situations within
+the virtual memory subsystem of the GNU C Library.
+
+ -- Probe: memory_sbrk_more (void *$ARG1, size_t $ARG2)
+     This probe is triggered after the main arena is extended by calling
+     ‘sbrk’.  Argument $ARG1 is the additional size requested to ‘sbrk’,
+     and $ARG2 is the pointer that marks the end of the ‘sbrk’ area,
+     returned in response to the request.
+
+ -- Probe: memory_sbrk_less (void *$ARG1, size_t $ARG2)
+     This probe is triggered after the size of the main arena is
+     decreased by calling ‘sbrk’.  Argument $ARG1 is the size released
+     by ‘sbrk’ (the positive value, rather than the negative value
+     passed to ‘sbrk’), and $ARG2 is the pointer that marks the end of
+     the ‘sbrk’ area, returned in response to the request.
+
+ -- Probe: memory_heap_new (void *$ARG1, size_t $ARG2)
+     This probe is triggered after a new heap is ‘mmap’ed.  Argument
+     $ARG1 is a pointer to the base of the memory area, where the
+     ‘heap_info’ data structure is held, and $ARG2 is the size of the
+     heap.
+
+ -- Probe: memory_heap_free (void *$ARG1, size_t $ARG2)
+     This probe is triggered _before_ (unlike the other sbrk and heap
+     probes) a heap is completely removed via ‘munmap’.  Argument $ARG1
+     is a pointer to the heap, and $ARG2 is the size of the heap.
+
+ -- Probe: memory_heap_more (void *$ARG1, size_t $ARG2)
+     This probe is triggered after a trailing portion of an ‘mmap’ed
+     heap is extended.  Argument $ARG1 is a pointer to the heap, and
+     $ARG2 is the new size of the heap.
+
+ -- Probe: memory_heap_less (void *$ARG1, size_t $ARG2)
+     This probe is triggered after a trailing portion of an ‘mmap’ed
+     heap is released.  Argument $ARG1 is a pointer to the heap, and
+     $ARG2 is the new size of the heap.
+
+ -- Probe: memory_malloc_retry (size_t $ARG1)
+ -- Probe: memory_realloc_retry (size_t $ARG1, void *$ARG2)
+ -- Probe: memory_memalign_retry (size_t $ARG1, size_t $ARG2)
+ -- Probe: memory_calloc_retry (size_t $ARG1)
+     These probes are triggered when the corresponding functions fail to
+     obtain the requested amount of memory from the arena in use, before
+     they call ‘arena_get_retry’ to select an alternate arena in which
+     to retry the allocation.  Argument $ARG1 is the amount of memory
+     requested by the user; in the ‘calloc’ case, that is the total size
+     computed from both function arguments.  In the ‘realloc’ case,
+     $ARG2 is the pointer to the memory area being resized.  In the
+     ‘memalign’ case, $ARG2 is the alignment to be used for the request,
+     which may be stricter than the value passed to the ‘memalign’
+     function.  A ‘memalign’ probe is also used by functions
+     ‘posix_memalign, valloc’ and ‘pvalloc’.
+
+     Note that the argument order does _not_ match that of the
+     corresponding two-argument functions, so that in all of these
+     probes the user-requested allocation size is in $ARG1.
+
+ -- Probe: memory_arena_retry (size_t $ARG1, void *$ARG2)
+     This probe is triggered within ‘arena_get_retry’ (the function
+     called to select the alternate arena in which to retry an
+     allocation that failed on the first attempt), before the selection
+     of an alternate arena.  This probe is redundant, but much easier to
+     use when it’s not important to determine which of the various
+     memory allocation functions is failing to allocate on the first
+     try.  Argument $ARG1 is the same as in the function-specific
+     probes, except for extra room for padding introduced by functions
+     that have to ensure stricter alignment.  Argument $ARG2 is the
+     arena in which allocation failed.
+
+ -- Probe: memory_arena_new (void *$ARG1, size_t $ARG2)
+     This probe is triggered when ‘malloc’ allocates and initializes an
+     additional arena (not the main arena), but before the arena is
+     assigned to the running thread or inserted into the internal linked
+     list of arenas.  The arena’s ‘malloc_state’ internal data structure
+     is located at $ARG1, within a newly-allocated heap big enough to
+     hold at least $ARG2 bytes.
+
+ -- Probe: memory_arena_reuse (void *$ARG1, void *$ARG2)
+     This probe is triggered when ‘malloc’ has just selected an existing
+     arena to reuse, and (temporarily) reserved it for exclusive use.
+     Argument $ARG1 is a pointer to the newly-selected arena, and $ARG2
+     is a pointer to the arena previously used by that thread.
+
+     This occurs within ‘reused_arena’, right after the mutex mentioned
+     in probe ‘memory_arena_reuse_wait’ is acquired; argument $ARG1 will
+     point to the same arena.  In this configuration, this will usually
+     only occur once per thread.  The exception is when a thread first
+     selected the main arena, but a subsequent allocation from it fails:
+     then, and only then, may we switch to another arena to retry that
+     allocation, and for further allocations within that thread.
+
+ -- Probe: memory_arena_reuse_wait (void *$ARG1, void *$ARG2, void
+          *$ARG3)
+     This probe is triggered when ‘malloc’ is about to wait for an arena
+     to become available for reuse.  Argument $ARG1 holds a pointer to
+     the mutex the thread is going to wait on, $ARG2 is a pointer to a
+     newly-chosen arena to be reused, and $ARG3 is a pointer to the
+     arena previously used by that thread.
+
+     This occurs within ‘reused_arena’, when a thread first tries to
+     allocate memory or needs a retry after a failure to allocate from
+     the main arena, there isn’t any free arena, the maximum number of
+     arenas has been reached, and an existing arena was chosen for
+     reuse, but its mutex could not be immediately acquired.  The mutex
+     in $ARG1 is the mutex of the selected arena.
+
+ -- Probe: memory_arena_reuse_free_list (void *$ARG1)
+     This probe is triggered when ‘malloc’ has chosen an arena that is
+     in the free list for use by a thread, within the ‘get_free_list’
+     function.  The argument $ARG1 holds a pointer to the selected
+     arena.
+
+ -- Probe: memory_mallopt (int $ARG1, int $ARG2)
+     This probe is triggered when function ‘mallopt’ is called to change
+     ‘malloc’ internal configuration parameters, before any change to
+     the parameters is made.  The arguments $ARG1 and $ARG2 are the ones
+     passed to the ‘mallopt’ function.
+
+ -- Probe: memory_mallopt_mxfast (int $ARG1, int $ARG2)
+     This probe is triggered shortly after the ‘memory_mallopt’ probe,
+     when the parameter to be changed is ‘M_MXFAST’, and the requested
+     value is in an acceptable range.  Argument $ARG1 is the requested
+     value, and $ARG2 is the previous value of this ‘malloc’ parameter.
+
+ -- Probe: memory_mallopt_trim_threshold (int $ARG1, int $ARG2, int
+          $ARG3)
+     This probe is triggered shortly after the ‘memory_mallopt’ probe,
+     when the parameter to be changed is ‘M_TRIM_THRESHOLD’.  Argument
+     $ARG1 is the requested value, $ARG2 is the previous value of this
+     ‘malloc’ parameter, and $ARG3 is nonzero if dynamic threshold
+     adjustment was already disabled.
+
+ -- Probe: memory_mallopt_top_pad (int $ARG1, int $ARG2, int $ARG3)
+     This probe is triggered shortly after the ‘memory_mallopt’ probe,
+     when the parameter to be changed is ‘M_TOP_PAD’.  Argument $ARG1 is
+     the requested value, $ARG2 is the previous value of this ‘malloc’
+     parameter, and $ARG3 is nonzero if dynamic threshold adjustment was
+     already disabled.
+
+ -- Probe: memory_mallopt_mmap_threshold (int $ARG1, int $ARG2, int
+          $ARG3)
+     This probe is triggered shortly after the ‘memory_mallopt’ probe,
+     when the parameter to be changed is ‘M_MMAP_THRESHOLD’, and the
+     requested value is in an acceptable range.  Argument $ARG1 is the
+     requested value, $ARG2 is the previous value of this ‘malloc’
+     parameter, and $ARG3 is nonzero if dynamic threshold adjustment was
+     already disabled.
+
+ -- Probe: memory_mallopt_mmap_max (int $ARG1, int $ARG2, int $ARG3)
+     This probe is triggered shortly after the ‘memory_mallopt’ probe,
+     when the parameter to be changed is ‘M_MMAP_MAX’.  Argument $ARG1
+     is the requested value, $ARG2 is the previous value of this
+     ‘malloc’ parameter, and $ARG3 is nonzero if dynamic threshold
+     adjustment was already disabled.
+
+ -- Probe: memory_mallopt_perturb (int $ARG1, int $ARG2)
+     This probe is triggered shortly after the ‘memory_mallopt’ probe,
+     when the parameter to be changed is ‘M_PERTURB’.  Argument $ARG1 is
+     the requested value, and $ARG2 is the previous value of this
+     ‘malloc’ parameter.
+
+ -- Probe: memory_mallopt_arena_test (int $ARG1, int $ARG2)
+     This probe is triggered shortly after the ‘memory_mallopt’ probe,
+     when the parameter to be changed is ‘M_ARENA_TEST’, and the
+     requested value is in an acceptable range.  Argument $ARG1 is the
+     requested value, and $ARG2 is the previous value of this ‘malloc’
+     parameter.
+
+ -- Probe: memory_mallopt_arena_max (int $ARG1, int $ARG2)
+     This probe is triggered shortly after the ‘memory_mallopt’ probe,
+     when the parameter to be changed is ‘M_ARENA_MAX’, and the
+     requested value is in an acceptable range.  Argument $ARG1 is the
+     requested value, and $ARG2 is the previous value of this ‘malloc’
+     parameter.
+
+ -- Probe: memory_mallopt_free_dyn_thresholds (int $ARG1, int $ARG2)
+     This probe is triggered when function ‘free’ decides to adjust the
+     dynamic brk/mmap thresholds.  Argument $ARG1 and $ARG2 are the
+     adjusted mmap and trim thresholds, respectively.
+
+ -- Probe: memory_tunable_tcache_max_bytes (int $ARG1, int $ARG2)
+     This probe is triggered when the ‘glibc.malloc.tcache_max’ tunable
+     is set.  Argument $ARG1 is the requested value, and $ARG2 is the
+     previous value of this tunable.
+
+ -- Probe: memory_tunable_tcache_count (int $ARG1, int $ARG2)
+     This probe is triggered when the ‘glibc.malloc.tcache_count’
+     tunable is set.  Argument $ARG1 is the requested value, and $ARG2
+     is the previous value of this tunable.
+
+ -- Probe: memory_tunable_tcache_unsorted_limit (int $ARG1, int $ARG2)
+     This probe is triggered when the
+     ‘glibc.malloc.tcache_unsorted_limit’ tunable is set.  Argument
+     $ARG1 is the requested value, and $ARG2 is the previous value of
+     this tunable.
+
+
+File: libc.info,  Node: Mathematical Function Probes,  Next: Non-local Goto Probes,  Prev: Memory Allocation Probes,  Up: Internal Probes
+
+36.2 Mathematical Function Probes
+=================================
+
+Some mathematical functions fall back to multiple precision arithmetic
+for some inputs to get last bit precision for their return values.  This
+multiple precision fallback is much slower than the default algorithms
+and may have a significant impact on application performance.  The
+systemtap probe markers described in this section may help you determine
+if your application calls mathematical functions with inputs that may
+result in multiple-precision arithmetic.
+
+   Unless explicitly mentioned otherwise, a precision of 1 implies 24
+bits of precision in the mantissa of the multiple precision number.
+Hence, a precision level of 32 implies 768 bits of precision in the
+mantissa.
+
+ -- Probe: slowatan2 (int $ARG1, double $ARG2, double $ARG3, double
+          $ARG4)
+     This probe is triggered when the ‘atan2’ function is called with an
+     input that results in multiple precision computation.  Argument
+     $ARG1 is the precision with which computation succeeded.  Arguments
+     $ARG2 and $ARG3 are inputs to the ‘atan2’ function and $ARG4 is the
+     computed result.
+
+ -- Probe: slowatan2_inexact (int $ARG1, double $ARG2, double $ARG3,
+          double $ARG4)
+     This probe is triggered when the ‘atan’ function is called with an
+     input that results in multiple precision computation and none of
+     the multiple precision computations result in an accurate result.
+     Argument $ARG1 is the maximum precision with which computations
+     were performed.  Arguments $ARG2 and $ARG3 are inputs to the
+     ‘atan2’ function and $ARG4 is the computed result.
+
+ -- Probe: slowatan (int $ARG1, double $ARG2, double $ARG3)
+     This probe is triggered when the ‘atan’ function is called with an
+     input that results in multiple precision computation.  Argument
+     $ARG1 is the precision with which computation succeeded.  Argument
+     $ARG2 is the input to the ‘atan’ function and $ARG3 is the computed
+     result.
+
+ -- Probe: slowatan_inexact (int $ARG1, double $ARG2, double $ARG3)
+     This probe is triggered when the ‘atan’ function is called with an
+     input that results in multiple precision computation and none of
+     the multiple precision computations result in an accurate result.
+     Argument $ARG1 is the maximum precision with which computations
+     were performed.  Argument $ARG2 is the input to the ‘atan’ function
+     and $ARG3 is the computed result.
+
+ -- Probe: slowtan (double $ARG1, double $ARG2)
+     This probe is triggered when the ‘tan’ function is called with an
+     input that results in multiple precision computation with precision
+     32.  Argument $ARG1 is the input to the function and $ARG2 is the
+     computed result.
+
+ -- Probe: slowasin (double $ARG1, double $ARG2)
+     This probe is triggered when the ‘asin’ function is called with an
+     input that results in multiple precision computation with precision
+     32.  Argument $ARG1 is the input to the function and $ARG2 is the
+     computed result.
+
+ -- Probe: slowacos (double $ARG1, double $ARG2)
+     This probe is triggered when the ‘acos’ function is called with an
+     input that results in multiple precision computation with precision
+     32.  Argument $ARG1 is the input to the function and $ARG2 is the
+     computed result.
+
+ -- Probe: slowsin (double $ARG1, double $ARG2)
+     This probe is triggered when the ‘sin’ function is called with an
+     input that results in multiple precision computation with precision
+     32.  Argument $ARG1 is the input to the function and $ARG2 is the
+     computed result.
+
+ -- Probe: slowcos (double $ARG1, double $ARG2)
+     This probe is triggered when the ‘cos’ function is called with an
+     input that results in multiple precision computation with precision
+     32.  Argument $ARG1 is the input to the function and $ARG2 is the
+     computed result.
+
+ -- Probe: slowsin_dx (double $ARG1, double $ARG2, double $ARG3)
+     This probe is triggered when the ‘sin’ function is called with an
+     input that results in multiple precision computation with precision
+     32.  Argument $ARG1 is the input to the function, $ARG2 is the
+     error bound of $ARG1 and $ARG3 is the computed result.
+
+ -- Probe: slowcos_dx (double $ARG1, double $ARG2, double $ARG3)
+     This probe is triggered when the ‘cos’ function is called with an
+     input that results in multiple precision computation with precision
+     32.  Argument $ARG1 is the input to the function, $ARG2 is the
+     error bound of $ARG1 and $ARG3 is the computed result.
+
+
+File: libc.info,  Node: Non-local Goto Probes,  Prev: Mathematical Function Probes,  Up: Internal Probes
+
+36.3 Non-local Goto Probes
+==========================
+
+These probes are used to signal calls to ‘setjmp’, ‘sigsetjmp’,
+‘longjmp’ or ‘siglongjmp’.
+
+ -- Probe: setjmp (void *$ARG1, int $ARG2, void *$ARG3)
+     This probe is triggered whenever ‘setjmp’ or ‘sigsetjmp’ is called.
+     Argument $ARG1 is a pointer to the ‘jmp_buf’ passed as the first
+     argument of ‘setjmp’ or ‘sigsetjmp’, $ARG2 is the second argument
+     of ‘sigsetjmp’ or zero if this is a call to ‘setjmp’ and $ARG3 is a
+     pointer to the return address that will be stored in the ‘jmp_buf’.
+
+ -- Probe: longjmp (void *$ARG1, int $ARG2, void *$ARG3)
+     This probe is triggered whenever ‘longjmp’ or ‘siglongjmp’ is
+     called.  Argument $ARG1 is a pointer to the ‘jmp_buf’ passed as the
+     first argument of ‘longjmp’ or ‘siglongjmp’, $ARG2 is the return
+     value passed as the second argument of ‘longjmp’ or ‘siglongjmp’
+     and $ARG3 is a pointer to the return address ‘longjmp’ or
+     ‘siglongjmp’ will return to.
+
+     The ‘longjmp’ probe is triggered at a point where the registers
+     have not yet been restored to the values in the ‘jmp_buf’ and
+     unwinding will show a call stack including the caller of ‘longjmp’
+     or ‘siglongjmp’.
+
+ -- Probe: longjmp_target (void *$ARG1, int $ARG2, void *$ARG3)
+     This probe is triggered under the same conditions and with the same
+     arguments as the ‘longjmp’ probe.
+
+     The ‘longjmp_target’ probe is triggered at a point where the
+     registers have been restored to the values in the ‘jmp_buf’ and
+     unwinding will show a call stack including the caller of ‘setjmp’
+     or ‘sigsetjmp’.
+
+
+File: libc.info,  Node: Tunables,  Next: Language Features,  Prev: Internal Probes,  Up: Top
+
+37 Tunables
+***********
+
+“Tunables” are a feature in the GNU C Library that allows application
+authors and distribution maintainers to alter the runtime library
+behavior to match their workload.  These are implemented as a set of
+switches that may be modified in different ways.  The current default
+method to do this is via the ‘GLIBC_TUNABLES’ environment variable by
+setting it to a string of colon-separated NAME=VALUE pairs.  For
+example, the following example enables malloc checking and sets the
+malloc trim threshold to 128 bytes:
+
+     GLIBC_TUNABLES=glibc.malloc.trim_threshold=128:glibc.malloc.check=3
+     export GLIBC_TUNABLES
+
+   Tunables are not part of the GNU C Library stable ABI, and they are
+subject to change or removal across releases.  Additionally, the method
+to modify tunable values may change between releases and across
+distributions.  It is possible to implement multiple ‘frontends’ for the
+tunables allowing distributions to choose their preferred method at
+build time.
+
+   Finally, the set of tunables available may vary between distributions
+as the tunables feature allows distributions to add their own tunables
+under their own namespace.
+
+* Menu:
+
+* Tunable names::  The structure of a tunable name
+* Memory Allocation Tunables::  Tunables in the memory allocation subsystem
+* Elision Tunables::  Tunables in elision subsystem
+* Hardware Capability Tunables::  Tunables that modify the hardware
+				  capabilities seen by the GNU C Library
+
+
+File: libc.info,  Node: Tunable names,  Next: Memory Allocation Tunables,  Up: Tunables
+
+37.1 Tunable names
+==================
+
+A tunable name is split into three components, a top namespace, a
+tunable namespace and the tunable name.  The top namespace for tunables
+implemented in the GNU C Library is ‘glibc’.  Distributions that choose
+to add custom tunables in their maintained versions of the GNU C Library
+may choose to do so under their own top namespace.
+
+   The tunable namespace is a logical grouping of tunables in a single
+module.  This currently holds no special significance, although that may
+change in the future.
+
+   The tunable name is the actual name of the tunable.  It is possible
+that different tunable namespaces may have tunables within them that
+have the same name, likewise for top namespaces.  Hence, we only support
+identification of tunables by their full name, i.e.  with the top
+namespace, tunable namespace and tunable name, separated by periods.
+
+
+File: libc.info,  Node: Memory Allocation Tunables,  Next: Elision Tunables,  Prev: Tunable names,  Up: Tunables
+
+37.2 Memory Allocation Tunables
+===============================
+
+ -- Tunable namespace: glibc.malloc
+     Memory allocation behavior can be modified by setting any of the
+     following tunables in the ‘malloc’ namespace:
+
+ -- Tunable: glibc.malloc.check
+     This tunable supersedes the ‘MALLOC_CHECK_’ environment variable
+     and is identical in features.
+
+     Setting this tunable to a non-zero value enables a special (less
+     efficient) memory allocator for the malloc family of functions that
+     is designed to be tolerant against simple errors such as double
+     calls of free with the same argument, or overruns of a single byte
+     (off-by-one bugs).  Not all such errors can be protected against,
+     however, and memory leaks can result.  Any detected heap corruption
+     results in immediate termination of the process.
+
+     Like ‘MALLOC_CHECK_’, ‘glibc.malloc.check’ has a problem in that it
+     diverges from normal program behavior by writing to ‘stderr’, which
+     could by exploited in SUID and SGID binaries.  Therefore,
+     ‘glibc.malloc.check’ is disabled by default for SUID and SGID
+     binaries.  This can be enabled again by the system administrator by
+     adding a file ‘/etc/suid-debug’; the content of the file could be
+     anything or even empty.
+
+ -- Tunable: glibc.malloc.top_pad
+     This tunable supersedes the ‘MALLOC_TOP_PAD_’ environment variable
+     and is identical in features.
+
+     This tunable determines the amount of extra memory in bytes to
+     obtain from the system when any of the arenas need to be extended.
+     It also specifies the number of bytes to retain when shrinking any
+     of the arenas.  This provides the necessary hysteresis in heap size
+     such that excessive amounts of system calls can be avoided.
+
+     The default value of this tunable is ‘0’.
+
+ -- Tunable: glibc.malloc.perturb
+     This tunable supersedes the ‘MALLOC_PERTURB_’ environment variable
+     and is identical in features.
+
+     If set to a non-zero value, memory blocks are initialized with
+     values depending on some low order bits of this tunable when they
+     are allocated (except when allocated by calloc) and freed.  This
+     can be used to debug the use of uninitialized or freed heap memory.
+     Note that this option does not guarantee that the freed block will
+     have any specific values.  It only guarantees that the content the
+     block had before it was freed will be overwritten.
+
+     The default value of this tunable is ‘0’.
+
+ -- Tunable: glibc.malloc.mmap_threshold
+     This tunable supersedes the ‘MALLOC_MMAP_THRESHOLD_’ environment
+     variable and is identical in features.
+
+     When this tunable is set, all chunks larger than this value in
+     bytes are allocated outside the normal heap, using the ‘mmap’
+     system call.  This way it is guaranteed that the memory for these
+     chunks can be returned to the system on ‘free’.  Note that requests
+     smaller than this threshold might still be allocated via ‘mmap’.
+
+     If this tunable is not set, the default value is set to ‘131072’
+     bytes and the threshold is adjusted dynamically to suit the
+     allocation patterns of the program.  If the tunable is set, the
+     dynamic adjustment is disabled and the value is set as static.
+
+ -- Tunable: glibc.malloc.trim_threshold
+     This tunable supersedes the ‘MALLOC_TRIM_THRESHOLD_’ environment
+     variable and is identical in features.
+
+     The value of this tunable is the minimum size (in bytes) of the
+     top-most, releasable chunk in an arena that will trigger a system
+     call in order to return memory to the system from that arena.
+
+     If this tunable is not set, the default value is set as 128 KB and
+     the threshold is adjusted dynamically to suit the allocation
+     patterns of the program.  If the tunable is set, the dynamic
+     adjustment is disabled and the value is set as static.
+
+ -- Tunable: glibc.malloc.mmap_max
+     This tunable supersedes the ‘MALLOC_MMAP_MAX_’ environment variable
+     and is identical in features.
+
+     The value of this tunable is maximum number of chunks to allocate
+     with ‘mmap’.  Setting this to zero disables all use of ‘mmap’.
+
+     The default value of this tunable is ‘65536’.
+
+ -- Tunable: glibc.malloc.arena_test
+     This tunable supersedes the ‘MALLOC_ARENA_TEST’ environment
+     variable and is identical in features.
+
+     The ‘glibc.malloc.arena_test’ tunable specifies the number of
+     arenas that can be created before the test on the limit to the
+     number of arenas is conducted.  The value is ignored if
+     ‘glibc.malloc.arena_max’ is set.
+
+     The default value of this tunable is 2 for 32-bit systems and 8 for
+     64-bit systems.
+
+ -- Tunable: glibc.malloc.arena_max
+     This tunable supersedes the ‘MALLOC_ARENA_MAX’ environment variable
+     and is identical in features.
+
+     This tunable sets the number of arenas to use in a process
+     regardless of the number of cores in the system.
+
+     The default value of this tunable is ‘0’, meaning that the limit on
+     the number of arenas is determined by the number of CPU cores
+     online.  For 32-bit systems the limit is twice the number of cores
+     online and on 64-bit systems, it is 8 times the number of cores
+     online.
+
+ -- Tunable: glibc.malloc.tcache_max
+     The maximum size of a request (in bytes) which may be met via the
+     per-thread cache.  The default (and maximum) value is 1032 bytes on
+     64-bit systems and 516 bytes on 32-bit systems.
+
+ -- Tunable: glibc.malloc.tcache_count
+     The maximum number of chunks of each size to cache.  The default is
+     7.  There is no upper limit, other than available system memory.
+     If set to zero, the per-thread cache is effectively disabled.
+
+     The approximate maximum overhead of the per-thread cache is thus
+     equal to the number of bins times the chunk count in each bin times
+     the size of each chunk.  With defaults, the approximate maximum
+     overhead of the per-thread cache is approximately 236 KB on 64-bit
+     systems and 118 KB on 32-bit systems.
+
+ -- Tunable: glibc.malloc.tcache_unsorted_limit
+     When the user requests memory and the request cannot be met via the
+     per-thread cache, the arenas are used to meet the request.  At this
+     time, additional chunks will be moved from existing arena lists to
+     pre-fill the corresponding cache.  While copies from the fastbins,
+     smallbins, and regular bins are bounded and predictable due to the
+     bin sizes, copies from the unsorted bin are not bounded, and incur
+     additional time penalties as they need to be sorted as they’re
+     scanned.  To make scanning the unsorted list more predictable and
+     bounded, the user may set this tunable to limit the number of
+     chunks that are scanned from the unsorted list while searching for
+     chunks to pre-fill the per-thread cache with.  The default, or when
+     set to zero, is no limit.
+
+
+File: libc.info,  Node: Elision Tunables,  Next: Hardware Capability Tunables,  Prev: Memory Allocation Tunables,  Up: Tunables
+
+37.3 Elision Tunables
+=====================
+
+ -- Tunable namespace: glibc.elision
+     Contended locks are usually slow and can lead to performance and
+     scalability issues in multithread code.  Lock elision will use
+     memory transactions to under certain conditions, to elide locks and
+     improve performance.  Elision behavior can be modified by setting
+     the following tunables in the ‘elision’ namespace:
+
+ -- Tunable: glibc.elision.enable
+     The ‘glibc.elision.enable’ tunable enables lock elision if the
+     feature is supported by the hardware.  If elision is not supported
+     by the hardware this tunable has no effect.
+
+     Elision tunables are supported for 64-bit Intel, IBM POWER, and z
+     System architectures.
+
+ -- Tunable: glibc.elision.skip_lock_busy
+     The ‘glibc.elision.skip_lock_busy’ tunable sets how many times to
+     use a non-transactional lock after a transactional failure has
+     occurred because the lock is already acquired.  Expressed in number
+     of lock acquisition attempts.
+
+     The default value of this tunable is ‘3’.
+
+ -- Tunable: glibc.elision.skip_lock_internal_abort
+     The ‘glibc.elision.skip_lock_internal_abort’ tunable sets how many
+     times the thread should avoid using elision if a transaction
+     aborted for any reason other than a different thread’s memory
+     accesses.  Expressed in number of lock acquisition attempts.
+
+     The default value of this tunable is ‘3’.
+
+ -- Tunable: glibc.elision.skip_lock_after_retries
+     The ‘glibc.elision.skip_lock_after_retries’ tunable sets how many
+     times to try to elide a lock with transactions, that only failed
+     due to a different thread’s memory accesses, before falling back to
+     regular lock.  Expressed in number of lock elision attempts.
+
+     This tunable is supported only on IBM POWER, and z System
+     architectures.
+
+     The default value of this tunable is ‘3’.
+
+ -- Tunable: glibc.elision.tries
+     The ‘glibc.elision.tries’ sets how many times to retry elision if
+     there is chance for the transaction to finish execution e.g., it
+     wasn’t aborted due to the lock being already acquired.  If elision
+     is not supported by the hardware this tunable is set to ‘0’ to
+     avoid retries.
+
+     The default value of this tunable is ‘3’.
+
+ -- Tunable: glibc.elision.skip_trylock_internal_abort
+     The ‘glibc.elision.skip_trylock_internal_abort’ tunable sets how
+     many times the thread should avoid trying the lock if a transaction
+     aborted due to reasons other than a different thread’s memory
+     accesses.  Expressed in number of try lock attempts.
+
+     The default value of this tunable is ‘3’.
+
+
+File: libc.info,  Node: Hardware Capability Tunables,  Prev: Elision Tunables,  Up: Tunables
+
+37.4 Hardware Capability Tunables
+=================================
+
+ -- Tunable namespace: glibc.tune
+     Behavior of the GNU C Library can be tuned to assume specific
+     hardware capabilities by setting the following tunables in the
+     ‘tune’ namespace:
+
+ -- Tunable: glibc.tune.hwcap_mask
+     This tunable supersedes the ‘LD_HWCAP_MASK’ environment variable
+     and is identical in features.
+
+     The ‘AT_HWCAP’ key in the Auxiliary Vector specifies instruction
+     set extensions available in the processor at runtime for some
+     architectures.  The ‘glibc.tune.hwcap_mask’ tunable allows the user
+     to mask out those capabilities at runtime, thus disabling use of
+     those extensions.
+
+ -- Tunable: glibc.tune.hwcaps
+     The ‘glibc.tune.hwcaps=-xxx,yyy,-zzz...’ tunable allows the user to
+     enable CPU/ARCH feature ‘yyy’, disable CPU/ARCH feature ‘xxx’ and
+     ‘zzz’ where the feature name is case-sensitive and has to match the
+     ones in ‘sysdeps/x86/cpu-features.h’.
+
+     This tunable is specific to i386 and x86-64.
+
+ -- Tunable: glibc.tune.cached_memopt
+     The ‘glibc.tune.cached_memopt=[0|1]’ tunable allows the user to
+     enable optimizations recommended for cacheable memory.  If set to
+     ‘1’, the GNU C Library assumes that the process memory image
+     consists of cacheable (non-device) memory only.  The default, ‘0’,
+     indicates that the process may use device memory.
+
+     This tunable is specific to powerpc, powerpc64 and powerpc64le.
+
+ -- Tunable: glibc.tune.cpu
+     The ‘glibc.tune.cpu=xxx’ tunable allows the user to tell the GNU C
+     Library to assume that the CPU is ‘xxx’ where xxx may have one of
+     these values: ‘generic’, ‘falkor’, ‘thunderxt88’, ‘thunderx2t99’,
+     ‘thunderx2t99p1’.
+
+     This tunable is specific to aarch64.
+
+ -- Tunable: glibc.tune.x86_data_cache_size
+     The ‘glibc.tune.x86_data_cache_size’ tunable allows the user to set
+     data cache size in bytes for use in memory and string routines.
+
+     This tunable is specific to i386 and x86-64.
+
+ -- Tunable: glibc.tune.x86_shared_cache_size
+     The ‘glibc.tune.x86_shared_cache_size’ tunable allows the user to
+     set shared cache size in bytes for use in memory and string
+     routines.
+
+ -- Tunable: glibc.tune.x86_non_temporal_threshold
+     The ‘glibc.tune.x86_non_temporal_threshold’ tunable allows the user
+     to set threshold in bytes for non temporal store.
+
+     This tunable is specific to i386 and x86-64.
+
+ -- Tunable: glibc.tune.x86_ibt
+     The ‘glibc.tune.x86_ibt’ tunable allows the user to control how
+     indirect branch tracking (IBT) should be enabled.  Accepted values
+     are ‘on’, ‘off’, and ‘permissive’.  ‘on’ always turns on IBT
+     regardless of whether IBT is enabled in the executable and its
+     dependent shared libraries.  ‘off’ always turns off IBT regardless
+     of whether IBT is enabled in the executable and its dependent
+     shared libraries.  ‘permissive’ is the same as the default which
+     disables IBT on non-CET executables and shared libraries.
+
+     This tunable is specific to i386 and x86-64.
+
+ -- Tunable: glibc.tune.x86_shstk
+     The ‘glibc.tune.x86_shstk’ tunable allows the user to control how
+     the shadow stack (SHSTK) should be enabled.  Accepted values are
+     ‘on’, ‘off’, and ‘permissive’.  ‘on’ always turns on SHSTK
+     regardless of whether SHSTK is enabled in the executable and its
+     dependent shared libraries.  ‘off’ always turns off SHSTK
+     regardless of whether SHSTK is enabled in the executable and its
+     dependent shared libraries.  ‘permissive’ changes how dlopen works
+     on non-CET shared libraries.  By default, when SHSTK is enabled,
+     dlopening a non-CET shared library returns an error.  With
+     ‘permissive’, it turns off SHSTK instead.
+
+     This tunable is specific to i386 and x86-64.
+
+
+File: libc.info,  Node: Language Features,  Next: Library Summary,  Prev: Tunables,  Up: Top
+
+Appendix A C Language Facilities in the Library
+***********************************************
+
+Some of the facilities implemented by the C library really should be
+thought of as parts of the C language itself.  These facilities ought to
+be documented in the C Language Manual, not in the library manual; but
+since we don’t have the language manual yet, and documentation for these
+features has been written, we are publishing it here.
+
+* Menu:
+
+* Consistency Checking::        Using ‘assert’ to abort if
+				 something “impossible” happens.
+* Variadic Functions::          Defining functions with varying numbers
+                                 of args.
+* Null Pointer Constant::       The macro ‘NULL’.
+* Important Data Types::        Data types for object sizes.
+* Data Type Measurements::      Parameters of data type representations.
+
+
+File: libc.info,  Node: Consistency Checking,  Next: Variadic Functions,  Up: Language Features
+
+A.1 Explicitly Checking Internal Consistency
+============================================
+
+When you’re writing a program, it’s often a good idea to put in checks
+at strategic places for “impossible” errors or violations of basic
+assumptions.  These kinds of checks are helpful in debugging problems
+with the interfaces between different parts of the program, for example.
+
+   The ‘assert’ macro, defined in the header file ‘assert.h’, provides a
+convenient way to abort the program while printing a message about where
+in the program the error was detected.
+
+   Once you think your program is debugged, you can disable the error
+checks performed by the ‘assert’ macro by recompiling with the macro
+‘NDEBUG’ defined.  This means you don’t actually have to change the
+program source code to disable these checks.
+
+   But disabling these consistency checks is undesirable unless they
+make the program significantly slower.  All else being equal, more error
+checking is good no matter who is running the program.  A wise user
+would rather have a program crash, visibly, than have it return nonsense
+without indicating anything might be wrong.
+
+ -- Macro: void assert (int EXPRESSION)
+
+     Preliminary: | MT-Safe | AS-Unsafe heap corrupt | AC-Unsafe mem
+     lock corrupt | *Note POSIX Safety Concepts::.
+
+     Verify the programmer’s belief that EXPRESSION is nonzero at this
+     point in the program.
+
+     If ‘NDEBUG’ is not defined, ‘assert’ tests the value of EXPRESSION.
+     If it is false (zero), ‘assert’ aborts the program (*note Aborting
+     a Program::) after printing a message of the form:
+
+          FILE:LINENUM: FUNCTION: Assertion `EXPRESSION' failed.
+
+     on the standard error stream ‘stderr’ (*note Standard Streams::).
+     The filename and line number are taken from the C preprocessor
+     macros ‘__FILE__’ and ‘__LINE__’ and specify where the call to
+     ‘assert’ was made.  When using the GNU C compiler, the name of the
+     function which calls ‘assert’ is taken from the built-in variable
+     ‘__PRETTY_FUNCTION__’; with older compilers, the function name and
+     following colon are omitted.
+
+     If the preprocessor macro ‘NDEBUG’ is defined before ‘assert.h’ is
+     included, the ‘assert’ macro is defined to do absolutely nothing.
+
+     *Warning:* Even the argument expression EXPRESSION is not evaluated
+     if ‘NDEBUG’ is in effect.  So never use ‘assert’ with arguments
+     that involve side effects.  For example, ‘assert (++i > 0);’ is a
+     bad idea, because ‘i’ will not be incremented if ‘NDEBUG’ is
+     defined.
+
+   Sometimes the “impossible” condition you want to check for is an
+error return from an operating system function.  Then it is useful to
+display not only where the program crashes, but also what error was
+returned.  The ‘assert_perror’ macro makes this easy.
+
+ -- Macro: void assert_perror (int ERRNUM)
+
+     Preliminary: | MT-Safe | AS-Unsafe heap corrupt | AC-Unsafe mem
+     lock corrupt | *Note POSIX Safety Concepts::.
+
+     Similar to ‘assert’, but verifies that ERRNUM is zero.
+
+     If ‘NDEBUG’ is not defined, ‘assert_perror’ tests the value of
+     ERRNUM.  If it is nonzero, ‘assert_perror’ aborts the program after
+     printing a message of the form:
+
+          FILE:LINENUM: FUNCTION: ERROR TEXT
+
+     on the standard error stream.  The file name, line number, and
+     function name are as for ‘assert’.  The error text is the result of
+     ‘strerror (ERRNUM)’.  *Note Error Messages::.
+
+     Like ‘assert’, if ‘NDEBUG’ is defined before ‘assert.h’ is
+     included, the ‘assert_perror’ macro does absolutely nothing.  It
+     does not evaluate the argument, so ERRNUM should not have any side
+     effects.  It is best for ERRNUM to be just a simple variable
+     reference; often it will be ‘errno’.
+
+     This macro is a GNU extension.
+
+   *Usage note:* The ‘assert’ facility is designed for detecting
+_internal inconsistency_; it is not suitable for reporting invalid input
+or improper usage by the _user_ of the program.
+
+   The information in the diagnostic messages printed by the ‘assert’
+and ‘assert_perror’ macro is intended to help you, the programmer, track
+down the cause of a bug, but is not really useful for telling a user of
+your program why his or her input was invalid or why a command could not
+be carried out.  What’s more, your program should not abort when given
+invalid input, as ‘assert’ would do—it should exit with nonzero status
+(*note Exit Status::) after printing its error messages, or perhaps read
+another command or move on to the next input file.
+
+   *Note Error Messages::, for information on printing error messages
+for problems that _do not_ represent bugs in the program.
+
+
+File: libc.info,  Node: Variadic Functions,  Next: Null Pointer Constant,  Prev: Consistency Checking,  Up: Language Features
+
+A.2 Variadic Functions
+======================
+
+ISO C defines a syntax for declaring a function to take a variable
+number or type of arguments.  (Such functions are referred to as
+“varargs functions” or “variadic functions”.)  However, the language
+itself provides no mechanism for such functions to access their
+non-required arguments; instead, you use the variable arguments macros
+defined in ‘stdarg.h’.
+
+   This section describes how to declare variadic functions, how to
+write them, and how to call them properly.
+
+   *Compatibility Note:* Many older C dialects provide a similar, but
+incompatible, mechanism for defining functions with variable numbers of
+arguments, using ‘varargs.h’.
+
+* Menu:
+
+* Why Variadic::                Reasons for making functions take
+                                 variable arguments.
+* How Variadic::                How to define and call variadic functions.
+* Variadic Example::            A complete example.
+
+
+File: libc.info,  Node: Why Variadic,  Next: How Variadic,  Up: Variadic Functions
+
+A.2.1 Why Variadic Functions are Used
+-------------------------------------
+
+Ordinary C functions take a fixed number of arguments.  When you define
+a function, you specify the data type for each argument.  Every call to
+the function should supply the expected number of arguments, with types
+that can be converted to the specified ones.  Thus, if the function
+‘foo’ is declared with ‘int foo (int, char *);’ then you must call it
+with two arguments, a number (any kind will do) and a string pointer.
+
+   But some functions perform operations that can meaningfully accept an
+unlimited number of arguments.
+
+   In some cases a function can handle any number of values by operating
+on all of them as a block.  For example, consider a function that
+allocates a one-dimensional array with ‘malloc’ to hold a specified set
+of values.  This operation makes sense for any number of values, as long
+as the length of the array corresponds to that number.  Without
+facilities for variable arguments, you would have to define a separate
+function for each possible array size.
+
+   The library function ‘printf’ (*note Formatted Output::) is an
+example of another class of function where variable arguments are
+useful.  This function prints its arguments (which can vary in type as
+well as number) under the control of a format template string.
+
+   These are good reasons to define a “variadic” function which can
+handle as many arguments as the caller chooses to pass.
+
+   Some functions such as ‘open’ take a fixed set of arguments, but
+occasionally ignore the last few.  Strict adherence to ISO C requires
+these functions to be defined as variadic; in practice, however, the GNU
+C compiler and most other C compilers let you define such a function to
+take a fixed set of arguments—the most it can ever use—and then only
+_declare_ the function as variadic (or not declare its arguments at
+all!).
 
 
 File: libc.info,  Node: How Variadic,  Next: Variadic Example,  Prev: Why Variadic,  Up: Variadic Functions
@@ -2280,10 +4459,13 @@ of the same type.
      even if this is not an integral type.  The argument pointer in DEST
      is initialized to point to the same argument as the pointer in SRC.
 
-     This macro was added in ISO C99.  When building for strict
-     conformance to ISO C90 (‘gcc -ansi’), it is not available.  The
-     macro ‘__va_copy’ is available as a GNU extension in any standards
-     mode; before GCC 3.0, it was the only macro for this functionality.
+     ‘va_copy’ was added in ISO C99.  When building for strict
+     conformance to ISO C90 (‘gcc -std=c90’), it is not available.  GCC
+     provides ‘__va_copy’, as an extension, in any standards mode;
+     before GCC 3.0, it was the only macro for this functionality.
+
+     These macros are no longer provided by the GNU C Library, but
+     rather by the compiler.
 
    If you want to use ‘va_copy’ and be portable to pre-C99 systems, you
 should always be prepared for the possibility that this macro will not
@@ -2436,37 +4618,13 @@ this information in full detail.
 
 File: libc.info,  Node: Width of Type,  Next: Range of Type,  Up: Data Type Measurements
 
-A.5.1 Computing the Width of an Integer Data Type
--------------------------------------------------
+A.5.1 Width of an Integer Type
+------------------------------
 
-The most common reason that a program needs to know how many bits are in
-an integer type is for using an array of ‘long int’ as a bit vector.
-You can access the bit at index N with
-
-     vector[N / LONGBITS] & (1 << (N % LONGBITS))
-
-provided you define ‘LONGBITS’ as the number of bits in a ‘long int’.
-
-   There is no operator in the C language that can give you the number
-of bits in an integer data type.  But you can compute it from the macro
-‘CHAR_BIT’, defined in the header file ‘limits.h’.
-
- -- Macro: int CHAR_BIT
-
-     This is the number of bits in a ‘char’.  POSIX.1-2001 requires this
-     to be 8.
-
-     You can compute the number of bits in any data type TYPE like this:
-
-          sizeof (TYPE) * CHAR_BIT
-
-   That expression includes padding bits as well as value and sign bits.
-On all systems supported by the GNU C Library, standard integer types
-other than ‘_Bool’ do not have any padding bits.  TS 18661-1:2014
-defines additional macros for the width of integer types (the number of
-value and sign bits); these macros can also be used in ‘#if’
-preprocessor directives, whereas ‘sizeof’ cannot.  The following macros
-are defined in ‘limits.h’.
+TS 18661-1:2014 defines macros for the width of integer types (the
+number of value and sign bits).  One benefit of these macros is they can
+be used in ‘#if’ preprocessor directives, whereas ‘sizeof’ cannot.  The
+following macros are defined in ‘limits.h’.
 
 ‘CHAR_WIDTH’
 ‘SCHAR_WIDTH’
@@ -2486,7 +4644,7 @@ are defined in ‘limits.h’.
      long int’, respectively.
 
    Further such macros are defined in ‘stdint.h’.  Apart from those for
-types specified by width (*note Integers::), the following are defined.
+types specified by width (*note Integers::), the following are defined:
 
 ‘INTPTR_WIDTH’
 ‘UINTPTR_WIDTH’
@@ -2499,6 +4657,31 @@ types specified by width (*note Integers::), the following are defined.
      These are the widths of the types ‘intptr_t’, ‘uintptr_t’,
      ‘ptrdiff_t’, ‘sig_atomic_t’, ‘size_t’, ‘wchar_t’ and ‘wint_t’,
      respectively.
+
+   A common reason that a program needs to know how many bits are in an
+integer type is for using an array of ‘unsigned long int’ as a bit
+vector.  You can access the bit at index N with:
+
+     vector[N / ULONG_WIDTH] & (1UL << (N % ULONG_WIDTH))
+
+   Before ‘ULONG_WIDTH’ was a part of the C language, ‘CHAR_BIT’ was
+used to compute the number of bits in an integer data type.
+
+ -- Macro: int CHAR_BIT
+
+     This is the number of bits in a ‘char’.  POSIX.1-2001 requires this
+     to be 8.
+
+   The number of bits in any data type TYPE can be computed like this:
+
+     sizeof (TYPE) * CHAR_BIT
+
+   That expression includes padding bits as well as value and sign bits.
+On all systems supported by the GNU C Library, standard integer types
+other than ‘_Bool’ do not have any padding bits.
+
+   *Portability Note:* One cannot actually easily compute the number of
+usable bits in a portable manner.
 
 
 File: libc.info,  Node: Range of Type,  Next: Floating Type Macros,  Prev: Width of Type,  Up: Data Type Measurements
@@ -3347,42 +5530,6 @@ it.
 
      ‘utmpx.h’ (XPG4.2): *note XPG Functions::.
 
-‘DESERR_BADPARAM’
-
-     ‘rpc/des_crypt.h’ (SUNRPC): *note DES Encryption::.
-
-‘DESERR_HWERROR’
-
-     ‘rpc/des_crypt.h’ (SUNRPC): *note DES Encryption::.
-
-‘DESERR_NOHWDEVICE’
-
-     ‘rpc/des_crypt.h’ (SUNRPC): *note DES Encryption::.
-
-‘DESERR_NONE’
-
-     ‘rpc/des_crypt.h’ (SUNRPC): *note DES Encryption::.
-
-‘DES_DECRYPT’
-
-     ‘rpc/des_crypt.h’ (SUNRPC): *note DES Encryption::.
-
-‘DES_ENCRYPT’
-
-     ‘rpc/des_crypt.h’ (SUNRPC): *note DES Encryption::.
-
-‘int DES_FAILED (int ERR)’
-
-     ‘rpc/des_crypt.h’ (SUNRPC): *note DES Encryption::.
-
-‘DES_HW’
-
-     ‘rpc/des_crypt.h’ (SUNRPC): *note DES Encryption::.
-
-‘DES_SW’
-
-     ‘rpc/des_crypt.h’ (SUNRPC): *note DES Encryption::.
-
 ‘DIR’
 
      ‘dirent.h’ (POSIX.1): *note Opening a Directory::.
@@ -3847,7 +5994,7 @@ it.
 
 ‘int ENOTRECOVERABLE’
 
-     ‘errno.h’ (Linux): *note Error Codes::.
+     ‘errno.h’ (GNU): *note Error Codes::.
 
 ‘int ENOTSOCK’
 
@@ -3883,7 +6030,7 @@ it.
 
 ‘int EOWNERDEAD’
 
-     ‘errno.h’ (Linux): *note Error Codes::.
+     ‘errno.h’ (GNU): *note Error Codes::.
 
 ‘int EPERM’
 
@@ -4725,6 +6872,14 @@ it.
 
      ‘stdio.h’ (ISO): *note Temporary Files::.
 
+‘MADV_HUGEPAGE’
+
+     ‘sys/mman.h’ (Linux): *note Memory-mapped I/O::.
+
+‘MAP_HUGETLB’
+
+     ‘sys/mman.h’ (Linux): *note Memory-mapped I/O::.
+
 ‘int MAXNAMLEN’
 
      ‘dirent.h’ (BSD): *note Limits for Files::.
@@ -4752,6 +6907,22 @@ it.
 ‘tcflag_t MDMBUF’
 
      ‘termios.h’ (BSD): *note Control Modes::.
+
+‘MFD_ALLOW_SEALING’
+
+     ‘sys/mman.h’ (Linux): *note Memory-mapped I/O::.
+
+‘MFD_CLOEXEC’
+
+     ‘sys/mman.h’ (Linux): *note Memory-mapped I/O::.
+
+‘MFD_HUGETLB’
+
+     ‘sys/mman.h’ (Linux): *note Memory-mapped I/O::.
+
+‘MLOCK_ONFAULT’
+
+     ‘sys/mman.h’ (Linux): *note Page Lock Functions::.
 
 ‘int MSG_DONTROUTE’
 
@@ -4816,6 +6987,10 @@ it.
      ‘utmp.h’ (SVID): *note Manipulating the Database::.
 
      ‘utmpx.h’ (XPG4.2): *note XPG Functions::.
+
+‘ONCE_FLAG_INIT’
+
+     ‘threads.h’ (C11): *note Call Once::.
 
 ‘tcflag_t ONLCR’
 
@@ -4939,6 +7114,10 @@ it.
 
      ‘fcntl.h’ (BSD): *note Operating Modes::.
 
+‘int O_TMPFILE’
+
+     ‘fcntl.h’ (GNU): *note Open-time Flags::.
+
 ‘int O_TRUNC’
 
      ‘fcntl.h’ (POSIX.1): *note Open-time Flags::.
@@ -5047,6 +7226,14 @@ it.
 
      ‘limits.h’ (POSIX.1): *note Limits for Files::.
 
+‘PKEY_DISABLE_ACCESS’
+
+     ‘sys/mman.h’ (Linux): *note Memory Protection::.
+
+‘PKEY_DISABLE_WRITE’
+
+     ‘sys/mman.h’ (Linux): *note Memory Protection::.
+
 ‘POSIX_REC_INCR_XFER_SIZE’
 
      ‘limits.h’ (POSIX.1): *note File Minimums::.
@@ -5082,6 +7269,22 @@ it.
 ‘PRIO_USER’
 
      ‘sys/resource.h’ (BSD): *note Traditional Scheduling Functions::.
+
+‘PROT_EXEC’
+
+     ‘sys/mman.h’ (POSIX): *note Memory Protection::.
+
+‘PROT_NONE’
+
+     ‘sys/mman.h’ (POSIX): *note Memory Protection::.
+
+‘PROT_READ’
+
+     ‘sys/mman.h’ (POSIX): *note Memory Protection::.
+
+‘PROT_WRITE’
+
+     ‘sys/mman.h’ (POSIX): *note Memory Protection::.
 
 ‘PTRDIFF_WIDTH’
 
@@ -5266,10 +7469,6 @@ it.
 ‘SCHAR_WIDTH’
 
      ‘limits.h’ (ISO): *note Width of Type::.
-
-‘SC_SSIZE_MAX’
-
-     ‘unistd.h’ (X/Open): *note Constants for Sysconf::.
 
 ‘int SEEK_CUR’
 
@@ -5747,6 +7946,10 @@ it.
 
      ‘netdb.h’ (BSD): *note Host Names::.
 
+‘TSS_DTOR_ITERATIONS’
+
+     ‘threads.h’ (C11): *note ISO C Thread-local Storage::.
+
 ‘int TZNAME_MAX’
 
      ‘limits.h’ (POSIX.1): *note General Limits::.
@@ -5985,6 +8188,10 @@ it.
 
      ‘unistd.h’ (POSIX.1): *note Testing File Access::.
 
+‘_ATFILE_SOURCE’
+
+     _no header_ (GNU): *note Feature Test Macros::.
+
 ‘_CS_LFS64_CFLAGS’
 
      ‘unistd.h’ (Unix98): *note String Parameters::.
@@ -6037,6 +8244,10 @@ it.
 
      _no header_ (X/Open): *note Feature Test Macros::.
 
+‘_FORTIFY_SOURCE’
+
+     _no header_ (GNU): *note Feature Test Macros::.
+
 ‘_GNU_SOURCE’
 
      _no header_ (GNU): *note Feature Test Macros::.
@@ -6052,6 +8263,10 @@ it.
 ‘int _IONBF’
 
      ‘stdio.h’ (ISO): *note Controlling Buffering::.
+
+‘_ISOC11_SOURCE’
+
+     _no header_ (C11): *note Feature Test Macros::.
 
 ‘_ISOC99_SOURCE’
 
@@ -6421,6 +8636,66 @@ it.
 
      ‘unistd.h’ (POSIX.1): *note Constants for Sysconf::.
 
+‘_SC_LEVEL1_DCACHE_ASSOC’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL1_DCACHE_LINESIZE’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL1_DCACHE_SIZE’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL1_ICACHE_ASSOC’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL1_ICACHE_LINESIZE’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL1_ICACHE_SIZE’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL2_CACHE_ASSOC’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL2_CACHE_LINESIZE’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL2_CACHE_SIZE’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL3_CACHE_ASSOC’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL3_CACHE_LINESIZE’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL3_CACHE_SIZE’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL4_CACHE_ASSOC’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL4_CACHE_LINESIZE’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
+‘_SC_LEVEL4_CACHE_SIZE’
+
+     ‘unistd.h’ (GNU): *note Constants for Sysconf::.
+
 ‘_SC_LINE_MAX’
 
      ‘unistd.h’ (POSIX.2): *note Constants for Sysconf::.
@@ -6616,6 +8891,10 @@ it.
 ‘_SC_SIGQUEUE_MAX’
 
      ‘unistd.h’ (POSIX.1): *note Constants for Sysconf::.
+
+‘_SC_SSIZE_MAX’
+
+     ‘unistd.h’ (X/Open): *note Constants for Sysconf::.
 
 ‘_SC_STREAM_MAX’
 
@@ -6886,6 +9165,10 @@ it.
 ‘__realloc_hook’
 
      ‘malloc.h’ (GNU): *note Hooks for Malloc::.
+
+‘void __va_copy (va_list DEST, va_list SRC)’
+
+     ‘stdarg.h’ (GNU): *note Argument Macros::.
 
 ‘void _exit (int STATUS)’
 
@@ -7439,6 +9722,10 @@ it.
 
      ‘complex.h’ (ISO): *note Inverse Trig Functions::.
 
+‘void call_once (once_flag *FLAG, void (*FUNC) (void))’
+
+     ‘threads.h’ (C11): *note Call Once::.
+
 ‘void * calloc (size_t COUNT, size_t ELTSIZE)’
 
      ‘malloc.h’ (ISO): *note Allocating Cleared Space::.
@@ -7572,10 +9859,6 @@ it.
 ‘nl_catd catopen (const char *CAT_NAME, int FLAG)’
 
      ‘nl_types.h’ (X/Open): *note The catgets Functions::.
-
-‘int cbc_crypt (char *KEY, char *BLOCKS, unsigned int LEN, unsigned int MODE, char *IVEC)’
-
-     ‘rpc/des_crypt.h’ (SUNRPC): *note DES Encryption::.
 
 ‘double cbrt (double X)’
 
@@ -7809,6 +10092,34 @@ it.
 
      ‘syslog.h’ (BSD): *note closelog::.
 
+‘int cnd_broadcast (cnd_t *COND)’
+
+     ‘threads.h’ (C11): *note ISO C Condition Variables::.
+
+‘void cnd_destroy (cnd_t *COND)’
+
+     ‘threads.h’ (C11): *note ISO C Condition Variables::.
+
+‘int cnd_init (cnd_t *COND)’
+
+     ‘threads.h’ (C11): *note ISO C Condition Variables::.
+
+‘int cnd_signal (cnd_t *COND)’
+
+     ‘threads.h’ (C11): *note ISO C Condition Variables::.
+
+‘cnd_t’
+
+     ‘threads.h’ (C11): *note ISO C Condition Variables::.
+
+‘int cnd_timedwait (cnd_t *restrict COND, mtx_t *restrict MUTEX, const struct timespec *restrict TIME_POINT)’
+
+     ‘threads.h’ (C11): *note ISO C Condition Variables::.
+
+‘int cnd_wait (cnd_t *COND, mtx_t *MUTEX)’
+
+     ‘threads.h’ (C11): *note ISO C Condition Variables::.
+
 ‘size_t confstr (int PARAMETER, char *BUF, size_t LEN)’
 
      ‘unistd.h’ (POSIX.2): *note String Parameters::.
@@ -7856,6 +10167,10 @@ it.
 ‘cookie_write_function_t’
 
      ‘stdio.h’ (GNU): *note Hook Functions::.
+
+‘ssize_t copy_file_range (int INPUTFD, off64_t *INPUTPOS, int OUTPUTFD, off64_t *OUTPUTPOS, ssize_t LENGTH, unsigned int FLAGS)’
+
+     ‘unistd.h’ (GNU): *note Copying File Data::.
 
 ‘double copysign (double X, double Y)’
 
@@ -7989,15 +10304,15 @@ it.
 
      ‘fcntl.h’ (Unix98): *note Opening and Closing Files::.
 
-‘char * crypt (const char *KEY, const char *SALT)’
+‘char * crypt (const char *PHRASE, const char *SALT)’
 
-     ‘crypt.h’ (BSD): *note crypt::.
+     ‘unistd.h’ (X/Open): *note Passphrase Storage::.
 
-     ‘crypt.h’ (SVID): *note crypt::.
+     ‘crypt.h’ (GNU): *note Passphrase Storage::.
 
-‘char * crypt_r (const char *KEY, const char *SALT, struct crypt_data * DATA)’
+‘char * crypt_r (const char *PHRASE, const char *SALT, struct crypt_data *DATA)’
 
-     ‘crypt.h’ (GNU): *note crypt::.
+     ‘crypt.h’ (GNU): *note Passphrase Storage::.
 
 ‘complex double csin (complex double Z)’
 
@@ -8115,6 +10430,10 @@ it.
 
      ‘stdio.h’ (POSIX.1): *note Who Logged In::.
 
+‘double daddl (long double X, long double Y)’
+
+     ‘math.h’ (TS 18661-1:2014): *note Misc FP Arithmetic::.
+
 ‘int daylight’
 
      ‘time.h’ (SVID): *note Time Zone Functions::.
@@ -8127,9 +10446,9 @@ it.
 
      ‘libintl.h’ (GNU): *note Advanced gettext functions::.
 
-‘void des_setparity (char *KEY)’
+‘double ddivl (long double X, long double Y)’
 
-     ‘rpc/des_crypt.h’ (SUNRPC): *note DES Encryption::.
+     ‘math.h’ (TS 18661-1:2014): *note Misc FP Arithmetic::.
 
 ‘dev_t’
 
@@ -8163,6 +10482,10 @@ it.
 
      ‘stdlib.h’ (ISO): *note Integer Division::.
 
+‘double dmull (long double X, long double Y)’
+
+     ‘math.h’ (TS 18661-1:2014): *note Misc FP Arithmetic::.
+
 ‘char * dngettext (const char *DOMAIN, const char *MSGID1, const char *MSGID2, unsigned long int N)’
 
      ‘libintl.h’ (GNU): *note Advanced gettext functions::.
@@ -8187,6 +10510,10 @@ it.
 
      ‘math.h’ (BSD): *note Remainder Functions::.
 
+‘double dsubl (long double X, long double Y)’
+
+     ‘math.h’ (TS 18661-1:2014): *note Misc FP Arithmetic::.
+
 ‘int dup (int OLD)’
 
      ‘unistd.h’ (POSIX.1): *note Duplicating Descriptors::.
@@ -8194,10 +10521,6 @@ it.
 ‘int dup2 (int OLD, int NEW)’
 
      ‘unistd.h’ (POSIX.1): *note Duplicating Descriptors::.
-
-‘int ecb_crypt (char *KEY, char *BLOCKS, unsigned int LEN, unsigned int MODE)’
-
-     ‘rpc/des_crypt.h’ (SUNRPC): *note DES Encryption::.
 
 ‘char * ecvt (double VALUE, int NDIGIT, int *DECPT, int *NEG)’
 
@@ -8208,16 +10531,6 @@ it.
 ‘int ecvt_r (double VALUE, int NDIGIT, int *DECPT, int *NEG, char *BUF, size_t LEN)’
 
      ‘stdlib.h’ (GNU): *note System V Number Conversion::.
-
-‘void encrypt (char *BLOCK, int EDFLAG)’
-
-     ‘crypt.h’ (BSD): *note DES Encryption::.
-
-     ‘crypt.h’ (SVID): *note DES Encryption::.
-
-‘void encrypt_r (char *BLOCK, int EDFLAG, struct crypt_data * DATA)’
-
-     ‘crypt.h’ (GNU): *note DES Encryption::.
 
 ‘void endfsent (void)’
 
@@ -8491,6 +10804,70 @@ it.
 
      ‘math.h’ (ISO): *note Exponents and Logarithms::.
 
+‘_FloatM fMaddfN (_FloatN X, _FloatN Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatM fMaddfNx (_FloatNx X, _FloatNx Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatM fMdivfN (_FloatN X, _FloatN Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatM fMdivfNx (_FloatNx X, _FloatNx Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatM fMmulfN (_FloatN X, _FloatN Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatM fMmulfNx (_FloatNx X, _FloatNx Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatM fMsubfN (_FloatN X, _FloatN Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatM fMsubfNx (_FloatNx X, _FloatNx Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatMx fMxaddfN (_FloatN X, _FloatN Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatMx fMxaddfNx (_FloatNx X, _FloatNx Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatMx fMxdivfN (_FloatN X, _FloatN Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatMx fMxdivfNx (_FloatNx X, _FloatNx Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatMx fMxmulfN (_FloatN X, _FloatN Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatMx fMxmulfNx (_FloatNx X, _FloatNx Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatMx fMxsubfN (_FloatN X, _FloatN Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
+‘_FloatMx fMxsubfNx (_FloatNx X, _FloatNx Y)’
+
+     ‘math.h’ (TS 18661-3:2015): *note Misc FP Arithmetic::.
+
 ‘double fabs (double NUMBER)’
 
      ‘math.h’ (ISO): *note Absolute Value::.
@@ -8510,6 +10887,14 @@ it.
 ‘long double fabsl (long double NUMBER)’
 
      ‘math.h’ (ISO): *note Absolute Value::.
+
+‘float fadd (double X, double Y)’
+
+     ‘math.h’ (TS 18661-1:2014): *note Misc FP Arithmetic::.
+
+‘float faddl (long double X, long double Y)’
+
+     ‘math.h’ (TS 18661-1:2014): *note Misc FP Arithmetic::.
 
 ‘int fchdir (int FILEDES)’
 
@@ -8574,6 +10959,14 @@ it.
 ‘long double fdiml (long double X, long double Y)’
 
      ‘math.h’ (ISO): *note Misc FP Arithmetic::.
+
+‘float fdiv (double X, double Y)’
+
+     ‘math.h’ (TS 18661-1:2014): *note Misc FP Arithmetic::.
+
+‘float fdivl (long double X, long double Y)’
+
+     ‘math.h’ (TS 18661-1:2014): *note Misc FP Arithmetic::.
 
 ‘FILE * fdopen (int FILEDES, const char *OPENTYPE)’
 
@@ -8911,6 +11304,14 @@ it.
 
      ‘fmtmsg.h’ (XPG): *note Printing Formatted Messages::.
 
+‘float fmul (double X, double Y)’
+
+     ‘math.h’ (TS 18661-1:2014): *note Misc FP Arithmetic::.
+
+‘float fmull (long double X, long double Y)’
+
+     ‘math.h’ (TS 18661-1:2014): *note Misc FP Arithmetic::.
+
 ‘int fnmatch (const char *PATTERN, const char *STRING, int FLAGS)’
 
      ‘fnmatch.h’ (POSIX.2): *note Wildcard Matching::.
@@ -9104,6 +11505,14 @@ it.
 ‘int fstat64 (int FILEDES, struct stat64 *BUF)’
 
      ‘sys/stat.h’ (Unix98): *note Reading Attributes::.
+
+‘float fsub (double X, double Y)’
+
+     ‘math.h’ (TS 18661-1:2014): *note Misc FP Arithmetic::.
+
+‘float fsubl (long double X, long double Y)’
+
+     ‘math.h’ (TS 18661-1:2014): *note Misc FP Arithmetic::.
 
 ‘int fsync (int FILDES)’
 
@@ -10289,6 +12698,10 @@ it.
 
      ‘unistd.h’ (POSIX.1): *note Hard Links::.
 
+‘int linkat (int oldfd, const char *OLDNAME, int newfd, const char *NEWNAME, int flags)’
+
+     ‘unistd.h’ (POSIX.1): *note Hard Links::.
+
 ‘int lio_listio (int MODE, struct aiocb *const LIST[], int NENT, struct sigevent *SIG)’
 
      ‘aio.h’ (POSIX.1b): *note Asynchronous Reads/Writes::.
@@ -10659,9 +13072,13 @@ it.
 
      ‘string.h’ (ISO): *note Copying Strings and Arrays::.
 
+‘int memfd_create (const char *NAME, unsigned int FLAGS)’
+
+     ‘sys/mman.h’ (Linux): *note Memory-mapped I/O::.
+
 ‘void * memfrob (void *MEM, size_t LENGTH)’
 
-     ‘string.h’ (GNU): *note Trivial Encryption::.
+     ‘string.h’ (GNU): *note Obfuscating Data::.
 
 ‘void * memmem (const void *HAYSTACK, size_t HAYSTACK-LEN,
 const void *NEEDLE, size_t NEEDLE-LEN)’
@@ -10716,6 +13133,10 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 
      ‘sys/mman.h’ (POSIX.1b): *note Page Lock Functions::.
 
+‘int mlock2 (const void *ADDR, size_t LEN, unsigned int FLAGS)’
+
+     ‘sys/mman.h’ (Linux): *note Page Lock Functions::.
+
 ‘int mlockall (int FLAGS)’
 
      ‘sys/mman.h’ (POSIX.1b): *note Page Lock Functions::.
@@ -10762,6 +13183,10 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 
      ‘sys/mount.h’ (BSD): *note Mount-Unmount-Remount::.
 
+‘int mprotect (void *ADDRESS, size_t LENGTH, int PROTECTION)’
+
+     ‘sys/mman.h’ (POSIX): *note Memory Protection::.
+
 ‘long int mrand48 (void)’
 
      ‘stdlib.h’ (SVID): *note SVID Random::.
@@ -10781,6 +13206,46 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 ‘void mtrace (void)’
 
      ‘mcheck.h’ (GNU): *note Tracing malloc::.
+
+‘void mtx_destroy (mtx_t *MUTEX)’
+
+     ‘threads.h’ (C11): *note ISO C Mutexes::.
+
+‘int mtx_init (mtx_t *MUTEX, int TYPE)’
+
+     ‘threads.h’ (C11): *note ISO C Mutexes::.
+
+‘int mtx_lock (mtx_t *MUTEX)’
+
+     ‘threads.h’ (C11): *note ISO C Mutexes::.
+
+‘mtx_plain’
+
+     ‘threads.h’ (C11): *note ISO C Mutexes::.
+
+‘mtx_recursive’
+
+     ‘threads.h’ (C11): *note ISO C Mutexes::.
+
+‘mtx_t’
+
+     ‘threads.h’ (C11): *note ISO C Mutexes::.
+
+‘mtx_timed’
+
+     ‘threads.h’ (C11): *note ISO C Mutexes::.
+
+‘int mtx_timedlock (mtx_t *restrict MUTEX, const struct timespec *restrict TIME_POINT)’
+
+     ‘threads.h’ (C11): *note ISO C Mutexes::.
+
+‘int mtx_trylock (mtx_t *MUTEX)’
+
+     ‘threads.h’ (C11): *note ISO C Mutexes::.
+
+‘int mtx_unlock (mtx_t *MUTEX)’
+
+     ‘threads.h’ (C11): *note ISO C Mutexes::.
 
 ‘int munlock (const void *ADDR, size_t LEN)’
 
@@ -11088,6 +13553,10 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 
      ‘stdlib.h’ (SunOS): *note Cleanups on Exit::.
 
+‘once_flag’
+
+     ‘threads.h’ (C11): *note Call Once::.
+
 ‘int open (const char *FILENAME, int FLAGS[, mode_t MODE])’
 
      ‘fcntl.h’ (POSIX.1): *note Opening and Closing Files::.
@@ -11168,6 +13637,26 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 
      ‘unistd.h’ (POSIX.1): *note Creating a Pipe::.
 
+‘int pkey_alloc (unsigned int FLAGS, unsigned int RESTRICTIONS)’
+
+     ‘sys/mman.h’ (Linux): *note Memory Protection::.
+
+‘int pkey_free (int KEY)’
+
+     ‘sys/mman.h’ (Linux): *note Memory Protection::.
+
+‘int pkey_get (int KEY)’
+
+     ‘sys/mman.h’ (Linux): *note Memory Protection::.
+
+‘int pkey_mprotect (void *ADDRESS, size_t LENGTH, int PROTECTION, int KEY)’
+
+     ‘sys/mman.h’ (Linux): *note Memory Protection::.
+
+‘int pkey_set (int KEY, unsigned int RIGHTS)’
+
+     ‘sys/mman.h’ (Linux): *note Memory Protection::.
+
 ‘FILE * popen (const char *COMMAND, const char *MODE)’
 
      ‘stdio.h’ (POSIX.2): *note Pipe to a Subprocess::.
@@ -11183,18 +13672,6 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 ‘double pow (double BASE, double POWER)’
 
      ‘math.h’ (ISO): *note Exponents and Logarithms::.
-
-‘double pow10 (double X)’
-
-     ‘math.h’ (GNU): *note Exponents and Logarithms::.
-
-‘float pow10f (float X)’
-
-     ‘math.h’ (GNU): *note Exponents and Logarithms::.
-
-‘long double pow10l (long double X)’
-
-     ‘math.h’ (GNU): *note Exponents and Logarithms::.
 
 ‘float powf (float BASE, float POWER)’
 
@@ -11222,19 +13699,19 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 
 ‘ssize_t preadv (int FD, const struct iovec *IOV, int IOVCNT, off_t OFFSET)’
 
-     ‘sys/uio.h’ (BSD): *note I/O Primitives::.
+     ‘sys/uio.h’ (BSD): *note Scatter-Gather::.
 
 ‘ssize_t preadv2 (int FD, const struct iovec *IOV, int IOVCNT, off_t OFFSET, int FLAGS)’
 
-     ‘sys/uio.h’ (GNU): *note I/O Primitives::.
+     ‘sys/uio.h’ (GNU): *note Scatter-Gather::.
 
 ‘ssize_t preadv64 (int FD, const struct iovec *IOV, int IOVCNT, off64_t OFFSET)’
 
-     ‘unistd.h’ (BSD): *note I/O Primitives::.
+     ‘unistd.h’ (BSD): *note Scatter-Gather::.
 
 ‘ssize_t preadv64v2 (int FD, const struct iovec *IOV, int IOVCNT, off64_t OFFSET, int FLAGS)’
 
-     ‘unistd.h’ (GNU): *note I/O Primitives::.
+     ‘unistd.h’ (GNU): *note Scatter-Gather::.
 
 ‘int printf (const char *TEMPLATE, ...)’
 
@@ -11380,19 +13857,19 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 
 ‘ssize_t pwritev (int FD, const struct iovec *IOV, int IOVCNT, off_t OFFSET)’
 
-     ‘sys/uio.h’ (BSD): *note I/O Primitives::.
+     ‘sys/uio.h’ (BSD): *note Scatter-Gather::.
 
 ‘ssize_t pwritev2 (int FD, const struct iovec *IOV, int IOVCNT, off_t OFFSET, int FLAGS)’
 
-     ‘sys/uio.h’ (GNU): *note I/O Primitives::.
+     ‘sys/uio.h’ (GNU): *note Scatter-Gather::.
 
 ‘ssize_t pwritev64 (int FD, const struct iovec *IOV, int IOVCNT, off64_t OFFSET)’
 
-     ‘unistd.h’ (BSD): *note I/O Primitives::.
+     ‘unistd.h’ (BSD): *note Scatter-Gather::.
 
 ‘ssize_t pwritev64v2 (int FD, const struct iovec *IOV, int IOVCNT, off64_t OFFSET, int FLAGS)’
 
-     ‘unistd.h’ (GNU): *note I/O Primitives::.
+     ‘unistd.h’ (GNU): *note Scatter-Gather::.
 
 ‘char * qecvt (long double VALUE, int NDIGIT, int *DECPT, int *NEG)’
 
@@ -11861,16 +14338,6 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 ‘int setjmp (jmp_buf STATE)’
 
      ‘setjmp.h’ (ISO): *note Non-Local Details::.
-
-‘void setkey (const char *KEY)’
-
-     ‘crypt.h’ (BSD): *note DES Encryption::.
-
-     ‘crypt.h’ (SVID): *note DES Encryption::.
-
-‘void setkey_r (const char *KEY, struct crypt_data * DATA)’
-
-     ‘crypt.h’ (GNU): *note DES Encryption::.
 
 ‘void setlinebuf (FILE *STREAM)’
 
@@ -12416,7 +14883,7 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 
 ‘char * strfry (char *STRING)’
 
-     ‘string.h’ (GNU): *note strfry::.
+     ‘string.h’ (GNU): *note Shuffling Bytes::.
 
 ‘size_t strftime (char *S, size_t SIZE, const char *TEMPLATE, const struct tm *BROKENTIME)’
 
@@ -12526,7 +14993,7 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 
      ‘stdlib.h’ (BSD): *note Parsing of Integers::.
 
-‘unsigned long int strtoul (const char *retrict STRING, char **restrict TAILPTR, int BASE)’
+‘unsigned long int strtoul (const char *restrict STRING, char **restrict TAILPTR, int BASE)’
 
      ‘stdlib.h’ (ISO): *note Parsing of Integers::.
 
@@ -12732,6 +15199,70 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 
      ‘math.h’ (ISO): *note Special Functions::.
 
+‘thrd_busy’
+
+     ‘threads.h’ (C11): *note ISO C Threads Return Values::.
+
+‘int thrd_create (thrd_t *THR, thrd_start_t FUNC, void *ARG)’
+
+     ‘threads.h’ (C11): *note ISO C Thread Management::.
+
+‘thrd_t thrd_current (void)’
+
+     ‘threads.h’ (C11): *note ISO C Thread Management::.
+
+‘int thrd_detach (thrd_t THR)’
+
+     ‘threads.h’ (C11): *note ISO C Thread Management::.
+
+‘int thrd_equal (thrd_t LHS, thrd_t RHS)’
+
+     ‘threads.h’ (C11): *note ISO C Thread Management::.
+
+‘thrd_error’
+
+     ‘threads.h’ (C11): *note ISO C Threads Return Values::.
+
+‘_Noreturn void thrd_exit (int RES)’
+
+     ‘threads.h’ (C11): *note ISO C Thread Management::.
+
+‘int thrd_join (thrd_t THR, int *RES)’
+
+     ‘threads.h’ (C11): *note ISO C Thread Management::.
+
+‘thrd_nomem’
+
+     ‘threads.h’ (C11): *note ISO C Threads Return Values::.
+
+‘int thrd_sleep (const struct timespec *TIME_POINT, struct timespec *REMAINING)’
+
+     ‘threads.h’ (C11): *note ISO C Thread Management::.
+
+‘thrd_start_t’
+
+     ‘threads.h’ (C11): *note ISO C Thread Management::.
+
+‘thrd_success’
+
+     ‘threads.h’ (C11): *note ISO C Threads Return Values::.
+
+‘thrd_t’
+
+     ‘threads.h’ (C11): *note ISO C Thread Management::.
+
+‘thrd_timedout’
+
+     ‘threads.h’ (C11): *note ISO C Threads Return Values::.
+
+‘void thrd_yield (void)’
+
+     ‘threads.h’ (C11): *note ISO C Thread Management::.
+
+‘thread_local’
+
+     ‘threads.h’ (C11): *note ISO C Thread-local Storage::.
+
 ‘time_t time (time_t *RESULT)’
 
      ‘time.h’ (ISO): *note Simple Calendar Time::.
@@ -12890,6 +15421,30 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 
      ‘search.h’ (SVID): *note Tree Search Function::.
 
+‘int tss_create (tss_t *TSS_KEY, tss_dtor_t DESTRUCTOR)’
+
+     ‘threads.h’ (C11): *note ISO C Thread-local Storage::.
+
+‘void tss_delete (tss_t TSS_KEY)’
+
+     ‘threads.h’ (C11): *note ISO C Thread-local Storage::.
+
+‘tss_dtor_t’
+
+     ‘threads.h’ (C11): *note ISO C Thread-local Storage::.
+
+‘void * tss_get (tss_t TSS_KEY)’
+
+     ‘threads.h’ (C11): *note ISO C Thread-local Storage::.
+
+‘int tss_set (tss_t TSS_KEY, void *VAL)’
+
+     ‘threads.h’ (C11): *note ISO C Thread-local Storage::.
+
+‘tss_t’
+
+     ‘threads.h’ (C11): *note ISO C Thread-local Storage::.
+
 ‘char * ttyname (int FILEDES)’
 
      ‘unistd.h’ (POSIX.1): *note Is It a Terminal::.
@@ -13036,7 +15591,7 @@ const void *NEEDLE, size_t NEEDLE-LEN)’
 
 ‘void va_copy (va_list DEST, va_list SRC)’
 
-     ‘stdarg.h’ (ISO): *note Argument Macros::.
+     ‘stdarg.h’ (C99): *note Argument Macros::.
 
 ‘void va_end (va_list AP)’
 

@@ -29,8 +29,6 @@ Individual utilities
                                                   and use DLLs.
 * elfedit: (binutils)elfedit.                   Update the ELF header of ELF 
                                                   files.
-* nlmconv: (binutils)nlmconv.                   Converts object code into an 
-                                                  NLM.
 * nm: (binutils)nm.                             List symbols from object files.
 * objcopy: (binutils)objcopy.                   Copy and translate object 
                                                   files.

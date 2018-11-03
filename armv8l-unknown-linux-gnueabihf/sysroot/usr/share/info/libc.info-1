@@ -2,10 +2,10 @@ This is libc.info, produced by makeinfo version 6.5 from libc.texinfo.
 
 This file documents the GNU C Library.
 
-   This is ‘The GNU C Library Reference Manual’, for version 2.26
-(crosstool-NG 1.23.0.420-f79b).
+   This is ‘The GNU C Library Reference Manual’, for version 2.28
+(crosstool-NG 1.23.0.511-576f).
 
-   Copyright © 1993–2017 Free Software Foundation, Inc.
+   Copyright © 1993–2018 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +56,6 @@ START-INFO-DIR-ENTRY
 * CS8: (libc)Control Modes.
 * CSIZE: (libc)Control Modes.
 * CSTOPB: (libc)Control Modes.
-* DES_FAILED: (libc)DES Encryption.
 * DTTOIF: (libc)Directory Entries.
 * E2BIG: (libc)Error Codes.
 * EACCES: (libc)Error Codes.
@@ -326,6 +325,7 @@ START-INFO-DIR-ENTRY
 * O_READ: (libc)Access Modes.
 * O_SHLOCK: (libc)Open-time Flags.
 * O_SYNC: (libc)Operating Modes.
+* O_TMPFILE: (libc)Open-time Flags.
 * O_TRUNC: (libc)Open-time Flags.
 * O_WRITE: (libc)Access Modes.
 * O_WRONLY: (libc)Access Modes.
@@ -489,6 +489,7 @@ START-INFO-DIR-ENTRY
 * __ppc_set_ppr_med_low: (libc)PowerPC.
 * __ppc_set_ppr_very_low: (libc)PowerPC.
 * __ppc_yield: (libc)PowerPC.
+* __riscv_flush_icache: (libc)RISC-V.
 * __va_copy: (libc)Argument Macros.
 * _exit: (libc)Termination Internals.
 * _flushlbf: (libc)Flushing Buffers.
@@ -615,6 +616,7 @@ START-INFO-DIR-ENTRY
 * cacoshfNx: (libc)Hyperbolic Functions.
 * cacoshl: (libc)Hyperbolic Functions.
 * cacosl: (libc)Inverse Trig Functions.
+* call_once: (libc)Call Once.
 * calloc: (libc)Allocating Cleared Space.
 * canonicalize: (libc)FP Bit Twiddling.
 * canonicalize_file_name: (libc)Symbolic Links.
@@ -650,7 +652,6 @@ START-INFO-DIR-ENTRY
 * catclose: (libc)The catgets Functions.
 * catgets: (libc)The catgets Functions.
 * catopen: (libc)The catgets Functions.
-* cbc_crypt: (libc)DES Encryption.
 * cbrt: (libc)Exponents and Logarithms.
 * cbrtf: (libc)Exponents and Logarithms.
 * cbrtfN: (libc)Exponents and Logarithms.
@@ -707,6 +708,12 @@ START-INFO-DIR-ENTRY
 * close: (libc)Opening and Closing Files.
 * closedir: (libc)Reading/Closing Directory.
 * closelog: (libc)closelog.
+* cnd_broadcast: (libc)ISO C Condition Variables.
+* cnd_destroy: (libc)ISO C Condition Variables.
+* cnd_init: (libc)ISO C Condition Variables.
+* cnd_signal: (libc)ISO C Condition Variables.
+* cnd_timedwait: (libc)ISO C Condition Variables.
+* cnd_wait: (libc)ISO C Condition Variables.
 * confstr: (libc)String Parameters.
 * conj: (libc)Operations on Complex.
 * conjf: (libc)Operations on Complex.
@@ -714,6 +721,7 @@ START-INFO-DIR-ENTRY
 * conjfNx: (libc)Operations on Complex.
 * conjl: (libc)Operations on Complex.
 * connect: (libc)Connecting.
+* copy_file_range: (libc)Copying File Data.
 * copysign: (libc)FP Bit Twiddling.
 * copysignf: (libc)FP Bit Twiddling.
 * copysignfN: (libc)FP Bit Twiddling.
@@ -746,8 +754,8 @@ START-INFO-DIR-ENTRY
 * creall: (libc)Operations on Complex.
 * creat64: (libc)Opening and Closing Files.
 * creat: (libc)Opening and Closing Files.
-* crypt: (libc)crypt.
-* crypt_r: (libc)crypt.
+* crypt: (libc)Passphrase Storage.
+* crypt_r: (libc)Passphrase Storage.
 * csin: (libc)Trig Functions.
 * csinf: (libc)Trig Functions.
 * csinfN: (libc)Trig Functions.
@@ -777,27 +785,27 @@ START-INFO-DIR-ENTRY
 * ctime: (libc)Formatting Calendar Time.
 * ctime_r: (libc)Formatting Calendar Time.
 * cuserid: (libc)Who Logged In.
+* daddl: (libc)Misc FP Arithmetic.
 * dcgettext: (libc)Translation with gettext.
 * dcngettext: (libc)Advanced gettext functions.
-* des_setparity: (libc)DES Encryption.
+* ddivl: (libc)Misc FP Arithmetic.
 * dgettext: (libc)Translation with gettext.
 * difftime: (libc)Elapsed Time.
 * dirfd: (libc)Opening a Directory.
 * dirname: (libc)Finding Tokens in a String.
 * div: (libc)Integer Division.
+* dmull: (libc)Misc FP Arithmetic.
 * dngettext: (libc)Advanced gettext functions.
 * drand48: (libc)SVID Random.
 * drand48_r: (libc)SVID Random.
 * drem: (libc)Remainder Functions.
 * dremf: (libc)Remainder Functions.
 * dreml: (libc)Remainder Functions.
+* dsubl: (libc)Misc FP Arithmetic.
 * dup2: (libc)Duplicating Descriptors.
 * dup: (libc)Duplicating Descriptors.
-* ecb_crypt: (libc)DES Encryption.
 * ecvt: (libc)System V Number Conversion.
 * ecvt_r: (libc)System V Number Conversion.
-* encrypt: (libc)DES Encryption.
-* encrypt_r: (libc)DES Encryption.
 * endfsent: (libc)fstab.
 * endgrent: (libc)Scanning All Groups.
 * endhostent: (libc)Host Names.
@@ -860,11 +868,29 @@ START-INFO-DIR-ENTRY
 * expm1fN: (libc)Exponents and Logarithms.
 * expm1fNx: (libc)Exponents and Logarithms.
 * expm1l: (libc)Exponents and Logarithms.
+* fMaddfN: (libc)Misc FP Arithmetic.
+* fMaddfNx: (libc)Misc FP Arithmetic.
+* fMdivfN: (libc)Misc FP Arithmetic.
+* fMdivfNx: (libc)Misc FP Arithmetic.
+* fMmulfN: (libc)Misc FP Arithmetic.
+* fMmulfNx: (libc)Misc FP Arithmetic.
+* fMsubfN: (libc)Misc FP Arithmetic.
+* fMsubfNx: (libc)Misc FP Arithmetic.
+* fMxaddfN: (libc)Misc FP Arithmetic.
+* fMxaddfNx: (libc)Misc FP Arithmetic.
+* fMxdivfN: (libc)Misc FP Arithmetic.
+* fMxdivfNx: (libc)Misc FP Arithmetic.
+* fMxmulfN: (libc)Misc FP Arithmetic.
+* fMxmulfNx: (libc)Misc FP Arithmetic.
+* fMxsubfN: (libc)Misc FP Arithmetic.
+* fMxsubfNx: (libc)Misc FP Arithmetic.
 * fabs: (libc)Absolute Value.
 * fabsf: (libc)Absolute Value.
 * fabsfN: (libc)Absolute Value.
 * fabsfNx: (libc)Absolute Value.
 * fabsl: (libc)Absolute Value.
+* fadd: (libc)Misc FP Arithmetic.
+* faddl: (libc)Misc FP Arithmetic.
 * fchdir: (libc)Working Directory.
 * fchmod: (libc)Setting Permissions.
 * fchown: (libc)File Owner.
@@ -879,6 +905,8 @@ START-INFO-DIR-ENTRY
 * fdimfN: (libc)Misc FP Arithmetic.
 * fdimfNx: (libc)Misc FP Arithmetic.
 * fdiml: (libc)Misc FP Arithmetic.
+* fdiv: (libc)Misc FP Arithmetic.
+* fdivl: (libc)Misc FP Arithmetic.
 * fdopen: (libc)Descriptors and Streams.
 * fdopendir: (libc)Opening a Directory.
 * feclearexcept: (libc)Status bit operations.
@@ -962,6 +990,8 @@ START-INFO-DIR-ENTRY
 * fmodfNx: (libc)Remainder Functions.
 * fmodl: (libc)Remainder Functions.
 * fmtmsg: (libc)Printing Formatted Messages.
+* fmul: (libc)Misc FP Arithmetic.
+* fmull: (libc)Misc FP Arithmetic.
 * fnmatch: (libc)Wildcard Matching.
 * fopen64: (libc)Opening Streams.
 * fopen: (libc)Opening Streams.
@@ -1007,6 +1037,8 @@ START-INFO-DIR-ENTRY
 * fsetpos: (libc)Portable Positioning.
 * fstat64: (libc)Reading Attributes.
 * fstat: (libc)Reading Attributes.
+* fsub: (libc)Misc FP Arithmetic.
+* fsubl: (libc)Misc FP Arithmetic.
 * fsync: (libc)Synchronizing I/O.
 * ftell: (libc)File Positioning.
 * ftello64: (libc)File Positioning.
@@ -1280,6 +1312,7 @@ START-INFO-DIR-ENTRY
 * lgammal: (libc)Special Functions.
 * lgammal_r: (libc)Special Functions.
 * link: (libc)Hard Links.
+* linkat: (libc)Hard Links.
 * lio_listio64: (libc)Asynchronous Reads/Writes.
 * lio_listio: (libc)Asynchronous Reads/Writes.
 * listen: (libc)Listening.
@@ -1370,7 +1403,8 @@ START-INFO-DIR-ENTRY
 * memchr: (libc)Search Functions.
 * memcmp: (libc)String/Array Comparison.
 * memcpy: (libc)Copying Strings and Arrays.
-* memfrob: (libc)Trivial Encryption.
+* memfd_create: (libc)Memory-mapped I/O.
+* memfrob: (libc)Obfuscating Data.
 * memmem: (libc)Search Functions.
 * memmove: (libc)Copying Strings and Arrays.
 * mempcpy: (libc)Copying Strings and Arrays.
@@ -1383,6 +1417,7 @@ START-INFO-DIR-ENTRY
 * mkstemp: (libc)Temporary Files.
 * mktemp: (libc)Temporary Files.
 * mktime: (libc)Broken-down Time.
+* mlock2: (libc)Page Lock Functions.
 * mlock: (libc)Page Lock Functions.
 * mlockall: (libc)Page Lock Functions.
 * mmap64: (libc)Memory-mapped I/O.
@@ -1394,11 +1429,18 @@ START-INFO-DIR-ENTRY
 * modfl: (libc)Rounding Functions.
 * mount: (libc)Mount-Unmount-Remount.
 * mprobe: (libc)Heap Consistency Checking.
+* mprotect: (libc)Memory Protection.
 * mrand48: (libc)SVID Random.
 * mrand48_r: (libc)SVID Random.
 * mremap: (libc)Memory-mapped I/O.
 * msync: (libc)Memory-mapped I/O.
 * mtrace: (libc)Tracing malloc.
+* mtx_destroy: (libc)ISO C Mutexes.
+* mtx_init: (libc)ISO C Mutexes.
+* mtx_lock: (libc)ISO C Mutexes.
+* mtx_timedlock: (libc)ISO C Mutexes.
+* mtx_trylock: (libc)ISO C Mutexes.
+* mtx_unlock: (libc)ISO C Mutexes.
 * munlock: (libc)Page Lock Functions.
 * munlockall: (libc)Page Lock Functions.
 * munmap: (libc)Memory-mapped I/O.
@@ -1482,13 +1524,15 @@ START-INFO-DIR-ENTRY
 * pclose: (libc)Pipe to a Subprocess.
 * perror: (libc)Error Messages.
 * pipe: (libc)Creating a Pipe.
+* pkey_alloc: (libc)Memory Protection.
+* pkey_free: (libc)Memory Protection.
+* pkey_get: (libc)Memory Protection.
+* pkey_mprotect: (libc)Memory Protection.
+* pkey_set: (libc)Memory Protection.
 * popen: (libc)Pipe to a Subprocess.
 * posix_fallocate64: (libc)Storage Allocation.
 * posix_fallocate: (libc)Storage Allocation.
 * posix_memalign: (libc)Aligned Memory Blocks.
-* pow10: (libc)Exponents and Logarithms.
-* pow10f: (libc)Exponents and Logarithms.
-* pow10l: (libc)Exponents and Logarithms.
 * pow: (libc)Exponents and Logarithms.
 * powf: (libc)Exponents and Logarithms.
 * powfN: (libc)Exponents and Logarithms.
@@ -1496,10 +1540,10 @@ START-INFO-DIR-ENTRY
 * powl: (libc)Exponents and Logarithms.
 * pread64: (libc)I/O Primitives.
 * pread: (libc)I/O Primitives.
-* preadv2: (libc)I/O Primitives.
-* preadv64: (libc)I/O Primitives.
-* preadv64v2: (libc)I/O Primitives.
-* preadv: (libc)I/O Primitives.
+* preadv2: (libc)Scatter-Gather.
+* preadv64: (libc)Scatter-Gather.
+* preadv64v2: (libc)Scatter-Gather.
+* preadv: (libc)Scatter-Gather.
 * printf: (libc)Formatted Output Functions.
 * printf_size: (libc)Predefined Printf Handlers.
 * printf_size_info: (libc)Predefined Printf Handlers.
@@ -1528,10 +1572,10 @@ START-INFO-DIR-ENTRY
 * putwchar_unlocked: (libc)Simple Output.
 * pwrite64: (libc)I/O Primitives.
 * pwrite: (libc)I/O Primitives.
-* pwritev2: (libc)I/O Primitives.
-* pwritev64: (libc)I/O Primitives.
-* pwritev64v2: (libc)I/O Primitives.
-* pwritev: (libc)I/O Primitives.
+* pwritev2: (libc)Scatter-Gather.
+* pwritev64: (libc)Scatter-Gather.
+* pwritev64v2: (libc)Scatter-Gather.
+* pwritev: (libc)Scatter-Gather.
 * qecvt: (libc)System V Number Conversion.
 * qecvt_r: (libc)System V Number Conversion.
 * qfcvt: (libc)System V Number Conversion.
@@ -1654,8 +1698,6 @@ START-INFO-DIR-ENTRY
 * sethostname: (libc)Host Identification.
 * setitimer: (libc)Setting an Alarm.
 * setjmp: (libc)Non-Local Details.
-* setkey: (libc)DES Encryption.
-* setkey_r: (libc)DES Encryption.
 * setlinebuf: (libc)Controlling Buffering.
 * setlocale: (libc)Setting the Locale.
 * setlogmask: (libc)setlogmask.
@@ -1773,7 +1815,7 @@ START-INFO-DIR-ENTRY
 * strfromfN: (libc)Printing of Floats.
 * strfromfNx: (libc)Printing of Floats.
 * strfroml: (libc)Printing of Floats.
-* strfry: (libc)strfry.
+* strfry: (libc)Shuffling Bytes.
 * strftime: (libc)Formatting Calendar Time.
 * strlen: (libc)String Length.
 * strncasecmp: (libc)String/Array Comparison.
@@ -1849,6 +1891,14 @@ START-INFO-DIR-ENTRY
 * tgammafN: (libc)Special Functions.
 * tgammafNx: (libc)Special Functions.
 * tgammal: (libc)Special Functions.
+* thrd_create: (libc)ISO C Thread Management.
+* thrd_current: (libc)ISO C Thread Management.
+* thrd_detach: (libc)ISO C Thread Management.
+* thrd_equal: (libc)ISO C Thread Management.
+* thrd_exit: (libc)ISO C Thread Management.
+* thrd_join: (libc)ISO C Thread Management.
+* thrd_sleep: (libc)ISO C Thread Management.
+* thrd_yield: (libc)ISO C Thread Management.
 * time: (libc)Simple Calendar Time.
 * timegm: (libc)Broken-down Time.
 * timelocal: (libc)Broken-down Time.
@@ -1881,6 +1931,10 @@ START-INFO-DIR-ENTRY
 * truncfNx: (libc)Rounding Functions.
 * truncl: (libc)Rounding Functions.
 * tsearch: (libc)Tree Search Function.
+* tss_create: (libc)ISO C Thread-local Storage.
+* tss_delete: (libc)ISO C Thread-local Storage.
+* tss_get: (libc)ISO C Thread-local Storage.
+* tss_set: (libc)ISO C Thread-local Storage.
 * ttyname: (libc)Is It a Terminal.
 * ttyname_r: (libc)Is It a Terminal.
 * twalk: (libc)Tree Search Function.
@@ -2026,8 +2080,8 @@ File: libc.info,  Node: Top,  Next: Introduction,  Prev: (dir),  Up: (dir)
 Main Menu
 *********
 
-This is ‘The GNU C Library Reference Manual’, for Version 2.26
-(crosstool-NG 1.23.0.420-f79b) of the GNU C Library.
+This is ‘The GNU C Library Reference Manual’, for Version 2.28
+(crosstool-NG 1.23.0.511-576f) of the GNU C Library.
 
 * Menu:
 
@@ -2078,9 +2132,11 @@ This is ‘The GNU C Library Reference Manual’, for Version 2.26
                                    information about it.
 * System Configuration::         Parameters describing operating system
                                    limits.
-* Cryptographic Functions::      DES encryption and password handling.
+* Cryptographic Functions::      Passphrase storage and strongly
+                                   unpredictable bytes..
 * Debugging Support::            Functions to help debugging applications.
-* POSIX Threads::                POSIX Threads.
+* Threads::                      Functions, constants, and data types for
+                                   working with threads.
 * Internal Probes::              Probes to monitor libc internal behavior.
 * Tunables::                     Tunable switches to alter libc internal
                                    behavior.
@@ -2160,6 +2216,7 @@ Memory
 * Memory Concepts::             An introduction to concepts and terminology.
 * Memory Allocation::           Allocating storage for your program data
 * Resizing the Data Segment::   ‘brk’, ‘sbrk’
+* Memory Protection::           Controlling access to memory regions.
 * Locking Pages::               Preventing page faults
 
 Memory Allocation
@@ -2267,8 +2324,8 @@ String and Array Utilities
 				 for delimiters.
 * Erasing Sensitive Data::      Clearing memory which contains sensitive
                                  data, after it’s no longer needed.
-* strfry::                      Function for flash-cooking a string.
-* Trivial Encryption::          Obscuring data.
+* Shuffling Bytes::             Or how to flash-cook a string.
+* Obfuscating Data::            Reversibly obscuring data from casual view.
 * Encode Binary Data::          Encoding and Decoding of Binary Data.
 * Argz and Envz Vectors::       Null-separated string vectors.
 
@@ -2554,6 +2611,7 @@ Low-Level I/O
 * Stream/Descriptor Precautions::       Precautions needed if you use both
                                          descriptors and streams.
 * Scatter-Gather::                      Fast I/O to discontinuous buffers.
+* Copying File Data::                   Copying data between files.
 * Memory-mapped I/O::                   Using files like memory.
 * Waiting for I/O::                     How to check for input or output
 					 on multiple file descriptors.
@@ -2764,6 +2822,7 @@ Low-Level Terminal Interface
 * Line Control::                Sending break sequences, clearing
                                  terminal buffers ...
 * Noncanon Example::            How to read single characters without echo.
+* getpass::                     Prompting the user for a passphrase.
 * Pseudo-Terminals::            How to open a pseudo-terminal.
 
 Terminal Modes
@@ -3259,16 +3318,28 @@ Sysconf
 
 Cryptographic Functions
 
-* Legal Problems::              This software can get you locked up, or worse.
-* getpass::                     Prompting the user for a password.
-* crypt::                       A one-way function for passwords.
-* DES Encryption::              Routines for DES encryption.
-* Unpredictable Bytes::         Randomness for cryptography purposes.
+* Passphrase Storage::          One-way hashing for passphrases.
+* Unpredictable Bytes::         Randomness for cryptographic purposes.
 
 Debugging Support
 
 * Backtraces::                Obtaining and printing a back trace of the
                                current stack.
+
+Threads
+
+* ISO C Threads::	Threads based on the ISO C specification.
+* POSIX Threads::	Threads based on the POSIX specification.
+
+ISO C Threads
+
+* ISO C Threads Return Values:: Symbolic constants that represent a
+				function’s return value.
+* ISO C Thread Management::	Support for basic threading.
+* Call Once::			Single-call functions and macros.
+* ISO C Mutexes::		A low-level mechanism for mutual exclusion.
+* ISO C Condition Variables::	High-level objects for thread synchronization.
+* ISO C Thread-local Storage::	Functions to support thread-local storage.
 
 POSIX Threads
 
@@ -3292,6 +3363,7 @@ Tunables
 
 * Tunable names::  The structure of a tunable name
 * Memory Allocation Tunables::  Tunables in the memory allocation subsystem
+* Elision Tunables::  Tunables in elision subsystem
 * Hardware Capability Tunables::  Tunables that modify the hardware
 				  capabilities seen by the GNU C Library
 
@@ -3369,6 +3441,7 @@ Porting
 Platform
 
 * PowerPC::           Facilities Specific to the PowerPC Architecture
+* RISC-V::            Facilities Specific to the RISC-V Architecture
 
 
 File: libc.info,  Node: Introduction,  Next: Error Reporting,  Prev: Top,  Up: Top
@@ -4477,7 +4550,7 @@ controlled by which “feature test macros” you define.
    If you compile your programs using ‘gcc -ansi’, you get only the
 ISO C library features, unless you explicitly request additional
 features by defining one or more of the feature macros.  *Note GNU CC
-Command Options: (gcc.info)Invoking GCC, for more information about GCC
+Command Options: (gcc)Invoking GCC, for more information about GCC
 options.
 
    You should define these macros by using ‘#define’ preprocessor
@@ -4529,13 +4602,28 @@ on semantics undefined within the standard.
      ‘199309L’, then the functionality from the 1993 edition of the
      POSIX.1b standard (IEEE Standard 1003.1b-1993) is made available.
 
+     If you define this macro to a value greater than or equal to
+     ‘199506L’, then the functionality from the 1995 edition of the
+     POSIX.1c standard (IEEE Standard 1003.1c-1995) is made available.
+
+     If you define this macro to a value greater than or equal to
+     ‘200112L’, then the functionality from the 2001 edition of the
+     POSIX standard (IEEE Standard 1003.1-2001) is made available.
+
+     If you define this macro to a value greater than or equal to
+     ‘200809L’, then the functionality from the 2008 edition of the
+     POSIX standard (IEEE Standard 1003.1-2008) is made available.
+
      Greater values for ‘_POSIX_C_SOURCE’ will enable future extensions.
      The POSIX standards process will define these values as necessary,
      and the GNU C Library should support them some time after they
      become standardized.  The 1996 edition of POSIX.1 (ISO/IEC 9945-1:
      1996) states that if you define ‘_POSIX_C_SOURCE’ to a value
      greater than or equal to ‘199506L’, then the functionality from the
-     1996 edition is made available.
+     1996 edition is made available.  In general, in the GNU C Library,
+     bugfixes to the standards are included when specifying the base
+     version; e.g., POSIX.1-2004 will always be included with a value of
+     ‘200112L’.
 
  -- Macro: _XOPEN_SOURCE
  -- Macro: _XOPEN_SOURCE_EXTENDED
@@ -4554,7 +4642,9 @@ on semantics undefined within the standard.
 
      If the macro ‘_XOPEN_SOURCE’ has the value 500 this includes all
      functionality described so far plus some new definitions from the
-     Single Unix Specification, version 2.
+     Single Unix Specification, version 2.  The value 600 (corresponding
+     to the sixth revision) includes definitions from SUSv3, and using
+     700 (the seventh revision) includes definitions from SUSv4.
 
  -- Macro: _LARGEFILE_SOURCE
 
@@ -4615,10 +4705,14 @@ on semantics undefined within the standard.
 
  -- Macro: _ISOC99_SOURCE
 
-     Until the revised ISO C standard is widely adopted the new features
-     are not automatically enabled.  The GNU C Library nevertheless has
-     a complete implementation of the new standard and to enable the new
-     features the macro ‘_ISOC99_SOURCE’ should be defined.
+     If this macro is defined, features from ISO C99 are included.
+     Since these features are included by default, this macro is mostly
+     relevant when the compiler uses an earlier language version.
+
+ -- Macro: _ISOC11_SOURCE
+
+     If this macro is defined, ISO C11 extensions to ISO C99 are
+     included.
 
  -- Macro: __STDC_WANT_LIB_EXT2__
 
@@ -4660,12 +4754,25 @@ on semantics undefined within the standard.
      X/Open, LFS and GNU extensions: the effect is to enable features
      from the 2008 edition of POSIX, as well as certain BSD and SVID
      features without a separate feature test macro to control them.
-     Defining this macro, on its own and without using compiler options
-     such as ‘-ansi’ or ‘-std=c99’, has the same effect as not defining
-     any feature test macros; defining it together with other feature
-     test macros, or when options such as ‘-ansi’ are used, enables
-     those features even when the other options would otherwise cause
-     them to be disabled.
+
+     Be aware that compiler options also affect included features:
+
+        • If you use a strict conformance option, features beyond those
+          from the compiler’s language version will be disabled, though
+          feature test macros may be used to enable them.
+
+        • Features enabled by compiler options are not overridden by
+          feature test macros.
+
+ -- Macro: _ATFILE_SOURCE
+
+     If this macro is defined, additional ‘*at’ interfaces are included.
+
+ -- Macro: _FORTIFY_SOURCE
+
+     If this macro is defined to 1, security hardening is added to
+     various library functions.  If defined to 2, even stricter checks
+     are applied.
 
  -- Macro: _REENTRANT
  -- Macro: _THREAD_SAFE
@@ -4891,20 +4998,20 @@ the variable ‘errno’.  This variable is declared in the header file
      value of ‘errno’, so you generally do not need to worry about this
      possibility except when writing signal handlers.
 
-     The initial value of ‘errno’ at program startup is zero.  Many
-     library functions are guaranteed to set it to certain nonzero
-     values when they encounter certain kinds of errors.  These error
-     conditions are listed for each function.  These functions do not
-     change ‘errno’ when they succeed; thus, the value of ‘errno’ after
-     a successful call is not necessarily zero, and you should not use
-     ‘errno’ to determine _whether_ a call failed.  The proper way to do
-     that is documented for each function.  _If_ the call failed, you
-     can examine ‘errno’.
+     The initial value of ‘errno’ at program startup is zero.  In many
+     cases, when a library function encounters an error, it will set
+     ‘errno’ to a non-zero value to indicate what specific error
+     condition occurred.  The documentation for each function lists the
+     error conditions that are possible for that function.  Not all
+     library functions use this mechanism; some return an error code
+     directly, instead.
 
-     Many library functions can set ‘errno’ to a nonzero value as a
-     result of calling other library functions which might fail.  You
-     should assume that any library function might alter ‘errno’ when
-     the function returns an error.
+     *Warning:* Many library functions may set ‘errno’ to some
+     meaningless non-zero value even if they did not encounter any
+     errors, and even if they return error codes directly.  Therefore,
+     it is usually incorrect to check _whether_ an error occurred by
+     inspecting the value of ‘errno’.  The proper way to check for error
+     is documented for each function.
 
      *Portability Note:* ISO C specifies ‘errno’ as a “modifiable
      lvalue” rather than as a variable, permitting it to be implemented
@@ -5579,6 +5686,14 @@ on other systems.
      ‘aio_cancel’, the normal result is for the operations affected to
      complete with this error; *note Cancel AIO Operations::.
 
+ -- Macro: int EOWNERDEAD
+
+     “Owner died.”
+
+ -- Macro: int ENOTRECOVERABLE
+
+     “State not recoverable.”
+
    _The following error codes are defined by the Linux/i386 kernel.
 They are not yet documented._
 
@@ -5753,14 +5868,6 @@ They are not yet documented._
  -- Macro: int EKEYREJECTED
 
      “Key was rejected by service.”
-
- -- Macro: int EOWNERDEAD
-
-     “Owner died.”
-
- -- Macro: int ENOTRECOVERABLE
-
-     “State not recoverable.”
 
  -- Macro: int ERFKILL
 
@@ -6163,6 +6270,7 @@ and allocation of real memory.
 * Memory Concepts::             An introduction to concepts and terminology.
 * Memory Allocation::           Allocating storage for your program data
 * Resizing the Data Segment::   ‘brk’, ‘sbrk’
+* Memory Protection::           Controlling access to memory regions.
 * Locking Pages::               Preventing page faults
 
    Memory mapped I/O is not discussed in this chapter.  *Note
@@ -7036,16 +7144,15 @@ the ‘mcheck’ function.  This function is a GNU extension, declared in
 
    Another possibility to check for and guard against bugs in the use of
 ‘malloc’, ‘realloc’ and ‘free’ is to set the environment variable
-‘MALLOC_CHECK_’.  When ‘MALLOC_CHECK_’ is set, a special (less
-efficient) implementation is used which is designed to be tolerant
-against simple errors, such as double calls of ‘free’ with the same
-argument, or overruns of a single byte (off-by-one bugs).  Not all such
-errors can be protected against, however, and memory leaks can result.
-If ‘MALLOC_CHECK_’ is set to ‘0’, any detected heap corruption is
-silently ignored; if set to ‘1’, a diagnostic is printed on ‘stderr’; if
-set to ‘2’, ‘abort’ is called immediately.  This can be useful because
-otherwise a crash may happen much later, and the true cause for the
-problem is then very hard to track down.
+‘MALLOC_CHECK_’.  When ‘MALLOC_CHECK_’ is set to a non-zero value, a
+special (less efficient) implementation is used which is designed to be
+tolerant against simple errors, such as double calls of ‘free’ with the
+same argument, or overruns of a single byte (off-by-one bugs).  Not all
+such errors can be protected against, however, and memory leaks can
+result.
+
+   Any detected heap corruption results in immediate termination of the
+process.
 
    There is one problem with ‘MALLOC_CHECK_’: in SUID or SGID binaries
 it could possibly be exploited since diverging from the normal programs
@@ -7060,154 +7167,4 @@ with ‘-lmcheck’?  ‘MALLOC_CHECK_’ is orthogonal with respect to
 ‘-lmcheck’.  ‘-lmcheck’ has been added for backward compatibility.  Both
 ‘MALLOC_CHECK_’ and ‘-lmcheck’ should uncover the same bugs - but using
 ‘MALLOC_CHECK_’ you don’t need to recompile your application.
-
-
-File: libc.info,  Node: Hooks for Malloc,  Next: Statistics of Malloc,  Prev: Heap Consistency Checking,  Up: Unconstrained Allocation
-
-3.2.3.9 Memory Allocation Hooks
-...............................
-
-The GNU C Library lets you modify the behavior of ‘malloc’, ‘realloc’,
-and ‘free’ by specifying appropriate hook functions.  You can use these
-hooks to help you debug programs that use dynamic memory allocation, for
-example.
-
-   The hook variables are declared in ‘malloc.h’.
-
- -- Variable: __malloc_hook
-
-     The value of this variable is a pointer to the function that
-     ‘malloc’ uses whenever it is called.  You should define this
-     function to look like ‘malloc’; that is, like:
-
-          void *FUNCTION (size_t SIZE, const void *CALLER)
-
-     The value of CALLER is the return address found on the stack when
-     the ‘malloc’ function was called.  This value allows you to trace
-     the memory consumption of the program.
-
- -- Variable: __realloc_hook
-
-     The value of this variable is a pointer to function that ‘realloc’
-     uses whenever it is called.  You should define this function to
-     look like ‘realloc’; that is, like:
-
-          void *FUNCTION (void *PTR, size_t SIZE, const void *CALLER)
-
-     The value of CALLER is the return address found on the stack when
-     the ‘realloc’ function was called.  This value allows you to trace
-     the memory consumption of the program.
-
- -- Variable: __free_hook
-
-     The value of this variable is a pointer to function that ‘free’
-     uses whenever it is called.  You should define this function to
-     look like ‘free’; that is, like:
-
-          void FUNCTION (void *PTR, const void *CALLER)
-
-     The value of CALLER is the return address found on the stack when
-     the ‘free’ function was called.  This value allows you to trace the
-     memory consumption of the program.
-
- -- Variable: __memalign_hook
-
-     The value of this variable is a pointer to function that
-     ‘aligned_alloc’, ‘memalign’, ‘posix_memalign’ and ‘valloc’ use
-     whenever they are called.  You should define this function to look
-     like ‘aligned_alloc’; that is, like:
-
-          void *FUNCTION (size_t ALIGNMENT, size_t SIZE, const void *CALLER)
-
-     The value of CALLER is the return address found on the stack when
-     the ‘aligned_alloc’, ‘memalign’, ‘posix_memalign’ or ‘valloc’
-     functions are called.  This value allows you to trace the memory
-     consumption of the program.
-
-   You must make sure that the function you install as a hook for one of
-these functions does not call that function recursively without
-restoring the old value of the hook first!  Otherwise, your program will
-get stuck in an infinite recursion.  Before calling the function
-recursively, one should make sure to restore all the hooks to their
-previous value.  When coming back from the recursive call, all the hooks
-should be resaved since a hook might modify itself.
-
-   An issue to look out for is the time at which the malloc hook
-functions can be safely installed.  If the hook functions call the
-malloc-related functions recursively, it is necessary that malloc has
-already properly initialized itself at the time when ‘__malloc_hook’
-etc.  is assigned to.  On the other hand, if the hook functions provide
-a complete malloc implementation of their own, it is vital that the
-hooks are assigned to _before_ the very first ‘malloc’ call has
-completed, because otherwise a chunk obtained from the ordinary,
-un-hooked malloc may later be handed to ‘__free_hook’, for example.
-
-   Here is an example showing how to use ‘__malloc_hook’ and
-‘__free_hook’ properly.  It installs a function that prints out
-information every time ‘malloc’ or ‘free’ is called.  We just assume
-here that ‘realloc’ and ‘memalign’ are not used in our program.
-
-     /* Prototypes for __malloc_hook, __free_hook */
-     #include <malloc.h>
-
-     /* Prototypes for our hooks.  */
-     static void my_init_hook (void);
-     static void *my_malloc_hook (size_t, const void *);
-     static void my_free_hook (void*, const void *);
-
-     static void
-     my_init (void)
-     {
-       old_malloc_hook = __malloc_hook;
-       old_free_hook = __free_hook;
-       __malloc_hook = my_malloc_hook;
-       __free_hook = my_free_hook;
-     }
-
-     static void *
-     my_malloc_hook (size_t size, const void *caller)
-     {
-       void *result;
-       /* Restore all old hooks */
-       __malloc_hook = old_malloc_hook;
-       __free_hook = old_free_hook;
-       /* Call recursively */
-       result = malloc (size);
-       /* Save underlying hooks */
-       old_malloc_hook = __malloc_hook;
-       old_free_hook = __free_hook;
-       /* ‘printf’ might call ‘malloc’, so protect it too. */
-       printf ("malloc (%u) returns %p\n", (unsigned int) size, result);
-       /* Restore our own hooks */
-       __malloc_hook = my_malloc_hook;
-       __free_hook = my_free_hook;
-       return result;
-     }
-
-     static void
-     my_free_hook (void *ptr, const void *caller)
-     {
-       /* Restore all old hooks */
-       __malloc_hook = old_malloc_hook;
-       __free_hook = old_free_hook;
-       /* Call recursively */
-       free (ptr);
-       /* Save underlying hooks */
-       old_malloc_hook = __malloc_hook;
-       old_free_hook = __free_hook;
-       /* ‘printf’ might call ‘free’, so protect it too. */
-       printf ("freed pointer %p\n", ptr);
-       /* Restore our own hooks */
-       __malloc_hook = my_malloc_hook;
-       __free_hook = my_free_hook;
-     }
-
-     main ()
-     {
-       my_init ();
-       ...
-     }
-
-   The ‘mcheck’ function (*note Heap Consistency Checking::) works by
-installing such hooks.
 

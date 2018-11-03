@@ -2,10 +2,10 @@ This is libc.info, produced by makeinfo version 6.5 from libc.texinfo.
 
 This file documents the GNU C Library.
 
-   This is ‘The GNU C Library Reference Manual’, for version 2.26
-(crosstool-NG 1.23.0.420-f79b).
+   This is ‘The GNU C Library Reference Manual’, for version 2.28
+(crosstool-NG 1.23.0.511-576f).
 
-   Copyright © 1993–2017 Free Software Foundation, Inc.
+   Copyright © 1993–2018 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +56,6 @@ START-INFO-DIR-ENTRY
 * CS8: (libc)Control Modes.
 * CSIZE: (libc)Control Modes.
 * CSTOPB: (libc)Control Modes.
-* DES_FAILED: (libc)DES Encryption.
 * DTTOIF: (libc)Directory Entries.
 * E2BIG: (libc)Error Codes.
 * EACCES: (libc)Error Codes.
@@ -326,6 +325,7 @@ START-INFO-DIR-ENTRY
 * O_READ: (libc)Access Modes.
 * O_SHLOCK: (libc)Open-time Flags.
 * O_SYNC: (libc)Operating Modes.
+* O_TMPFILE: (libc)Open-time Flags.
 * O_TRUNC: (libc)Open-time Flags.
 * O_WRITE: (libc)Access Modes.
 * O_WRONLY: (libc)Access Modes.
@@ -489,6 +489,7 @@ START-INFO-DIR-ENTRY
 * __ppc_set_ppr_med_low: (libc)PowerPC.
 * __ppc_set_ppr_very_low: (libc)PowerPC.
 * __ppc_yield: (libc)PowerPC.
+* __riscv_flush_icache: (libc)RISC-V.
 * __va_copy: (libc)Argument Macros.
 * _exit: (libc)Termination Internals.
 * _flushlbf: (libc)Flushing Buffers.
@@ -615,6 +616,7 @@ START-INFO-DIR-ENTRY
 * cacoshfNx: (libc)Hyperbolic Functions.
 * cacoshl: (libc)Hyperbolic Functions.
 * cacosl: (libc)Inverse Trig Functions.
+* call_once: (libc)Call Once.
 * calloc: (libc)Allocating Cleared Space.
 * canonicalize: (libc)FP Bit Twiddling.
 * canonicalize_file_name: (libc)Symbolic Links.
@@ -650,7 +652,6 @@ START-INFO-DIR-ENTRY
 * catclose: (libc)The catgets Functions.
 * catgets: (libc)The catgets Functions.
 * catopen: (libc)The catgets Functions.
-* cbc_crypt: (libc)DES Encryption.
 * cbrt: (libc)Exponents and Logarithms.
 * cbrtf: (libc)Exponents and Logarithms.
 * cbrtfN: (libc)Exponents and Logarithms.
@@ -707,6 +708,12 @@ START-INFO-DIR-ENTRY
 * close: (libc)Opening and Closing Files.
 * closedir: (libc)Reading/Closing Directory.
 * closelog: (libc)closelog.
+* cnd_broadcast: (libc)ISO C Condition Variables.
+* cnd_destroy: (libc)ISO C Condition Variables.
+* cnd_init: (libc)ISO C Condition Variables.
+* cnd_signal: (libc)ISO C Condition Variables.
+* cnd_timedwait: (libc)ISO C Condition Variables.
+* cnd_wait: (libc)ISO C Condition Variables.
 * confstr: (libc)String Parameters.
 * conj: (libc)Operations on Complex.
 * conjf: (libc)Operations on Complex.
@@ -714,6 +721,7 @@ START-INFO-DIR-ENTRY
 * conjfNx: (libc)Operations on Complex.
 * conjl: (libc)Operations on Complex.
 * connect: (libc)Connecting.
+* copy_file_range: (libc)Copying File Data.
 * copysign: (libc)FP Bit Twiddling.
 * copysignf: (libc)FP Bit Twiddling.
 * copysignfN: (libc)FP Bit Twiddling.
@@ -746,8 +754,8 @@ START-INFO-DIR-ENTRY
 * creall: (libc)Operations on Complex.
 * creat64: (libc)Opening and Closing Files.
 * creat: (libc)Opening and Closing Files.
-* crypt: (libc)crypt.
-* crypt_r: (libc)crypt.
+* crypt: (libc)Passphrase Storage.
+* crypt_r: (libc)Passphrase Storage.
 * csin: (libc)Trig Functions.
 * csinf: (libc)Trig Functions.
 * csinfN: (libc)Trig Functions.
@@ -777,27 +785,27 @@ START-INFO-DIR-ENTRY
 * ctime: (libc)Formatting Calendar Time.
 * ctime_r: (libc)Formatting Calendar Time.
 * cuserid: (libc)Who Logged In.
+* daddl: (libc)Misc FP Arithmetic.
 * dcgettext: (libc)Translation with gettext.
 * dcngettext: (libc)Advanced gettext functions.
-* des_setparity: (libc)DES Encryption.
+* ddivl: (libc)Misc FP Arithmetic.
 * dgettext: (libc)Translation with gettext.
 * difftime: (libc)Elapsed Time.
 * dirfd: (libc)Opening a Directory.
 * dirname: (libc)Finding Tokens in a String.
 * div: (libc)Integer Division.
+* dmull: (libc)Misc FP Arithmetic.
 * dngettext: (libc)Advanced gettext functions.
 * drand48: (libc)SVID Random.
 * drand48_r: (libc)SVID Random.
 * drem: (libc)Remainder Functions.
 * dremf: (libc)Remainder Functions.
 * dreml: (libc)Remainder Functions.
+* dsubl: (libc)Misc FP Arithmetic.
 * dup2: (libc)Duplicating Descriptors.
 * dup: (libc)Duplicating Descriptors.
-* ecb_crypt: (libc)DES Encryption.
 * ecvt: (libc)System V Number Conversion.
 * ecvt_r: (libc)System V Number Conversion.
-* encrypt: (libc)DES Encryption.
-* encrypt_r: (libc)DES Encryption.
 * endfsent: (libc)fstab.
 * endgrent: (libc)Scanning All Groups.
 * endhostent: (libc)Host Names.
@@ -860,11 +868,29 @@ START-INFO-DIR-ENTRY
 * expm1fN: (libc)Exponents and Logarithms.
 * expm1fNx: (libc)Exponents and Logarithms.
 * expm1l: (libc)Exponents and Logarithms.
+* fMaddfN: (libc)Misc FP Arithmetic.
+* fMaddfNx: (libc)Misc FP Arithmetic.
+* fMdivfN: (libc)Misc FP Arithmetic.
+* fMdivfNx: (libc)Misc FP Arithmetic.
+* fMmulfN: (libc)Misc FP Arithmetic.
+* fMmulfNx: (libc)Misc FP Arithmetic.
+* fMsubfN: (libc)Misc FP Arithmetic.
+* fMsubfNx: (libc)Misc FP Arithmetic.
+* fMxaddfN: (libc)Misc FP Arithmetic.
+* fMxaddfNx: (libc)Misc FP Arithmetic.
+* fMxdivfN: (libc)Misc FP Arithmetic.
+* fMxdivfNx: (libc)Misc FP Arithmetic.
+* fMxmulfN: (libc)Misc FP Arithmetic.
+* fMxmulfNx: (libc)Misc FP Arithmetic.
+* fMxsubfN: (libc)Misc FP Arithmetic.
+* fMxsubfNx: (libc)Misc FP Arithmetic.
 * fabs: (libc)Absolute Value.
 * fabsf: (libc)Absolute Value.
 * fabsfN: (libc)Absolute Value.
 * fabsfNx: (libc)Absolute Value.
 * fabsl: (libc)Absolute Value.
+* fadd: (libc)Misc FP Arithmetic.
+* faddl: (libc)Misc FP Arithmetic.
 * fchdir: (libc)Working Directory.
 * fchmod: (libc)Setting Permissions.
 * fchown: (libc)File Owner.
@@ -879,6 +905,8 @@ START-INFO-DIR-ENTRY
 * fdimfN: (libc)Misc FP Arithmetic.
 * fdimfNx: (libc)Misc FP Arithmetic.
 * fdiml: (libc)Misc FP Arithmetic.
+* fdiv: (libc)Misc FP Arithmetic.
+* fdivl: (libc)Misc FP Arithmetic.
 * fdopen: (libc)Descriptors and Streams.
 * fdopendir: (libc)Opening a Directory.
 * feclearexcept: (libc)Status bit operations.
@@ -962,6 +990,8 @@ START-INFO-DIR-ENTRY
 * fmodfNx: (libc)Remainder Functions.
 * fmodl: (libc)Remainder Functions.
 * fmtmsg: (libc)Printing Formatted Messages.
+* fmul: (libc)Misc FP Arithmetic.
+* fmull: (libc)Misc FP Arithmetic.
 * fnmatch: (libc)Wildcard Matching.
 * fopen64: (libc)Opening Streams.
 * fopen: (libc)Opening Streams.
@@ -1007,6 +1037,8 @@ START-INFO-DIR-ENTRY
 * fsetpos: (libc)Portable Positioning.
 * fstat64: (libc)Reading Attributes.
 * fstat: (libc)Reading Attributes.
+* fsub: (libc)Misc FP Arithmetic.
+* fsubl: (libc)Misc FP Arithmetic.
 * fsync: (libc)Synchronizing I/O.
 * ftell: (libc)File Positioning.
 * ftello64: (libc)File Positioning.
@@ -1280,6 +1312,7 @@ START-INFO-DIR-ENTRY
 * lgammal: (libc)Special Functions.
 * lgammal_r: (libc)Special Functions.
 * link: (libc)Hard Links.
+* linkat: (libc)Hard Links.
 * lio_listio64: (libc)Asynchronous Reads/Writes.
 * lio_listio: (libc)Asynchronous Reads/Writes.
 * listen: (libc)Listening.
@@ -1370,7 +1403,8 @@ START-INFO-DIR-ENTRY
 * memchr: (libc)Search Functions.
 * memcmp: (libc)String/Array Comparison.
 * memcpy: (libc)Copying Strings and Arrays.
-* memfrob: (libc)Trivial Encryption.
+* memfd_create: (libc)Memory-mapped I/O.
+* memfrob: (libc)Obfuscating Data.
 * memmem: (libc)Search Functions.
 * memmove: (libc)Copying Strings and Arrays.
 * mempcpy: (libc)Copying Strings and Arrays.
@@ -1383,6 +1417,7 @@ START-INFO-DIR-ENTRY
 * mkstemp: (libc)Temporary Files.
 * mktemp: (libc)Temporary Files.
 * mktime: (libc)Broken-down Time.
+* mlock2: (libc)Page Lock Functions.
 * mlock: (libc)Page Lock Functions.
 * mlockall: (libc)Page Lock Functions.
 * mmap64: (libc)Memory-mapped I/O.
@@ -1394,11 +1429,18 @@ START-INFO-DIR-ENTRY
 * modfl: (libc)Rounding Functions.
 * mount: (libc)Mount-Unmount-Remount.
 * mprobe: (libc)Heap Consistency Checking.
+* mprotect: (libc)Memory Protection.
 * mrand48: (libc)SVID Random.
 * mrand48_r: (libc)SVID Random.
 * mremap: (libc)Memory-mapped I/O.
 * msync: (libc)Memory-mapped I/O.
 * mtrace: (libc)Tracing malloc.
+* mtx_destroy: (libc)ISO C Mutexes.
+* mtx_init: (libc)ISO C Mutexes.
+* mtx_lock: (libc)ISO C Mutexes.
+* mtx_timedlock: (libc)ISO C Mutexes.
+* mtx_trylock: (libc)ISO C Mutexes.
+* mtx_unlock: (libc)ISO C Mutexes.
 * munlock: (libc)Page Lock Functions.
 * munlockall: (libc)Page Lock Functions.
 * munmap: (libc)Memory-mapped I/O.
@@ -1482,13 +1524,15 @@ START-INFO-DIR-ENTRY
 * pclose: (libc)Pipe to a Subprocess.
 * perror: (libc)Error Messages.
 * pipe: (libc)Creating a Pipe.
+* pkey_alloc: (libc)Memory Protection.
+* pkey_free: (libc)Memory Protection.
+* pkey_get: (libc)Memory Protection.
+* pkey_mprotect: (libc)Memory Protection.
+* pkey_set: (libc)Memory Protection.
 * popen: (libc)Pipe to a Subprocess.
 * posix_fallocate64: (libc)Storage Allocation.
 * posix_fallocate: (libc)Storage Allocation.
 * posix_memalign: (libc)Aligned Memory Blocks.
-* pow10: (libc)Exponents and Logarithms.
-* pow10f: (libc)Exponents and Logarithms.
-* pow10l: (libc)Exponents and Logarithms.
 * pow: (libc)Exponents and Logarithms.
 * powf: (libc)Exponents and Logarithms.
 * powfN: (libc)Exponents and Logarithms.
@@ -1496,10 +1540,10 @@ START-INFO-DIR-ENTRY
 * powl: (libc)Exponents and Logarithms.
 * pread64: (libc)I/O Primitives.
 * pread: (libc)I/O Primitives.
-* preadv2: (libc)I/O Primitives.
-* preadv64: (libc)I/O Primitives.
-* preadv64v2: (libc)I/O Primitives.
-* preadv: (libc)I/O Primitives.
+* preadv2: (libc)Scatter-Gather.
+* preadv64: (libc)Scatter-Gather.
+* preadv64v2: (libc)Scatter-Gather.
+* preadv: (libc)Scatter-Gather.
 * printf: (libc)Formatted Output Functions.
 * printf_size: (libc)Predefined Printf Handlers.
 * printf_size_info: (libc)Predefined Printf Handlers.
@@ -1528,10 +1572,10 @@ START-INFO-DIR-ENTRY
 * putwchar_unlocked: (libc)Simple Output.
 * pwrite64: (libc)I/O Primitives.
 * pwrite: (libc)I/O Primitives.
-* pwritev2: (libc)I/O Primitives.
-* pwritev64: (libc)I/O Primitives.
-* pwritev64v2: (libc)I/O Primitives.
-* pwritev: (libc)I/O Primitives.
+* pwritev2: (libc)Scatter-Gather.
+* pwritev64: (libc)Scatter-Gather.
+* pwritev64v2: (libc)Scatter-Gather.
+* pwritev: (libc)Scatter-Gather.
 * qecvt: (libc)System V Number Conversion.
 * qecvt_r: (libc)System V Number Conversion.
 * qfcvt: (libc)System V Number Conversion.
@@ -1654,8 +1698,6 @@ START-INFO-DIR-ENTRY
 * sethostname: (libc)Host Identification.
 * setitimer: (libc)Setting an Alarm.
 * setjmp: (libc)Non-Local Details.
-* setkey: (libc)DES Encryption.
-* setkey_r: (libc)DES Encryption.
 * setlinebuf: (libc)Controlling Buffering.
 * setlocale: (libc)Setting the Locale.
 * setlogmask: (libc)setlogmask.
@@ -1773,7 +1815,7 @@ START-INFO-DIR-ENTRY
 * strfromfN: (libc)Printing of Floats.
 * strfromfNx: (libc)Printing of Floats.
 * strfroml: (libc)Printing of Floats.
-* strfry: (libc)strfry.
+* strfry: (libc)Shuffling Bytes.
 * strftime: (libc)Formatting Calendar Time.
 * strlen: (libc)String Length.
 * strncasecmp: (libc)String/Array Comparison.
@@ -1849,6 +1891,14 @@ START-INFO-DIR-ENTRY
 * tgammafN: (libc)Special Functions.
 * tgammafNx: (libc)Special Functions.
 * tgammal: (libc)Special Functions.
+* thrd_create: (libc)ISO C Thread Management.
+* thrd_current: (libc)ISO C Thread Management.
+* thrd_detach: (libc)ISO C Thread Management.
+* thrd_equal: (libc)ISO C Thread Management.
+* thrd_exit: (libc)ISO C Thread Management.
+* thrd_join: (libc)ISO C Thread Management.
+* thrd_sleep: (libc)ISO C Thread Management.
+* thrd_yield: (libc)ISO C Thread Management.
 * time: (libc)Simple Calendar Time.
 * timegm: (libc)Broken-down Time.
 * timelocal: (libc)Broken-down Time.
@@ -1881,6 +1931,10 @@ START-INFO-DIR-ENTRY
 * truncfNx: (libc)Rounding Functions.
 * truncl: (libc)Rounding Functions.
 * tsearch: (libc)Tree Search Function.
+* tss_create: (libc)ISO C Thread-local Storage.
+* tss_delete: (libc)ISO C Thread-local Storage.
+* tss_get: (libc)ISO C Thread-local Storage.
+* tss_set: (libc)ISO C Thread-local Storage.
 * ttyname: (libc)Is It a Terminal.
 * ttyname_r: (libc)Is It a Terminal.
 * twalk: (libc)Tree Search Function.
@@ -2019,6 +2073,1806 @@ START-INFO-DIR-ENTRY
 * ynfNx: (libc)Special Functions.
 * ynl: (libc)Special Functions.
 END-INFO-DIR-ENTRY
+
+
+File: libc.info,  Node: Testing for Delivery,  Next: Blocking for Handler,  Prev: Process Signal Mask,  Up: Blocking Signals
+
+24.7.4 Blocking to Test for Delivery of a Signal
+------------------------------------------------
+
+Now for a simple example.  Suppose you establish a handler for ‘SIGALRM’
+signals that sets a flag whenever a signal arrives, and your main
+program checks this flag from time to time and then resets it.  You can
+prevent additional ‘SIGALRM’ signals from arriving in the meantime by
+wrapping the critical part of the code with calls to ‘sigprocmask’, like
+this:
+
+     /* This variable is set by the SIGALRM signal handler. */
+     volatile sig_atomic_t flag = 0;
+
+     int
+     main (void)
+     {
+       sigset_t block_alarm;
+
+       ...
+
+       /* Initialize the signal mask. */
+       sigemptyset (&block_alarm);
+       sigaddset (&block_alarm, SIGALRM);
+
+       while (1)
+         {
+           /* Check if a signal has arrived; if so, reset the flag. */
+           sigprocmask (SIG_BLOCK, &block_alarm, NULL);
+           if (flag)
+             {
+               ACTIONS-IF-NOT-ARRIVED
+               flag = 0;
+             }
+           sigprocmask (SIG_UNBLOCK, &block_alarm, NULL);
+
+           ...
+         }
+     }
+
+
+File: libc.info,  Node: Blocking for Handler,  Next: Checking for Pending Signals,  Prev: Testing for Delivery,  Up: Blocking Signals
+
+24.7.5 Blocking Signals for a Handler
+-------------------------------------
+
+When a signal handler is invoked, you usually want it to be able to
+finish without being interrupted by another signal.  From the moment the
+handler starts until the moment it finishes, you must block signals that
+might confuse it or corrupt its data.
+
+   When a handler function is invoked on a signal, that signal is
+automatically blocked (in addition to any other signals that are already
+in the process’s signal mask) during the time the handler is running.
+If you set up a handler for ‘SIGTSTP’, for instance, then the arrival of
+that signal forces further ‘SIGTSTP’ signals to wait during the
+execution of the handler.
+
+   However, by default, other kinds of signals are not blocked; they can
+arrive during handler execution.
+
+   The reliable way to block other kinds of signals during the execution
+of the handler is to use the ‘sa_mask’ member of the ‘sigaction’
+structure.
+
+   Here is an example:
+
+     #include <signal.h>
+     #include <stddef.h>
+
+     void catch_stop ();
+
+     void
+     install_handler (void)
+     {
+       struct sigaction setup_action;
+       sigset_t block_mask;
+
+       sigemptyset (&block_mask);
+       /* Block other terminal-generated signals while handler runs. */
+       sigaddset (&block_mask, SIGINT);
+       sigaddset (&block_mask, SIGQUIT);
+       setup_action.sa_handler = catch_stop;
+       setup_action.sa_mask = block_mask;
+       setup_action.sa_flags = 0;
+       sigaction (SIGTSTP, &setup_action, NULL);
+     }
+
+   This is more reliable than blocking the other signals explicitly in
+the code for the handler.  If you block signals explicitly in the
+handler, you can’t avoid at least a short interval at the beginning of
+the handler where they are not yet blocked.
+
+   You cannot remove signals from the process’s current mask using this
+mechanism.  However, you can make calls to ‘sigprocmask’ within your
+handler to block or unblock signals as you wish.
+
+   In any case, when the handler returns, the system restores the mask
+that was in place before the handler was entered.  If any signals that
+become unblocked by this restoration are pending, the process will
+receive those signals immediately, before returning to the code that was
+interrupted.
+
+
+File: libc.info,  Node: Checking for Pending Signals,  Next: Remembering a Signal,  Prev: Blocking for Handler,  Up: Blocking Signals
+
+24.7.6 Checking for Pending Signals
+-----------------------------------
+
+You can find out which signals are pending at any time by calling
+‘sigpending’.  This function is declared in ‘signal.h’.
+
+ -- Function: int sigpending (sigset_t *SET)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock/hurd | AC-Unsafe lock/hurd
+     | *Note POSIX Safety Concepts::.
+
+     The ‘sigpending’ function stores information about pending signals
+     in SET.  If there is a pending signal that is blocked from
+     delivery, then that signal is a member of the returned set.  (You
+     can test whether a particular signal is a member of this set using
+     ‘sigismember’; see *note Signal Sets::.)
+
+     The return value is ‘0’ if successful, and ‘-1’ on failure.
+
+   Testing whether a signal is pending is not often useful.  Testing
+when that signal is not blocked is almost certainly bad design.
+
+   Here is an example.
+
+     #include <signal.h>
+     #include <stddef.h>
+
+     sigset_t base_mask, waiting_mask;
+
+     sigemptyset (&base_mask);
+     sigaddset (&base_mask, SIGINT);
+     sigaddset (&base_mask, SIGTSTP);
+
+     /* Block user interrupts while doing other processing. */
+     sigprocmask (SIG_SETMASK, &base_mask, NULL);
+     ...
+
+     /* After a while, check to see whether any signals are pending. */
+     sigpending (&waiting_mask);
+     if (sigismember (&waiting_mask, SIGINT)) {
+       /* User has tried to kill the process. */
+     }
+     else if (sigismember (&waiting_mask, SIGTSTP)) {
+       /* User has tried to stop the process. */
+     }
+
+   Remember that if there is a particular signal pending for your
+process, additional signals of that same type that arrive in the
+meantime might be discarded.  For example, if a ‘SIGINT’ signal is
+pending when another ‘SIGINT’ signal arrives, your program will probably
+only see one of them when you unblock this signal.
+
+   *Portability Note:* The ‘sigpending’ function is new in POSIX.1.
+Older systems have no equivalent facility.
+
+
+File: libc.info,  Node: Remembering a Signal,  Prev: Checking for Pending Signals,  Up: Blocking Signals
+
+24.7.7 Remembering a Signal to Act On Later
+-------------------------------------------
+
+Instead of blocking a signal using the library facilities, you can get
+almost the same results by making the handler set a flag to be tested
+later, when you “unblock”.  Here is an example:
+
+     /* If this flag is nonzero, don’t handle the signal right away. */
+     volatile sig_atomic_t signal_pending;
+
+     /* This is nonzero if a signal arrived and was not handled. */
+     volatile sig_atomic_t defer_signal;
+
+     void
+     handler (int signum)
+     {
+       if (defer_signal)
+         signal_pending = signum;
+       else
+         ... /* “Really” handle the signal. */
+     }
+
+     ...
+
+     void
+     update_mumble (int frob)
+     {
+       /* Prevent signals from having immediate effect. */
+       defer_signal++;
+       /* Now update ‘mumble’, without worrying about interruption. */
+       mumble.a = 1;
+       mumble.b = hack ();
+       mumble.c = frob;
+       /* We have updated ‘mumble’.  Handle any signal that came in. */
+       defer_signal--;
+       if (defer_signal == 0 && signal_pending != 0)
+         raise (signal_pending);
+     }
+
+   Note how the particular signal that arrives is stored in
+‘signal_pending’.  That way, we can handle several types of inconvenient
+signals with the same mechanism.
+
+   We increment and decrement ‘defer_signal’ so that nested critical
+sections will work properly; thus, if ‘update_mumble’ were called with
+‘signal_pending’ already nonzero, signals would be deferred not only
+within ‘update_mumble’, but also within the caller.  This is also why we
+do not check ‘signal_pending’ if ‘defer_signal’ is still nonzero.
+
+   The incrementing and decrementing of ‘defer_signal’ each require more
+than one instruction; it is possible for a signal to happen in the
+middle.  But that does not cause any problem.  If the signal happens
+early enough to see the value from before the increment or decrement,
+that is equivalent to a signal which came before the beginning of the
+increment or decrement, which is a case that works properly.
+
+   It is absolutely vital to decrement ‘defer_signal’ before testing
+‘signal_pending’, because this avoids a subtle bug.  If we did these
+things in the other order, like this,
+
+       if (defer_signal == 1 && signal_pending != 0)
+         raise (signal_pending);
+       defer_signal--;
+
+then a signal arriving in between the ‘if’ statement and the decrement
+would be effectively “lost” for an indefinite amount of time.  The
+handler would merely set ‘defer_signal’, but the program having already
+tested this variable, it would not test the variable again.
+
+   Bugs like these are called “timing errors”.  They are especially bad
+because they happen only rarely and are nearly impossible to reproduce.
+You can’t expect to find them with a debugger as you would find a
+reproducible bug.  So it is worth being especially careful to avoid
+them.
+
+   (You would not be tempted to write the code in this order, given the
+use of ‘defer_signal’ as a counter which must be tested along with
+‘signal_pending’.  After all, testing for zero is cleaner than testing
+for one.  But if you did not use ‘defer_signal’ as a counter, and gave
+it values of zero and one only, then either order might seem equally
+simple.  This is a further advantage of using a counter for
+‘defer_signal’: it will reduce the chance you will write the code in the
+wrong order and create a subtle bug.)
+
+
+File: libc.info,  Node: Waiting for a Signal,  Next: Signal Stack,  Prev: Blocking Signals,  Up: Signal Handling
+
+24.8 Waiting for a Signal
+=========================
+
+If your program is driven by external events, or uses signals for
+synchronization, then when it has nothing to do it should probably wait
+until a signal arrives.
+
+* Menu:
+
+* Using Pause::                 The simple way, using ‘pause’.
+* Pause Problems::              Why the simple way is often not very good.
+* Sigsuspend::                  Reliably waiting for a specific signal.
+
+
+File: libc.info,  Node: Using Pause,  Next: Pause Problems,  Up: Waiting for a Signal
+
+24.8.1 Using ‘pause’
+--------------------
+
+The simple way to wait until a signal arrives is to call ‘pause’.
+Please read about its disadvantages, in the following section, before
+you use it.
+
+ -- Function: int pause (void)
+
+     Preliminary: | MT-Unsafe race:sigprocmask/!bsd!linux | AS-Unsafe
+     lock/hurd | AC-Unsafe lock/hurd | *Note POSIX Safety Concepts::.
+
+     The ‘pause’ function suspends program execution until a signal
+     arrives whose action is either to execute a handler function, or to
+     terminate the process.
+
+     If the signal causes a handler function to be executed, then
+     ‘pause’ returns.  This is considered an unsuccessful return (since
+     “successful” behavior would be to suspend the program forever), so
+     the return value is ‘-1’.  Even if you specify that other
+     primitives should resume when a system handler returns (*note
+     Interrupted Primitives::), this has no effect on ‘pause’; it always
+     fails when a signal is handled.
+
+     The following ‘errno’ error conditions are defined for this
+     function:
+
+     ‘EINTR’
+          The function was interrupted by delivery of a signal.
+
+     If the signal causes program termination, ‘pause’ doesn’t return
+     (obviously).
+
+     This function is a cancellation point in multithreaded programs.
+     This is a problem if the thread allocates some resources (like
+     memory, file descriptors, semaphores or whatever) at the time
+     ‘pause’ is called.  If the thread gets cancelled these resources
+     stay allocated until the program ends.  To avoid this calls to
+     ‘pause’ should be protected using cancellation handlers.
+
+     The ‘pause’ function is declared in ‘unistd.h’.
+
+
+File: libc.info,  Node: Pause Problems,  Next: Sigsuspend,  Prev: Using Pause,  Up: Waiting for a Signal
+
+24.8.2 Problems with ‘pause’
+----------------------------
+
+The simplicity of ‘pause’ can conceal serious timing errors that can
+make a program hang mysteriously.
+
+   It is safe to use ‘pause’ if the real work of your program is done by
+the signal handlers themselves, and the “main program” does nothing but
+call ‘pause’.  Each time a signal is delivered, the handler will do the
+next batch of work that is to be done, and then return, so that the main
+loop of the program can call ‘pause’ again.
+
+   You can’t safely use ‘pause’ to wait until one more signal arrives,
+and then resume real work.  Even if you arrange for the signal handler
+to cooperate by setting a flag, you still can’t use ‘pause’ reliably.
+Here is an example of this problem:
+
+     /* ‘usr_interrupt’ is set by the signal handler.  */
+     if (!usr_interrupt)
+       pause ();
+
+     /* Do work once the signal arrives.  */
+     ...
+
+This has a bug: the signal could arrive after the variable
+‘usr_interrupt’ is checked, but before the call to ‘pause’.  If no
+further signals arrive, the process would never wake up again.
+
+   You can put an upper limit on the excess waiting by using ‘sleep’ in
+a loop, instead of using ‘pause’.  (*Note Sleeping::, for more about
+‘sleep’.)  Here is what this looks like:
+
+     /* ‘usr_interrupt’ is set by the signal handler.
+     while (!usr_interrupt)
+       sleep (1);
+
+     /* Do work once the signal arrives.  */
+     ...
+
+   For some purposes, that is good enough.  But with a little more
+complexity, you can wait reliably until a particular signal handler is
+run, using ‘sigsuspend’.  *Note Sigsuspend::.
+
+
+File: libc.info,  Node: Sigsuspend,  Prev: Pause Problems,  Up: Waiting for a Signal
+
+24.8.3 Using ‘sigsuspend’
+-------------------------
+
+The clean and reliable way to wait for a signal to arrive is to block it
+and then use ‘sigsuspend’.  By using ‘sigsuspend’ in a loop, you can
+wait for certain kinds of signals, while letting other kinds of signals
+be handled by their handlers.
+
+ -- Function: int sigsuspend (const sigset_t *SET)
+
+     Preliminary: | MT-Unsafe race:sigprocmask/!bsd!linux | AS-Unsafe
+     lock/hurd | AC-Unsafe lock/hurd | *Note POSIX Safety Concepts::.
+
+     This function replaces the process’s signal mask with SET and then
+     suspends the process until a signal is delivered whose action is
+     either to terminate the process or invoke a signal handling
+     function.  In other words, the program is effectively suspended
+     until one of the signals that is not a member of SET arrives.
+
+     If the process is woken up by delivery of a signal that invokes a
+     handler function, and the handler function returns, then
+     ‘sigsuspend’ also returns.
+
+     The mask remains SET only as long as ‘sigsuspend’ is waiting.  The
+     function ‘sigsuspend’ always restores the previous signal mask when
+     it returns.
+
+     The return value and error conditions are the same as for ‘pause’.
+
+   With ‘sigsuspend’, you can replace the ‘pause’ or ‘sleep’ loop in the
+previous section with something completely reliable:
+
+     sigset_t mask, oldmask;
+
+     ...
+
+     /* Set up the mask of signals to temporarily block. */
+     sigemptyset (&mask);
+     sigaddset (&mask, SIGUSR1);
+
+     ...
+
+     /* Wait for a signal to arrive. */
+     sigprocmask (SIG_BLOCK, &mask, &oldmask);
+     while (!usr_interrupt)
+       sigsuspend (&oldmask);
+     sigprocmask (SIG_UNBLOCK, &mask, NULL);
+
+   This last piece of code is a little tricky.  The key point to
+remember here is that when ‘sigsuspend’ returns, it resets the process’s
+signal mask to the original value, the value from before the call to
+‘sigsuspend’—in this case, the ‘SIGUSR1’ signal is once again blocked.
+The second call to ‘sigprocmask’ is necessary to explicitly unblock this
+signal.
+
+   One other point: you may be wondering why the ‘while’ loop is
+necessary at all, since the program is apparently only waiting for one
+‘SIGUSR1’ signal.  The answer is that the mask passed to ‘sigsuspend’
+permits the process to be woken up by the delivery of other kinds of
+signals, as well—for example, job control signals.  If the process is
+woken up by a signal that doesn’t set ‘usr_interrupt’, it just suspends
+itself again until the “right” kind of signal eventually arrives.
+
+   This technique takes a few more lines of preparation, but that is
+needed just once for each kind of wait criterion you want to use.  The
+code that actually waits is just four lines.
+
+
+File: libc.info,  Node: Signal Stack,  Next: BSD Signal Handling,  Prev: Waiting for a Signal,  Up: Signal Handling
+
+24.9 Using a Separate Signal Stack
+==================================
+
+A signal stack is a special area of memory to be used as the execution
+stack during signal handlers.  It should be fairly large, to avoid any
+danger that it will overflow in turn; the macro ‘SIGSTKSZ’ is defined to
+a canonical size for signal stacks.  You can use ‘malloc’ to allocate
+the space for the stack.  Then call ‘sigaltstack’ or ‘sigstack’ to tell
+the system to use that space for the signal stack.
+
+   You don’t need to write signal handlers differently in order to use a
+signal stack.  Switching from one stack to the other happens
+automatically.  (Some non-GNU debuggers on some machines may get
+confused if you examine a stack trace while a handler that uses the
+signal stack is running.)
+
+   There are two interfaces for telling the system to use a separate
+signal stack.  ‘sigstack’ is the older interface, which comes from 4.2
+BSD. ‘sigaltstack’ is the newer interface, and comes from 4.4 BSD. The
+‘sigaltstack’ interface has the advantage that it does not require your
+program to know which direction the stack grows, which depends on the
+specific machine and operating system.
+
+ -- Data Type: stack_t
+
+     This structure describes a signal stack.  It contains the following
+     members:
+
+     ‘void *ss_sp’
+          This points to the base of the signal stack.
+
+     ‘size_t ss_size’
+          This is the size (in bytes) of the signal stack which ‘ss_sp’
+          points to.  You should set this to however much space you
+          allocated for the stack.
+
+          There are two macros defined in ‘signal.h’ that you should use
+          in calculating this size:
+
+          ‘SIGSTKSZ’
+               This is the canonical size for a signal stack.  It is
+               judged to be sufficient for normal uses.
+
+          ‘MINSIGSTKSZ’
+               This is the amount of signal stack space the operating
+               system needs just to implement signal delivery.  The size
+               of a signal stack *must* be greater than this.
+
+               For most cases, just using ‘SIGSTKSZ’ for ‘ss_size’ is
+               sufficient.  But if you know how much stack space your
+               program’s signal handlers will need, you may want to use
+               a different size.  In this case, you should allocate
+               ‘MINSIGSTKSZ’ additional bytes for the signal stack and
+               increase ‘ss_size’ accordingly.
+
+     ‘int ss_flags’
+          This field contains the bitwise OR of these flags:
+
+          ‘SS_DISABLE’
+               This tells the system that it should not use the signal
+               stack.
+
+          ‘SS_ONSTACK’
+               This is set by the system, and indicates that the signal
+               stack is currently in use.  If this bit is not set, then
+               signals will be delivered on the normal user stack.
+
+ -- Function: int sigaltstack (const stack_t *restrict STACK, stack_t
+          *restrict OLDSTACK)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock/hurd | AC-Unsafe lock/hurd
+     | *Note POSIX Safety Concepts::.
+
+     The ‘sigaltstack’ function specifies an alternate stack for use
+     during signal handling.  When a signal is received by the process
+     and its action indicates that the signal stack is used, the system
+     arranges a switch to the currently installed signal stack while the
+     handler for that signal is executed.
+
+     If OLDSTACK is not a null pointer, information about the currently
+     installed signal stack is returned in the location it points to.
+     If STACK is not a null pointer, then this is installed as the new
+     stack for use by signal handlers.
+
+     The return value is ‘0’ on success and ‘-1’ on failure.  If
+     ‘sigaltstack’ fails, it sets ‘errno’ to one of these values:
+
+     ‘EINVAL’
+          You tried to disable a stack that was in fact currently in
+          use.
+
+     ‘ENOMEM’
+          The size of the alternate stack was too small.  It must be
+          greater than ‘MINSIGSTKSZ’.
+
+   Here is the older ‘sigstack’ interface.  You should use ‘sigaltstack’
+instead on systems that have it.
+
+ -- Data Type: struct sigstack
+
+     This structure describes a signal stack.  It contains the following
+     members:
+
+     ‘void *ss_sp’
+          This is the stack pointer.  If the stack grows downwards on
+          your machine, this should point to the top of the area you
+          allocated.  If the stack grows upwards, it should point to the
+          bottom.
+
+     ‘int ss_onstack’
+          This field is true if the process is currently using this
+          stack.
+
+ -- Function: int sigstack (struct sigstack *STACK, struct sigstack
+          *OLDSTACK)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock/hurd | AC-Unsafe lock/hurd
+     | *Note POSIX Safety Concepts::.
+
+     The ‘sigstack’ function specifies an alternate stack for use during
+     signal handling.  When a signal is received by the process and its
+     action indicates that the signal stack is used, the system arranges
+     a switch to the currently installed signal stack while the handler
+     for that signal is executed.
+
+     If OLDSTACK is not a null pointer, information about the currently
+     installed signal stack is returned in the location it points to.
+     If STACK is not a null pointer, then this is installed as the new
+     stack for use by signal handlers.
+
+     The return value is ‘0’ on success and ‘-1’ on failure.
+
+
+File: libc.info,  Node: BSD Signal Handling,  Prev: Signal Stack,  Up: Signal Handling
+
+24.10 BSD Signal Handling
+=========================
+
+This section describes alternative signal handling functions derived
+from BSD Unix.  These facilities were an advance, in their time; today,
+they are mostly obsolete, and supported mainly for compatibility with
+BSD Unix.
+
+   There are many similarities between the BSD and POSIX signal handling
+facilities, because the POSIX facilities were inspired by the BSD
+facilities.  Besides having different names for all the functions to
+avoid conflicts, the main difference between the two is that BSD Unix
+represents signal masks as an ‘int’ bit mask, rather than as a
+‘sigset_t’ object.
+
+   The BSD facilities are declared in ‘signal.h’.
+
+ -- Function: int siginterrupt (int SIGNUM, int FAILFLAG)
+
+     Preliminary: | MT-Unsafe const:sigintr | AS-Unsafe | AC-Unsafe
+     corrupt | *Note POSIX Safety Concepts::.
+
+     This function specifies which approach to use when certain
+     primitives are interrupted by handling signal SIGNUM.  If FAILFLAG
+     is false, signal SIGNUM restarts primitives.  If FAILFLAG is true,
+     handling SIGNUM causes these primitives to fail with error code
+     ‘EINTR’.  *Note Interrupted Primitives::.
+
+ -- Macro: int sigmask (int SIGNUM)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns a signal mask that has the bit for signal SIGNUM
+     set.  You can bitwise-OR the results of several calls to ‘sigmask’
+     together to specify more than one signal.  For example,
+
+          (sigmask (SIGTSTP) | sigmask (SIGSTOP)
+           | sigmask (SIGTTIN) | sigmask (SIGTTOU))
+
+     specifies a mask that includes all the job-control stop signals.
+
+ -- Function: int sigblock (int MASK)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock/hurd | AC-Unsafe lock/hurd
+     | *Note POSIX Safety Concepts::.
+
+     This function is equivalent to ‘sigprocmask’ (*note Process Signal
+     Mask::) with a HOW argument of ‘SIG_BLOCK’: it adds the signals
+     specified by MASK to the calling process’s set of blocked signals.
+     The return value is the previous set of blocked signals.
+
+ -- Function: int sigsetmask (int MASK)
+
+     Preliminary: | MT-Safe | AS-Unsafe lock/hurd | AC-Unsafe lock/hurd
+     | *Note POSIX Safety Concepts::.
+
+     This function is equivalent to ‘sigprocmask’ (*note Process Signal
+     Mask::) with a HOW argument of ‘SIG_SETMASK’: it sets the calling
+     process’s signal mask to MASK.  The return value is the previous
+     set of blocked signals.
+
+ -- Function: int sigpause (int MASK)
+
+     Preliminary: | MT-Unsafe race:sigprocmask/!bsd!linux | AS-Unsafe
+     lock/hurd | AC-Unsafe lock/hurd | *Note POSIX Safety Concepts::.
+
+     This function is the equivalent of ‘sigsuspend’ (*note Waiting for
+     a Signal::): it sets the calling process’s signal mask to MASK, and
+     waits for a signal to arrive.  On return the previous set of
+     blocked signals is restored.
+
+
+File: libc.info,  Node: Program Basics,  Next: Processes,  Prev: Signal Handling,  Up: Top
+
+25 The Basic Program/System Interface
+*************************************
+
+“Processes” are the primitive units for allocation of system resources.
+Each process has its own address space and (usually) one thread of
+control.  A process executes a program; you can have multiple processes
+executing the same program, but each process has its own copy of the
+program within its own address space and executes it independently of
+the other copies.  Though it may have multiple threads of control within
+the same program and a program may be composed of multiple logically
+separate modules, a process always executes exactly one program.
+
+   Note that we are using a specific definition of “program” for the
+purposes of this manual, which corresponds to a common definition in the
+context of Unix systems.  In popular usage, “program” enjoys a much
+broader definition; it can refer for example to a system’s kernel, an
+editor macro, a complex package of software, or a discrete section of
+code executing within a process.
+
+   Writing the program is what this manual is all about.  This chapter
+explains the most basic interface between your program and the system
+that runs, or calls, it.  This includes passing of parameters (arguments
+and environment) from the system, requesting basic services from the
+system, and telling the system the program is done.
+
+   A program starts another program with the ‘exec’ family of system
+calls.  This chapter looks at program startup from the execee’s point of
+view.  To see the event from the execor’s point of view, see *note
+Executing a File::.
+
+* Menu:
+
+* Program Arguments::           Parsing your program’s command-line arguments
+* Environment Variables::       Less direct parameters affecting your program
+* Auxiliary Vector::            Least direct parameters affecting your program
+* System Calls::                Requesting service from the system
+* Program Termination::         Telling the system you’re done; return status
+
+
+File: libc.info,  Node: Program Arguments,  Next: Environment Variables,  Up: Program Basics
+
+25.1 Program Arguments
+======================
+
+The system starts a C program by calling the function ‘main’.  It is up
+to you to write a function named ‘main’—otherwise, you won’t even be
+able to link your program without errors.
+
+   In ISO C you can define ‘main’ either to take no arguments, or to
+take two arguments that represent the command line arguments to the
+program, like this:
+
+     int main (int ARGC, char *ARGV[])
+
+   The command line arguments are the whitespace-separated tokens given
+in the shell command used to invoke the program; thus, in ‘cat foo bar’,
+the arguments are ‘foo’ and ‘bar’.  The only way a program can look at
+its command line arguments is via the arguments of ‘main’.  If ‘main’
+doesn’t take arguments, then you cannot get at the command line.
+
+   The value of the ARGC argument is the number of command line
+arguments.  The ARGV argument is a vector of C strings; its elements are
+the individual command line argument strings.  The file name of the
+program being run is also included in the vector as the first element;
+the value of ARGC counts this element.  A null pointer always follows
+the last element: ‘ARGV[ARGC]’ is this null pointer.
+
+   For the command ‘cat foo bar’, ARGC is 3 and ARGV has three elements,
+‘"cat"’, ‘"foo"’ and ‘"bar"’.
+
+   In Unix systems you can define ‘main’ a third way, using three
+arguments:
+
+     int main (int ARGC, char *ARGV[], char *ENVP[])
+
+   The first two arguments are just the same.  The third argument ENVP
+gives the program’s environment; it is the same as the value of
+‘environ’.  *Note Environment Variables::.  POSIX.1 does not allow this
+three-argument form, so to be portable it is best to write ‘main’ to
+take two arguments, and use the value of ‘environ’.
+
+* Menu:
+
+* Argument Syntax::             By convention, options start with a hyphen.
+* Parsing Program Arguments::   Ways to parse program options and arguments.
+
+
+File: libc.info,  Node: Argument Syntax,  Next: Parsing Program Arguments,  Up: Program Arguments
+
+25.1.1 Program Argument Syntax Conventions
+------------------------------------------
+
+POSIX recommends these conventions for command line arguments.  ‘getopt’
+(*note Getopt::) and ‘argp_parse’ (*note Argp::) make it easy to
+implement them.
+
+   • Arguments are options if they begin with a hyphen delimiter (‘-’).
+
+   • Multiple options may follow a hyphen delimiter in a single token if
+     the options do not take arguments.  Thus, ‘-abc’ is equivalent to
+     ‘-a -b -c’.
+
+   • Option names are single alphanumeric characters (as for ‘isalnum’;
+     *note Classification of Characters::).
+
+   • Certain options require an argument.  For example, the ‘-o’ command
+     of the ‘ld’ command requires an argument—an output file name.
+
+   • An option and its argument may or may not appear as separate
+     tokens.  (In other words, the whitespace separating them is
+     optional.)  Thus, ‘-o foo’ and ‘-ofoo’ are equivalent.
+
+   • Options typically precede other non-option arguments.
+
+     The implementations of ‘getopt’ and ‘argp_parse’ in the GNU C
+     Library normally make it appear as if all the option arguments were
+     specified before all the non-option arguments for the purposes of
+     parsing, even if the user of your program intermixed option and
+     non-option arguments.  They do this by reordering the elements of
+     the ARGV array.  This behavior is nonstandard; if you want to
+     suppress it, define the ‘_POSIX_OPTION_ORDER’ environment variable.
+     *Note Standard Environment::.
+
+   • The argument ‘--’ terminates all options; any following arguments
+     are treated as non-option arguments, even if they begin with a
+     hyphen.
+
+   • A token consisting of a single hyphen character is interpreted as
+     an ordinary non-option argument.  By convention, it is used to
+     specify input from or output to the standard input and output
+     streams.
+
+   • Options may be supplied in any order, or appear multiple times.
+     The interpretation is left up to the particular application
+     program.
+
+   GNU adds “long options” to these conventions.  Long options consist
+of ‘--’ followed by a name made of alphanumeric characters and dashes.
+Option names are typically one to three words long, with hyphens to
+separate words.  Users can abbreviate the option names as long as the
+abbreviations are unique.
+
+   To specify an argument for a long option, write ‘--NAME=VALUE’.  This
+syntax enables a long option to accept an argument that is itself
+optional.
+
+   Eventually, GNU systems will provide completion for long option names
+in the shell.
+
+
+File: libc.info,  Node: Parsing Program Arguments,  Prev: Argument Syntax,  Up: Program Arguments
+
+25.1.2 Parsing Program Arguments
+--------------------------------
+
+If the syntax for the command line arguments to your program is simple
+enough, you can simply pick the arguments off from ARGV by hand.  But
+unless your program takes a fixed number of arguments, or all of the
+arguments are interpreted in the same way (as file names, for example),
+you are usually better off using ‘getopt’ (*note Getopt::) or
+‘argp_parse’ (*note Argp::) to do the parsing.
+
+   ‘getopt’ is more standard (the short-option only version of it is a
+part of the POSIX standard), but using ‘argp_parse’ is often easier,
+both for very simple and very complex option structures, because it does
+more of the dirty work for you.
+
+* Menu:
+
+* Getopt::                      Parsing program options using ‘getopt’.
+* Argp::                        Parsing program options using ‘argp_parse’.
+* Suboptions::                  Some programs need more detailed options.
+* Suboptions Example::          This shows how it could be done for ‘mount’.
+
+
+File: libc.info,  Node: Getopt,  Next: Argp,  Up: Parsing Program Arguments
+
+25.2 Parsing program options using ‘getopt’
+===========================================
+
+The ‘getopt’ and ‘getopt_long’ functions automate some of the chore
+involved in parsing typical unix command line options.
+
+* Menu:
+
+* Using Getopt::                Using the ‘getopt’ function.
+* Example of Getopt::           An example of parsing options with ‘getopt’.
+* Getopt Long Options::         GNU suggests utilities accept long-named
+                                 options; here is one way to do.
+* Getopt Long Option Example::  An example of using ‘getopt_long’.
+
+
+File: libc.info,  Node: Using Getopt,  Next: Example of Getopt,  Up: Getopt
+
+25.2.1 Using the ‘getopt’ function
+----------------------------------
+
+Here are the details about how to call the ‘getopt’ function.  To use
+this facility, your program must include the header file ‘unistd.h’.
+
+ -- Variable: int opterr
+
+     If the value of this variable is nonzero, then ‘getopt’ prints an
+     error message to the standard error stream if it encounters an
+     unknown option character or an option with a missing required
+     argument.  This is the default behavior.  If you set this variable
+     to zero, ‘getopt’ does not print any messages, but it still returns
+     the character ‘?’ to indicate an error.
+
+ -- Variable: int optopt
+
+     When ‘getopt’ encounters an unknown option character or an option
+     with a missing required argument, it stores that option character
+     in this variable.  You can use this for providing your own
+     diagnostic messages.
+
+ -- Variable: int optind
+
+     This variable is set by ‘getopt’ to the index of the next element
+     of the ARGV array to be processed.  Once ‘getopt’ has found all of
+     the option arguments, you can use this variable to determine where
+     the remaining non-option arguments begin.  The initial value of
+     this variable is ‘1’.
+
+ -- Variable: char * optarg
+
+     This variable is set by ‘getopt’ to point at the value of the
+     option argument, for those options that accept arguments.
+
+ -- Function: int getopt (int ARGC, char *const *ARGV, const char
+          *OPTIONS)
+
+     Preliminary: | MT-Unsafe race:getopt env | AS-Unsafe heap i18n lock
+     corrupt | AC-Unsafe mem lock corrupt | *Note POSIX Safety
+     Concepts::.
+
+     The ‘getopt’ function gets the next option argument from the
+     argument list specified by the ARGV and ARGC arguments.  Normally
+     these values come directly from the arguments received by ‘main’.
+
+     The OPTIONS argument is a string that specifies the option
+     characters that are valid for this program.  An option character in
+     this string can be followed by a colon (‘:’) to indicate that it
+     takes a required argument.  If an option character is followed by
+     two colons (‘::’), its argument is optional; this is a GNU
+     extension.
+
+     ‘getopt’ has three ways to deal with options that follow
+     non-options ARGV elements.  The special argument ‘--’ forces in all
+     cases the end of option scanning.
+
+        • The default is to permute the contents of ARGV while scanning
+          it so that eventually all the non-options are at the end.
+          This allows options to be given in any order, even with
+          programs that were not written to expect this.
+
+        • If the OPTIONS argument string begins with a hyphen (‘-’),
+          this is treated specially.  It permits arguments that are not
+          options to be returned as if they were associated with option
+          character ‘\1’.
+
+        • POSIX demands the following behavior: the first non-option
+          stops option processing.  This mode is selected by either
+          setting the environment variable ‘POSIXLY_CORRECT’ or
+          beginning the OPTIONS argument string with a plus sign (‘+’).
+
+     The ‘getopt’ function returns the option character for the next
+     command line option.  When no more option arguments are available,
+     it returns ‘-1’.  There may still be more non-option arguments; you
+     must compare the external variable ‘optind’ against the ARGC
+     parameter to check this.
+
+     If the option has an argument, ‘getopt’ returns the argument by
+     storing it in the variable OPTARG.  You don’t ordinarily need to
+     copy the ‘optarg’ string, since it is a pointer into the original
+     ARGV array, not into a static area that might be overwritten.
+
+     If ‘getopt’ finds an option character in ARGV that was not included
+     in OPTIONS, or a missing option argument, it returns ‘?’ and sets
+     the external variable ‘optopt’ to the actual option character.  If
+     the first character of OPTIONS is a colon (‘:’), then ‘getopt’
+     returns ‘:’ instead of ‘?’ to indicate a missing option argument.
+     In addition, if the external variable ‘opterr’ is nonzero (which is
+     the default), ‘getopt’ prints an error message.
+
+
+File: libc.info,  Node: Example of Getopt,  Next: Getopt Long Options,  Prev: Using Getopt,  Up: Getopt
+
+25.2.2 Example of Parsing Arguments with ‘getopt’
+-------------------------------------------------
+
+Here is an example showing how ‘getopt’ is typically used.  The key
+points to notice are:
+
+   • Normally, ‘getopt’ is called in a loop.  When ‘getopt’ returns
+     ‘-1’, indicating no more options are present, the loop terminates.
+
+   • A ‘switch’ statement is used to dispatch on the return value from
+     ‘getopt’.  In typical use, each case just sets a variable that is
+     used later in the program.
+
+   • A second loop is used to process the remaining non-option
+     arguments.
+
+
+     #include <ctype.h>
+     #include <stdio.h>
+     #include <stdlib.h>
+     #include <unistd.h>
+
+     int
+     main (int argc, char **argv)
+     {
+       int aflag = 0;
+       int bflag = 0;
+       char *cvalue = NULL;
+       int index;
+       int c;
+
+       opterr = 0;
+
+       while ((c = getopt (argc, argv, "abc:")) != -1)
+         switch (c)
+           {
+           case 'a':
+             aflag = 1;
+             break;
+           case 'b':
+             bflag = 1;
+             break;
+           case 'c':
+             cvalue = optarg;
+             break;
+           case '?':
+             if (optopt == 'c')
+               fprintf (stderr, "Option -%c requires an argument.\n", optopt);
+             else if (isprint (optopt))
+               fprintf (stderr, "Unknown option `-%c'.\n", optopt);
+             else
+               fprintf (stderr,
+                        "Unknown option character `\\x%x'.\n",
+                        optopt);
+             return 1;
+           default:
+             abort ();
+           }
+
+       printf ("aflag = %d, bflag = %d, cvalue = %s\n",
+               aflag, bflag, cvalue);
+
+       for (index = optind; index < argc; index++)
+         printf ("Non-option argument %s\n", argv[index]);
+       return 0;
+     }
+
+   Here are some examples showing what this program prints with
+different combinations of arguments:
+
+     % testopt
+     aflag = 0, bflag = 0, cvalue = (null)
+
+     % testopt -a -b
+     aflag = 1, bflag = 1, cvalue = (null)
+
+     % testopt -ab
+     aflag = 1, bflag = 1, cvalue = (null)
+
+     % testopt -c foo
+     aflag = 0, bflag = 0, cvalue = foo
+
+     % testopt -cfoo
+     aflag = 0, bflag = 0, cvalue = foo
+
+     % testopt arg1
+     aflag = 0, bflag = 0, cvalue = (null)
+     Non-option argument arg1
+
+     % testopt -a arg1
+     aflag = 1, bflag = 0, cvalue = (null)
+     Non-option argument arg1
+
+     % testopt -c foo arg1
+     aflag = 0, bflag = 0, cvalue = foo
+     Non-option argument arg1
+
+     % testopt -a -- -b
+     aflag = 1, bflag = 0, cvalue = (null)
+     Non-option argument -b
+
+     % testopt -a -
+     aflag = 1, bflag = 0, cvalue = (null)
+     Non-option argument -
+
+
+File: libc.info,  Node: Getopt Long Options,  Next: Getopt Long Option Example,  Prev: Example of Getopt,  Up: Getopt
+
+25.2.3 Parsing Long Options with ‘getopt_long’
+----------------------------------------------
+
+To accept GNU-style long options as well as single-character options,
+use ‘getopt_long’ instead of ‘getopt’.  This function is declared in
+‘getopt.h’, not ‘unistd.h’.  You should make every program accept long
+options if it uses any options, for this takes little extra work and
+helps beginners remember how to use the program.
+
+ -- Data Type: struct option
+
+     This structure describes a single long option name for the sake of
+     ‘getopt_long’.  The argument LONGOPTS must be an array of these
+     structures, one for each long option.  Terminate the array with an
+     element containing all zeros.
+
+     The ‘struct option’ structure has these fields:
+
+     ‘const char *name’
+          This field is the name of the option.  It is a string.
+
+     ‘int has_arg’
+          This field says whether the option takes an argument.  It is
+          an integer, and there are three legitimate values:
+          ‘no_argument’, ‘required_argument’ and ‘optional_argument’.
+
+     ‘int *flag’
+     ‘int val’
+          These fields control how to report or act on the option when
+          it occurs.
+
+          If ‘flag’ is a null pointer, then the ‘val’ is a value which
+          identifies this option.  Often these values are chosen to
+          uniquely identify particular long options.
+
+          If ‘flag’ is not a null pointer, it should be the address of
+          an ‘int’ variable which is the flag for this option.  The
+          value in ‘val’ is the value to store in the flag to indicate
+          that the option was seen.
+
+ -- Function: int getopt_long (int ARGC, char *const *ARGV, const char
+          *SHORTOPTS, const struct option *LONGOPTS, int *INDEXPTR)
+
+     Preliminary: | MT-Unsafe race:getopt env | AS-Unsafe heap i18n lock
+     corrupt | AC-Unsafe mem lock corrupt | *Note POSIX Safety
+     Concepts::.
+
+     Decode options from the vector ARGV (whose length is ARGC).  The
+     argument SHORTOPTS describes the short options to accept, just as
+     it does in ‘getopt’.  The argument LONGOPTS describes the long
+     options to accept (see above).
+
+     When ‘getopt_long’ encounters a short option, it does the same
+     thing that ‘getopt’ would do: it returns the character code for the
+     option, and stores the option’s argument (if it has one) in
+     ‘optarg’.
+
+     When ‘getopt_long’ encounters a long option, it takes actions based
+     on the ‘flag’ and ‘val’ fields of the definition of that option.
+
+     If ‘flag’ is a null pointer, then ‘getopt_long’ returns the
+     contents of ‘val’ to indicate which option it found.  You should
+     arrange distinct values in the ‘val’ field for options with
+     different meanings, so you can decode these values after
+     ‘getopt_long’ returns.  If the long option is equivalent to a short
+     option, you can use the short option’s character code in ‘val’.
+
+     If ‘flag’ is not a null pointer, that means this option should just
+     set a flag in the program.  The flag is a variable of type ‘int’
+     that you define.  Put the address of the flag in the ‘flag’ field.
+     Put in the ‘val’ field the value you would like this option to
+     store in the flag.  In this case, ‘getopt_long’ returns ‘0’.
+
+     For any long option, ‘getopt_long’ tells you the index in the array
+     LONGOPTS of the options definition, by storing it into ‘*INDEXPTR’.
+     You can get the name of the option with ‘LONGOPTS[*INDEXPTR].name’.
+     So you can distinguish among long options either by the values in
+     their ‘val’ fields or by their indices.  You can also distinguish
+     in this way among long options that set flags.
+
+     When a long option has an argument, ‘getopt_long’ puts the argument
+     value in the variable ‘optarg’ before returning.  When the option
+     has no argument, the value in ‘optarg’ is a null pointer.  This is
+     how you can tell whether an optional argument was supplied.
+
+     When ‘getopt_long’ has no more options to handle, it returns ‘-1’,
+     and leaves in the variable ‘optind’ the index in ARGV of the next
+     remaining argument.
+
+   Since long option names were used before ‘getopt_long’ was invented
+there are program interfaces which require programs to recognize options
+like ‘-option value’ instead of ‘--option value’.  To enable these
+programs to use the GNU getopt functionality there is one more function
+available.
+
+ -- Function: int getopt_long_only (int ARGC, char *const *ARGV, const
+          char *SHORTOPTS, const struct option *LONGOPTS, int *INDEXPTR)
+
+     Preliminary: | MT-Unsafe race:getopt env | AS-Unsafe heap i18n lock
+     corrupt | AC-Unsafe mem lock corrupt | *Note POSIX Safety
+     Concepts::.
+
+     The ‘getopt_long_only’ function is equivalent to the ‘getopt_long’
+     function but it allows the user of the application to pass long
+     options with only ‘-’ instead of ‘--’.  The ‘--’ prefix is still
+     recognized but instead of looking through the short options if a
+     ‘-’ is seen it is first tried whether this parameter names a long
+     option.  If not, it is parsed as a short option.
+
+     Assuming ‘getopt_long_only’ is used starting an application with
+
+            app -foo
+
+     the ‘getopt_long_only’ will first look for a long option named
+     ‘foo’.  If this is not found, the short options ‘f’, ‘o’, and again
+     ‘o’ are recognized.
+
+
+File: libc.info,  Node: Getopt Long Option Example,  Prev: Getopt Long Options,  Up: Getopt
+
+25.2.4 Example of Parsing Long Options with ‘getopt_long’
+---------------------------------------------------------
+
+
+     #include <stdio.h>
+     #include <stdlib.h>
+     #include <getopt.h>
+
+     /* Flag set by ‘--verbose’. */
+     static int verbose_flag;
+
+     int
+     main (int argc, char **argv)
+     {
+       int c;
+
+       while (1)
+         {
+           static struct option long_options[] =
+             {
+               /* These options set a flag. */
+               {"verbose", no_argument,       &verbose_flag, 1},
+               {"brief",   no_argument,       &verbose_flag, 0},
+               /* These options don’t set a flag.
+                  We distinguish them by their indices. */
+               {"add",     no_argument,       0, 'a'},
+               {"append",  no_argument,       0, 'b'},
+               {"delete",  required_argument, 0, 'd'},
+               {"create",  required_argument, 0, 'c'},
+               {"file",    required_argument, 0, 'f'},
+               {0, 0, 0, 0}
+             };
+           /* ‘getopt_long’ stores the option index here. */
+           int option_index = 0;
+
+           c = getopt_long (argc, argv, "abc:d:f:",
+                            long_options, &option_index);
+
+           /* Detect the end of the options. */
+           if (c == -1)
+             break;
+
+           switch (c)
+             {
+             case 0:
+               /* If this option set a flag, do nothing else now. */
+               if (long_options[option_index].flag != 0)
+                 break;
+               printf ("option %s", long_options[option_index].name);
+               if (optarg)
+                 printf (" with arg %s", optarg);
+               printf ("\n");
+               break;
+
+             case 'a':
+               puts ("option -a\n");
+               break;
+
+             case 'b':
+               puts ("option -b\n");
+               break;
+
+             case 'c':
+               printf ("option -c with value `%s'\n", optarg);
+               break;
+
+             case 'd':
+               printf ("option -d with value `%s'\n", optarg);
+               break;
+
+             case 'f':
+               printf ("option -f with value `%s'\n", optarg);
+               break;
+
+             case '?':
+               /* ‘getopt_long’ already printed an error message. */
+               break;
+
+             default:
+               abort ();
+             }
+         }
+
+       /* Instead of reporting ‘--verbose’
+          and ‘--brief’ as they are encountered,
+          we report the final status resulting from them. */
+       if (verbose_flag)
+         puts ("verbose flag is set");
+
+       /* Print any remaining command line arguments (not options). */
+       if (optind < argc)
+         {
+           printf ("non-option ARGV-elements: ");
+           while (optind < argc)
+             printf ("%s ", argv[optind++]);
+           putchar ('\n');
+         }
+
+       exit (0);
+     }
+
+
+File: libc.info,  Node: Argp,  Next: Suboptions,  Prev: Getopt,  Up: Parsing Program Arguments
+
+25.3 Parsing Program Options with Argp
+======================================
+
+“Argp” is an interface for parsing unix-style argument vectors.  *Note
+Program Arguments::.
+
+   Argp provides features unavailable in the more commonly used ‘getopt’
+interface.  These features include automatically producing output in
+response to the ‘--help’ and ‘--version’ options, as described in the
+GNU coding standards.  Using argp makes it less likely that programmers
+will neglect to implement these additional options or keep them up to
+date.
+
+   Argp also provides the ability to merge several independently defined
+option parsers into one, mediating conflicts between them and making the
+result appear seamless.  A library can export an argp option parser that
+user programs might employ in conjunction with their own option parsers,
+resulting in less work for the user programs.  Some programs may use
+only argument parsers exported by libraries, thereby achieving
+consistent and efficient option-parsing for abstractions implemented by
+the libraries.
+
+   The header file ‘<argp.h>’ should be included to use argp.
+
+* Menu:
+
+* Argp Global Variables::
+* Argp Parsers::
+* Argp Option Vectors::
+* Argp Parser Functions::
+* Argp Children::
+* Argp Flags::
+* Argp Help Filtering::
+* Argp Help::
+* Argp Help Flags::
+* Argp Examples::
+* Argp User Customization::
+* Suboptions Example::
+
+25.3.1 The ‘argp_parse’ Function
+--------------------------------
+
+The main interface to argp is the ‘argp_parse’ function.  In many cases,
+calling ‘argp_parse’ is the only argument-parsing code needed in ‘main’.
+*Note Program Arguments::.
+
+ -- Function: error_t argp_parse (const struct argp *ARGP, int ARGC,
+          char **ARGV, unsigned FLAGS, int *ARG_INDEX, void *INPUT)
+
+     Preliminary: | MT-Unsafe race:argpbuf locale env | AS-Unsafe heap
+     i18n lock corrupt | AC-Unsafe mem lock corrupt | *Note POSIX Safety
+     Concepts::.
+
+     The ‘argp_parse’ function parses the arguments in ARGV, of length
+     ARGC, using the argp parser ARGP.  *Note Argp Parsers::.  Passing a
+     null pointer for ARGP is the same as using a ‘struct argp’
+     containing all zeros.
+
+     FLAGS is a set of flag bits that modify the parsing behavior.
+     *Note Argp Flags::.  INPUT is passed through to the argp parser
+     ARGP, and has meaning defined by ARGP.  A typical usage is to pass
+     a pointer to a structure which is used for specifying parameters to
+     the parser and passing back the results.
+
+     Unless the ‘ARGP_NO_EXIT’ or ‘ARGP_NO_HELP’ flags are included in
+     FLAGS, calling ‘argp_parse’ may result in the program exiting.
+     This behavior is true if an error is detected, or when an unknown
+     option is encountered.  *Note Program Termination::.
+
+     If ARG_INDEX is non-null, the index of the first unparsed option in
+     ARGV is returned as a value.
+
+     The return value is zero for successful parsing, or an error code
+     (*note Error Codes::) if an error is detected.  Different argp
+     parsers may return arbitrary error codes, but the standard error
+     codes are: ‘ENOMEM’ if a memory allocation error occurred, or
+     ‘EINVAL’ if an unknown option or option argument is encountered.
+
+* Menu:
+
+* Globals: Argp Global Variables.  Global argp parameters.
+* Parsers: Argp Parsers.        Defining parsers for use with ‘argp_parse’.
+* Flags: Argp Flags.            Flags that modify the behavior of ‘argp_parse’.
+* Help: Argp Help.              Printing help messages when not parsing.
+* Examples: Argp Examples.      Simple examples of programs using argp.
+* Customization: Argp User Customization.
+                                Users may control the ‘--help’ output format.
+
+
+File: libc.info,  Node: Argp Global Variables,  Next: Argp Parsers,  Up: Argp
+
+25.3.2 Argp Global Variables
+----------------------------
+
+These variables make it easy for user programs to implement the
+‘--version’ option and provide a bug-reporting address in the ‘--help’
+output.  These are implemented in argp by default.
+
+ -- Variable: const char * argp_program_version
+
+     If defined or set by the user program to a non-zero value, then a
+     ‘--version’ option is added when parsing with ‘argp_parse’, which
+     will print the ‘--version’ string followed by a newline and exit.
+     The exception to this is if the ‘ARGP_NO_EXIT’ flag is used.
+
+ -- Variable: const char * argp_program_bug_address
+
+     If defined or set by the user program to a non-zero value,
+     ‘argp_program_bug_address’ should point to a string that will be
+     printed at the end of the standard output for the ‘--help’ option,
+     embedded in a sentence that says ‘Report bugs to ADDRESS.’.
+
+ -- Variable: argp_program_version_hook
+
+     If defined or set by the user program to a non-zero value, a
+     ‘--version’ option is added when parsing with ‘arg_parse’, which
+     prints the program version and exits with a status of zero.  This
+     is not the case if the ‘ARGP_NO_HELP’ flag is used.  If the
+     ‘ARGP_NO_EXIT’ flag is set, the exit behavior of the program is
+     suppressed or modified, as when the argp parser is going to be used
+     by other programs.
+
+     It should point to a function with this type of signature:
+
+          void PRINT-VERSION (FILE *STREAM, struct argp_state *STATE)
+
+     *Note Argp Parsing State::, for an explanation of STATE.
+
+     This variable takes precedence over ‘argp_program_version’, and is
+     useful if a program has version information not easily expressed in
+     a simple string.
+
+ -- Variable: error_t argp_err_exit_status
+
+     This is the exit status used when argp exits due to a parsing
+     error.  If not defined or set by the user program, this defaults
+     to: ‘EX_USAGE’ from ‘<sysexits.h>’.
+
+
+File: libc.info,  Node: Argp Parsers,  Next: Argp Flags,  Prev: Argp Global Variables,  Up: Argp
+
+25.3.3 Specifying Argp Parsers
+------------------------------
+
+The first argument to the ‘argp_parse’ function is a pointer to a
+‘struct argp’, which is known as an “argp parser”:
+
+ -- Data Type: struct argp
+
+     This structure specifies how to parse a given set of options and
+     arguments, perhaps in conjunction with other argp parsers.  It has
+     the following fields:
+
+     ‘const struct argp_option *options’
+          A pointer to a vector of ‘argp_option’ structures specifying
+          which options this argp parser understands; it may be zero if
+          there are no options at all.  *Note Argp Option Vectors::.
+
+     ‘argp_parser_t parser’
+          A pointer to a function that defines actions for this parser;
+          it is called for each option parsed, and at other well-defined
+          points in the parsing process.  A value of zero is the same as
+          a pointer to a function that always returns
+          ‘ARGP_ERR_UNKNOWN’.  *Note Argp Parser Functions::.
+
+     ‘const char *args_doc’
+          If non-zero, a string describing what non-option arguments are
+          called by this parser.  This is only used to print the
+          ‘Usage:’ message.  If it contains newlines, the strings
+          separated by them are considered alternative usage patterns
+          and printed on separate lines.  Lines after the first are
+          prefixed by ‘ or: ’ instead of ‘Usage:’.
+
+     ‘const char *doc’
+          If non-zero, a string containing extra text to be printed
+          before and after the options in a long help message, with the
+          two sections separated by a vertical tab (‘'\v'’, ‘'\013'’)
+          character.  By convention, the documentation before the
+          options is just a short string explaining what the program
+          does.  Documentation printed after the options describe
+          behavior in more detail.
+
+     ‘const struct argp_child *children’
+          A pointer to a vector of ‘argp_child’ structures.  This
+          pointer specifies which additional argp parsers should be
+          combined with this one.  *Note Argp Children::.
+
+     ‘char *(*help_filter)(int KEY, const char *TEXT, void *INPUT)’
+          If non-zero, a pointer to a function that filters the output
+          of help messages.  *Note Argp Help Filtering::.
+
+     ‘const char *argp_domain’
+          If non-zero, the strings used in the argp library are
+          translated using the domain described by this string.  If
+          zero, the current default domain is used.
+
+   Of the above group, ‘options’, ‘parser’, ‘args_doc’, and the ‘doc’
+fields are usually all that are needed.  If an argp parser is defined as
+an initialized C variable, only the fields used need be specified in the
+initializer.  The rest will default to zero due to the way C structure
+initialization works.  This design is exploited in most argp structures;
+the most-used fields are grouped near the beginning, the unused fields
+left unspecified.
+
+* Menu:
+
+* Options: Argp Option Vectors.   Specifying options in an argp parser.
+* Argp Parser Functions::         Defining actions for an argp parser.
+* Children: Argp Children.        Combining multiple argp parsers.
+* Help Filtering: Argp Help Filtering.  Customizing help output for an argp parser.
+
+
+File: libc.info,  Node: Argp Option Vectors,  Next: Argp Parser Functions,  Prev: Argp Parsers,  Up: Argp Parsers
+
+25.3.4 Specifying Options in an Argp Parser
+-------------------------------------------
+
+The ‘options’ field in a ‘struct argp’ points to a vector of ‘struct
+argp_option’ structures, each of which specifies an option that the argp
+parser supports.  Multiple entries may be used for a single option
+provided it has multiple names.  This should be terminated by an entry
+with zero in all fields.  Note that when using an initialized C array
+for options, writing ‘{ 0 }’ is enough to achieve this.
+
+ -- Data Type: struct argp_option
+
+     This structure specifies a single option that an argp parser
+     understands, as well as how to parse and document that option.  It
+     has the following fields:
+
+     ‘const char *name’
+          The long name for this option, corresponding to the long
+          option ‘--NAME’; this field may be zero if this option _only_
+          has a short name.  To specify multiple names for an option,
+          additional entries may follow this one, with the
+          ‘OPTION_ALIAS’ flag set.  *Note Argp Option Flags::.
+
+     ‘int key’
+          The integer key provided by the current option to the option
+          parser.  If KEY has a value that is a printable ASCII
+          character (i.e., ‘isascii (KEY)’ is true), it _also_ specifies
+          a short option ‘-CHAR’, where CHAR is the ASCII character with
+          the code KEY.
+
+     ‘const char *arg’
+          If non-zero, this is the name of an argument associated with
+          this option, which must be provided (e.g., with the
+          ‘--NAME=VALUE’ or ‘-CHAR VALUE’ syntaxes), unless the
+          ‘OPTION_ARG_OPTIONAL’ flag (*note Argp Option Flags::) is set,
+          in which case it _may_ be provided.
+
+     ‘int flags’
+          Flags associated with this option, some of which are referred
+          to above.  *Note Argp Option Flags::.
+
+     ‘const char *doc’
+          A documentation string for this option, for printing in help
+          messages.
+
+          If both the ‘name’ and ‘key’ fields are zero, this string will
+          be printed tabbed left from the normal option column, making
+          it useful as a group header.  This will be the first thing
+          printed in its group.  In this usage, it’s conventional to end
+          the string with a ‘:’ character.
+
+     ‘int group’
+          Group identity for this option.
+
+          In a long help message, options are sorted alphabetically
+          within each group, and the groups presented in the order 0, 1,
+          2, ..., N, −M, ..., −2, −1.
+
+          Every entry in an options array with this field 0 will inherit
+          the group number of the previous entry, or zero if it’s the
+          first one.  If it’s a group header with ‘name’ and ‘key’
+          fields both zero, the previous entry + 1 is the default.
+          Automagic options such as ‘--help’ are put into group −1.
+
+          Note that because of C structure initialization rules, this
+          field often need not be specified, because 0 is the correct
+          value.
+
+* Menu:
+
+* Flags: Argp Option Flags.     Flags for options.
+
+
+File: libc.info,  Node: Argp Option Flags,  Up: Argp Option Vectors
+
+25.3.4.1 Flags for Argp Options
+...............................
+
+The following flags may be or’d together in the ‘flags’ field of a
+‘struct argp_option’.  These flags control various aspects of how that
+option is parsed or displayed in help messages:
+
+‘OPTION_ARG_OPTIONAL’
+
+     The argument associated with this option is optional.
+
+‘OPTION_HIDDEN’
+
+     This option isn’t displayed in any help messages.
+
+‘OPTION_ALIAS’
+
+     This option is an alias for the closest previous non-alias option.
+     This means that it will be displayed in the same help entry, and
+     will inherit fields other than ‘name’ and ‘key’ from the option
+     being aliased.
+
+‘OPTION_DOC’
+
+     This option isn’t actually an option and should be ignored by the
+     actual option parser.  It is an arbitrary section of documentation
+     that should be displayed in much the same manner as the options.
+     This is known as a “documentation option”.
+
+     If this flag is set, then the option ‘name’ field is displayed
+     unmodified (e.g., no ‘--’ prefix is added) at the left-margin where
+     a _short_ option would normally be displayed, and this
+     documentation string is left in its usual place.  For purposes of
+     sorting, any leading whitespace and punctuation is ignored, unless
+     the first non-whitespace character is ‘-’.  This entry is displayed
+     after all options, after ‘OPTION_DOC’ entries with a leading ‘-’,
+     in the same group.
+
+‘OPTION_NO_USAGE’
+
+     This option shouldn’t be included in ‘long’ usage messages, but
+     should still be included in other help messages.  This is intended
+     for options that are completely documented in an argp’s ‘args_doc’
+     field.  *Note Argp Parsers::.  Including this option in the generic
+     usage list would be redundant, and should be avoided.
+
+     For instance, if ‘args_doc’ is ‘"FOO BAR\n-x BLAH"’, and the ‘-x’
+     option’s purpose is to distinguish these two cases, ‘-x’ should
+     probably be marked ‘OPTION_NO_USAGE’.
+
+
+File: libc.info,  Node: Argp Parser Functions,  Next: Argp Children,  Prev: Argp Option Vectors,  Up: Argp Parsers
+
+25.3.5 Argp Parser Functions
+----------------------------
+
+The function pointed to by the ‘parser’ field in a ‘struct argp’ (*note
+Argp Parsers::) defines what actions take place in response to each
+option or argument parsed.  It is also used as a hook, allowing a parser
+to perform tasks at certain other points during parsing.
+
+   Argp parser functions have the following type signature:
+
+     error_t PARSER (int KEY, char *ARG, struct argp_state *STATE)
+
+where the arguments are as follows:
+
+KEY
+     For each option that is parsed, PARSER is called with a value of
+     KEY from that option’s ‘key’ field in the option vector.  *Note
+     Argp Option Vectors::.  PARSER is also called at other times with
+     special reserved keys, such as ‘ARGP_KEY_ARG’ for non-option
+     arguments.  *Note Argp Special Keys::.
+
+ARG
+     If KEY is an option, ARG is its given value.  This defaults to zero
+     if no value is specified.  Only options that have a non-zero ‘arg’
+     field can ever have a value.  These must _always_ have a value
+     unless the ‘OPTION_ARG_OPTIONAL’ flag is specified.  If the input
+     being parsed specifies a value for an option that doesn’t allow
+     one, an error results before PARSER ever gets called.
+
+     If KEY is ‘ARGP_KEY_ARG’, ARG is a non-option argument.  Other
+     special keys always have a zero ARG.
+
+STATE
+     STATE points to a ‘struct argp_state’, containing useful
+     information about the current parsing state for use by PARSER.
+     *Note Argp Parsing State::.
+
+   When PARSER is called, it should perform whatever action is
+appropriate for KEY, and return ‘0’ for success, ‘ARGP_ERR_UNKNOWN’ if
+the value of KEY is not handled by this parser function, or a unix error
+code if a real error occurred.  *Note Error Codes::.
+
+ -- Macro: int ARGP_ERR_UNKNOWN
+
+     Argp parser functions should return ‘ARGP_ERR_UNKNOWN’ for any KEY
+     value they do not recognize, or for non-option arguments (‘KEY ==
+     ARGP_KEY_ARG’) that they are not equipped to handle.
+
+   A typical parser function uses a switch statement on KEY:
+
+     error_t
+     parse_opt (int key, char *arg, struct argp_state *state)
+     {
+       switch (key)
+         {
+         case OPTION_KEY:
+           ACTION
+           break;
+         ...
+         default:
+           return ARGP_ERR_UNKNOWN;
+         }
+       return 0;
+     }
+
+* Menu:
+
+* Keys: Argp Special Keys.           Special values for the KEY argument.
+* State: Argp Parsing State.         What the STATE argument refers to.
+* Functions: Argp Helper Functions.  Functions to help during argp parsing.
+
+
+File: libc.info,  Node: Argp Special Keys,  Next: Argp Parsing State,  Up: Argp Parser Functions
+
+25.3.5.1 Special Keys for Argp Parser Functions
+...............................................
+
+In addition to key values corresponding to user options, the KEY
+argument to argp parser functions may have a number of other special
+values.  In the following example ARG and STATE refer to parser function
+arguments.  *Note Argp Parser Functions::.
+
+‘ARGP_KEY_ARG’
+
+     This is not an option at all, but rather a command line argument,
+     whose value is pointed to by ARG.
+
+     When there are multiple parser functions in play due to argp
+     parsers being combined, it’s impossible to know which one will
+     handle a specific argument.  Each is called until one returns 0 or
+     an error other than ‘ARGP_ERR_UNKNOWN’; if an argument is not
+     handled, ‘argp_parse’ immediately returns success, without parsing
+     any more arguments.
+
+     Once a parser function returns success for this key, that fact is
+     recorded, and the ‘ARGP_KEY_NO_ARGS’ case won’t be used.
+     _However_, if while processing the argument a parser function
+     decrements the ‘next’ field of its STATE argument, the option won’t
+     be considered processed; this is to allow you to actually modify
+     the argument, perhaps into an option, and have it processed again.
+
+‘ARGP_KEY_ARGS’
+
+     If a parser function returns ‘ARGP_ERR_UNKNOWN’ for ‘ARGP_KEY_ARG’,
+     it is immediately called again with the key ‘ARGP_KEY_ARGS’, which
+     has a similar meaning, but is slightly more convenient for
+     consuming all remaining arguments.  ARG is 0, and the tail of the
+     argument vector may be found at ‘STATE->argv + STATE->next’.  If
+     success is returned for this key, and ‘STATE->next’ is unchanged,
+     all remaining arguments are considered to have been consumed.
+     Otherwise, the amount by which ‘STATE->next’ has been adjusted
+     indicates how many were used.  Here’s an example that uses both,
+     for different args:
+
+          ...
+          case ARGP_KEY_ARG:
+            if (STATE->arg_num == 0)
+              /* First argument */
+              first_arg = ARG;
+            else
+              /* Let the next case parse it.  */
+              return ARGP_KEY_UNKNOWN;
+            break;
+          case ARGP_KEY_ARGS:
+            remaining_args = STATE->argv + STATE->next;
+            num_remaining_args = STATE->argc - STATE->next;
+            break;
+
+‘ARGP_KEY_END’
+
+     This indicates that there are no more command line arguments.
+     Parser functions are called in a different order, children first.
+     This allows each parser to clean up its state for the parent.
+
+‘ARGP_KEY_NO_ARGS’
+
+     Because it’s common to do some special processing if there aren’t
+     any non-option args, parser functions are called with this key if
+     they didn’t successfully process any non-option arguments.  This is
+     called just before ‘ARGP_KEY_END’, where more general validity
+     checks on previously parsed arguments take place.
+
+‘ARGP_KEY_INIT’
+
+     This is passed in before any parsing is done.  Afterwards, the
+     values of each element of the ‘child_input’ field of STATE, if any,
+     are copied to each child’s state to be the initial value of the
+     ‘input’ when _their_ parsers are called.
+
+‘ARGP_KEY_SUCCESS’
+
+     Passed in when parsing has successfully been completed, even if
+     arguments remain.
+
+‘ARGP_KEY_ERROR’
+
+     Passed in if an error has occurred and parsing is terminated.  In
+     this case a call with a key of ‘ARGP_KEY_SUCCESS’ is never made.
+
+‘ARGP_KEY_FINI’
+
+     The final key ever seen by any parser, even after
+     ‘ARGP_KEY_SUCCESS’ and ‘ARGP_KEY_ERROR’.  Any resources allocated
+     by ‘ARGP_KEY_INIT’ may be freed here.  At times, certain resources
+     allocated are to be returned to the caller after a successful
+     parse.  In that case, those particular resources can be freed in
+     the ‘ARGP_KEY_ERROR’ case.
+
+   In all cases, ‘ARGP_KEY_INIT’ is the first key seen by parser
+functions, and ‘ARGP_KEY_FINI’ the last, unless an error was returned by
+the parser for ‘ARGP_KEY_INIT’.  Other keys can occur in one the
+following orders.  OPT refers to an arbitrary option key:
+
+OPT... ‘ARGP_KEY_NO_ARGS’ ‘ARGP_KEY_END’ ‘ARGP_KEY_SUCCESS’
+     The arguments being parsed did not contain any non-option
+     arguments.
+
+( OPT | ‘ARGP_KEY_ARG’ )... ‘ARGP_KEY_END’ ‘ARGP_KEY_SUCCESS’
+     All non-option arguments were successfully handled by a parser
+     function.  There may be multiple parser functions if multiple argp
+     parsers were combined.
+
+( OPT | ‘ARGP_KEY_ARG’ )... ‘ARGP_KEY_SUCCESS’
+     Some non-option argument went unrecognized.
+
+     This occurs when every parser function returns ‘ARGP_KEY_UNKNOWN’
+     for an argument, in which case parsing stops at that argument if
+     ARG_INDEX is a null pointer.  Otherwise an error occurs.
+
+   In all cases, if a non-null value for ARG_INDEX gets passed to
+‘argp_parse’, the index of the first unparsed command-line argument is
+passed back in that value.
+
+   If an error occurs and is either detected by argp or because a parser
+function returned an error value, each parser is called with
+‘ARGP_KEY_ERROR’.  No further calls are made, except the final call with
+‘ARGP_KEY_FINI’.
 
 
 File: libc.info,  Node: Argp Parsing State,  Next: Argp Helper Functions,  Prev: Argp Special Keys,  Up: Argp Parser Functions
@@ -5831,1963 +7685,4 @@ Your program should include the header files ‘sys/types.h’ and
 
      This is the BSD Unix name for ‘setpgid’.  Both functions do exactly
      the same thing.
-
-
-File: libc.info,  Node: Terminal Access Functions,  Prev: Process Group Functions,  Up: Functions for Job Control
-
-28.7.3 Functions for Controlling Terminal Access
-------------------------------------------------
-
-These are the functions for reading or setting the foreground process
-group of a terminal.  You should include the header files ‘sys/types.h’
-and ‘unistd.h’ in your application to use these functions.
-
-   Although these functions take a file descriptor argument to specify
-the terminal device, the foreground job is associated with the terminal
-file itself and not a particular open file descriptor.
-
- -- Function: pid_t tcgetpgrp (int FILEDES)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function returns the process group ID of the foreground
-     process group associated with the terminal open on descriptor
-     FILEDES.
-
-     If there is no foreground process group, the return value is a
-     number greater than ‘1’ that does not match the process group ID of
-     any existing process group.  This can happen if all of the
-     processes in the job that was formerly the foreground job have
-     terminated, and no other job has yet been moved into the
-     foreground.
-
-     In case of an error, a value of ‘-1’ is returned.  The following
-     ‘errno’ error conditions are defined for this function:
-
-     ‘EBADF’
-          The FILEDES argument is not a valid file descriptor.
-
-     ‘ENOSYS’
-          The system doesn’t support job control.
-
-     ‘ENOTTY’
-          The terminal file associated with the FILEDES argument isn’t
-          the controlling terminal of the calling process.
-
- -- Function: int tcsetpgrp (int FILEDES, pid_t PGID)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function is used to set a terminal’s foreground process group
-     ID. The argument FILEDES is a descriptor which specifies the
-     terminal; PGID specifies the process group.  The calling process
-     must be a member of the same session as PGID and must have the same
-     controlling terminal.
-
-     For terminal access purposes, this function is treated as output.
-     If it is called from a background process on its controlling
-     terminal, normally all processes in the process group are sent a
-     ‘SIGTTOU’ signal.  The exception is if the calling process itself
-     is ignoring or blocking ‘SIGTTOU’ signals, in which case the
-     operation is performed and no signal is sent.
-
-     If successful, ‘tcsetpgrp’ returns ‘0’.  A return value of ‘-1’
-     indicates an error.  The following ‘errno’ error conditions are
-     defined for this function:
-
-     ‘EBADF’
-          The FILEDES argument is not a valid file descriptor.
-
-     ‘EINVAL’
-          The PGID argument is not valid.
-
-     ‘ENOSYS’
-          The system doesn’t support job control.
-
-     ‘ENOTTY’
-          The FILEDES isn’t the controlling terminal of the calling
-          process.
-
-     ‘EPERM’
-          The PGID isn’t a process group in the same session as the
-          calling process.
-
- -- Function: pid_t tcgetsid (int FILDES)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function is used to obtain the process group ID of the session
-     for which the terminal specified by FILDES is the controlling
-     terminal.  If the call is successful the group ID is returned.
-     Otherwise the return value is ‘(pid_t) -1’ and the global variable
-     ERRNO is set to the following value:
-     ‘EBADF’
-          The FILEDES argument is not a valid file descriptor.
-
-     ‘ENOTTY’
-          The calling process does not have a controlling terminal, or
-          the file is not the controlling terminal.
-
-
-File: libc.info,  Node: Name Service Switch,  Next: Users and Groups,  Prev: Job Control,  Up: Top
-
-29 System Databases and Name Service Switch
-*******************************************
-
-Various functions in the C Library need to be configured to work
-correctly in the local environment.  Traditionally, this was done by
-using files (e.g., ‘/etc/passwd’), but other nameservices (like the
-Network Information Service (NIS) and the Domain Name Service (DNS))
-became popular, and were hacked into the C library, usually with a fixed
-search order.
-
-   The GNU C Library contains a cleaner solution to this problem.  It is
-designed after a method used by Sun Microsystems in the C library of
-Solaris 2.  The GNU C Library follows their name and calls this scheme
-“Name Service Switch” (NSS).
-
-   Though the interface might be similar to Sun’s version there is no
-common code.  We never saw any source code of Sun’s implementation and
-so the internal interface is incompatible.  This also manifests in the
-file names we use as we will see later.
-
-* Menu:
-
-* NSS Basics::                  What is this NSS good for.
-* NSS Configuration File::      Configuring NSS.
-* NSS Module Internals::        How does it work internally.
-* Extending NSS::               What to do to add services or databases.
-
-
-File: libc.info,  Node: NSS Basics,  Next: NSS Configuration File,  Prev: Name Service Switch,  Up: Name Service Switch
-
-29.1 NSS Basics
-===============
-
-The basic idea is to put the implementation of the different services
-offered to access the databases in separate modules.  This has some
-advantages:
-
-  1. Contributors can add new services without adding them to the GNU C
-     Library.
-  2. The modules can be updated separately.
-  3. The C library image is smaller.
-
-   To fulfill the first goal above, the ABI of the modules will be
-described below.  For getting the implementation of a new service right
-it is important to understand how the functions in the modules get
-called.  They are in no way designed to be used by the programmer
-directly.  Instead the programmer should only use the documented and
-standardized functions to access the databases.
-
-The databases available in the NSS are
-
-‘aliases’
-     Mail aliases
-‘ethers’
-     Ethernet numbers,
-‘group’
-     Groups of users, *note Group Database::.
-‘hosts’
-     Host names and numbers, *note Host Names::.
-‘netgroup’
-     Network wide list of host and users, *note Netgroup Database::.
-‘networks’
-     Network names and numbers, *note Networks Database::.
-‘protocols’
-     Network protocols, *note Protocols Database::.
-‘passwd’
-     User passwords, *note User Database::.
-‘rpc’
-     Remote procedure call names and numbers,
-‘services’
-     Network services, *note Services Database::.
-‘shadow’
-     Shadow user passwords,
-
-There will be some more added later (‘automount’, ‘bootparams’,
-‘netmasks’, and ‘publickey’).
-
-
-File: libc.info,  Node: NSS Configuration File,  Next: NSS Module Internals,  Prev: NSS Basics,  Up: Name Service Switch
-
-29.2 The NSS Configuration File
-===============================
-
-Somehow the NSS code must be told about the wishes of the user.  For
-this reason there is the file ‘/etc/nsswitch.conf’.  For each database,
-this file contains a specification of how the lookup process should
-work.  The file could look like this:
-
-     # /etc/nsswitch.conf
-     #
-     # Name Service Switch configuration file.
-     #
-
-     passwd:     db files nis
-     shadow:     files
-     group:      db files nis
-
-     hosts:      files nisplus nis dns
-     networks:   nisplus [NOTFOUND=return] files
-
-     ethers:     nisplus [NOTFOUND=return] db files
-     protocols:  nisplus [NOTFOUND=return] db files
-     rpc:        nisplus [NOTFOUND=return] db files
-     services:   nisplus [NOTFOUND=return] db files
-
-   The first column is the database as you can guess from the table
-above.  The rest of the line specifies how the lookup process works.
-Please note that you specify the way it works for each database
-individually.  This cannot be done with the old way of a monolithic
-implementation.
-
-   The configuration specification for each database can contain two
-different items:
-
-   • the service specification like ‘files’, ‘db’, or ‘nis’.
-   • the reaction on lookup result like ‘[NOTFOUND=return]’.
-
-* Menu:
-
-* Services in the NSS configuration::  Service names in the NSS configuration.
-* Actions in the NSS configuration::  React appropriately to the lookup result.
-* Notes on NSS Configuration File::  Things to take care about while
-                                     configuring NSS.
-
-
-File: libc.info,  Node: Services in the NSS configuration,  Next: Actions in the NSS configuration,  Prev: NSS Configuration File,  Up: NSS Configuration File
-
-29.2.1 Services in the NSS configuration File
----------------------------------------------
-
-The above example file mentions five different services: ‘files’, ‘db’,
-‘dns’, ‘nis’, and ‘nisplus’.  This does not mean these services are
-available on all sites and neither does it mean these are all the
-services which will ever be available.
-
-   In fact, these names are simply strings which the NSS code uses to
-find the implicitly addressed functions.  The internal interface will be
-described later.  Visible to the user are the modules which implement an
-individual service.
-
-   Assume the service NAME shall be used for a lookup.  The code for
-this service is implemented in a module called ‘libnss_NAME’.  On a
-system supporting shared libraries this is in fact a shared library with
-the name (for example) ‘libnss_NAME.so.2’.  The number at the end is the
-currently used version of the interface which will not change
-frequently.  Normally the user should not have to be cognizant of these
-files since they should be placed in a directory where they are found
-automatically.  Only the names of all available services are important.
-
-
-File: libc.info,  Node: Actions in the NSS configuration,  Next: Notes on NSS Configuration File,  Prev: Services in the NSS configuration,  Up: NSS Configuration File
-
-29.2.2 Actions in the NSS configuration
----------------------------------------
-
-The second item in the specification gives the user much finer control
-on the lookup process.  Action items are placed between two service
-names and are written within brackets.  The general form is
-
-     ‘[’ ( ‘!’? STATUS ‘=’ ACTION )+ ‘]’
-
-where
-
-     STATUS ⇒ success | notfound | unavail | tryagain
-     ACTION ⇒ return | continue
-
-   The case of the keywords is insignificant.  The STATUS values are the
-results of a call to a lookup function of a specific service.  They
-mean:
-
-‘success’
-     No error occurred and the wanted entry is returned.  The default
-     action for this is ‘return’.
-
-‘notfound’
-     The lookup process works ok but the needed value was not found.
-     The default action is ‘continue’.
-
-‘unavail’
-     The service is permanently unavailable.  This can either mean the
-     needed file is not available, or, for DNS, the server is not
-     available or does not allow queries.  The default action is
-     ‘continue’.
-
-‘tryagain’
-     The service is temporarily unavailable.  This could mean a file is
-     locked or a server currently cannot accept more connections.  The
-     default action is ‘continue’.
-
-The ACTION values mean:
-
-‘return’
-
-     If the status matches, stop the lookup process at this service
-     specification.  If an entry is available, provide it to the
-     application.  If an error occurred, report it to the application.
-     In case of a prior ‘merge’ action, the data is combined with
-     previous lookup results, as explained below.
-
-‘continue’
-
-     If the status matches, proceed with the lookup process at the next
-     entry, discarding the result of the current lookup (and any merged
-     data).  An exception is the ‘initgroups’ database and the ‘success’
-     status, where ‘continue’ acts like ‘merge’ below.
-
-‘merge’
-
-     Proceed with the lookup process, retaining the current lookup
-     result.  This action is useful only with the ‘success’ status.  If
-     a subsequent service lookup succeeds and has a matching ‘return’
-     specification, the results are merged, the lookup process ends, and
-     the merged results are returned to the application.  If the
-     following service has a matching ‘merge’ action, the lookup process
-     continues, retaining the combined data from this and any previous
-     lookups.
-
-     After a ‘merge’ action, errors from subsequent lookups are ignored,
-     and the data gathered so far will be returned.
-
-     The ‘merge’ only applies to the ‘success’ status.  It is currently
-     implemented for the ‘group’ database and its group members field,
-     ‘gr_mem’.  If specified for other databases, it causes the lookup
-     to fail (if the STATUS matches).
-
-     When processing ‘merge’ for ‘group’ membership, the group GID and
-     name must be identical for both entries.  If only one or the other
-     is a match, the behavior is undefined.
-
-If we have a line like
-
-     ethers: nisplus [NOTFOUND=return] db files
-
-this is equivalent to
-
-     ethers: nisplus [SUCCESS=return NOTFOUND=return UNAVAIL=continue
-                      TRYAGAIN=continue]
-             db      [SUCCESS=return NOTFOUND=continue UNAVAIL=continue
-                      TRYAGAIN=continue]
-             files
-
-(except that it would have to be written on one line).  The default
-value for the actions are normally what you want, and only need to be
-changed in exceptional cases.
-
-   If the optional ‘!’ is placed before the STATUS this means the
-following action is used for all statuses but STATUS itself.  I.e., ‘!’
-is negation as in the C language (and others).
-
-   Before we explain the exception which makes this action item
-necessary one more remark: obviously it makes no sense to add another
-action item after the ‘files’ service.  Since there is no other service
-following the action _always_ is ‘return’.
-
-   Now, why is this ‘[NOTFOUND=return]’ action useful?  To understand
-this we should know that the ‘nisplus’ service is often complete; i.e.,
-if an entry is not available in the NIS+ tables it is not available
-anywhere else.  This is what is expressed by this action item: it is
-useless to examine further services since they will not give us a
-result.
-
-   The situation would be different if the NIS+ service is not available
-because the machine is booting.  In this case the return value of the
-lookup function is not ‘notfound’ but instead ‘unavail’.  And as you can
-see in the complete form above: in this situation the ‘db’ and ‘files’
-services are used.  Neat, isn’t it?  The system administrator need not
-pay special care for the time the system is not completely ready to work
-(while booting or shutdown or network problems).
-
-
-File: libc.info,  Node: Notes on NSS Configuration File,  Prev: Actions in the NSS configuration,  Up: NSS Configuration File
-
-29.2.3 Notes on the NSS Configuration File
-------------------------------------------
-
-Finally a few more hints.  The NSS implementation is not completely
-helpless if ‘/etc/nsswitch.conf’ does not exist.  For all supported
-databases there is a default value so it should normally be possible to
-get the system running even if the file is corrupted or missing.
-
-   For the ‘hosts’ and ‘networks’ databases the default value is ‘dns
-[!UNAVAIL=return] files’.  I.e., the system is prepared for the DNS
-service not to be available but if it is available the answer it returns
-is definitive.
-
-   The ‘passwd’, ‘group’, and ‘shadow’ databases are traditionally
-handled in a special way.  The appropriate files in the ‘/etc’ directory
-are read but if an entry with a name starting with a ‘+’ character is
-found NIS is used.  This kind of lookup remains possible by using the
-special lookup service ‘compat’ and the default value for the three
-databases above is ‘compat [NOTFOUND=return] files’.
-
-   For all other databases the default value is ‘nis [NOTFOUND=return]
-files’.  This solution gives the best chance to be correct since NIS and
-file based lookups are used.
-
-   A second point is that the user should try to optimize the lookup
-process.  The different service have different response times.  A simple
-file look up on a local file could be fast, but if the file is long and
-the needed entry is near the end of the file this may take quite some
-time.  In this case it might be better to use the ‘db’ service which
-allows fast local access to large data sets.
-
-   Often the situation is that some global information like NIS must be
-used.  So it is unavoidable to use service entries like ‘nis’ etc.  But
-one should avoid slow services like this if possible.
-
-
-File: libc.info,  Node: NSS Module Internals,  Next: Extending NSS,  Prev: NSS Configuration File,  Up: Name Service Switch
-
-29.3 NSS Module Internals
-=========================
-
-Now it is time to describe what the modules look like.  The functions
-contained in a module are identified by their names.  I.e., there is no
-jump table or the like.  How this is done is of no interest here; those
-interested in this topic should read about Dynamic Linking.
-
-* Menu:
-
-* NSS Module Names::            Construction of the interface function of
-                                the NSS modules.
-* NSS Modules Interface::       Programming interface in the NSS module
-                                functions.
-
-
-File: libc.info,  Node: NSS Module Names,  Next: NSS Modules Interface,  Prev: NSS Module Internals,  Up: NSS Module Internals
-
-29.3.1 The Naming Scheme of the NSS Modules
--------------------------------------------
-
-The name of each function consists of various parts:
-
-     _nss_SERVICE_FUNCTION
-
-   SERVICE of course corresponds to the name of the module this function
-is found in.(1)  The FUNCTION part is derived from the interface
-function in the C library itself.  If the user calls the function
-‘gethostbyname’ and the service used is ‘files’ the function
-
-            _nss_files_gethostbyname_r
-
-in the module
-
-            libnss_files.so.2
-
-is used.  You see, what is explained above in not the whole truth.  In
-fact the NSS modules only contain reentrant versions of the lookup
-functions.  I.e., if the user would call the ‘gethostbyname_r’ function
-this also would end in the above function.  For all user interface
-functions the C library maps this call to a call to the reentrant
-function.  For reentrant functions this is trivial since the interface
-is (nearly) the same.  For the non-reentrant version the library keeps
-internal buffers which are used to replace the user supplied buffer.
-
-   I.e., the reentrant functions _can_ have counterparts.  No service
-module is forced to have functions for all databases and all kinds to
-access them.  If a function is not available it is simply treated as if
-the function would return ‘unavail’ (*note Actions in the NSS
-configuration::).
-
-   The file name ‘libnss_files.so.2’ would be on a Solaris 2 system
-‘nss_files.so.2’.  This is the difference mentioned above.  Sun’s NSS
-modules are usable as modules which get indirectly loaded only.
-
-   The NSS modules in the GNU C Library are prepared to be used as
-normal libraries themselves.  This is _not_ true at the moment, though.
-However, the organization of the name space in the modules does not make
-it impossible like it is for Solaris.  Now you can see why the modules
-are still libraries.(2)
-
-   ---------- Footnotes ----------
-
-   (1) Now you might ask why this information is duplicated.  The answer
-is that we want to make it possible to link directly with these shared
-objects.
-
-   (2) There is a second explanation: we were too lazy to change the
-Makefiles to allow the generation of shared objects not starting with
-‘lib’ but don’t tell this to anybody.
-
-
-File: libc.info,  Node: NSS Modules Interface,  Prev: NSS Module Names,  Up: NSS Module Internals
-
-29.3.2 The Interface of the Function in NSS Modules
----------------------------------------------------
-
-Now we know about the functions contained in the modules.  It is now
-time to describe the types.  When we mentioned the reentrant versions of
-the functions above, this means there are some additional arguments
-(compared with the standard, non-reentrant versions).  The prototypes
-for the non-reentrant and reentrant versions of our function above are:
-
-     struct hostent *gethostbyname (const char *name)
-
-     int gethostbyname_r (const char *name, struct hostent *result_buf,
-                          char *buf, size_t buflen, struct hostent **result,
-                          int *h_errnop)
-
-The actual prototype of the function in the NSS modules in this case is
-
-     enum nss_status _nss_files_gethostbyname_r (const char *name,
-                                                 struct hostent *result_buf,
-                                                 char *buf, size_t buflen,
-                                                 int *errnop, int *h_errnop)
-
-   I.e., the interface function is in fact the reentrant function with
-the change of the return value, the omission of the RESULT parameter,
-and the addition of the ERRNOP parameter.  While the user-level function
-returns a pointer to the result the reentrant function return an ‘enum
-nss_status’ value:
-
-‘NSS_STATUS_TRYAGAIN’
-     numeric value ‘-2’
-
-‘NSS_STATUS_UNAVAIL’
-     numeric value ‘-1’
-
-‘NSS_STATUS_NOTFOUND’
-     numeric value ‘0’
-
-‘NSS_STATUS_SUCCESS’
-     numeric value ‘1’
-
-Now you see where the action items of the ‘/etc/nsswitch.conf’ file are
-used.
-
-   If you study the source code you will find there is a fifth value:
-‘NSS_STATUS_RETURN’.  This is an internal use only value, used by a few
-functions in places where none of the above value can be used.  If
-necessary the source code should be examined to learn about the details.
-
-   In case the interface function has to return an error it is important
-that the correct error code is stored in ‘*ERRNOP’.  Some return status
-values have only one associated error code, others have more.
-
-‘NSS_STATUS_TRYAGAIN’  ‘EAGAIN’       One of the functions used ran
-                                      temporarily out of resources or a
-                                      service is currently not
-                                      available.
-                       ‘ERANGE’       The provided buffer is not large
-                                      enough.  The function should be
-                                      called again with a larger buffer.
-‘NSS_STATUS_UNAVAIL’   ‘ENOENT’       A necessary input file cannot be
-                                      found.
-‘NSS_STATUS_NOTFOUND’  ‘ENOENT’       The requested entry is not
-                                      available.
-                                      
-‘NSS_STATUS_NOTFOUND’  ‘SUCCESS’      There are no entries.  Use this to
-                                      avoid returning errors for
-                                      inactive services which may be
-                                      enabled at a later time.  This is
-                                      not the same as the service being
-                                      temporarily unavailable.
-
-   These are proposed values.  There can be other error codes and the
-described error codes can have different meaning.  *With one exception:*
-when returning ‘NSS_STATUS_TRYAGAIN’ the error code ‘ERANGE’ _must_ mean
-that the user provided buffer is too small.  Everything else is
-non-critical.
-
-   In statically linked programs, the main application and NSS modules
-do not share the same thread-local variable ‘errno’, which is the reason
-why there is an explicit ERRNOP function argument.
-
-   The above function has something special which is missing for almost
-all the other module functions.  There is an argument H_ERRNOP.  This
-points to a variable which will be filled with the error code in case
-the execution of the function fails for some reason.  (In statically
-linked programs, the thread-local variable ‘h_errno’ is not shared with
-the main application.)
-
-   The ‘getXXXbyYYY’ functions are the most important functions in the
-NSS modules.  But there are others which implement the other ways to
-access system databases (say for the password database, there are
-‘setpwent’, ‘getpwent’, and ‘endpwent’).  These will be described in
-more detail later.  Here we give a general way to determine the
-signature of the module function:
-
-   • the return value is ‘enum nss_status’;
-   • the name (*note NSS Module Names::);
-   • the first arguments are identical to the arguments of the
-     non-reentrant function;
-   • the next four arguments are:
-
-     ‘STRUCT_TYPE *result_buf’
-          pointer to buffer where the result is stored.  ‘STRUCT_TYPE’
-          is normally a struct which corresponds to the database.
-     ‘char *buffer’
-          pointer to a buffer where the function can store additional
-          data for the result etc.
-     ‘size_t buflen’
-          length of the buffer pointed to by BUFFER.
-     ‘int *errnop’
-          the low-level error code to return to the application.  If the
-          return value is not ‘NSS_STATUS_SUCCESS’, ‘*ERRNOP’ needs to
-          be set to a non-zero value.  An NSS module should never set
-          ‘*ERRNOP’ to zero.  The value ‘ERANGE’ is special, as
-          described above.
-
-   • possibly a last argument H_ERRNOP, for the host name and network
-     name lookup functions.  If the return value is not
-     ‘NSS_STATUS_SUCCESS’, ‘*H_ERRNOP’ needs to be set to a non-zero
-     value.  A generic error code is ‘NETDB_INTERNAL’, which instructs
-     the caller to examine ‘*ERRNOP’ for further details.  (This
-     includes the ‘ERANGE’ special case.)
-
-This table is correct for all functions but the ‘set...ent’ and
-‘end...ent’ functions.
-
-
-File: libc.info,  Node: Extending NSS,  Prev: NSS Module Internals,  Up: Name Service Switch
-
-29.4 Extending NSS
-==================
-
-One of the advantages of NSS mentioned above is that it can be extended
-quite easily.  There are two ways in which the extension can happen:
-adding another database or adding another service.  The former is
-normally done only by the C library developers.  It is here only
-important to remember that adding another database is independent from
-adding another service because a service need not support all databases
-or lookup functions.
-
-   A designer/implementer of a new service is therefore free to choose
-the databases s/he is interested in and leave the rest for later (or
-completely aside).
-
-* Menu:
-
-* Adding another Service to NSS::  What is to do to add a new service.
-* NSS Module Function Internals::  Guidelines for writing new NSS
-                                        service functions.
-
-
-File: libc.info,  Node: Adding another Service to NSS,  Next: NSS Module Function Internals,  Prev: Extending NSS,  Up: Extending NSS
-
-29.4.1 Adding another Service to NSS
-------------------------------------
-
-The sources for a new service need not (and should not) be part of the
-GNU C Library itself.  The developer retains complete control over the
-sources and its development.  The links between the C library and the
-new service module consists solely of the interface functions.
-
-   Each module is designed following a specific interface specification.
-For now the version is 2 (the interface in version 1 was not adequate)
-and this manifests in the version number of the shared library object of
-the NSS modules: they have the extension ‘.2’.  If the interface changes
-again in an incompatible way, this number will be increased.  Modules
-using the old interface will still be usable.
-
-   Developers of a new service will have to make sure that their module
-is created using the correct interface number.  This means the file
-itself must have the correct name and on ELF systems the “soname”
-(Shared Object Name) must also have this number.  Building a module from
-a bunch of object files on an ELF system using GNU CC could be done like
-this:
-
-     gcc -shared -o libnss_NAME.so.2 -Wl,-soname,libnss_NAME.so.2 OBJECTS
-
-*note Options for Linking: (gcc)Link Options, to learn more about this
-command line.
-
-   To use the new module the library must be able to find it.  This can
-be achieved by using options for the dynamic linker so that it will
-search the directory where the binary is placed.  For an ELF system this
-could be done by adding the wanted directory to the value of
-‘LD_LIBRARY_PATH’.
-
-   But this is not always possible since some programs (those which run
-under IDs which do not belong to the user) ignore this variable.
-Therefore the stable version of the module should be placed into a
-directory which is searched by the dynamic linker.  Normally this should
-be the directory ‘$prefix/lib’, where ‘$prefix’ corresponds to the value
-given to configure using the ‘--prefix’ option.  But be careful: this
-should only be done if it is clear the module does not cause any harm.
-System administrators should be careful.
-
-
-File: libc.info,  Node: NSS Module Function Internals,  Prev: Adding another Service to NSS,  Up: Extending NSS
-
-29.4.2 Internals of the NSS Module Functions
---------------------------------------------
-
-Until now we only provided the syntactic interface for the functions in
-the NSS module.  In fact there is not much more we can say since the
-implementation obviously is different for each function.  But a few
-general rules must be followed by all functions.
-
-   In fact there are four kinds of different functions which may appear
-in the interface.  All derive from the traditional ones for system
-databases.  DB in the following table is normally an abbreviation for
-the database (e.g., it is ‘pw’ for the password database).
-
-‘enum nss_status _nss_DATABASE_setDBent (void)’
-     This function prepares the service for following operations.  For a
-     simple file based lookup this means files could be opened, for
-     other services this function simply is a noop.
-
-     One special case for this function is that it takes an additional
-     argument for some DATABASEs (i.e., the interface is ‘int setDBent
-     (int)’).  *note Host Names::, which describes the ‘sethostent’
-     function.
-
-     The return value should be NSS_STATUS_SUCCESS or according to the
-     table above in case of an error (*note NSS Modules Interface::).
-
-‘enum nss_status _nss_DATABASE_endDBent (void)’
-     This function simply closes all files which are still open or
-     removes buffer caches.  If there are no files or buffers to remove
-     this is again a simple noop.
-
-     There normally is no return value other than NSS_STATUS_SUCCESS.
-
-‘enum nss_status _nss_DATABASE_getDBent_r (STRUCTURE *result, char *buffer, size_t buflen, int *errnop)’
-     Since this function will be called several times in a row to
-     retrieve one entry after the other it must keep some kind of state.
-     But this also means the functions are not really reentrant.  They
-     are reentrant only in that simultaneous calls to this function will
-     not try to write the retrieved data in the same place (as it would
-     be the case for the non-reentrant functions); instead, it writes to
-     the structure pointed to by the RESULT parameter.  But the calls
-     share a common state and in the case of a file access this means
-     they return neighboring entries in the file.
-
-     The buffer of length BUFLEN pointed to by BUFFER can be used for
-     storing some additional data for the result.  It is _not_
-     guaranteed that the same buffer will be passed for the next call of
-     this function.  Therefore one must not misuse this buffer to save
-     some state information from one call to another.
-
-     Before the function returns with a failure code, the implementation
-     should store the value of the local ERRNO variable in the variable
-     pointed to be ERRNOP.  This is important to guarantee the module
-     working in statically linked programs.  The stored value must not
-     be zero.
-
-     As explained above this function could also have an additional last
-     argument.  This depends on the database used; it happens only for
-     ‘host’ and ‘networks’.
-
-     The function shall return ‘NSS_STATUS_SUCCESS’ as long as there are
-     more entries.  When the last entry was read it should return
-     ‘NSS_STATUS_NOTFOUND’.  When the buffer given as an argument is too
-     small for the data to be returned ‘NSS_STATUS_TRYAGAIN’ should be
-     returned.  When the service was not formerly initialized by a call
-     to ‘_nss_DATABASE_setDBent’ all return values allowed for this
-     function can also be returned here.
-
-‘enum nss_status _nss_DATABASE_getDBbyXX_r (PARAMS, STRUCTURE *result, char *buffer, size_t buflen, int *errnop)’
-     This function shall return the entry from the database which is
-     addressed by the PARAMS.  The type and number of these arguments
-     vary.  It must be individually determined by looking to the
-     user-level interface functions.  All arguments given to the
-     non-reentrant version are here described by PARAMS.
-
-     The result must be stored in the structure pointed to by RESULT.
-     If there are additional data to return (say strings, where the
-     RESULT structure only contains pointers) the function must use the
-     BUFFER of length BUFLEN.  There must not be any references to
-     non-constant global data.
-
-     The implementation of this function should honor the STAYOPEN flag
-     set by the ‘setDBent’ function whenever this makes sense.
-
-     Before the function returns, the implementation should store the
-     value of the local ERRNO variable in the variable pointed to by
-     ERRNOP.  This is important to guarantee the module works in
-     statically linked programs.
-
-     Again, this function takes an additional last argument for the
-     ‘host’ and ‘networks’ database.
-
-     The return value should as always follow the rules given above
-     (*note NSS Modules Interface::).
-
-
-File: libc.info,  Node: Users and Groups,  Next: System Management,  Prev: Name Service Switch,  Up: Top
-
-30 Users and Groups
-*******************
-
-Every user who can log in on the system is identified by a unique number
-called the “user ID”. Each process has an effective user ID which says
-which user’s access permissions it has.
-
-   Users are classified into “groups” for access control purposes.  Each
-process has one or more “group ID values” which say which groups the
-process can use for access to files.
-
-   The effective user and group IDs of a process collectively form its
-“persona”.  This determines which files the process can access.
-Normally, a process inherits its persona from the parent process, but
-under special circumstances a process can change its persona and thus
-change its access permissions.
-
-   Each file in the system also has a user ID and a group ID. Access
-control works by comparing the user and group IDs of the file with those
-of the running process.
-
-   The system keeps a database of all the registered users, and another
-database of all the defined groups.  There are library functions you can
-use to examine these databases.
-
-* Menu:
-
-* User and Group IDs::          Each user has a unique numeric ID;
-				 likewise for groups.
-* Process Persona::             The user IDs and group IDs of a process.
-* Why Change Persona::          Why a program might need to change
-				 its user and/or group IDs.
-* How Change Persona::          Changing the user and group IDs.
-* Reading Persona::             How to examine the user and group IDs.
-
-* Setting User ID::             Functions for setting the user ID.
-* Setting Groups::              Functions for setting the group IDs.
-
-* Enable/Disable Setuid::       Turning setuid access on and off.
-* Setuid Program Example::      The pertinent parts of one sample program.
-* Tips for Setuid::             How to avoid granting unlimited access.
-
-* Who Logged In::               Getting the name of the user who logged in,
-				 or of the real user ID of the current process.
-
-* User Accounting Database::    Keeping information about users and various
-                                 actions in databases.
-
-* User Database::               Functions and data structures for
-                        	 accessing the user database.
-* Group Database::              Functions and data structures for
-                        	 accessing the group database.
-* Database Example::            Example program showing the use of database
-				 inquiry functions.
-* Netgroup Database::           Functions for accessing the netgroup database.
-
-
-File: libc.info,  Node: User and Group IDs,  Next: Process Persona,  Up: Users and Groups
-
-30.1 User and Group IDs
-=======================
-
-Each user account on a computer system is identified by a “user name”
-(or “login name”) and “user ID”. Normally, each user name has a unique
-user ID, but it is possible for several login names to have the same
-user ID. The user names and corresponding user IDs are stored in a data
-base which you can access as described in *note User Database::.
-
-   Users are classified in “groups”.  Each user name belongs to one
-“default group” and may also belong to any number of “supplementary
-groups”.  Users who are members of the same group can share resources
-(such as files) that are not accessible to users who are not a member of
-that group.  Each group has a “group name” and “group ID”. *Note Group
-Database::, for how to find information about a group ID or group name.
-
-
-File: libc.info,  Node: Process Persona,  Next: Why Change Persona,  Prev: User and Group IDs,  Up: Users and Groups
-
-30.2 The Persona of a Process
-=============================
-
-At any time, each process has an “effective user ID”, a “effective group
-ID”, and a set of “supplementary group IDs”.  These IDs determine the
-privileges of the process.  They are collectively called the “persona”
-of the process, because they determine “who it is” for purposes of
-access control.
-
-   Your login shell starts out with a persona which consists of your
-user ID, your default group ID, and your supplementary group IDs (if you
-are in more than one group).  In normal circumstances, all your other
-processes inherit these values.
-
-   A process also has a “real user ID” which identifies the user who
-created the process, and a “real group ID” which identifies that user’s
-default group.  These values do not play a role in access control, so we
-do not consider them part of the persona.  But they are also important.
-
-   Both the real and effective user ID can be changed during the
-lifetime of a process.  *Note Why Change Persona::.
-
-   For details on how a process’s effective user ID and group IDs affect
-its permission to access files, see *note Access Permission::.
-
-   The effective user ID of a process also controls permissions for
-sending signals using the ‘kill’ function.  *Note Signaling Another
-Process::.
-
-   Finally, there are many operations which can only be performed by a
-process whose effective user ID is zero.  A process with this user ID is
-a “privileged process”.  Commonly the user name ‘root’ is associated
-with user ID 0, but there may be other user names with this ID.
-
-
-File: libc.info,  Node: Why Change Persona,  Next: How Change Persona,  Prev: Process Persona,  Up: Users and Groups
-
-30.3 Why Change the Persona of a Process?
-=========================================
-
-The most obvious situation where it is necessary for a process to change
-its user and/or group IDs is the ‘login’ program.  When ‘login’ starts
-running, its user ID is ‘root’.  Its job is to start a shell whose user
-and group IDs are those of the user who is logging in.  (To accomplish
-this fully, ‘login’ must set the real user and group IDs as well as its
-persona.  But this is a special case.)
-
-   The more common case of changing persona is when an ordinary user
-program needs access to a resource that wouldn’t ordinarily be
-accessible to the user actually running it.
-
-   For example, you may have a file that is controlled by your program
-but that shouldn’t be read or modified directly by other users, either
-because it implements some kind of locking protocol, or because you want
-to preserve the integrity or privacy of the information it contains.
-This kind of restricted access can be implemented by having the program
-change its effective user or group ID to match that of the resource.
-
-   Thus, imagine a game program that saves scores in a file.  The game
-program itself needs to be able to update this file no matter who is
-running it, but if users can write the file without going through the
-game, they can give themselves any scores they like.  Some people
-consider this undesirable, or even reprehensible.  It can be prevented
-by creating a new user ID and login name (say, ‘games’) to own the
-scores file, and make the file writable only by this user.  Then, when
-the game program wants to update this file, it can change its effective
-user ID to be that for ‘games’.  In effect, the program must adopt the
-persona of ‘games’ so it can write to the scores file.
-
-
-File: libc.info,  Node: How Change Persona,  Next: Reading Persona,  Prev: Why Change Persona,  Up: Users and Groups
-
-30.4 How an Application Can Change Persona
-==========================================
-
-The ability to change the persona of a process can be a source of
-unintentional privacy violations, or even intentional abuse.  Because of
-the potential for problems, changing persona is restricted to special
-circumstances.
-
-   You can’t arbitrarily set your user ID or group ID to anything you
-want; only privileged processes can do that.  Instead, the normal way
-for a program to change its persona is that it has been set up in
-advance to change to a particular user or group.  This is the function
-of the setuid and setgid bits of a file’s access mode.  *Note Permission
-Bits::.
-
-   When the setuid bit of an executable file is on, executing that file
-gives the process a third user ID: the “file user ID”. This ID is set to
-the owner ID of the file.  The system then changes the effective user ID
-to the file user ID. The real user ID remains as it was.  Likewise, if
-the setgid bit is on, the process is given a “file group ID” equal to
-the group ID of the file, and its effective group ID is changed to the
-file group ID.
-
-   If a process has a file ID (user or group), then it can at any time
-change its effective ID to its real ID and back to its file ID. Programs
-use this feature to relinquish their special privileges except when they
-actually need them.  This makes it less likely that they can be tricked
-into doing something inappropriate with their privileges.
-
-   *Portability Note:* Older systems do not have file IDs.  To determine
-if a system has this feature, you can test the compiler define
-‘_POSIX_SAVED_IDS’.  (In the POSIX standard, file IDs are known as saved
-IDs.)
-
-   *Note File Attributes::, for a more general discussion of file modes
-and accessibility.
-
-
-File: libc.info,  Node: Reading Persona,  Next: Setting User ID,  Prev: How Change Persona,  Up: Users and Groups
-
-30.5 Reading the Persona of a Process
-=====================================
-
-Here are detailed descriptions of the functions for reading the user and
-group IDs of a process, both real and effective.  To use these
-facilities, you must include the header files ‘sys/types.h’ and
-‘unistd.h’.
-
- -- Data Type: uid_t
-
-     This is an integer data type used to represent user IDs.  In the
-     GNU C Library, this is an alias for ‘unsigned int’.
-
- -- Data Type: gid_t
-
-     This is an integer data type used to represent group IDs.  In the
-     GNU C Library, this is an alias for ‘unsigned int’.
-
- -- Function: uid_t getuid (void)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘getuid’ function returns the real user ID of the process.
-
- -- Function: gid_t getgid (void)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘getgid’ function returns the real group ID of the process.
-
- -- Function: uid_t geteuid (void)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘geteuid’ function returns the effective user ID of the
-     process.
-
- -- Function: gid_t getegid (void)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘getegid’ function returns the effective group ID of the
-     process.
-
- -- Function: int getgroups (int COUNT, gid_t *GROUPS)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘getgroups’ function is used to inquire about the supplementary
-     group IDs of the process.  Up to COUNT of these group IDs are
-     stored in the array GROUPS; the return value from the function is
-     the number of group IDs actually stored.  If COUNT is smaller than
-     the total number of supplementary group IDs, then ‘getgroups’
-     returns a value of ‘-1’ and ‘errno’ is set to ‘EINVAL’.
-
-     If COUNT is zero, then ‘getgroups’ just returns the total number of
-     supplementary group IDs.  On systems that do not support
-     supplementary groups, this will always be zero.
-
-     Here’s how to use ‘getgroups’ to read all the supplementary group
-     IDs:
-
-          gid_t *
-          read_all_groups (void)
-          {
-            int ngroups = getgroups (0, NULL);
-            gid_t *groups
-              = (gid_t *) xmalloc (ngroups * sizeof (gid_t));
-            int val = getgroups (ngroups, groups);
-            if (val < 0)
-              {
-                free (groups);
-                return NULL;
-              }
-            return groups;
-          }
-
-
-File: libc.info,  Node: Setting User ID,  Next: Setting Groups,  Prev: Reading Persona,  Up: Users and Groups
-
-30.6 Setting the User ID
-========================
-
-This section describes the functions for altering the user ID (real
-and/or effective) of a process.  To use these facilities, you must
-include the header files ‘sys/types.h’ and ‘unistd.h’.
-
- -- Function: int seteuid (uid_t NEWEUID)
-
-     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
-     POSIX Safety Concepts::.
-
-     This function sets the effective user ID of a process to NEWEUID,
-     provided that the process is allowed to change its effective user
-     ID. A privileged process (effective user ID zero) can change its
-     effective user ID to any legal value.  An unprivileged process with
-     a file user ID can change its effective user ID to its real user ID
-     or to its file user ID. Otherwise, a process may not change its
-     effective user ID at all.
-
-     The ‘seteuid’ function returns a value of ‘0’ to indicate
-     successful completion, and a value of ‘-1’ to indicate an error.
-     The following ‘errno’ error conditions are defined for this
-     function:
-
-     ‘EINVAL’
-          The value of the NEWEUID argument is invalid.
-
-     ‘EPERM’
-          The process may not change to the specified ID.
-
-     Older systems (those without the ‘_POSIX_SAVED_IDS’ feature) do not
-     have this function.
-
- -- Function: int setuid (uid_t NEWUID)
-
-     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
-     POSIX Safety Concepts::.
-
-     If the calling process is privileged, this function sets both the
-     real and effective user IDs of the process to NEWUID.  It also
-     deletes the file user ID of the process, if any.  NEWUID may be any
-     legal value.  (Once this has been done, there is no way to recover
-     the old effective user ID.)
-
-     If the process is not privileged, and the system supports the
-     ‘_POSIX_SAVED_IDS’ feature, then this function behaves like
-     ‘seteuid’.
-
-     The return values and error conditions are the same as for
-     ‘seteuid’.
-
- -- Function: int setreuid (uid_t RUID, uid_t EUID)
-
-     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
-     POSIX Safety Concepts::.
-
-     This function sets the real user ID of the process to RUID and the
-     effective user ID to EUID.  If RUID is ‘-1’, it means not to change
-     the real user ID; likewise if EUID is ‘-1’, it means not to change
-     the effective user ID.
-
-     The ‘setreuid’ function exists for compatibility with 4.3 BSD Unix,
-     which does not support file IDs.  You can use this function to swap
-     the effective and real user IDs of the process.  (Privileged
-     processes are not limited to this particular usage.)  If file IDs
-     are supported, you should use that feature instead of this
-     function.  *Note Enable/Disable Setuid::.
-
-     The return value is ‘0’ on success and ‘-1’ on failure.  The
-     following ‘errno’ error conditions are defined for this function:
-
-     ‘EPERM’
-          The process does not have the appropriate privileges; you do
-          not have permission to change to the specified ID.
-
-
-File: libc.info,  Node: Setting Groups,  Next: Enable/Disable Setuid,  Prev: Setting User ID,  Up: Users and Groups
-
-30.7 Setting the Group IDs
-==========================
-
-This section describes the functions for altering the group IDs (real
-and effective) of a process.  To use these facilities, you must include
-the header files ‘sys/types.h’ and ‘unistd.h’.
-
- -- Function: int setegid (gid_t NEWGID)
-
-     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
-     POSIX Safety Concepts::.
-
-     This function sets the effective group ID of the process to NEWGID,
-     provided that the process is allowed to change its group ID. Just
-     as with ‘seteuid’, if the process is privileged it may change its
-     effective group ID to any value; if it isn’t, but it has a file
-     group ID, then it may change to its real group ID or file group ID;
-     otherwise it may not change its effective group ID.
-
-     Note that a process is only privileged if its effective _user_ ID
-     is zero.  The effective group ID only affects access permissions.
-
-     The return values and error conditions for ‘setegid’ are the same
-     as those for ‘seteuid’.
-
-     This function is only present if ‘_POSIX_SAVED_IDS’ is defined.
-
- -- Function: int setgid (gid_t NEWGID)
-
-     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
-     POSIX Safety Concepts::.
-
-     This function sets both the real and effective group ID of the
-     process to NEWGID, provided that the process is privileged.  It
-     also deletes the file group ID, if any.
-
-     If the process is not privileged, then ‘setgid’ behaves like
-     ‘setegid’.
-
-     The return values and error conditions for ‘setgid’ are the same as
-     those for ‘seteuid’.
-
- -- Function: int setregid (gid_t RGID, gid_t EGID)
-
-     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
-     POSIX Safety Concepts::.
-
-     This function sets the real group ID of the process to RGID and the
-     effective group ID to EGID.  If RGID is ‘-1’, it means not to
-     change the real group ID; likewise if EGID is ‘-1’, it means not to
-     change the effective group ID.
-
-     The ‘setregid’ function is provided for compatibility with 4.3 BSD
-     Unix, which does not support file IDs.  You can use this function
-     to swap the effective and real group IDs of the process.
-     (Privileged processes are not limited to this usage.)  If file IDs
-     are supported, you should use that feature instead of using this
-     function.  *Note Enable/Disable Setuid::.
-
-     The return values and error conditions for ‘setregid’ are the same
-     as those for ‘setreuid’.
-
-   ‘setuid’ and ‘setgid’ behave differently depending on whether the
-effective user ID at the time is zero.  If it is not zero, they behave
-like ‘seteuid’ and ‘setegid’.  If it is, they change both effective and
-real IDs and delete the file ID. To avoid confusion, we recommend you
-always use ‘seteuid’ and ‘setegid’ except when you know the effective
-user ID is zero and your intent is to change the persona permanently.
-This case is rare—most of the programs that need it, such as ‘login’ and
-‘su’, have already been written.
-
-   Note that if your program is setuid to some user other than ‘root’,
-there is no way to drop privileges permanently.
-
-   The system also lets privileged processes change their supplementary
-group IDs.  To use ‘setgroups’ or ‘initgroups’, your programs should
-include the header file ‘grp.h’.
-
- -- Function: int setgroups (size_t COUNT, const gid_t *GROUPS)
-
-     Preliminary: | MT-Safe | AS-Unsafe lock | AC-Unsafe lock | *Note
-     POSIX Safety Concepts::.
-
-     This function sets the process’s supplementary group IDs.  It can
-     only be called from privileged processes.  The COUNT argument
-     specifies the number of group IDs in the array GROUPS.
-
-     This function returns ‘0’ if successful and ‘-1’ on error.  The
-     following ‘errno’ error conditions are defined for this function:
-
-     ‘EPERM’
-          The calling process is not privileged.
-
- -- Function: int initgroups (const char *USER, gid_t GROUP)
-
-     Preliminary: | MT-Safe locale | AS-Unsafe dlopen plugin heap lock |
-     AC-Unsafe corrupt mem fd lock | *Note POSIX Safety Concepts::.
-
-     The ‘initgroups’ function sets the process’s supplementary group
-     IDs to be the normal default for the user name USER.  The group
-     GROUP is automatically included.
-
-     This function works by scanning the group database for all the
-     groups USER belongs to.  It then calls ‘setgroups’ with the list it
-     has constructed.
-
-     The return values and error conditions are the same as for
-     ‘setgroups’.
-
-   If you are interested in the groups a particular user belongs to, but
-do not want to change the process’s supplementary group IDs, you can use
-‘getgrouplist’.  To use ‘getgrouplist’, your programs should include the
-header file ‘grp.h’.
-
- -- Function: int getgrouplist (const char *USER, gid_t GROUP, gid_t
-          *GROUPS, int *NGROUPS)
-
-     Preliminary: | MT-Safe locale | AS-Unsafe dlopen plugin heap lock |
-     AC-Unsafe corrupt mem fd lock | *Note POSIX Safety Concepts::.
-
-     The ‘getgrouplist’ function scans the group database for all the
-     groups USER belongs to.  Up to *NGROUPS group IDs corresponding to
-     these groups are stored in the array GROUPS; the return value from
-     the function is the number of group IDs actually stored.  If
-     *NGROUPS is smaller than the total number of groups found, then
-     ‘getgrouplist’ returns a value of ‘-1’ and stores the actual number
-     of groups in *NGROUPS.  The group GROUP is automatically included
-     in the list of groups returned by ‘getgrouplist’.
-
-     Here’s how to use ‘getgrouplist’ to read all supplementary groups
-     for USER:
-
-          gid_t *
-          supplementary_groups (char *user)
-          {
-            int ngroups = 16;
-            gid_t *groups
-              = (gid_t *) xmalloc (ngroups * sizeof (gid_t));
-            struct passwd *pw = getpwnam (user);
-
-            if (pw == NULL)
-              return NULL;
-
-            if (getgrouplist (pw->pw_name, pw->pw_gid, groups, &ngroups) < 0)
-              {
-                groups = xrealloc (ngroups * sizeof (gid_t));
-                getgrouplist (pw->pw_name, pw->pw_gid, groups, &ngroups);
-              }
-            return groups;
-          }
-
-
-File: libc.info,  Node: Enable/Disable Setuid,  Next: Setuid Program Example,  Prev: Setting Groups,  Up: Users and Groups
-
-30.8 Enabling and Disabling Setuid Access
-=========================================
-
-A typical setuid program does not need its special access all of the
-time.  It’s a good idea to turn off this access when it isn’t needed, so
-it can’t possibly give unintended access.
-
-   If the system supports the ‘_POSIX_SAVED_IDS’ feature, you can
-accomplish this with ‘seteuid’.  When the game program starts, its real
-user ID is ‘jdoe’, its effective user ID is ‘games’, and its saved user
-ID is also ‘games’.  The program should record both user ID values once
-at the beginning, like this:
-
-     user_user_id = getuid ();
-     game_user_id = geteuid ();
-
-   Then it can turn off game file access with
-
-     seteuid (user_user_id);
-
-and turn it on with
-
-     seteuid (game_user_id);
-
-Throughout this process, the real user ID remains ‘jdoe’ and the file
-user ID remains ‘games’, so the program can always set its effective
-user ID to either one.
-
-   On other systems that don’t support file user IDs, you can turn
-setuid access on and off by using ‘setreuid’ to swap the real and
-effective user IDs of the process, as follows:
-
-     setreuid (geteuid (), getuid ());
-
-This special case is always allowed—it cannot fail.
-
-   Why does this have the effect of toggling the setuid access?  Suppose
-a game program has just started, and its real user ID is ‘jdoe’ while
-its effective user ID is ‘games’.  In this state, the game can write the
-scores file.  If it swaps the two uids, the real becomes ‘games’ and the
-effective becomes ‘jdoe’; now the program has only ‘jdoe’ access.
-Another swap brings ‘games’ back to the effective user ID and restores
-access to the scores file.
-
-   In order to handle both kinds of systems, test for the saved user ID
-feature with a preprocessor conditional, like this:
-
-     #ifdef _POSIX_SAVED_IDS
-       seteuid (user_user_id);
-     #else
-       setreuid (geteuid (), getuid ());
-     #endif
-
-
-File: libc.info,  Node: Setuid Program Example,  Next: Tips for Setuid,  Prev: Enable/Disable Setuid,  Up: Users and Groups
-
-30.9 Setuid Program Example
-===========================
-
-Here’s an example showing how to set up a program that changes its
-effective user ID.
-
-   This is part of a game program called ‘caber-toss’ that manipulates a
-file ‘scores’ that should be writable only by the game program itself.
-The program assumes that its executable file will be installed with the
-setuid bit set and owned by the same user as the ‘scores’ file.
-Typically, a system administrator will set up an account like ‘games’
-for this purpose.
-
-   The executable file is given mode ‘4755’, so that doing an ‘ls -l’ on
-it produces output like:
-
-     -rwsr-xr-x   1 games    184422 Jul 30 15:17 caber-toss
-
-The setuid bit shows up in the file modes as the ‘s’.
-
-   The scores file is given mode ‘644’, and doing an ‘ls -l’ on it
-shows:
-
-     -rw-r--r--  1 games           0 Jul 31 15:33 scores
-
-   Here are the parts of the program that show how to set up the changed
-user ID. This program is conditionalized so that it makes use of the
-file IDs feature if it is supported, and otherwise uses ‘setreuid’ to
-swap the effective and real user IDs.
-
-     #include <stdio.h>
-     #include <sys/types.h>
-     #include <unistd.h>
-     #include <stdlib.h>
-
-
-     /* Remember the effective and real UIDs. */
-
-     static uid_t euid, ruid;
-
-
-     /* Restore the effective UID to its original value. */
-
-     void
-     do_setuid (void)
-     {
-       int status;
-
-     #ifdef _POSIX_SAVED_IDS
-       status = seteuid (euid);
-     #else
-       status = setreuid (ruid, euid);
-     #endif
-       if (status < 0) {
-         fprintf (stderr, "Couldn't set uid.\n");
-         exit (status);
-         }
-     }
-
-
-     /* Set the effective UID to the real UID. */
-
-     void
-     undo_setuid (void)
-     {
-       int status;
-
-     #ifdef _POSIX_SAVED_IDS
-       status = seteuid (ruid);
-     #else
-       status = setreuid (euid, ruid);
-     #endif
-       if (status < 0) {
-         fprintf (stderr, "Couldn't set uid.\n");
-         exit (status);
-         }
-     }
-
-     /* Main program. */
-
-     int
-     main (void)
-     {
-       /* Remember the real and effective user IDs.  */
-       ruid = getuid ();
-       euid = geteuid ();
-       undo_setuid ();
-
-       /* Do the game and record the score.  */
-       ...
-     }
-
-   Notice how the first thing the ‘main’ function does is to set the
-effective user ID back to the real user ID. This is so that any other
-file accesses that are performed while the user is playing the game use
-the real user ID for determining permissions.  Only when the program
-needs to open the scores file does it switch back to the file user ID,
-like this:
-
-     /* Record the score. */
-
-     int
-     record_score (int score)
-     {
-       FILE *stream;
-       char *myname;
-
-       /* Open the scores file. */
-       do_setuid ();
-       stream = fopen (SCORES_FILE, "a");
-       undo_setuid ();
-
-       /* Write the score to the file. */
-       if (stream)
-         {
-           myname = cuserid (NULL);
-           if (score < 0)
-             fprintf (stream, "%10s: Couldn't lift the caber.\n", myname);
-           else
-             fprintf (stream, "%10s: %d feet.\n", myname, score);
-           fclose (stream);
-           return 0;
-         }
-       else
-         return -1;
-     }
-
-
-File: libc.info,  Node: Tips for Setuid,  Next: Who Logged In,  Prev: Setuid Program Example,  Up: Users and Groups
-
-30.10 Tips for Writing Setuid Programs
-======================================
-
-It is easy for setuid programs to give the user access that isn’t
-intended—in fact, if you want to avoid this, you need to be careful.
-Here are some guidelines for preventing unintended access and minimizing
-its consequences when it does occur:
-
-   • Don’t have ‘setuid’ programs with privileged user IDs such as
-     ‘root’ unless it is absolutely necessary.  If the resource is
-     specific to your particular program, it’s better to define a new,
-     nonprivileged user ID or group ID just to manage that resource.
-     It’s better if you can write your program to use a special group
-     than a special user.
-
-   • Be cautious about using the ‘exec’ functions in combination with
-     changing the effective user ID. Don’t let users of your program
-     execute arbitrary programs under a changed user ID. Executing a
-     shell is especially bad news.  Less obviously, the ‘execlp’ and
-     ‘execvp’ functions are a potential risk (since the program they
-     execute depends on the user’s ‘PATH’ environment variable).
-
-     If you must ‘exec’ another program under a changed ID, specify an
-     absolute file name (*note File Name Resolution::) for the
-     executable, and make sure that the protections on that executable
-     and _all_ containing directories are such that ordinary users
-     cannot replace it with some other program.
-
-     You should also check the arguments passed to the program to make
-     sure they do not have unexpected effects.  Likewise, you should
-     examine the environment variables.  Decide which arguments and
-     variables are safe, and reject all others.
-
-     You should never use ‘system’ in a privileged program, because it
-     invokes a shell.
-
-   • Only use the user ID controlling the resource in the part of the
-     program that actually uses that resource.  When you’re finished
-     with it, restore the effective user ID back to the actual user’s
-     user ID. *Note Enable/Disable Setuid::.
-
-   • If the ‘setuid’ part of your program needs to access other files
-     besides the controlled resource, it should verify that the real
-     user would ordinarily have permission to access those files.  You
-     can use the ‘access’ function (*note Access Permission::) to check
-     this; it uses the real user and group IDs, rather than the
-     effective IDs.
-
-
-File: libc.info,  Node: Who Logged In,  Next: User Accounting Database,  Prev: Tips for Setuid,  Up: Users and Groups
-
-30.11 Identifying Who Logged In
-===============================
-
-You can use the functions listed in this section to determine the login
-name of the user who is running a process, and the name of the user who
-logged in the current session.  See also the function ‘getuid’ and
-friends (*note Reading Persona::).  How this information is collected by
-the system and how to control/add/remove information from the background
-storage is described in *note User Accounting Database::.
-
-   The ‘getlogin’ function is declared in ‘unistd.h’, while ‘cuserid’
-and ‘L_cuserid’ are declared in ‘stdio.h’.
-
- -- Function: char * getlogin (void)
-
-     Preliminary: | MT-Unsafe race:getlogin race:utent sig:ALRM timer
-     locale | AS-Unsafe dlopen plugin heap lock | AC-Unsafe corrupt lock
-     fd mem | *Note POSIX Safety Concepts::.
-
-     The ‘getlogin’ function returns a pointer to a string containing
-     the name of the user logged in on the controlling terminal of the
-     process, or a null pointer if this information cannot be
-     determined.  The string is statically allocated and might be
-     overwritten on subsequent calls to this function or to ‘cuserid’.
-
- -- Function: char * cuserid (char *STRING)
-
-     Preliminary: | MT-Unsafe race:cuserid/!string locale | AS-Unsafe
-     dlopen plugin heap lock | AC-Unsafe corrupt lock fd mem | *Note
-     POSIX Safety Concepts::.
-
-     The ‘cuserid’ function returns a pointer to a string containing a
-     user name associated with the effective ID of the process.  If
-     STRING is not a null pointer, it should be an array that can hold
-     at least ‘L_cuserid’ characters; the string is returned in this
-     array.  Otherwise, a pointer to a string in a static area is
-     returned.  This string is statically allocated and might be
-     overwritten on subsequent calls to this function or to ‘getlogin’.
-
-     The use of this function is deprecated since it is marked to be
-     withdrawn in XPG4.2 and has already been removed from newer
-     revisions of POSIX.1.
-
- -- Macro: int L_cuserid
-
-     An integer constant that indicates how long an array you might need
-     to store a user name.
-
-   These functions let your program identify positively the user who is
-running or the user who logged in this session.  (These can differ when
-setuid programs are involved; see *note Process Persona::.)  The user
-cannot do anything to fool these functions.
-
-   For most purposes, it is more useful to use the environment variable
-‘LOGNAME’ to find out who the user is.  This is more flexible precisely
-because the user can set ‘LOGNAME’ arbitrarily.  *Note Standard
-Environment::.
-
-
-File: libc.info,  Node: User Accounting Database,  Next: User Database,  Prev: Who Logged In,  Up: Users and Groups
-
-30.12 The User Accounting Database
-==================================
-
-Most Unix-like operating systems keep track of logged in users by
-maintaining a user accounting database.  This user accounting database
-stores for each terminal, who has logged on, at what time, the process
-ID of the user’s login shell, etc., etc., but also stores information
-about the run level of the system, the time of the last system reboot,
-and possibly more.
-
-   The user accounting database typically lives in ‘/etc/utmp’,
-‘/var/adm/utmp’ or ‘/var/run/utmp’.  However, these files should *never*
-be accessed directly.  For reading information from and writing
-information to the user accounting database, the functions described in
-this section should be used.
-
-* Menu:
-
-* Manipulating the Database::   Scanning and modifying the user
-                                 accounting database.
-* XPG Functions::               A standardized way for doing the same thing.
-* Logging In and Out::          Functions from BSD that modify the user
-                                 accounting database.
-
-
-File: libc.info,  Node: Manipulating the Database,  Next: XPG Functions,  Up: User Accounting Database
-
-30.12.1 Manipulating the User Accounting Database
--------------------------------------------------
-
-These functions and the corresponding data structures are declared in
-the header file ‘utmp.h’.
-
- -- Data Type: struct exit_status
-
-     The ‘exit_status’ data structure is used to hold information about
-     the exit status of processes marked as ‘DEAD_PROCESS’ in the user
-     accounting database.
-
-     ‘short int e_termination’
-          The exit status of the process.
-
-     ‘short int e_exit’
-          The exit status of the process.
-
- -- Data Type: struct utmp
-     The ‘utmp’ data structure is used to hold information about entries
-     in the user accounting database.  On GNU systems it has the
-     following members:
-
-     ‘short int ut_type’
-          Specifies the type of login; one of ‘EMPTY’, ‘RUN_LVL’,
-          ‘BOOT_TIME’, ‘OLD_TIME’, ‘NEW_TIME’, ‘INIT_PROCESS’,
-          ‘LOGIN_PROCESS’, ‘USER_PROCESS’, ‘DEAD_PROCESS’ or
-          ‘ACCOUNTING’.
-
-     ‘pid_t ut_pid’
-          The process ID number of the login process.
-
-     ‘char ut_line[]’
-          The device name of the tty (without ‘/dev/’).
-
-     ‘char ut_id[]’
-          The inittab ID of the process.
-
-     ‘char ut_user[]’
-          The user’s login name.
-
-     ‘char ut_host[]’
-          The name of the host from which the user logged in.
-
-     ‘struct exit_status ut_exit’
-          The exit status of a process marked as ‘DEAD_PROCESS’.
-
-     ‘long ut_session’
-          The Session ID, used for windowing.
-
-     ‘struct timeval ut_tv’
-          Time the entry was made.  For entries of type ‘OLD_TIME’ this
-          is the time when the system clock changed, and for entries of
-          type ‘NEW_TIME’ this is the time the system clock was set to.
-
-     ‘int32_t ut_addr_v6[4]’
-          The Internet address of a remote host.
-
-   The ‘ut_type’, ‘ut_pid’, ‘ut_id’, ‘ut_tv’, and ‘ut_host’ fields are
-not available on all systems.  Portable applications therefore should be
-prepared for these situations.  To help do this the ‘utmp.h’ header
-provides macros ‘_HAVE_UT_TYPE’, ‘_HAVE_UT_PID’, ‘_HAVE_UT_ID’,
-‘_HAVE_UT_TV’, and ‘_HAVE_UT_HOST’ if the respective field is available.
-The programmer can handle the situations by using ‘#ifdef’ in the
-program code.
-
-   The following macros are defined for use as values for the ‘ut_type’
-member of the ‘utmp’ structure.  The values are integer constants.
-
-‘EMPTY’
-
-     This macro is used to indicate that the entry contains no valid
-     user accounting information.
-
-‘RUN_LVL’
-
-     This macro is used to identify the system’s runlevel.
-
-‘BOOT_TIME’
-
-     This macro is used to identify the time of system boot.
-
-‘OLD_TIME’
-
-     This macro is used to identify the time when the system clock
-     changed.
-
-‘NEW_TIME’
-
-     This macro is used to identify the time after the system clock
-     changed.
-
-‘INIT_PROCESS’
-
-     This macro is used to identify a process spawned by the init
-     process.
-
-‘LOGIN_PROCESS’
-
-     This macro is used to identify the session leader of a logged in
-     user.
-
-‘USER_PROCESS’
-
-     This macro is used to identify a user process.
-
-‘DEAD_PROCESS’
-
-     This macro is used to identify a terminated process.
-
-‘ACCOUNTING’
-
-     ???
-
-   The size of the ‘ut_line’, ‘ut_id’, ‘ut_user’ and ‘ut_host’ arrays
-can be found using the ‘sizeof’ operator.
-
-   Many older systems have, instead of an ‘ut_tv’ member, an ‘ut_time’
-member, usually of type ‘time_t’, for representing the time associated
-with the entry.  Therefore, for backwards compatibility only, ‘utmp.h’
-defines ‘ut_time’ as an alias for ‘ut_tv.tv_sec’.
-
- -- Function: void setutent (void)
-
-     Preliminary: | MT-Unsafe race:utent | AS-Unsafe lock | AC-Unsafe
-     lock fd | *Note POSIX Safety Concepts::.
-
-     This function opens the user accounting database to begin scanning
-     it.  You can then call ‘getutent’, ‘getutid’ or ‘getutline’ to read
-     entries and ‘pututline’ to write entries.
-
-     If the database is already open, it resets the input to the
-     beginning of the database.
-
- -- Function: struct utmp * getutent (void)
-
-     Preliminary: | MT-Unsafe init race:utent race:utentbuf sig:ALRM
-     timer | AS-Unsafe heap lock | AC-Unsafe lock fd mem | *Note POSIX
-     Safety Concepts::.
-
-     The ‘getutent’ function reads the next entry from the user
-     accounting database.  It returns a pointer to the entry, which is
-     statically allocated and may be overwritten by subsequent calls to
-     ‘getutent’.  You must copy the contents of the structure if you
-     wish to save the information or you can use the ‘getutent_r’
-     function which stores the data in a user-provided buffer.
-
-     A null pointer is returned in case no further entry is available.
-
- -- Function: void endutent (void)
-
-     Preliminary: | MT-Unsafe race:utent | AS-Unsafe lock | AC-Unsafe
-     lock fd | *Note POSIX Safety Concepts::.
-
-     This function closes the user accounting database.
-
- -- Function: struct utmp * getutid (const struct utmp *ID)
-
-     Preliminary: | MT-Unsafe init race:utent sig:ALRM timer | AS-Unsafe
-     lock heap | AC-Unsafe lock mem fd | *Note POSIX Safety Concepts::.
-
-     This function searches forward from the current point in the
-     database for an entry that matches ID.  If the ‘ut_type’ member of
-     the ID structure is one of ‘RUN_LVL’, ‘BOOT_TIME’, ‘OLD_TIME’ or
-     ‘NEW_TIME’ the entries match if the ‘ut_type’ members are
-     identical.  If the ‘ut_type’ member of the ID structure is
-     ‘INIT_PROCESS’, ‘LOGIN_PROCESS’, ‘USER_PROCESS’ or ‘DEAD_PROCESS’,
-     the entries match if the ‘ut_type’ member of the entry read from
-     the database is one of these four, and the ‘ut_id’ members match.
-     However if the ‘ut_id’ member of either the ID structure or the
-     entry read from the database is empty it checks if the ‘ut_line’
-     members match instead.  If a matching entry is found, ‘getutid’
-     returns a pointer to the entry, which is statically allocated, and
-     may be overwritten by a subsequent call to ‘getutent’, ‘getutid’ or
-     ‘getutline’.  You must copy the contents of the structure if you
-     wish to save the information.
-
-     A null pointer is returned in case the end of the database is
-     reached without a match.
-
-     The ‘getutid’ function may cache the last read entry.  Therefore,
-     if you are using ‘getutid’ to search for multiple occurrences, it
-     is necessary to zero out the static data after each call.
-     Otherwise ‘getutid’ could just return a pointer to the same entry
-     over and over again.
-
- -- Function: struct utmp * getutline (const struct utmp *LINE)
-
-     Preliminary: | MT-Unsafe init race:utent sig:ALRM timer | AS-Unsafe
-     heap lock | AC-Unsafe lock fd mem | *Note POSIX Safety Concepts::.
-
-     This function searches forward from the current point in the
-     database until it finds an entry whose ‘ut_type’ value is
-     ‘LOGIN_PROCESS’ or ‘USER_PROCESS’, and whose ‘ut_line’ member
-     matches the ‘ut_line’ member of the LINE structure.  If it finds
-     such an entry, it returns a pointer to the entry which is
-     statically allocated, and may be overwritten by a subsequent call
-     to ‘getutent’, ‘getutid’ or ‘getutline’.  You must copy the
-     contents of the structure if you wish to save the information.
-
-     A null pointer is returned in case the end of the database is
-     reached without a match.
-
-     The ‘getutline’ function may cache the last read entry.  Therefore
-     if you are using ‘getutline’ to search for multiple occurrences, it
-     is necessary to zero out the static data after each call.
-     Otherwise ‘getutline’ could just return a pointer to the same entry
-     over and over again.
-
- -- Function: struct utmp * pututline (const struct utmp *UTMP)
-
-     Preliminary: | MT-Unsafe race:utent sig:ALRM timer | AS-Unsafe lock
-     | AC-Unsafe lock fd | *Note POSIX Safety Concepts::.
-
-     The ‘pututline’ function inserts the entry ‘*UTMP’ at the
-     appropriate place in the user accounting database.  If it finds
-     that it is not already at the correct place in the database, it
-     uses ‘getutid’ to search for the position to insert the entry,
-     however this will not modify the static structure returned by
-     ‘getutent’, ‘getutid’ and ‘getutline’.  If this search fails, the
-     entry is appended to the database.
-
-     The ‘pututline’ function returns a pointer to a copy of the entry
-     inserted in the user accounting database, or a null pointer if the
-     entry could not be added.  The following ‘errno’ error conditions
-     are defined for this function:
-
-     ‘EPERM’
-          The process does not have the appropriate privileges; you
-          cannot modify the user accounting database.
-
-   All the ‘get*’ functions mentioned before store the information they
-return in a static buffer.  This can be a problem in multi-threaded
-programs since the data returned for the request is overwritten by the
-return value data in another thread.  Therefore the GNU C Library
-provides as extensions three more functions which return the data in a
-user-provided buffer.
-
- -- Function: int getutent_r (struct utmp *BUFFER, struct utmp **RESULT)
-
-     Preliminary: | MT-Unsafe race:utent sig:ALRM timer | AS-Unsafe lock
-     | AC-Unsafe lock fd | *Note POSIX Safety Concepts::.
-
-     The ‘getutent_r’ is equivalent to the ‘getutent’ function.  It
-     returns the next entry from the database.  But instead of storing
-     the information in a static buffer it stores it in the buffer
-     pointed to by the parameter BUFFER.
-
-     If the call was successful, the function returns ‘0’ and the
-     pointer variable pointed to by the parameter RESULT contains a
-     pointer to the buffer which contains the result (this is most
-     probably the same value as BUFFER).  If something went wrong during
-     the execution of ‘getutent_r’ the function returns ‘-1’.
-
-     This function is a GNU extension.
-
- -- Function: int getutid_r (const struct utmp *ID, struct utmp *BUFFER,
-          struct utmp **RESULT)
-
-     Preliminary: | MT-Unsafe race:utent sig:ALRM timer | AS-Unsafe lock
-     | AC-Unsafe lock fd | *Note POSIX Safety Concepts::.
-
-     This function retrieves just like ‘getutid’ the next entry matching
-     the information stored in ID.  But the result is stored in the
-     buffer pointed to by the parameter BUFFER.
-
-     If successful the function returns ‘0’ and the pointer variable
-     pointed to by the parameter RESULT contains a pointer to the buffer
-     with the result (probably the same as RESULT.  If not successful
-     the function return ‘-1’.
-
-     This function is a GNU extension.
-
- -- Function: int getutline_r (const struct utmp *LINE, struct utmp
-          *BUFFER, struct utmp **RESULT)
-
-     Preliminary: | MT-Unsafe race:utent sig:ALRM timer | AS-Unsafe lock
-     | AC-Unsafe lock fd | *Note POSIX Safety Concepts::.
-
-     This function retrieves just like ‘getutline’ the next entry
-     matching the information stored in LINE.  But the result is stored
-     in the buffer pointed to by the parameter BUFFER.
-
-     If successful the function returns ‘0’ and the pointer variable
-     pointed to by the parameter RESULT contains a pointer to the buffer
-     with the result (probably the same as RESULT.  If not successful
-     the function return ‘-1’.
-
-     This function is a GNU extension.
-
-   In addition to the user accounting database, most systems keep a
-number of similar databases.  For example most systems keep a log file
-with all previous logins (usually in ‘/etc/wtmp’ or ‘/var/log/wtmp’).
-
-   For specifying which database to examine, the following function
-should be used.
-
- -- Function: int utmpname (const char *FILE)
-
-     Preliminary: | MT-Unsafe race:utent | AS-Unsafe lock heap |
-     AC-Unsafe lock mem | *Note POSIX Safety Concepts::.
-
-     The ‘utmpname’ function changes the name of the database to be
-     examined to FILE, and closes any previously opened database.  By
-     default ‘getutent’, ‘getutid’, ‘getutline’ and ‘pututline’ read
-     from and write to the user accounting database.
-
-     The following macros are defined for use as the FILE argument:
-
-      -- Macro: char * _PATH_UTMP
-          This macro is used to specify the user accounting database.
-
-      -- Macro: char * _PATH_WTMP
-          This macro is used to specify the user accounting log file.
-
-     The ‘utmpname’ function returns a value of ‘0’ if the new name was
-     successfully stored, and a value of ‘-1’ to indicate an error.
-     Note that ‘utmpname’ does not try to open the database, and that
-     therefore the return value does not say anything about whether the
-     database can be successfully opened.
-
-   Specially for maintaining log-like databases the GNU C Library
-provides the following function:
-
- -- Function: void updwtmp (const char *WTMP_FILE, const struct utmp
-          *UTMP)
-
-     Preliminary: | MT-Unsafe sig:ALRM timer | AS-Unsafe | AC-Unsafe fd
-     | *Note POSIX Safety Concepts::.
-
-     The ‘updwtmp’ function appends the entry *UTMP to the database
-     specified by WTMP_FILE.  For possible values for the WTMP_FILE
-     argument see the ‘utmpname’ function.
-
-   *Portability Note:* Although many operating systems provide a subset
-of these functions, they are not standardized.  There are often subtle
-differences in the return types, and there are considerable differences
-between the various definitions of ‘struct utmp’.  When programming for
-the GNU C Library, it is probably best to stick with the functions
-described in this section.  If however, you want your program to be
-portable, consider using the XPG functions described in *note XPG
-Functions::, or take a look at the BSD compatible functions in *note
-Logging In and Out::.
 

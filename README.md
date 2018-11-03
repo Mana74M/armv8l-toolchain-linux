@@ -4,8 +4,8 @@ Toolchain for linux x86_64 host and armv8l-linux-gnueabihf target optimized for 
 Checkout to `/usr/local/armv8l-unknown-linux-gnueabihf` and add `/usr/local/armv8l-unknown-linux-gnueabihf/bin` to *PATH*.
 
 #### Components and Versions
-* gcc 8.1.0 (patched against 85764), glibc 2.26, binutils 2.30, gdb 8.1 (built with crosstool-ng)
-* boost 1.67.0
+* gcc 8.2.0, glibc 2.28, binutils 2.31,1 gdb 8.2 (built with crosstool-ng)
+* boost 1.68.0
 * OpenCV 3.2.0
 * Raspicam (https://github.com/cedricve/raspicam) c4c0dc1
 * Qt 5.8.1

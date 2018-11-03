@@ -2,10 +2,10 @@ This is libc.info, produced by makeinfo version 6.5 from libc.texinfo.
 
 This file documents the GNU C Library.
 
-   This is ‘The GNU C Library Reference Manual’, for version 2.26
-(crosstool-NG 1.23.0.420-f79b).
+   This is ‘The GNU C Library Reference Manual’, for version 2.28
+(crosstool-NG 1.23.0.511-576f).
 
-   Copyright © 1993–2017 Free Software Foundation, Inc.
+   Copyright © 1993–2018 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +56,6 @@ START-INFO-DIR-ENTRY
 * CS8: (libc)Control Modes.
 * CSIZE: (libc)Control Modes.
 * CSTOPB: (libc)Control Modes.
-* DES_FAILED: (libc)DES Encryption.
 * DTTOIF: (libc)Directory Entries.
 * E2BIG: (libc)Error Codes.
 * EACCES: (libc)Error Codes.
@@ -326,6 +325,7 @@ START-INFO-DIR-ENTRY
 * O_READ: (libc)Access Modes.
 * O_SHLOCK: (libc)Open-time Flags.
 * O_SYNC: (libc)Operating Modes.
+* O_TMPFILE: (libc)Open-time Flags.
 * O_TRUNC: (libc)Open-time Flags.
 * O_WRITE: (libc)Access Modes.
 * O_WRONLY: (libc)Access Modes.
@@ -489,6 +489,7 @@ START-INFO-DIR-ENTRY
 * __ppc_set_ppr_med_low: (libc)PowerPC.
 * __ppc_set_ppr_very_low: (libc)PowerPC.
 * __ppc_yield: (libc)PowerPC.
+* __riscv_flush_icache: (libc)RISC-V.
 * __va_copy: (libc)Argument Macros.
 * _exit: (libc)Termination Internals.
 * _flushlbf: (libc)Flushing Buffers.
@@ -615,6 +616,7 @@ START-INFO-DIR-ENTRY
 * cacoshfNx: (libc)Hyperbolic Functions.
 * cacoshl: (libc)Hyperbolic Functions.
 * cacosl: (libc)Inverse Trig Functions.
+* call_once: (libc)Call Once.
 * calloc: (libc)Allocating Cleared Space.
 * canonicalize: (libc)FP Bit Twiddling.
 * canonicalize_file_name: (libc)Symbolic Links.
@@ -650,7 +652,6 @@ START-INFO-DIR-ENTRY
 * catclose: (libc)The catgets Functions.
 * catgets: (libc)The catgets Functions.
 * catopen: (libc)The catgets Functions.
-* cbc_crypt: (libc)DES Encryption.
 * cbrt: (libc)Exponents and Logarithms.
 * cbrtf: (libc)Exponents and Logarithms.
 * cbrtfN: (libc)Exponents and Logarithms.
@@ -707,6 +708,12 @@ START-INFO-DIR-ENTRY
 * close: (libc)Opening and Closing Files.
 * closedir: (libc)Reading/Closing Directory.
 * closelog: (libc)closelog.
+* cnd_broadcast: (libc)ISO C Condition Variables.
+* cnd_destroy: (libc)ISO C Condition Variables.
+* cnd_init: (libc)ISO C Condition Variables.
+* cnd_signal: (libc)ISO C Condition Variables.
+* cnd_timedwait: (libc)ISO C Condition Variables.
+* cnd_wait: (libc)ISO C Condition Variables.
 * confstr: (libc)String Parameters.
 * conj: (libc)Operations on Complex.
 * conjf: (libc)Operations on Complex.
@@ -714,6 +721,7 @@ START-INFO-DIR-ENTRY
 * conjfNx: (libc)Operations on Complex.
 * conjl: (libc)Operations on Complex.
 * connect: (libc)Connecting.
+* copy_file_range: (libc)Copying File Data.
 * copysign: (libc)FP Bit Twiddling.
 * copysignf: (libc)FP Bit Twiddling.
 * copysignfN: (libc)FP Bit Twiddling.
@@ -746,8 +754,8 @@ START-INFO-DIR-ENTRY
 * creall: (libc)Operations on Complex.
 * creat64: (libc)Opening and Closing Files.
 * creat: (libc)Opening and Closing Files.
-* crypt: (libc)crypt.
-* crypt_r: (libc)crypt.
+* crypt: (libc)Passphrase Storage.
+* crypt_r: (libc)Passphrase Storage.
 * csin: (libc)Trig Functions.
 * csinf: (libc)Trig Functions.
 * csinfN: (libc)Trig Functions.
@@ -777,27 +785,27 @@ START-INFO-DIR-ENTRY
 * ctime: (libc)Formatting Calendar Time.
 * ctime_r: (libc)Formatting Calendar Time.
 * cuserid: (libc)Who Logged In.
+* daddl: (libc)Misc FP Arithmetic.
 * dcgettext: (libc)Translation with gettext.
 * dcngettext: (libc)Advanced gettext functions.
-* des_setparity: (libc)DES Encryption.
+* ddivl: (libc)Misc FP Arithmetic.
 * dgettext: (libc)Translation with gettext.
 * difftime: (libc)Elapsed Time.
 * dirfd: (libc)Opening a Directory.
 * dirname: (libc)Finding Tokens in a String.
 * div: (libc)Integer Division.
+* dmull: (libc)Misc FP Arithmetic.
 * dngettext: (libc)Advanced gettext functions.
 * drand48: (libc)SVID Random.
 * drand48_r: (libc)SVID Random.
 * drem: (libc)Remainder Functions.
 * dremf: (libc)Remainder Functions.
 * dreml: (libc)Remainder Functions.
+* dsubl: (libc)Misc FP Arithmetic.
 * dup2: (libc)Duplicating Descriptors.
 * dup: (libc)Duplicating Descriptors.
-* ecb_crypt: (libc)DES Encryption.
 * ecvt: (libc)System V Number Conversion.
 * ecvt_r: (libc)System V Number Conversion.
-* encrypt: (libc)DES Encryption.
-* encrypt_r: (libc)DES Encryption.
 * endfsent: (libc)fstab.
 * endgrent: (libc)Scanning All Groups.
 * endhostent: (libc)Host Names.
@@ -860,11 +868,29 @@ START-INFO-DIR-ENTRY
 * expm1fN: (libc)Exponents and Logarithms.
 * expm1fNx: (libc)Exponents and Logarithms.
 * expm1l: (libc)Exponents and Logarithms.
+* fMaddfN: (libc)Misc FP Arithmetic.
+* fMaddfNx: (libc)Misc FP Arithmetic.
+* fMdivfN: (libc)Misc FP Arithmetic.
+* fMdivfNx: (libc)Misc FP Arithmetic.
+* fMmulfN: (libc)Misc FP Arithmetic.
+* fMmulfNx: (libc)Misc FP Arithmetic.
+* fMsubfN: (libc)Misc FP Arithmetic.
+* fMsubfNx: (libc)Misc FP Arithmetic.
+* fMxaddfN: (libc)Misc FP Arithmetic.
+* fMxaddfNx: (libc)Misc FP Arithmetic.
+* fMxdivfN: (libc)Misc FP Arithmetic.
+* fMxdivfNx: (libc)Misc FP Arithmetic.
+* fMxmulfN: (libc)Misc FP Arithmetic.
+* fMxmulfNx: (libc)Misc FP Arithmetic.
+* fMxsubfN: (libc)Misc FP Arithmetic.
+* fMxsubfNx: (libc)Misc FP Arithmetic.
 * fabs: (libc)Absolute Value.
 * fabsf: (libc)Absolute Value.
 * fabsfN: (libc)Absolute Value.
 * fabsfNx: (libc)Absolute Value.
 * fabsl: (libc)Absolute Value.
+* fadd: (libc)Misc FP Arithmetic.
+* faddl: (libc)Misc FP Arithmetic.
 * fchdir: (libc)Working Directory.
 * fchmod: (libc)Setting Permissions.
 * fchown: (libc)File Owner.
@@ -879,6 +905,8 @@ START-INFO-DIR-ENTRY
 * fdimfN: (libc)Misc FP Arithmetic.
 * fdimfNx: (libc)Misc FP Arithmetic.
 * fdiml: (libc)Misc FP Arithmetic.
+* fdiv: (libc)Misc FP Arithmetic.
+* fdivl: (libc)Misc FP Arithmetic.
 * fdopen: (libc)Descriptors and Streams.
 * fdopendir: (libc)Opening a Directory.
 * feclearexcept: (libc)Status bit operations.
@@ -962,6 +990,8 @@ START-INFO-DIR-ENTRY
 * fmodfNx: (libc)Remainder Functions.
 * fmodl: (libc)Remainder Functions.
 * fmtmsg: (libc)Printing Formatted Messages.
+* fmul: (libc)Misc FP Arithmetic.
+* fmull: (libc)Misc FP Arithmetic.
 * fnmatch: (libc)Wildcard Matching.
 * fopen64: (libc)Opening Streams.
 * fopen: (libc)Opening Streams.
@@ -1007,6 +1037,8 @@ START-INFO-DIR-ENTRY
 * fsetpos: (libc)Portable Positioning.
 * fstat64: (libc)Reading Attributes.
 * fstat: (libc)Reading Attributes.
+* fsub: (libc)Misc FP Arithmetic.
+* fsubl: (libc)Misc FP Arithmetic.
 * fsync: (libc)Synchronizing I/O.
 * ftell: (libc)File Positioning.
 * ftello64: (libc)File Positioning.
@@ -1280,6 +1312,7 @@ START-INFO-DIR-ENTRY
 * lgammal: (libc)Special Functions.
 * lgammal_r: (libc)Special Functions.
 * link: (libc)Hard Links.
+* linkat: (libc)Hard Links.
 * lio_listio64: (libc)Asynchronous Reads/Writes.
 * lio_listio: (libc)Asynchronous Reads/Writes.
 * listen: (libc)Listening.
@@ -1370,7 +1403,8 @@ START-INFO-DIR-ENTRY
 * memchr: (libc)Search Functions.
 * memcmp: (libc)String/Array Comparison.
 * memcpy: (libc)Copying Strings and Arrays.
-* memfrob: (libc)Trivial Encryption.
+* memfd_create: (libc)Memory-mapped I/O.
+* memfrob: (libc)Obfuscating Data.
 * memmem: (libc)Search Functions.
 * memmove: (libc)Copying Strings and Arrays.
 * mempcpy: (libc)Copying Strings and Arrays.
@@ -1383,6 +1417,7 @@ START-INFO-DIR-ENTRY
 * mkstemp: (libc)Temporary Files.
 * mktemp: (libc)Temporary Files.
 * mktime: (libc)Broken-down Time.
+* mlock2: (libc)Page Lock Functions.
 * mlock: (libc)Page Lock Functions.
 * mlockall: (libc)Page Lock Functions.
 * mmap64: (libc)Memory-mapped I/O.
@@ -1394,11 +1429,18 @@ START-INFO-DIR-ENTRY
 * modfl: (libc)Rounding Functions.
 * mount: (libc)Mount-Unmount-Remount.
 * mprobe: (libc)Heap Consistency Checking.
+* mprotect: (libc)Memory Protection.
 * mrand48: (libc)SVID Random.
 * mrand48_r: (libc)SVID Random.
 * mremap: (libc)Memory-mapped I/O.
 * msync: (libc)Memory-mapped I/O.
 * mtrace: (libc)Tracing malloc.
+* mtx_destroy: (libc)ISO C Mutexes.
+* mtx_init: (libc)ISO C Mutexes.
+* mtx_lock: (libc)ISO C Mutexes.
+* mtx_timedlock: (libc)ISO C Mutexes.
+* mtx_trylock: (libc)ISO C Mutexes.
+* mtx_unlock: (libc)ISO C Mutexes.
 * munlock: (libc)Page Lock Functions.
 * munlockall: (libc)Page Lock Functions.
 * munmap: (libc)Memory-mapped I/O.
@@ -1482,13 +1524,15 @@ START-INFO-DIR-ENTRY
 * pclose: (libc)Pipe to a Subprocess.
 * perror: (libc)Error Messages.
 * pipe: (libc)Creating a Pipe.
+* pkey_alloc: (libc)Memory Protection.
+* pkey_free: (libc)Memory Protection.
+* pkey_get: (libc)Memory Protection.
+* pkey_mprotect: (libc)Memory Protection.
+* pkey_set: (libc)Memory Protection.
 * popen: (libc)Pipe to a Subprocess.
 * posix_fallocate64: (libc)Storage Allocation.
 * posix_fallocate: (libc)Storage Allocation.
 * posix_memalign: (libc)Aligned Memory Blocks.
-* pow10: (libc)Exponents and Logarithms.
-* pow10f: (libc)Exponents and Logarithms.
-* pow10l: (libc)Exponents and Logarithms.
 * pow: (libc)Exponents and Logarithms.
 * powf: (libc)Exponents and Logarithms.
 * powfN: (libc)Exponents and Logarithms.
@@ -1496,10 +1540,10 @@ START-INFO-DIR-ENTRY
 * powl: (libc)Exponents and Logarithms.
 * pread64: (libc)I/O Primitives.
 * pread: (libc)I/O Primitives.
-* preadv2: (libc)I/O Primitives.
-* preadv64: (libc)I/O Primitives.
-* preadv64v2: (libc)I/O Primitives.
-* preadv: (libc)I/O Primitives.
+* preadv2: (libc)Scatter-Gather.
+* preadv64: (libc)Scatter-Gather.
+* preadv64v2: (libc)Scatter-Gather.
+* preadv: (libc)Scatter-Gather.
 * printf: (libc)Formatted Output Functions.
 * printf_size: (libc)Predefined Printf Handlers.
 * printf_size_info: (libc)Predefined Printf Handlers.
@@ -1528,10 +1572,10 @@ START-INFO-DIR-ENTRY
 * putwchar_unlocked: (libc)Simple Output.
 * pwrite64: (libc)I/O Primitives.
 * pwrite: (libc)I/O Primitives.
-* pwritev2: (libc)I/O Primitives.
-* pwritev64: (libc)I/O Primitives.
-* pwritev64v2: (libc)I/O Primitives.
-* pwritev: (libc)I/O Primitives.
+* pwritev2: (libc)Scatter-Gather.
+* pwritev64: (libc)Scatter-Gather.
+* pwritev64v2: (libc)Scatter-Gather.
+* pwritev: (libc)Scatter-Gather.
 * qecvt: (libc)System V Number Conversion.
 * qecvt_r: (libc)System V Number Conversion.
 * qfcvt: (libc)System V Number Conversion.
@@ -1654,8 +1698,6 @@ START-INFO-DIR-ENTRY
 * sethostname: (libc)Host Identification.
 * setitimer: (libc)Setting an Alarm.
 * setjmp: (libc)Non-Local Details.
-* setkey: (libc)DES Encryption.
-* setkey_r: (libc)DES Encryption.
 * setlinebuf: (libc)Controlling Buffering.
 * setlocale: (libc)Setting the Locale.
 * setlogmask: (libc)setlogmask.
@@ -1773,7 +1815,7 @@ START-INFO-DIR-ENTRY
 * strfromfN: (libc)Printing of Floats.
 * strfromfNx: (libc)Printing of Floats.
 * strfroml: (libc)Printing of Floats.
-* strfry: (libc)strfry.
+* strfry: (libc)Shuffling Bytes.
 * strftime: (libc)Formatting Calendar Time.
 * strlen: (libc)String Length.
 * strncasecmp: (libc)String/Array Comparison.
@@ -1849,6 +1891,14 @@ START-INFO-DIR-ENTRY
 * tgammafN: (libc)Special Functions.
 * tgammafNx: (libc)Special Functions.
 * tgammal: (libc)Special Functions.
+* thrd_create: (libc)ISO C Thread Management.
+* thrd_current: (libc)ISO C Thread Management.
+* thrd_detach: (libc)ISO C Thread Management.
+* thrd_equal: (libc)ISO C Thread Management.
+* thrd_exit: (libc)ISO C Thread Management.
+* thrd_join: (libc)ISO C Thread Management.
+* thrd_sleep: (libc)ISO C Thread Management.
+* thrd_yield: (libc)ISO C Thread Management.
 * time: (libc)Simple Calendar Time.
 * timegm: (libc)Broken-down Time.
 * timelocal: (libc)Broken-down Time.
@@ -1881,6 +1931,10 @@ START-INFO-DIR-ENTRY
 * truncfNx: (libc)Rounding Functions.
 * truncl: (libc)Rounding Functions.
 * tsearch: (libc)Tree Search Function.
+* tss_create: (libc)ISO C Thread-local Storage.
+* tss_delete: (libc)ISO C Thread-local Storage.
+* tss_get: (libc)ISO C Thread-local Storage.
+* tss_set: (libc)ISO C Thread-local Storage.
 * ttyname: (libc)Is It a Terminal.
 * ttyname_r: (libc)Is It a Terminal.
 * twalk: (libc)Tree Search Function.
@@ -2019,6 +2073,1526 @@ START-INFO-DIR-ENTRY
 * ynfNx: (libc)Special Functions.
 * ynl: (libc)Special Functions.
 END-INFO-DIR-ENTRY
+
+
+File: libc.info,  Node: SVID Random,  Prev: BSD Random,  Up: Pseudo-Random Numbers
+
+19.8.3 SVID Random Number Function
+----------------------------------
+
+The C library on SVID systems contains yet another kind of random number
+generator functions.  They use a state of 48 bits of data.  The user can
+choose among a collection of functions which return the random bits in
+different forms.
+
+   Generally there are two kinds of function.  The first uses a state of
+the random number generator which is shared among several functions and
+by all threads of the process.  The second requires the user to handle
+the state.
+
+   All functions have in common that they use the same congruential
+formula with the same constants.  The formula is
+
+     Y = (a * X + c) mod m
+
+where X is the state of the generator at the beginning and Y the state
+at the end.  ‘a’ and ‘c’ are constants determining the way the generator
+works.  By default they are
+
+     a = 0x5DEECE66D = 25214903917
+     c = 0xb = 11
+
+but they can also be changed by the user.  ‘m’ is of course 2^48 since
+the state consists of a 48-bit array.
+
+   The prototypes for these functions are in ‘stdlib.h’.
+
+ -- Function: double drand48 (void)
+
+     Preliminary: | MT-Unsafe race:drand48 | AS-Unsafe | AC-Unsafe
+     corrupt | *Note POSIX Safety Concepts::.
+
+     This function returns a ‘double’ value in the range of ‘0.0’ to
+     ‘1.0’ (exclusive).  The random bits are determined by the global
+     state of the random number generator in the C library.
+
+     Since the ‘double’ type according to IEEE 754 has a 52-bit mantissa
+     this means 4 bits are not initialized by the random number
+     generator.  These are (of course) chosen to be the least
+     significant bits and they are initialized to ‘0’.
+
+ -- Function: double erand48 (unsigned short int XSUBI[3])
+
+     Preliminary: | MT-Unsafe race:drand48 | AS-Unsafe | AC-Unsafe
+     corrupt | *Note POSIX Safety Concepts::.
+
+     This function returns a ‘double’ value in the range of ‘0.0’ to
+     ‘1.0’ (exclusive), similarly to ‘drand48’.  The argument is an
+     array describing the state of the random number generator.
+
+     This function can be called subsequently since it updates the array
+     to guarantee random numbers.  The array should have been
+     initialized before initial use to obtain reproducible results.
+
+ -- Function: long int lrand48 (void)
+
+     Preliminary: | MT-Unsafe race:drand48 | AS-Unsafe | AC-Unsafe
+     corrupt | *Note POSIX Safety Concepts::.
+
+     The ‘lrand48’ function returns an integer value in the range of ‘0’
+     to ‘2^31’ (exclusive).  Even if the size of the ‘long int’ type can
+     take more than 32 bits, no higher numbers are returned.  The random
+     bits are determined by the global state of the random number
+     generator in the C library.
+
+ -- Function: long int nrand48 (unsigned short int XSUBI[3])
+
+     Preliminary: | MT-Unsafe race:drand48 | AS-Unsafe | AC-Unsafe
+     corrupt | *Note POSIX Safety Concepts::.
+
+     This function is similar to the ‘lrand48’ function in that it
+     returns a number in the range of ‘0’ to ‘2^31’ (exclusive) but the
+     state of the random number generator used to produce the random
+     bits is determined by the array provided as the parameter to the
+     function.
+
+     The numbers in the array are updated afterwards so that subsequent
+     calls to this function yield different results (as is expected of a
+     random number generator).  The array should have been initialized
+     before the first call to obtain reproducible results.
+
+ -- Function: long int mrand48 (void)
+
+     Preliminary: | MT-Unsafe race:drand48 | AS-Unsafe | AC-Unsafe
+     corrupt | *Note POSIX Safety Concepts::.
+
+     The ‘mrand48’ function is similar to ‘lrand48’.  The only
+     difference is that the numbers returned are in the range ‘-2^31’ to
+     ‘2^31’ (exclusive).
+
+ -- Function: long int jrand48 (unsigned short int XSUBI[3])
+
+     Preliminary: | MT-Unsafe race:drand48 | AS-Unsafe | AC-Unsafe
+     corrupt | *Note POSIX Safety Concepts::.
+
+     The ‘jrand48’ function is similar to ‘nrand48’.  The only
+     difference is that the numbers returned are in the range ‘-2^31’ to
+     ‘2^31’ (exclusive).  For the ‘xsubi’ parameter the same
+     requirements are necessary.
+
+   The internal state of the random number generator can be initialized
+in several ways.  The methods differ in the completeness of the
+information provided.
+
+ -- Function: void srand48 (long int SEEDVAL)
+
+     Preliminary: | MT-Unsafe race:drand48 | AS-Unsafe | AC-Unsafe
+     corrupt | *Note POSIX Safety Concepts::.
+
+     The ‘srand48’ function sets the most significant 32 bits of the
+     internal state of the random number generator to the least
+     significant 32 bits of the SEEDVAL parameter.  The lower 16 bits
+     are initialized to the value ‘0x330E’.  Even if the ‘long int’ type
+     contains more than 32 bits only the lower 32 bits are used.
+
+     Owing to this limitation, initialization of the state of this
+     function is not very useful.  But it makes it easy to use a
+     construct like ‘srand48 (time (0))’.
+
+     A side-effect of this function is that the values ‘a’ and ‘c’ from
+     the internal state, which are used in the congruential formula, are
+     reset to the default values given above.  This is of importance
+     once the user has called the ‘lcong48’ function (see below).
+
+ -- Function: unsigned short int * seed48 (unsigned short int
+          SEED16V[3])
+
+     Preliminary: | MT-Unsafe race:drand48 | AS-Unsafe | AC-Unsafe
+     corrupt | *Note POSIX Safety Concepts::.
+
+     The ‘seed48’ function initializes all 48 bits of the state of the
+     internal random number generator from the contents of the parameter
+     SEED16V.  Here the lower 16 bits of the first element of SEED16V
+     initialize the least significant 16 bits of the internal state, the
+     lower 16 bits of ‘SEED16V[1]’ initialize the mid-order 16 bits of
+     the state and the 16 lower bits of ‘SEED16V[2]’ initialize the most
+     significant 16 bits of the state.
+
+     Unlike ‘srand48’ this function lets the user initialize all 48 bits
+     of the state.
+
+     The value returned by ‘seed48’ is a pointer to an array containing
+     the values of the internal state before the change.  This might be
+     useful to restart the random number generator at a certain state.
+     Otherwise the value can simply be ignored.
+
+     As for ‘srand48’, the values ‘a’ and ‘c’ from the congruential
+     formula are reset to the default values.
+
+   There is one more function to initialize the random number generator
+which enables you to specify even more information by allowing you to
+change the parameters in the congruential formula.
+
+ -- Function: void lcong48 (unsigned short int PARAM[7])
+
+     Preliminary: | MT-Unsafe race:drand48 | AS-Unsafe | AC-Unsafe
+     corrupt | *Note POSIX Safety Concepts::.
+
+     The ‘lcong48’ function allows the user to change the complete state
+     of the random number generator.  Unlike ‘srand48’ and ‘seed48’,
+     this function also changes the constants in the congruential
+     formula.
+
+     From the seven elements in the array PARAM the least significant 16
+     bits of the entries ‘PARAM[0]’ to ‘PARAM[2]’ determine the initial
+     state, the least significant 16 bits of ‘PARAM[3]’ to ‘PARAM[5]’
+     determine the 48 bit constant ‘a’ and ‘PARAM[6]’ determines the
+     16-bit value ‘c’.
+
+   All the above functions have in common that they use the global
+parameters for the congruential formula.  In multi-threaded programs it
+might sometimes be useful to have different parameters in different
+threads.  For this reason all the above functions have a counterpart
+which works on a description of the random number generator in the
+user-supplied buffer instead of the global state.
+
+   Please note that it is no problem if several threads use the global
+state if all threads use the functions which take a pointer to an array
+containing the state.  The random numbers are computed following the
+same loop but if the state in the array is different all threads will
+obtain an individual random number generator.
+
+   The user-supplied buffer must be of type ‘struct drand48_data’.  This
+type should be regarded as opaque and not manipulated directly.
+
+ -- Function: int drand48_r (struct drand48_data *BUFFER, double
+          *RESULT)
+
+     Preliminary: | MT-Safe race:buffer | AS-Safe | AC-Unsafe corrupt |
+     *Note POSIX Safety Concepts::.
+
+     This function is equivalent to the ‘drand48’ function with the
+     difference that it does not modify the global random number
+     generator parameters but instead the parameters in the buffer
+     supplied through the pointer BUFFER.  The random number is returned
+     in the variable pointed to by RESULT.
+
+     The return value of the function indicates whether the call
+     succeeded.  If the value is less than ‘0’ an error occurred and
+     ERRNO is set to indicate the problem.
+
+     This function is a GNU extension and should not be used in portable
+     programs.
+
+ -- Function: int erand48_r (unsigned short int XSUBI[3], struct
+          drand48_data *BUFFER, double *RESULT)
+
+     Preliminary: | MT-Safe race:buffer | AS-Safe | AC-Unsafe corrupt |
+     *Note POSIX Safety Concepts::.
+
+     The ‘erand48_r’ function works like ‘erand48’, but in addition it
+     takes an argument BUFFER which describes the random number
+     generator.  The state of the random number generator is taken from
+     the ‘xsubi’ array, the parameters for the congruential formula from
+     the global random number generator data.  The random number is
+     returned in the variable pointed to by RESULT.
+
+     The return value is non-negative if the call succeeded.
+
+     This function is a GNU extension and should not be used in portable
+     programs.
+
+ -- Function: int lrand48_r (struct drand48_data *BUFFER, long int
+          *RESULT)
+
+     Preliminary: | MT-Safe race:buffer | AS-Safe | AC-Unsafe corrupt |
+     *Note POSIX Safety Concepts::.
+
+     This function is similar to ‘lrand48’, but in addition it takes a
+     pointer to a buffer describing the state of the random number
+     generator just like ‘drand48’.
+
+     If the return value of the function is non-negative the variable
+     pointed to by RESULT contains the result.  Otherwise an error
+     occurred.
+
+     This function is a GNU extension and should not be used in portable
+     programs.
+
+ -- Function: int nrand48_r (unsigned short int XSUBI[3], struct
+          drand48_data *BUFFER, long int *RESULT)
+
+     Preliminary: | MT-Safe race:buffer | AS-Safe | AC-Unsafe corrupt |
+     *Note POSIX Safety Concepts::.
+
+     The ‘nrand48_r’ function works like ‘nrand48’ in that it produces a
+     random number in the range ‘0’ to ‘2^31’.  But instead of using the
+     global parameters for the congruential formula it uses the
+     information from the buffer pointed to by BUFFER.  The state is
+     described by the values in XSUBI.
+
+     If the return value is non-negative the variable pointed to by
+     RESULT contains the result.
+
+     This function is a GNU extension and should not be used in portable
+     programs.
+
+ -- Function: int mrand48_r (struct drand48_data *BUFFER, long int
+          *RESULT)
+
+     Preliminary: | MT-Safe race:buffer | AS-Safe | AC-Unsafe corrupt |
+     *Note POSIX Safety Concepts::.
+
+     This function is similar to ‘mrand48’ but like the other reentrant
+     functions it uses the random number generator described by the
+     value in the buffer pointed to by BUFFER.
+
+     If the return value is non-negative the variable pointed to by
+     RESULT contains the result.
+
+     This function is a GNU extension and should not be used in portable
+     programs.
+
+ -- Function: int jrand48_r (unsigned short int XSUBI[3], struct
+          drand48_data *BUFFER, long int *RESULT)
+
+     Preliminary: | MT-Safe race:buffer | AS-Safe | AC-Unsafe corrupt |
+     *Note POSIX Safety Concepts::.
+
+     The ‘jrand48_r’ function is similar to ‘jrand48’.  Like the other
+     reentrant functions of this function family it uses the
+     congruential formula parameters from the buffer pointed to by
+     BUFFER.
+
+     If the return value is non-negative the variable pointed to by
+     RESULT contains the result.
+
+     This function is a GNU extension and should not be used in portable
+     programs.
+
+   Before any of the above functions are used the buffer of type ‘struct
+drand48_data’ should be initialized.  The easiest way to do this is to
+fill the whole buffer with null bytes, e.g.  by
+
+     memset (buffer, '\0', sizeof (struct drand48_data));
+
+Using any of the reentrant functions of this family now will
+automatically initialize the random number generator to the default
+values for the state and the parameters of the congruential formula.
+
+   The other possibility is to use any of the functions which explicitly
+initialize the buffer.  Though it might be obvious how to initialize the
+buffer from looking at the parameter to the function, it is highly
+recommended to use these functions since the result might not always be
+what you expect.
+
+ -- Function: int srand48_r (long int SEEDVAL, struct drand48_data
+          *BUFFER)
+
+     Preliminary: | MT-Safe race:buffer | AS-Safe | AC-Unsafe corrupt |
+     *Note POSIX Safety Concepts::.
+
+     The description of the random number generator represented by the
+     information in BUFFER is initialized similarly to what the function
+     ‘srand48’ does.  The state is initialized from the parameter
+     SEEDVAL and the parameters for the congruential formula are
+     initialized to their default values.
+
+     If the return value is non-negative the function call succeeded.
+
+     This function is a GNU extension and should not be used in portable
+     programs.
+
+ -- Function: int seed48_r (unsigned short int SEED16V[3], struct
+          drand48_data *BUFFER)
+
+     Preliminary: | MT-Safe race:buffer | AS-Safe | AC-Unsafe corrupt |
+     *Note POSIX Safety Concepts::.
+
+     This function is similar to ‘srand48_r’ but like ‘seed48’ it
+     initializes all 48 bits of the state from the parameter SEED16V.
+
+     If the return value is non-negative the function call succeeded.
+     It does not return a pointer to the previous state of the random
+     number generator like the ‘seed48’ function does.  If the user
+     wants to preserve the state for a later re-run s/he can copy the
+     whole buffer pointed to by BUFFER.
+
+     This function is a GNU extension and should not be used in portable
+     programs.
+
+ -- Function: int lcong48_r (unsigned short int PARAM[7], struct
+          drand48_data *BUFFER)
+
+     Preliminary: | MT-Safe race:buffer | AS-Safe | AC-Unsafe corrupt |
+     *Note POSIX Safety Concepts::.
+
+     This function initializes all aspects of the random number
+     generator described in BUFFER with the data in PARAM.  Here it is
+     especially true that the function does more than just copying the
+     contents of PARAM and BUFFER.  More work is required and therefore
+     it is important to use this function rather than initializing the
+     random number generator directly.
+
+     If the return value is non-negative the function call succeeded.
+
+     This function is a GNU extension and should not be used in portable
+     programs.
+
+
+File: libc.info,  Node: FP Function Optimizations,  Prev: Pseudo-Random Numbers,  Up: Mathematics
+
+19.9 Is Fast Code or Small Code preferred?
+==========================================
+
+If an application uses many floating point functions it is often the
+case that the cost of the function calls themselves is not negligible.
+Modern processors can often execute the operations themselves very fast,
+but the function call disrupts the instruction pipeline.
+
+   For this reason the GNU C Library provides optimizations for many of
+the frequently-used math functions.  When GNU CC is used and the user
+activates the optimizer, several new inline functions and macros are
+defined.  These new functions and macros have the same names as the
+library functions and so are used instead of the latter.  In the case of
+inline functions the compiler will decide whether it is reasonable to
+use them, and this decision is usually correct.
+
+   This means that no calls to the library functions may be necessary,
+and can increase the speed of generated code significantly.  The
+drawback is that code size will increase, and the increase is not always
+negligible.
+
+   There are two kinds of inline functions: those that give the same
+result as the library functions and others that might not set ‘errno’
+and might have a reduced precision and/or argument range in comparison
+with the library functions.  The latter inline functions are only
+available if the flag ‘-ffast-math’ is given to GNU CC.
+
+   In cases where the inline functions and macros are not wanted the
+symbol ‘__NO_MATH_INLINES’ should be defined before any system header is
+included.  This will ensure that only library functions are used.  Of
+course, it can be determined for each file in the project whether giving
+this option is preferable or not.
+
+   Not all hardware implements the entire IEEE 754 standard, and even if
+it does there may be a substantial performance penalty for using some of
+its features.  For example, enabling traps on some processors forces the
+FPU to run un-pipelined, which can more than double calculation time.
+
+
+File: libc.info,  Node: Arithmetic,  Next: Date and Time,  Prev: Mathematics,  Up: Top
+
+20 Arithmetic Functions
+***********************
+
+This chapter contains information about functions for doing basic
+arithmetic operations, such as splitting a float into its integer and
+fractional parts or retrieving the imaginary part of a complex value.
+These functions are declared in the header files ‘math.h’ and
+‘complex.h’.
+
+* Menu:
+
+* Integers::                    Basic integer types and concepts
+* Integer Division::            Integer division with guaranteed rounding.
+* Floating Point Numbers::      Basic concepts.  IEEE 754.
+* Floating Point Classes::      The five kinds of floating-point number.
+* Floating Point Errors::       When something goes wrong in a calculation.
+* Rounding::                    Controlling how results are rounded.
+* Control Functions::           Saving and restoring the FPU’s state.
+* Arithmetic Functions::        Fundamental operations provided by the library.
+* Complex Numbers::             The types.  Writing complex constants.
+* Operations on Complex::       Projection, conjugation, decomposition.
+* Parsing of Numbers::          Converting strings to numbers.
+* Printing of Floats::          Converting floating-point numbers to strings.
+* System V Number Conversion::  An archaic way to convert numbers to strings.
+
+
+File: libc.info,  Node: Integers,  Next: Integer Division,  Up: Arithmetic
+
+20.1 Integers
+=============
+
+The C language defines several integer data types: integer, short
+integer, long integer, and character, all in both signed and unsigned
+varieties.  The GNU C compiler extends the language to contain long long
+integers as well.
+
+   The C integer types were intended to allow code to be portable among
+machines with different inherent data sizes (word sizes), so each type
+may have different ranges on different machines.  The problem with this
+is that a program often needs to be written for a particular range of
+integers, and sometimes must be written for a particular size of
+storage, regardless of what machine the program runs on.
+
+   To address this problem, the GNU C Library contains C type
+definitions you can use to declare integers that meet your exact needs.
+Because the GNU C Library header files are customized to a specific
+machine, your program source code doesn’t have to be.
+
+   These ‘typedef’s are in ‘stdint.h’.
+
+   If you require that an integer be represented in exactly N bits, use
+one of the following types, with the obvious mapping to bit size and
+signedness:
+
+   • int8_t
+   • int16_t
+   • int32_t
+   • int64_t
+   • uint8_t
+   • uint16_t
+   • uint32_t
+   • uint64_t
+
+   If your C compiler and target machine do not allow integers of a
+certain size, the corresponding above type does not exist.
+
+   If you don’t need a specific storage size, but want the smallest data
+structure with _at least_ N bits, use one of these:
+
+   • int_least8_t
+   • int_least16_t
+   • int_least32_t
+   • int_least64_t
+   • uint_least8_t
+   • uint_least16_t
+   • uint_least32_t
+   • uint_least64_t
+
+   If you don’t need a specific storage size, but want the data
+structure that allows the fastest access while having at least N bits
+(and among data structures with the same access speed, the smallest
+one), use one of these:
+
+   • int_fast8_t
+   • int_fast16_t
+   • int_fast32_t
+   • int_fast64_t
+   • uint_fast8_t
+   • uint_fast16_t
+   • uint_fast32_t
+   • uint_fast64_t
+
+   If you want an integer with the widest range possible on the platform
+on which it is being used, use one of the following.  If you use these,
+you should write code that takes into account the variable size and
+range of the integer.
+
+   • intmax_t
+   • uintmax_t
+
+   The GNU C Library also provides macros that tell you the maximum and
+minimum possible values for each integer data type.  The macro names
+follow these examples: ‘INT32_MAX’, ‘UINT8_MAX’, ‘INT_FAST32_MIN’,
+‘INT_LEAST64_MIN’, ‘UINTMAX_MAX’, ‘INTMAX_MAX’, ‘INTMAX_MIN’.  Note that
+there are no macros for unsigned integer minima.  These are always zero.
+Similiarly, there are macros such as ‘INTMAX_WIDTH’ for the width of
+these types.  Those macros for integer type widths come from TS
+18661-1:2014.
+
+   There are similar macros for use with C’s built in integer types
+which should come with your C compiler.  These are described in *note
+Data Type Measurements::.
+
+   Don’t forget you can use the C ‘sizeof’ function with any of these
+data types to get the number of bytes of storage each uses.
+
+
+File: libc.info,  Node: Integer Division,  Next: Floating Point Numbers,  Prev: Integers,  Up: Arithmetic
+
+20.2 Integer Division
+=====================
+
+This section describes functions for performing integer division.  These
+functions are redundant when GNU CC is used, because in GNU C the ‘/’
+operator always rounds towards zero.  But in other C implementations,
+‘/’ may round differently with negative arguments.  ‘div’ and ‘ldiv’ are
+useful because they specify how to round the quotient: towards zero.
+The remainder has the same sign as the numerator.
+
+   These functions are specified to return a result R such that the
+value ‘R.quot*DENOMINATOR + R.rem’ equals NUMERATOR.
+
+   To use these facilities, you should include the header file
+‘stdlib.h’ in your program.
+
+ -- Data Type: div_t
+
+     This is a structure type used to hold the result returned by the
+     ‘div’ function.  It has the following members:
+
+     ‘int quot’
+          The quotient from the division.
+
+     ‘int rem’
+          The remainder from the division.
+
+ -- Function: div_t div (int NUMERATOR, int DENOMINATOR)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The function ‘div’ computes the quotient and remainder from the
+     division of NUMERATOR by DENOMINATOR, returning the result in a
+     structure of type ‘div_t’.
+
+     If the result cannot be represented (as in a division by zero), the
+     behavior is undefined.
+
+     Here is an example, albeit not a very useful one.
+
+          div_t result;
+          result = div (20, -6);
+
+     Now ‘result.quot’ is ‘-3’ and ‘result.rem’ is ‘2’.
+
+ -- Data Type: ldiv_t
+
+     This is a structure type used to hold the result returned by the
+     ‘ldiv’ function.  It has the following members:
+
+     ‘long int quot’
+          The quotient from the division.
+
+     ‘long int rem’
+          The remainder from the division.
+
+     (This is identical to ‘div_t’ except that the components are of
+     type ‘long int’ rather than ‘int’.)
+
+ -- Function: ldiv_t ldiv (long int NUMERATOR, long int DENOMINATOR)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘ldiv’ function is similar to ‘div’, except that the arguments
+     are of type ‘long int’ and the result is returned as a structure of
+     type ‘ldiv_t’.
+
+ -- Data Type: lldiv_t
+
+     This is a structure type used to hold the result returned by the
+     ‘lldiv’ function.  It has the following members:
+
+     ‘long long int quot’
+          The quotient from the division.
+
+     ‘long long int rem’
+          The remainder from the division.
+
+     (This is identical to ‘div_t’ except that the components are of
+     type ‘long long int’ rather than ‘int’.)
+
+ -- Function: lldiv_t lldiv (long long int NUMERATOR, long long int
+          DENOMINATOR)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘lldiv’ function is like the ‘div’ function, but the arguments
+     are of type ‘long long int’ and the result is returned as a
+     structure of type ‘lldiv_t’.
+
+     The ‘lldiv’ function was added in ISO C99.
+
+ -- Data Type: imaxdiv_t
+
+     This is a structure type used to hold the result returned by the
+     ‘imaxdiv’ function.  It has the following members:
+
+     ‘intmax_t quot’
+          The quotient from the division.
+
+     ‘intmax_t rem’
+          The remainder from the division.
+
+     (This is identical to ‘div_t’ except that the components are of
+     type ‘intmax_t’ rather than ‘int’.)
+
+     See *note Integers:: for a description of the ‘intmax_t’ type.
+
+ -- Function: imaxdiv_t imaxdiv (intmax_t NUMERATOR, intmax_t
+          DENOMINATOR)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The ‘imaxdiv’ function is like the ‘div’ function, but the
+     arguments are of type ‘intmax_t’ and the result is returned as a
+     structure of type ‘imaxdiv_t’.
+
+     See *note Integers:: for a description of the ‘intmax_t’ type.
+
+     The ‘imaxdiv’ function was added in ISO C99.
+
+
+File: libc.info,  Node: Floating Point Numbers,  Next: Floating Point Classes,  Prev: Integer Division,  Up: Arithmetic
+
+20.3 Floating Point Numbers
+===========================
+
+Most computer hardware has support for two different kinds of numbers:
+integers (...-3, -2, -1, 0, 1, 2, 3...) and floating-point numbers.
+Floating-point numbers have three parts: the “mantissa”, the “exponent”,
+and the “sign bit”.  The real number represented by a floating-point
+value is given by (s ? -1 : 1) * 2^e * M where s is the sign bit, e the
+exponent, and M the mantissa.  *Note Floating Point Concepts::, for
+details.  (It is possible to have a different “base” for the exponent,
+but all modern hardware uses 2.)
+
+   Floating-point numbers can represent a finite subset of the real
+numbers.  While this subset is large enough for most purposes, it is
+important to remember that the only reals that can be represented
+exactly are rational numbers that have a terminating binary expansion
+shorter than the width of the mantissa.  Even simple fractions such as
+1/5 can only be approximated by floating point.
+
+   Mathematical operations and functions frequently need to produce
+values that are not representable.  Often these values can be
+approximated closely enough for practical purposes, but sometimes they
+can’t.  Historically there was no way to tell when the results of a
+calculation were inaccurate.  Modern computers implement the IEEE 754
+standard for numerical computations, which defines a framework for
+indicating to the program when the results of calculation are not
+trustworthy.  This framework consists of a set of “exceptions” that
+indicate why a result could not be represented, and the special values
+“infinity” and “not a number” (NaN).
+
+
+File: libc.info,  Node: Floating Point Classes,  Next: Floating Point Errors,  Prev: Floating Point Numbers,  Up: Arithmetic
+
+20.4 Floating-Point Number Classification Functions
+===================================================
+
+ISO C99 defines macros that let you determine what sort of
+floating-point number a variable holds.
+
+ -- Macro: int fpclassify (_float-type_ X)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This is a generic macro which works on all floating-point types and
+     which returns a value of type ‘int’.  The possible values are:
+
+     ‘FP_NAN’
+
+          The floating-point number X is “Not a Number” (*note Infinity
+          and NaN::)
+     ‘FP_INFINITE’
+
+          The value of X is either plus or minus infinity (*note
+          Infinity and NaN::)
+     ‘FP_ZERO’
+
+          The value of X is zero.  In floating-point formats like
+          IEEE 754, where zero can be signed, this value is also
+          returned if X is negative zero.
+     ‘FP_SUBNORMAL’
+
+          Numbers whose absolute value is too small to be represented in
+          the normal format are represented in an alternate,
+          “denormalized” format (*note Floating Point Concepts::).  This
+          format is less precise but can represent values closer to
+          zero.  ‘fpclassify’ returns this value for values of X in this
+          alternate format.
+     ‘FP_NORMAL’
+
+          This value is returned for all other values of X.  It
+          indicates that there is nothing special about the number.
+
+   ‘fpclassify’ is most useful if more than one property of a number
+must be tested.  There are more specific macros which only test one
+property at a time.  Generally these macros execute faster than
+‘fpclassify’, since there is special hardware support for them.  You
+should therefore use the specific macros whenever possible.
+
+ -- Macro: int iscanonical (_float-type_ X)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     In some floating-point formats, some values have canonical
+     (preferred) and noncanonical encodings (for IEEE interchange binary
+     formats, all encodings are canonical).  This macro returns a
+     nonzero value if X has a canonical encoding.  It is from TS
+     18661-1:2014.
+
+     Note that some formats have multiple encodings of a value which are
+     all equally canonical; ‘iscanonical’ returns a nonzero value for
+     all such encodings.  Also, formats may have encodings that do not
+     correspond to any valid value of the type.  In ISO C terms these
+     are “trap representations”; in the GNU C Library, ‘iscanonical’
+     returns zero for such encodings.
+
+ -- Macro: int isfinite (_float-type_ X)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns a nonzero value if X is finite: not plus or
+     minus infinity, and not NaN. It is equivalent to
+
+          (fpclassify (x) != FP_NAN && fpclassify (x) != FP_INFINITE)
+
+     ‘isfinite’ is implemented as a macro which accepts any
+     floating-point type.
+
+ -- Macro: int isnormal (_float-type_ X)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns a nonzero value if X is finite and normalized.
+     It is equivalent to
+
+          (fpclassify (x) == FP_NORMAL)
+
+ -- Macro: int isnan (_float-type_ X)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns a nonzero value if X is NaN. It is equivalent to
+
+          (fpclassify (x) == FP_NAN)
+
+ -- Macro: int issignaling (_float-type_ X)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns a nonzero value if X is a signaling NaN (sNaN).
+     It is from TS 18661-1:2014.
+
+ -- Macro: int issubnormal (_float-type_ X)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns a nonzero value if X is subnormal.  It is from
+     TS 18661-1:2014.
+
+ -- Macro: int iszero (_float-type_ X)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This macro returns a nonzero value if X is zero.  It is from TS
+     18661-1:2014.
+
+   Another set of floating-point classification functions was provided
+by BSD. The GNU C Library also supports these functions; however, we
+recommend that you use the ISO C99 macros in new code.  Those are
+standard and will be available more widely.  Also, since they are
+macros, you do not have to worry about the type of their argument.
+
+ -- Function: int isinf (double X)
+ -- Function: int isinff (float X)
+ -- Function: int isinfl (long double X)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function returns ‘-1’ if X represents negative infinity, ‘1’
+     if X represents positive infinity, and ‘0’ otherwise.
+
+ -- Function: int isnan (double X)
+ -- Function: int isnanf (float X)
+ -- Function: int isnanl (long double X)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function returns a nonzero value if X is a “not a number”
+     value, and zero otherwise.
+
+     *NB:* The ‘isnan’ macro defined by ISO C99 overrides the BSD
+     function.  This is normally not a problem, because the two routines
+     behave identically.  However, if you really need to get the BSD
+     function for some reason, you can write
+
+          (isnan) (x)
+
+ -- Function: int finite (double X)
+ -- Function: int finitef (float X)
+ -- Function: int finitel (long double X)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function returns a nonzero value if X is neither infinite nor
+     a “not a number” value, and zero otherwise.
+
+   *Portability Note:* The functions listed in this section are BSD
+extensions.
+
+
+File: libc.info,  Node: Floating Point Errors,  Next: Rounding,  Prev: Floating Point Classes,  Up: Arithmetic
+
+20.5 Errors in Floating-Point Calculations
+==========================================
+
+* Menu:
+
+* FP Exceptions::               IEEE 754 math exceptions and how to detect them.
+* Infinity and NaN::            Special values returned by calculations.
+* Status bit operations::       Checking for exceptions after the fact.
+* Math Error Reporting::        How the math functions report errors.
+
+
+File: libc.info,  Node: FP Exceptions,  Next: Infinity and NaN,  Up: Floating Point Errors
+
+20.5.1 FP Exceptions
+--------------------
+
+The IEEE 754 standard defines five “exceptions” that can occur during a
+calculation.  Each corresponds to a particular sort of error, such as
+overflow.
+
+   When exceptions occur (when exceptions are “raised”, in the language
+of the standard), one of two things can happen.  By default the
+exception is simply noted in the floating-point “status word”, and the
+program continues as if nothing had happened.  The operation produces a
+default value, which depends on the exception (see the table below).
+Your program can check the status word to find out which exceptions
+happened.
+
+   Alternatively, you can enable “traps” for exceptions.  In that case,
+when an exception is raised, your program will receive the ‘SIGFPE’
+signal.  The default action for this signal is to terminate the program.
+*Note Signal Handling::, for how you can change the effect of the
+signal.
+
+The exceptions defined in IEEE 754 are:
+
+‘Invalid Operation’
+     This exception is raised if the given operands are invalid for the
+     operation to be performed.  Examples are (see IEEE 754, section 7):
+       1. Addition or subtraction: oo - oo.  (But oo + oo = oo).
+       2. Multiplication: 0 * oo.
+       3. Division: 0/0 or oo/oo.
+       4. Remainder: x REM y, where y is zero or x is infinite.
+       5. Square root if the operand is less than zero.  More generally,
+          any mathematical function evaluated outside its domain
+          produces this exception.
+       6. Conversion of a floating-point number to an integer or decimal
+          string, when the number cannot be represented in the target
+          format (due to overflow, infinity, or NaN).
+       7. Conversion of an unrecognizable input string.
+       8. Comparison via predicates involving < or >, when one or other
+          of the operands is NaN. You can prevent this exception by
+          using the unordered comparison functions instead; see *note FP
+          Comparison Functions::.
+
+     If the exception does not trap, the result of the operation is NaN.
+
+‘Division by Zero’
+     This exception is raised when a finite nonzero number is divided by
+     zero.  If no trap occurs the result is either +oo or -oo, depending
+     on the signs of the operands.
+
+‘Overflow’
+     This exception is raised whenever the result cannot be represented
+     as a finite value in the precision format of the destination.  If
+     no trap occurs the result depends on the sign of the intermediate
+     result and the current rounding mode (IEEE 754, section 7.3):
+       1. Round to nearest carries all overflows to oo with the sign of
+          the intermediate result.
+       2. Round toward 0 carries all overflows to the largest
+          representable finite number with the sign of the intermediate
+          result.
+       3. Round toward -oo carries positive overflows to the largest
+          representable finite number and negative overflows to -oo.
+
+       4. Round toward oo carries negative overflows to the most
+          negative representable finite number and positive overflows to
+          oo.
+
+     Whenever the overflow exception is raised, the inexact exception is
+     also raised.
+
+‘Underflow’
+     The underflow exception is raised when an intermediate result is
+     too small to be calculated accurately, or if the operation’s result
+     rounded to the destination precision is too small to be normalized.
+
+     When no trap is installed for the underflow exception, underflow is
+     signaled (via the underflow flag) only when both tininess and loss
+     of accuracy have been detected.  If no trap handler is installed
+     the operation continues with an imprecise small value, or zero if
+     the destination precision cannot hold the small exact result.
+
+‘Inexact’
+     This exception is signalled if a rounded result is not exact (such
+     as when calculating the square root of two) or a result overflows
+     without an overflow trap.
+
+
+File: libc.info,  Node: Infinity and NaN,  Next: Status bit operations,  Prev: FP Exceptions,  Up: Floating Point Errors
+
+20.5.2 Infinity and NaN
+-----------------------
+
+IEEE 754 floating point numbers can represent positive or negative
+infinity, and “NaN” (not a number).  These three values arise from
+calculations whose result is undefined or cannot be represented
+accurately.  You can also deliberately set a floating-point variable to
+any of them, which is sometimes useful.  Some examples of calculations
+that produce infinity or NaN:
+
+     1/0 = oo
+     log (0) = -oo
+     sqrt (-1) = NaN
+
+   When a calculation produces any of these values, an exception also
+occurs; see *note FP Exceptions::.
+
+   The basic operations and math functions all accept infinity and NaN
+and produce sensible output.  Infinities propagate through calculations
+as one would expect: for example, 2 + oo = oo, 4/oo = 0, atan (oo) =
+pi/2.  NaN, on the other hand, infects any calculation that involves it.
+Unless the calculation would produce the same result no matter what real
+value replaced NaN, the result is NaN.
+
+   In comparison operations, positive infinity is larger than all values
+except itself and NaN, and negative infinity is smaller than all values
+except itself and NaN. NaN is “unordered”: it is not equal to, greater
+than, or less than anything, _including itself_.  ‘x == x’ is false if
+the value of ‘x’ is NaN. You can use this to test whether a value is NaN
+or not, but the recommended way to test for NaN is with the ‘isnan’
+function (*note Floating Point Classes::).  In addition, ‘<’, ‘>’, ‘<=’,
+and ‘>=’ will raise an exception when applied to NaNs.
+
+   ‘math.h’ defines macros that allow you to explicitly set a variable
+to infinity or NaN.
+
+ -- Macro: float INFINITY
+
+     An expression representing positive infinity.  It is equal to the
+     value produced by mathematical operations like ‘1.0 / 0.0’.
+     ‘-INFINITY’ represents negative infinity.
+
+     You can test whether a floating-point value is infinite by
+     comparing it to this macro.  However, this is not recommended; you
+     should use the ‘isfinite’ macro instead.  *Note Floating Point
+     Classes::.
+
+     This macro was introduced in the ISO C99 standard.
+
+ -- Macro: float NAN
+
+     An expression representing a value which is “not a number”.  This
+     macro is a GNU extension, available only on machines that support
+     the “not a number” value—that is to say, on all machines that
+     support IEEE floating point.
+
+     You can use ‘#ifdef NAN’ to test whether the machine supports NaN.
+     (Of course, you must arrange for GNU extensions to be visible, such
+     as by defining ‘_GNU_SOURCE’, and then you must include ‘math.h’.)
+
+ -- Macro: float SNANF
+ -- Macro: double SNAN
+ -- Macro: long double SNANL
+ -- Macro: _FloatN SNANFN
+ -- Macro: _FloatNx SNANFNx
+
+     These macros, defined by TS 18661-1:2014 and TS 18661-3:2015, are
+     constant expressions for signaling NaNs.
+
+ -- Macro: int FE_SNANS_ALWAYS_SIGNAL
+
+     This macro, defined by TS 18661-1:2014, is defined to ‘1’ in
+     ‘fenv.h’ to indicate that functions and operations with signaling
+     NaN inputs and floating-point results always raise the invalid
+     exception and return a quiet NaN, even in cases (such as ‘fmax’,
+     ‘hypot’ and ‘pow’) where a quiet NaN input can produce a non-NaN
+     result.  Because some compiler optimizations may not handle
+     signaling NaNs correctly, this macro is only defined if compiler
+     support for signaling NaNs is enabled.  That support can be enabled
+     with the GCC option ‘-fsignaling-nans’.
+
+   IEEE 754 also allows for another unusual value: negative zero.  This
+value is produced when you divide a positive number by negative
+infinity, or when a negative result is smaller than the limits of
+representation.
+
+
+File: libc.info,  Node: Status bit operations,  Next: Math Error Reporting,  Prev: Infinity and NaN,  Up: Floating Point Errors
+
+20.5.3 Examining the FPU status word
+------------------------------------
+
+ISO C99 defines functions to query and manipulate the floating-point
+status word.  You can use these functions to check for untrapped
+exceptions when it’s convenient, rather than worrying about them in the
+middle of a calculation.
+
+   These constants represent the various IEEE 754 exceptions.  Not all
+FPUs report all the different exceptions.  Each constant is defined if
+and only if the FPU you are compiling for supports that exception, so
+you can test for FPU support with ‘#ifdef’.  They are defined in
+‘fenv.h’.
+
+‘FE_INEXACT’
+
+     The inexact exception.
+‘FE_DIVBYZERO’
+
+     The divide by zero exception.
+‘FE_UNDERFLOW’
+
+     The underflow exception.
+‘FE_OVERFLOW’
+
+     The overflow exception.
+‘FE_INVALID’
+
+     The invalid exception.
+
+   The macro ‘FE_ALL_EXCEPT’ is the bitwise OR of all exception macros
+which are supported by the FP implementation.
+
+   These functions allow you to clear exception flags, test for
+exceptions, and save and restore the set of exceptions flagged.
+
+ -- Function: int feclearexcept (int EXCEPTS)
+
+     Preliminary: | MT-Safe | AS-Safe !posix | AC-Safe !posix | *Note
+     POSIX Safety Concepts::.
+
+     This function clears all of the supported exception flags indicated
+     by EXCEPTS.
+
+     The function returns zero in case the operation was successful, a
+     non-zero value otherwise.
+
+ -- Function: int feraiseexcept (int EXCEPTS)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function raises the supported exceptions indicated by EXCEPTS.
+     If more than one exception bit in EXCEPTS is set the order in which
+     the exceptions are raised is undefined except that overflow
+     (‘FE_OVERFLOW’) or underflow (‘FE_UNDERFLOW’) are raised before
+     inexact (‘FE_INEXACT’).  Whether for overflow or underflow the
+     inexact exception is also raised is also implementation dependent.
+
+     The function returns zero in case the operation was successful, a
+     non-zero value otherwise.
+
+ -- Function: int fesetexcept (int EXCEPTS)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function sets the supported exception flags indicated by
+     EXCEPTS, like ‘feraiseexcept’, but without causing enabled traps to
+     be taken.  ‘fesetexcept’ is from TS 18661-1:2014.
+
+     The function returns zero in case the operation was successful, a
+     non-zero value otherwise.
+
+ -- Function: int fetestexcept (int EXCEPTS)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Test whether the exception flags indicated by the parameter EXCEPT
+     are currently set.  If any of them are, a nonzero value is returned
+     which specifies which exceptions are set.  Otherwise the result is
+     zero.
+
+   To understand these functions, imagine that the status word is an
+integer variable named STATUS.  ‘feclearexcept’ is then equivalent to
+‘status &= ~excepts’ and ‘fetestexcept’ is equivalent to ‘(status &
+excepts)’.  The actual implementation may be very different, of course.
+
+   Exception flags are only cleared when the program explicitly requests
+it, by calling ‘feclearexcept’.  If you want to check for exceptions
+from a set of calculations, you should clear all the flags first.  Here
+is a simple example of the way to use ‘fetestexcept’:
+
+     {
+       double f;
+       int raised;
+       feclearexcept (FE_ALL_EXCEPT);
+       f = compute ();
+       raised = fetestexcept (FE_OVERFLOW | FE_INVALID);
+       if (raised & FE_OVERFLOW) { /* ... */ }
+       if (raised & FE_INVALID) { /* ... */ }
+       /* ... */
+     }
+
+   You cannot explicitly set bits in the status word.  You can, however,
+save the entire status word and restore it later.  This is done with the
+following functions:
+
+ -- Function: int fegetexceptflag (fexcept_t *FLAGP, int EXCEPTS)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function stores in the variable pointed to by FLAGP an
+     implementation-defined value representing the current setting of
+     the exception flags indicated by EXCEPTS.
+
+     The function returns zero in case the operation was successful, a
+     non-zero value otherwise.
+
+ -- Function: int fesetexceptflag (const fexcept_t *FLAGP, int EXCEPTS)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function restores the flags for the exceptions indicated by
+     EXCEPTS to the values stored in the variable pointed to by FLAGP.
+
+     The function returns zero in case the operation was successful, a
+     non-zero value otherwise.
+
+   Note that the value stored in ‘fexcept_t’ bears no resemblance to the
+bit mask returned by ‘fetestexcept’.  The type may not even be an
+integer.  Do not attempt to modify an ‘fexcept_t’ variable.
+
+ -- Function: int fetestexceptflag (const fexcept_t *FLAGP, int EXCEPTS)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Test whether the exception flags indicated by the parameter EXCEPTS
+     are set in the variable pointed to by FLAGP.  If any of them are, a
+     nonzero value is returned which specifies which exceptions are set.
+     Otherwise the result is zero.  ‘fetestexceptflag’ is from TS
+     18661-1:2014.
+
+
+File: libc.info,  Node: Math Error Reporting,  Prev: Status bit operations,  Up: Floating Point Errors
+
+20.5.4 Error Reporting by Mathematical Functions
+------------------------------------------------
+
+Many of the math functions are defined only over a subset of the real or
+complex numbers.  Even if they are mathematically defined, their result
+may be larger or smaller than the range representable by their return
+type without loss of accuracy.  These are known as “domain errors”,
+“overflows”, and “underflows”, respectively.  Math functions do several
+things when one of these errors occurs.  In this manual we will refer to
+the complete response as “signalling” a domain error, overflow, or
+underflow.
+
+   When a math function suffers a domain error, it raises the invalid
+exception and returns NaN. It also sets ERRNO to ‘EDOM’; this is for
+compatibility with old systems that do not support IEEE 754 exception
+handling.  Likewise, when overflow occurs, math functions raise the
+overflow exception and, in the default rounding mode, return oo or -oo
+as appropriate (in other rounding modes, the largest finite value of the
+appropriate sign is returned when appropriate for that rounding mode).
+They also set ERRNO to ‘ERANGE’ if returning oo or -oo; ERRNO may or may
+not be set to ‘ERANGE’ when a finite value is returned on overflow.
+When underflow occurs, the underflow exception is raised, and zero
+(appropriately signed) or a subnormal value, as appropriate for the
+mathematical result of the function and the rounding mode, is returned.
+ERRNO may be set to ‘ERANGE’, but this is not guaranteed; it is intended
+that the GNU C Library should set it when the underflow is to an
+appropriately signed zero, but not necessarily for other underflows.
+
+   When a math function has an argument that is a signaling NaN, the GNU
+C Library does not consider this a domain error, so ‘errno’ is
+unchanged, but the invalid exception is still raised (except for a few
+functions that are specified to handle signaling NaNs differently).
+
+   Some of the math functions are defined mathematically to result in a
+complex value over parts of their domains.  The most familiar example of
+this is taking the square root of a negative number.  The complex math
+functions, such as ‘csqrt’, will return the appropriate complex value in
+this case.  The real-valued functions, such as ‘sqrt’, will signal a
+domain error.
+
+   Some older hardware does not support infinities.  On that hardware,
+overflows instead return a particular very large number (usually the
+largest representable number).  ‘math.h’ defines macros you can use to
+test for overflow on both old and new hardware.
+
+ -- Macro: double HUGE_VAL
+ -- Macro: float HUGE_VALF
+ -- Macro: long double HUGE_VALL
+ -- Macro: _FloatN HUGE_VAL_FN
+ -- Macro: _FloatNx HUGE_VAL_FNx
+
+     An expression representing a particular very large number.  On
+     machines that use IEEE 754 floating point format, ‘HUGE_VAL’ is
+     infinity.  On other machines, it’s typically the largest positive
+     number that can be represented.
+
+     Mathematical functions return the appropriately typed version of
+     ‘HUGE_VAL’ or ‘−HUGE_VAL’ when the result is too large to be
+     represented.
+
+
+File: libc.info,  Node: Rounding,  Next: Control Functions,  Prev: Floating Point Errors,  Up: Arithmetic
+
+20.6 Rounding Modes
+===================
+
+Floating-point calculations are carried out internally with extra
+precision, and then rounded to fit into the destination type.  This
+ensures that results are as precise as the input data.  IEEE 754 defines
+four possible rounding modes:
+
+Round to nearest.
+     This is the default mode.  It should be used unless there is a
+     specific need for one of the others.  In this mode results are
+     rounded to the nearest representable value.  If the result is
+     midway between two representable values, the even representable is
+     chosen.  “Even” here means the lowest-order bit is zero.  This
+     rounding mode prevents statistical bias and guarantees numeric
+     stability: round-off errors in a lengthy calculation will remain
+     smaller than half of ‘FLT_EPSILON’.
+
+Round toward plus Infinity.
+     All results are rounded to the smallest representable value which
+     is greater than the result.
+
+Round toward minus Infinity.
+     All results are rounded to the largest representable value which is
+     less than the result.
+
+Round toward zero.
+     All results are rounded to the largest representable value whose
+     magnitude is less than that of the result.  In other words, if the
+     result is negative it is rounded up; if it is positive, it is
+     rounded down.
+
+‘fenv.h’ defines constants which you can use to refer to the various
+rounding modes.  Each one will be defined if and only if the FPU
+supports the corresponding rounding mode.
+
+‘FE_TONEAREST’
+
+     Round to nearest.
+
+‘FE_UPWARD’
+
+     Round toward +oo.
+
+‘FE_DOWNWARD’
+
+     Round toward -oo.
+
+‘FE_TOWARDZERO’
+
+     Round toward zero.
+
+   Underflow is an unusual case.  Normally, IEEE 754 floating point
+numbers are always normalized (*note Floating Point Concepts::).
+Numbers smaller than 2^r (where r is the minimum exponent,
+‘FLT_MIN_RADIX-1’ for FLOAT) cannot be represented as normalized
+numbers.  Rounding all such numbers to zero or 2^r would cause some
+algorithms to fail at 0.  Therefore, they are left in denormalized form.
+That produces loss of precision, since some bits of the mantissa are
+stolen to indicate the decimal point.
+
+   If a result is too small to be represented as a denormalized number,
+it is rounded to zero.  However, the sign of the result is preserved; if
+the calculation was negative, the result is “negative zero”.  Negative
+zero can also result from some operations on infinity, such as 4/-oo.
+
+   At any time, one of the above four rounding modes is selected.  You
+can find out which one with this function:
+
+ -- Function: int fegetround (void)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Returns the currently selected rounding mode, represented by one of
+     the values of the defined rounding mode macros.
+
+To change the rounding mode, use this function:
+
+ -- Function: int fesetround (int ROUND)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Changes the currently selected rounding mode to ROUND.  If ROUND
+     does not correspond to one of the supported rounding modes nothing
+     is changed.  ‘fesetround’ returns zero if it changed the rounding
+     mode, or a nonzero value if the mode is not supported.
+
+   You should avoid changing the rounding mode if possible.  It can be
+an expensive operation; also, some hardware requires you to compile your
+program differently for it to work.  The resulting code may run slower.
+See your compiler documentation for details.
+
+
+File: libc.info,  Node: Control Functions,  Next: Arithmetic Functions,  Prev: Rounding,  Up: Arithmetic
+
+20.7 Floating-Point Control Functions
+=====================================
+
+IEEE 754 floating-point implementations allow the programmer to decide
+whether traps will occur for each of the exceptions, by setting bits in
+the “control word”.  In C, traps result in the program receiving the
+‘SIGFPE’ signal; see *note Signal Handling::.
+
+   *NB:* IEEE 754 says that trap handlers are given details of the
+exceptional situation, and can set the result value.  C signals do not
+provide any mechanism to pass this information back and forth.  Trapping
+exceptions in C is therefore not very useful.
+
+   It is sometimes necessary to save the state of the floating-point
+unit while you perform some calculation.  The library provides functions
+which save and restore the exception flags, the set of exceptions that
+generate traps, and the rounding mode.  This information is known as the
+“floating-point environment”.
+
+   The functions to save and restore the floating-point environment all
+use a variable of type ‘fenv_t’ to store information.  This type is
+defined in ‘fenv.h’.  Its size and contents are implementation-defined.
+You should not attempt to manipulate a variable of this type directly.
+
+   To save the state of the FPU, use one of these functions:
+
+ -- Function: int fegetenv (fenv_t *ENVP)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Store the floating-point environment in the variable pointed to by
+     ENVP.
+
+     The function returns zero in case the operation was successful, a
+     non-zero value otherwise.
+
+ -- Function: int feholdexcept (fenv_t *ENVP)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Store the current floating-point environment in the object pointed
+     to by ENVP.  Then clear all exception flags, and set the FPU to
+     trap no exceptions.  Not all FPUs support trapping no exceptions;
+     if ‘feholdexcept’ cannot set this mode, it returns nonzero value.
+     If it succeeds, it returns zero.
+
+   The functions which restore the floating-point environment can take
+these kinds of arguments:
+
+   • Pointers to ‘fenv_t’ objects, which were initialized previously by
+     a call to ‘fegetenv’ or ‘feholdexcept’.
+   • The special macro ‘FE_DFL_ENV’ which represents the floating-point
+     environment as it was available at program start.
+   • Implementation defined macros with names starting with ‘FE_’ and
+     having type ‘fenv_t *’.
+
+     If possible, the GNU C Library defines a macro ‘FE_NOMASK_ENV’
+     which represents an environment where every exception raised causes
+     a trap to occur.  You can test for this macro using ‘#ifdef’.  It
+     is only defined if ‘_GNU_SOURCE’ is defined.
+
+     Some platforms might define other predefined environments.
+
+To set the floating-point environment, you can use either of these
+functions:
+
+ -- Function: int fesetenv (const fenv_t *ENVP)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Set the floating-point environment to that described by ENVP.
+
+     The function returns zero in case the operation was successful, a
+     non-zero value otherwise.
+
+ -- Function: int feupdateenv (const fenv_t *ENVP)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Like ‘fesetenv’, this function sets the floating-point environment
+     to that described by ENVP.  However, if any exceptions were flagged
+     in the status word before ‘feupdateenv’ was called, they remain
+     flagged after the call.  In other words, after ‘feupdateenv’ is
+     called, the status word is the bitwise OR of the previous status
+     word and the one saved in ENVP.
+
+     The function returns zero in case the operation was successful, a
+     non-zero value otherwise.
+
+TS 18661-1:2014 defines additional functions to save and restore
+floating-point control modes (such as the rounding mode and whether
+traps are enabled) while leaving other status (such as raised flags)
+unchanged.
+
+   The special macro ‘FE_DFL_MODE’ may be passed to ‘fesetmode’.  It
+represents the floating-point control modes at program start.
+
+ -- Function: int fegetmode (femode_t *MODEP)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Store the floating-point control modes in the variable pointed to
+     by MODEP.
+
+     The function returns zero in case the operation was successful, a
+     non-zero value otherwise.
+
+ -- Function: int fesetmode (const femode_t *MODEP)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Set the floating-point control modes to those described by MODEP.
+
+     The function returns zero in case the operation was successful, a
+     non-zero value otherwise.
+
+To control for individual exceptions if raising them causes a trap to
+occur, you can use the following two functions.
+
+   *Portability Note:* These functions are all GNU extensions.
+
+ -- Function: int feenableexcept (int EXCEPTS)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function enables traps for each of the exceptions as indicated
+     by the parameter EXCEPTS.  The individual exceptions are described
+     in *note Status bit operations::.  Only the specified exceptions
+     are enabled, the status of the other exceptions is not changed.
+
+     The function returns the previous enabled exceptions in case the
+     operation was successful, ‘-1’ otherwise.
+
+ -- Function: int fedisableexcept (int EXCEPTS)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function disables traps for each of the exceptions as
+     indicated by the parameter EXCEPTS.  The individual exceptions are
+     described in *note Status bit operations::.  Only the specified
+     exceptions are disabled, the status of the other exceptions is not
+     changed.
+
+     The function returns the previous enabled exceptions in case the
+     operation was successful, ‘-1’ otherwise.
+
+ -- Function: int fegetexcept (void)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     The function returns a bitmask of all currently enabled exceptions.
+     It returns ‘-1’ in case of failure.
 
 
 File: libc.info,  Node: Arithmetic Functions,  Next: Complex Numbers,  Prev: Control Functions,  Up: Arithmetic
@@ -2990,6 +4564,66 @@ perform these operations faster than the equivalent C code.
      than the expression ‘x*y + z’.  In the GNU C Library, this always
      means the operation is implemented in hardware.
 
+ -- Function: float fadd (double X, double Y)
+ -- Function: float faddl (long double X, long double Y)
+ -- Function: double daddl (long double X, long double Y)
+ -- Function: _FloatM fMaddfN (_FloatN X, _FloatN Y)
+ -- Function: _FloatM fMaddfNx (_FloatNx X, _FloatNx Y)
+ -- Function: _FloatMx fMxaddfN (_FloatN X, _FloatN Y)
+ -- Function: _FloatMx fMxaddfNx (_FloatNx X, _FloatNx Y)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     These functions, from TS 18661-1:2014 and TS 18661-3:2015, return X
+     + Y, rounded once to the return type of the function without any
+     intermediate rounding to the type of the arguments.
+
+ -- Function: float fsub (double X, double Y)
+ -- Function: float fsubl (long double X, long double Y)
+ -- Function: double dsubl (long double X, long double Y)
+ -- Function: _FloatM fMsubfN (_FloatN X, _FloatN Y)
+ -- Function: _FloatM fMsubfNx (_FloatNx X, _FloatNx Y)
+ -- Function: _FloatMx fMxsubfN (_FloatN X, _FloatN Y)
+ -- Function: _FloatMx fMxsubfNx (_FloatNx X, _FloatNx Y)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     These functions, from TS 18661-1:2014 and TS 18661-3:2015, return X
+     - Y, rounded once to the return type of the function without any
+     intermediate rounding to the type of the arguments.
+
+ -- Function: float fmul (double X, double Y)
+ -- Function: float fmull (long double X, long double Y)
+ -- Function: double dmull (long double X, long double Y)
+ -- Function: _FloatM fMmulfN (_FloatN X, _FloatN Y)
+ -- Function: _FloatM fMmulfNx (_FloatNx X, _FloatNx Y)
+ -- Function: _FloatMx fMxmulfN (_FloatN X, _FloatN Y)
+ -- Function: _FloatMx fMxmulfNx (_FloatNx X, _FloatNx Y)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     These functions, from TS 18661-1:2014 and TS 18661-3:2015, return X
+     * Y, rounded once to the return type of the function without any
+     intermediate rounding to the type of the arguments.
+
+ -- Function: float fdiv (double X, double Y)
+ -- Function: float fdivl (long double X, long double Y)
+ -- Function: double ddivl (long double X, long double Y)
+ -- Function: _FloatM fMdivfN (_FloatN X, _FloatN Y)
+ -- Function: _FloatM fMdivfNx (_FloatNx X, _FloatNx Y)
+ -- Function: _FloatMx fMxdivfN (_FloatN X, _FloatN Y)
+ -- Function: _FloatMx fMxdivfNx (_FloatNx X, _FloatNx Y)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     These functions, from TS 18661-1:2014 and TS 18661-3:2015, return X
+     / Y, rounded once to the return type of the function without any
+     intermediate rounding to the type of the arguments.
+
 
 File: libc.info,  Node: Complex Numbers,  Next: Operations on Complex,  Prev: Arithmetic Functions,  Up: Arithmetic
 
@@ -3220,7 +4854,7 @@ defined there) so we have to do it as well.
 
      The ‘wcstol’ function was introduced in Amendment 1 of ISO C90.
 
- -- Function: unsigned long int strtoul (const char *retrict STRING,
+ -- Function: unsigned long int strtoul (const char *restrict STRING,
           char **restrict TAILPTR, int BASE)
 
      Preliminary: | MT-Safe locale | AS-Safe | AC-Safe | *Note POSIX
@@ -4938,8 +6572,13 @@ strings.  These functions are declared in the header file ‘time.h’.
           Emperors’ reigns.
 
      ‘O’
-          Use the locale’s alternate numeric symbols for numbers.  This
-          modifier applies only to numeric format specifiers.
+          With all format specifiers that produce numbers: use the
+          locale’s alternate numeric symbols.
+
+          With ‘%B’, ‘%b’, and ‘%h’: use the grammatical form for month
+          names that is appropriate when the month is named by itself,
+          rather than the form that is appropriate when the month is
+          used as part of a complete date.  This is a GNU extension.
 
      If the format supports the modifier but no alternate representation
      is available, it is ignored.
@@ -4955,13 +6594,23 @@ strings.  These functions are declared in the header file ‘time.h’.
           The full weekday name according to the current locale.
 
      ‘%b’
-          The abbreviated month name according to the current locale.
+          The abbreviated month name according to the current locale, in
+          the grammatical form used when the month is part of a complete
+          date.  As a GNU extension, the ‘O’ modifier can be used
+          (‘%Ob’) to get the grammatical form used when the month is
+          named by itself.
 
      ‘%B’
-          The full month name according to the current locale.
+          The full month name according to the current locale, in the
+          grammatical form used when the month is part of a complete
+          date.  As a GNU extension, the ‘O’ modifier can be used
+          (‘%OB’) to get the grammatical form used when the month is
+          named by itself.
 
-          Using ‘%B’ together with ‘%d’ produces grammatically incorrect
-          results for some locales.
+          Note that not all languages need two different forms of the
+          month names, so the text produced by ‘%B’ and ‘%OB’, and by
+          ‘%b’ and ‘%Ob’, may or may not be the same, depending on the
+          locale.
 
      ‘%c’
           The preferred calendar time representation for the current
@@ -5321,8 +6970,15 @@ is defined and implemented in terms of calls to ‘strptime’.
      ‘%b’
      ‘%B’
      ‘%h’
-          The month name according to the current locale, in abbreviated
-          form or the full name.
+          A month name according to the current locale.  All three
+          specifiers will recognize both abbreviated and full month
+          names.  If the locale provides two different grammatical forms
+          of month names, all three specifiers will recognize both
+          forms.
+
+          As a GNU extension, the ‘O’ modifier can be used with these
+          specifiers; it has no effect, as both grammatical forms of
+          month names are recognized.
 
      ‘%c’
           The date and time representation for the current locale.
@@ -5833,1543 +7489,4 @@ environment variable).
 
      The warning against using ‘getdate’ in SUID-programs applies to
      ‘getdate_r’ as well.
-
-
-File: libc.info,  Node: TZ Variable,  Next: Time Zone Functions,  Prev: Parsing Date and Time,  Up: Calendar Time
-
-21.4.7 Specifying the Time Zone with ‘TZ’
------------------------------------------
-
-In POSIX systems, a user can specify the time zone by means of the ‘TZ’
-environment variable.  For information about how to set environment
-variables, see *note Environment Variables::.  The functions for
-accessing the time zone are declared in ‘time.h’.
-
-   You should not normally need to set ‘TZ’.  If the system is
-configured properly, the default time zone will be correct.  You might
-set ‘TZ’ if you are using a computer over a network from a different
-time zone, and would like times reported to you in the time zone local
-to you, rather than what is local to the computer.
-
-   In POSIX.1 systems the value of the ‘TZ’ variable can be in one of
-three formats.  With the GNU C Library, the most common format is the
-last one, which can specify a selection from a large database of time
-zone information for many regions of the world.  The first two formats
-are used to describe the time zone information directly, which is both
-more cumbersome and less precise.  But the POSIX.1 standard only
-specifies the details of the first two formats, so it is good to be
-familiar with them in case you come across a POSIX.1 system that doesn’t
-support a time zone information database.
-
-   The first format is used when there is no Daylight Saving Time (or
-summer time) in the local time zone:
-
-     STD OFFSET
-
-   The STD string specifies the name of the time zone.  It must be three
-or more characters long and must not contain a leading colon, embedded
-digits, commas, nor plus and minus signs.  There is no space character
-separating the time zone name from the OFFSET, so these restrictions are
-necessary to parse the specification correctly.
-
-   The OFFSET specifies the time value you must add to the local time to
-get a Coordinated Universal Time value.  It has syntax like
-[‘+’|‘-’]HH[‘:’MM[‘:’SS]].  This is positive if the local time zone is
-west of the Prime Meridian and negative if it is east.  The hour must be
-between ‘0’ and ‘24’, and the minute and seconds between ‘0’ and ‘59’.
-
-   For example, here is how we would specify Eastern Standard Time, but
-without any Daylight Saving Time alternative:
-
-     EST+5
-
-   The second format is used when there is Daylight Saving Time:
-
-     STD OFFSET DST [OFFSET]‘,’START[‘/’TIME]‘,’END[‘/’TIME]
-
-   The initial STD and OFFSET specify the standard time zone, as
-described above.  The DST string and OFFSET specify the name and offset
-for the corresponding Daylight Saving Time zone; if the OFFSET is
-omitted, it defaults to one hour ahead of standard time.
-
-   The remainder of the specification describes when Daylight Saving
-Time is in effect.  The START field is when Daylight Saving Time goes
-into effect and the END field is when the change is made back to
-standard time.  The following formats are recognized for these fields:
-
-‘JN’
-     This specifies the Julian day, with N between ‘1’ and ‘365’.
-     February 29 is never counted, even in leap years.
-
-‘N’
-     This specifies the Julian day, with N between ‘0’ and ‘365’.
-     February 29 is counted in leap years.
-
-‘MM.W.D’
-     This specifies day D of week W of month M.  The day D must be
-     between ‘0’ (Sunday) and ‘6’.  The week W must be between ‘1’ and
-     ‘5’; week ‘1’ is the first week in which day D occurs, and week ‘5’
-     specifies the _last_ D day in the month.  The month M should be
-     between ‘1’ and ‘12’.
-
-   The TIME fields specify when, in the local time currently in effect,
-the change to the other time occurs.  If omitted, the default is
-‘02:00:00’.  The hours part of the time fields can range from −167
-through 167; this is an extension to POSIX.1, which allows only the
-range 0 through 24.
-
-   Here are some example ‘TZ’ values, including the appropriate Daylight
-Saving Time and its dates of applicability.  In North American Eastern
-Standard Time (EST) and Eastern Daylight Time (EDT), the normal offset
-from UTC is 5 hours; since this is west of the prime meridian, the sign
-is positive.  Summer time begins on March’s second Sunday at 2:00am, and
-ends on November’s first Sunday at 2:00am.
-
-     EST+5EDT,M3.2.0/2,M11.1.0/2
-
-   Israel Standard Time (IST) and Israel Daylight Time (IDT) are 2 hours
-ahead of the prime meridian in winter, springing forward an hour on
-March’s fourth Thursday at 26:00 (i.e., 02:00 on the first Friday on or
-after March 23), and falling back on October’s last Sunday at 02:00.
-
-     IST-2IDT,M3.4.4/26,M10.5.0
-
-   Western Argentina Summer Time (WARST) is 3 hours behind the prime
-meridian all year.  There is a dummy fall-back transition on December 31
-at 25:00 daylight saving time (i.e., 24:00 standard time, equivalent to
-January 1 at 00:00 standard time), and a simultaneous spring-forward
-transition on January 1 at 00:00 standard time, so daylight saving time
-is in effect all year and the initial ‘WART’ is a placeholder.
-
-     WART4WARST,J1/0,J365/25
-
-   Western Greenland Time (WGT) and Western Greenland Summer Time (WGST)
-are 3 hours behind UTC in the winter.  Its clocks follow the European
-Union rules of springing forward by one hour on March’s last Sunday at
-01:00 UTC (−02:00 local time) and falling back on October’s last Sunday
-at 01:00 UTC (−01:00 local time).
-
-     WGT3WGST,M3.5.0/-2,M10.5.0/-1
-
-   The schedule of Daylight Saving Time in any particular jurisdiction
-has changed over the years.  To be strictly correct, the conversion of
-dates and times in the past should be based on the schedule that was in
-effect then.  However, this format has no facilities to let you specify
-how the schedule has changed from year to year.  The most you can do is
-specify one particular schedule—usually the present day schedule—and
-this is used to convert any date, no matter when.  For precise time zone
-specifications, it is best to use the time zone information database
-(see below).
-
-   The third format looks like this:
-
-     :CHARACTERS
-
-   Each operating system interprets this format differently; in the GNU
-C Library, CHARACTERS is the name of a file which describes the time
-zone.
-
-   If the ‘TZ’ environment variable does not have a value, the operation
-chooses a time zone by default.  In the GNU C Library, the default time
-zone is like the specification ‘TZ=:/etc/localtime’ (or
-‘TZ=:/usr/local/etc/localtime’, depending on how the GNU C Library was
-configured; *note Installation::).  Other C libraries use their own rule
-for choosing the default time zone, so there is little we can say about
-them.
-
-   If CHARACTERS begins with a slash, it is an absolute file name;
-otherwise the library looks for the file
-‘/usr/share/zoneinfo/CHARACTERS’.  The ‘zoneinfo’ directory contains
-data files describing local time zones in many different parts of the
-world.  The names represent major cities, with subdirectories for
-geographical areas; for example, ‘America/New_York’, ‘Europe/London’,
-‘Asia/Hong_Kong’.  These data files are installed by the system
-administrator, who also sets ‘/etc/localtime’ to point to the data file
-for the local time zone.  The files typically come from the Time Zone
-Database (http://www.iana.org/time-zones) of time zone and daylight
-saving time information for most regions of the world, which is
-maintained by a community of volunteers and put in the public domain.
-
-
-File: libc.info,  Node: Time Zone Functions,  Next: Time Functions Example,  Prev: TZ Variable,  Up: Calendar Time
-
-21.4.8 Functions and Variables for Time Zones
----------------------------------------------
-
- -- Variable: char * tzname [2]
-
-     The array ‘tzname’ contains two strings, which are the standard
-     names of the pair of time zones (standard and Daylight Saving) that
-     the user has selected.  ‘tzname[0]’ is the name of the standard
-     time zone (for example, ‘"EST"’), and ‘tzname[1]’ is the name for
-     the time zone when Daylight Saving Time is in use (for example,
-     ‘"EDT"’).  These correspond to the STD and DST strings
-     (respectively) from the ‘TZ’ environment variable.  If Daylight
-     Saving Time is never used, ‘tzname[1]’ is the empty string.
-
-     The ‘tzname’ array is initialized from the ‘TZ’ environment
-     variable whenever ‘tzset’, ‘ctime’, ‘strftime’, ‘mktime’, or
-     ‘localtime’ is called.  If multiple abbreviations have been used
-     (e.g.  ‘"EWT"’ and ‘"EDT"’ for U.S. Eastern War Time and Eastern
-     Daylight Time), the array contains the most recent abbreviation.
-
-     The ‘tzname’ array is required for POSIX.1 compatibility, but in
-     GNU programs it is better to use the ‘tm_zone’ member of the
-     broken-down time structure, since ‘tm_zone’ reports the correct
-     abbreviation even when it is not the latest one.
-
-     Though the strings are declared as ‘char *’ the user must refrain
-     from modifying these strings.  Modifying the strings will almost
-     certainly lead to trouble.
-
- -- Function: void tzset (void)
-
-     Preliminary: | MT-Safe env locale | AS-Unsafe heap lock | AC-Unsafe
-     lock mem fd | *Note POSIX Safety Concepts::.
-
-     The ‘tzset’ function initializes the ‘tzname’ variable from the
-     value of the ‘TZ’ environment variable.  It is not usually
-     necessary for your program to call this function, because it is
-     called automatically when you use the other time conversion
-     functions that depend on the time zone.
-
-   The following variables are defined for compatibility with System V
-Unix.  Like ‘tzname’, these variables are set by calling ‘tzset’ or the
-other time conversion functions.
-
- -- Variable: long int timezone
-
-     This contains the difference between UTC and the latest local
-     standard time, in seconds west of UTC. For example, in the U.S.
-     Eastern time zone, the value is ‘5*60*60’.  Unlike the ‘tm_gmtoff’
-     member of the broken-down time structure, this value is not
-     adjusted for daylight saving, and its sign is reversed.  In GNU
-     programs it is better to use ‘tm_gmtoff’, since it contains the
-     correct offset even when it is not the latest one.
-
- -- Variable: int daylight
-
-     This variable has a nonzero value if Daylight Saving Time rules
-     apply.  A nonzero value does not necessarily mean that Daylight
-     Saving Time is now in effect; it means only that Daylight Saving
-     Time is sometimes in effect.
-
-
-File: libc.info,  Node: Time Functions Example,  Prev: Time Zone Functions,  Up: Calendar Time
-
-21.4.9 Time Functions Example
------------------------------
-
-Here is an example program showing the use of some of the calendar time
-functions.
-
-
-     #include <time.h>
-     #include <stdio.h>
-
-     #define SIZE 256
-
-     int
-     main (void)
-     {
-       char buffer[SIZE];
-       time_t curtime;
-       struct tm *loctime;
-
-       /* Get the current time. */
-       curtime = time (NULL);
-
-       /* Convert it to local time representation. */
-       loctime = localtime (&curtime);
-
-       /* Print out the date and time in the standard format. */
-       fputs (asctime (loctime), stdout);
-
-       /* Print it out in a nice format. */
-       strftime (buffer, SIZE, "Today is %A, %B %d.\n", loctime);
-       fputs (buffer, stdout);
-       strftime (buffer, SIZE, "The time is %I:%M %p.\n", loctime);
-       fputs (buffer, stdout);
-
-       return 0;
-     }
-
-   It produces output like this:
-
-     Wed Jul 31 13:02:36 1991
-     Today is Wednesday, July 31.
-     The time is 01:02 PM.
-
-
-File: libc.info,  Node: Setting an Alarm,  Next: Sleeping,  Prev: Calendar Time,  Up: Date and Time
-
-21.5 Setting an Alarm
-=====================
-
-The ‘alarm’ and ‘setitimer’ functions provide a mechanism for a process
-to interrupt itself in the future.  They do this by setting a timer;
-when the timer expires, the process receives a signal.
-
-   Each process has three independent interval timers available:
-
-   • A real-time timer that counts elapsed time.  This timer sends a
-     ‘SIGALRM’ signal to the process when it expires.
-
-   • A virtual timer that counts processor time used by the process.
-     This timer sends a ‘SIGVTALRM’ signal to the process when it
-     expires.
-
-   • A profiling timer that counts both processor time used by the
-     process, and processor time spent in system calls on behalf of the
-     process.  This timer sends a ‘SIGPROF’ signal to the process when
-     it expires.
-
-     This timer is useful for profiling in interpreters.  The interval
-     timer mechanism does not have the fine granularity necessary for
-     profiling native code.
-
-   You can only have one timer of each kind set at any given time.  If
-you set a timer that has not yet expired, that timer is simply reset to
-the new value.
-
-   You should establish a handler for the appropriate alarm signal using
-‘signal’ or ‘sigaction’ before issuing a call to ‘setitimer’ or ‘alarm’.
-Otherwise, an unusual chain of events could cause the timer to expire
-before your program establishes the handler.  In this case it would be
-terminated, since termination is the default action for the alarm
-signals.  *Note Signal Handling::.
-
-   To be able to use the alarm function to interrupt a system call which
-might block otherwise indefinitely it is important to _not_ set the
-‘SA_RESTART’ flag when registering the signal handler using ‘sigaction’.
-When not using ‘sigaction’ things get even uglier: the ‘signal’ function
-has fixed semantics with respect to restarts.  The BSD semantics for
-this function is to set the flag.  Therefore, if ‘sigaction’ for
-whatever reason cannot be used, it is necessary to use ‘sysv_signal’ and
-not ‘signal’.
-
-   The ‘setitimer’ function is the primary means for setting an alarm.
-This facility is declared in the header file ‘sys/time.h’.  The ‘alarm’
-function, declared in ‘unistd.h’, provides a somewhat simpler interface
-for setting the real-time timer.
-
- -- Data Type: struct itimerval
-
-     This structure is used to specify when a timer should expire.  It
-     contains the following members:
-     ‘struct timeval it_interval’
-          This is the period between successive timer interrupts.  If
-          zero, the alarm will only be sent once.
-
-     ‘struct timeval it_value’
-          This is the period between now and the first timer interrupt.
-          If zero, the alarm is disabled.
-
-     The ‘struct timeval’ data type is described in *note Elapsed
-     Time::.
-
- -- Function: int setitimer (int WHICH, const struct itimerval *NEW,
-          struct itimerval *OLD)
-
-     Preliminary: | MT-Safe timer | AS-Safe | AC-Safe | *Note POSIX
-     Safety Concepts::.
-
-     The ‘setitimer’ function sets the timer specified by WHICH
-     according to NEW.  The WHICH argument can have a value of
-     ‘ITIMER_REAL’, ‘ITIMER_VIRTUAL’, or ‘ITIMER_PROF’.
-
-     If OLD is not a null pointer, ‘setitimer’ returns information about
-     any previous unexpired timer of the same kind in the structure it
-     points to.
-
-     The return value is ‘0’ on success and ‘-1’ on failure.  The
-     following ‘errno’ error conditions are defined for this function:
-
-     ‘EINVAL’
-          The timer period is too large.
-
- -- Function: int getitimer (int WHICH, struct itimerval *OLD)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘getitimer’ function stores information about the timer
-     specified by WHICH in the structure pointed at by OLD.
-
-     The return value and error conditions are the same as for
-     ‘setitimer’.
-
-‘ITIMER_REAL’
-
-     This constant can be used as the WHICH argument to the ‘setitimer’
-     and ‘getitimer’ functions to specify the real-time timer.
-
-‘ITIMER_VIRTUAL’
-
-     This constant can be used as the WHICH argument to the ‘setitimer’
-     and ‘getitimer’ functions to specify the virtual timer.
-
-‘ITIMER_PROF’
-
-     This constant can be used as the WHICH argument to the ‘setitimer’
-     and ‘getitimer’ functions to specify the profiling timer.
-
- -- Function: unsigned int alarm (unsigned int SECONDS)
-
-     Preliminary: | MT-Safe timer | AS-Safe | AC-Safe | *Note POSIX
-     Safety Concepts::.
-
-     The ‘alarm’ function sets the real-time timer to expire in SECONDS
-     seconds.  If you want to cancel any existing alarm, you can do this
-     by calling ‘alarm’ with a SECONDS argument of zero.
-
-     The return value indicates how many seconds remain before the
-     previous alarm would have been sent.  If there was no previous
-     alarm, ‘alarm’ returns zero.
-
-   The ‘alarm’ function could be defined in terms of ‘setitimer’ like
-this:
-
-     unsigned int
-     alarm (unsigned int seconds)
-     {
-       struct itimerval old, new;
-       new.it_interval.tv_usec = 0;
-       new.it_interval.tv_sec = 0;
-       new.it_value.tv_usec = 0;
-       new.it_value.tv_sec = (long int) seconds;
-       if (setitimer (ITIMER_REAL, &new, &old) < 0)
-         return 0;
-       else
-         return old.it_value.tv_sec;
-     }
-
-   There is an example showing the use of the ‘alarm’ function in *note
-Handler Returns::.
-
-   If you simply want your process to wait for a given number of
-seconds, you should use the ‘sleep’ function.  *Note Sleeping::.
-
-   You shouldn’t count on the signal arriving precisely when the timer
-expires.  In a multiprocessing environment there is typically some
-amount of delay involved.
-
-   *Portability Note:* The ‘setitimer’ and ‘getitimer’ functions are
-derived from BSD Unix, while the ‘alarm’ function is specified by the
-POSIX.1 standard.  ‘setitimer’ is more powerful than ‘alarm’, but
-‘alarm’ is more widely used.
-
-
-File: libc.info,  Node: Sleeping,  Prev: Setting an Alarm,  Up: Date and Time
-
-21.6 Sleeping
-=============
-
-The function ‘sleep’ gives a simple way to make the program wait for a
-short interval.  If your program doesn’t use signals (except to
-terminate), then you can expect ‘sleep’ to wait reliably throughout the
-specified interval.  Otherwise, ‘sleep’ can return sooner if a signal
-arrives; if you want to wait for a given interval regardless of signals,
-use ‘select’ (*note Waiting for I/O::) and don’t specify any descriptors
-to wait for.
-
- -- Function: unsigned int sleep (unsigned int SECONDS)
-
-     Preliminary: | MT-Unsafe sig:SIGCHLD/linux | AS-Unsafe | AC-Unsafe
-     | *Note POSIX Safety Concepts::.
-
-     The ‘sleep’ function waits for SECONDS seconds or until a signal is
-     delivered, whichever happens first.
-
-     If ‘sleep’ returns because the requested interval is over, it
-     returns a value of zero.  If it returns because of delivery of a
-     signal, its return value is the remaining time in the sleep
-     interval.
-
-     The ‘sleep’ function is declared in ‘unistd.h’.
-
-   Resist the temptation to implement a sleep for a fixed amount of time
-by using the return value of ‘sleep’, when nonzero, to call ‘sleep’
-again.  This will work with a certain amount of accuracy as long as
-signals arrive infrequently.  But each signal can cause the eventual
-wakeup time to be off by an additional second or so.  Suppose a few
-signals happen to arrive in rapid succession by bad luck—there is no
-limit on how much this could shorten or lengthen the wait.
-
-   Instead, compute the calendar time at which the program should stop
-waiting, and keep trying to wait until that calendar time.  This won’t
-be off by more than a second.  With just a little more work, you can use
-‘select’ and make the waiting period quite accurate.  (Of course, heavy
-system load can cause additional unavoidable delays—unless the machine
-is dedicated to one application, there is no way you can avoid this.)
-
-   On some systems, ‘sleep’ can do strange things if your program uses
-‘SIGALRM’ explicitly.  Even if ‘SIGALRM’ signals are being ignored or
-blocked when ‘sleep’ is called, ‘sleep’ might return prematurely on
-delivery of a ‘SIGALRM’ signal.  If you have established a handler for
-‘SIGALRM’ signals and a ‘SIGALRM’ signal is delivered while the process
-is sleeping, the action taken might be just to cause ‘sleep’ to return
-instead of invoking your handler.  And, if ‘sleep’ is interrupted by
-delivery of a signal whose handler requests an alarm or alters the
-handling of ‘SIGALRM’, this handler and ‘sleep’ will interfere.
-
-   On GNU systems, it is safe to use ‘sleep’ and ‘SIGALRM’ in the same
-program, because ‘sleep’ does not work by means of ‘SIGALRM’.
-
- -- Function: int nanosleep (const struct timespec *REQUESTED_TIME,
-          struct timespec *REMAINING)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     If resolution to seconds is not enough the ‘nanosleep’ function can
-     be used.  As the name suggests the sleep interval can be specified
-     in nanoseconds.  The actual elapsed time of the sleep interval
-     might be longer since the system rounds the elapsed time you
-     request up to the next integer multiple of the actual resolution
-     the system can deliver.
-
-     *‘requested_time’ is the elapsed time of the interval you want to
-     sleep.
-
-     The function returns as *‘remaining’ the elapsed time left in the
-     interval for which you requested to sleep.  If the interval
-     completed without getting interrupted by a signal, this is zero.
-
-     ‘struct timespec’ is described in *Note Elapsed Time::.
-
-     If the function returns because the interval is over the return
-     value is zero.  If the function returns -1 the global variable
-     ERRNO is set to the following values:
-
-     ‘EINTR’
-          The call was interrupted because a signal was delivered to the
-          thread.  If the REMAINING parameter is not the null pointer
-          the structure pointed to by REMAINING is updated to contain
-          the remaining elapsed time.
-
-     ‘EINVAL’
-          The nanosecond value in the REQUESTED_TIME parameter contains
-          an illegal value.  Either the value is negative or greater
-          than or equal to 1000 million.
-
-     This function is a cancellation point in multi-threaded programs.
-     This is a problem if the thread allocates some resources (like
-     memory, file descriptors, semaphores or whatever) at the time
-     ‘nanosleep’ is called.  If the thread gets canceled these resources
-     stay allocated until the program ends.  To avoid this calls to
-     ‘nanosleep’ should be protected using cancellation handlers.
-
-     The ‘nanosleep’ function is declared in ‘time.h’.
-
-
-File: libc.info,  Node: Resource Usage And Limitation,  Next: Non-Local Exits,  Prev: Date and Time,  Up: Top
-
-22 Resource Usage And Limitation
-********************************
-
-This chapter describes functions for examining how much of various kinds
-of resources (CPU time, memory, etc.)  a process has used and getting
-and setting limits on future usage.
-
-* Menu:
-
-* Resource Usage::		Measuring various resources used.
-* Limits on Resources::		Specifying limits on resource usage.
-* Priority::			Reading or setting process run priority.
-* Memory Resources::            Querying memory available resources.
-* Processor Resources::         Learn about the processors available.
-
-
-File: libc.info,  Node: Resource Usage,  Next: Limits on Resources,  Up: Resource Usage And Limitation
-
-22.1 Resource Usage
-===================
-
-The function ‘getrusage’ and the data type ‘struct rusage’ are used to
-examine the resource usage of a process.  They are declared in
-‘sys/resource.h’.
-
- -- Function: int getrusage (int PROCESSES, struct rusage *RUSAGE)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function reports resource usage totals for processes specified
-     by PROCESSES, storing the information in ‘*RUSAGE’.
-
-     In most systems, PROCESSES has only two valid values:
-
-     ‘RUSAGE_SELF’
-
-          Just the current process.
-
-     ‘RUSAGE_CHILDREN’
-
-          All child processes (direct and indirect) that have already
-          terminated.
-
-     The return value of ‘getrusage’ is zero for success, and ‘-1’ for
-     failure.
-
-     ‘EINVAL’
-          The argument PROCESSES is not valid.
-
-   One way of getting resource usage for a particular child process is
-with the function ‘wait4’, which returns totals for a child when it
-terminates.  *Note BSD Wait Functions::.
-
- -- Data Type: struct rusage
-
-     This data type stores various resource usage statistics.  It has
-     the following members, and possibly others:
-
-     ‘struct timeval ru_utime’
-          Time spent executing user instructions.
-
-     ‘struct timeval ru_stime’
-          Time spent in operating system code on behalf of PROCESSES.
-
-     ‘long int ru_maxrss’
-          The maximum resident set size used, in kilobytes.  That is,
-          the maximum number of kilobytes of physical memory that
-          PROCESSES used simultaneously.
-
-     ‘long int ru_ixrss’
-          An integral value expressed in kilobytes times ticks of
-          execution, which indicates the amount of memory used by text
-          that was shared with other processes.
-
-     ‘long int ru_idrss’
-          An integral value expressed the same way, which is the amount
-          of unshared memory used for data.
-
-     ‘long int ru_isrss’
-          An integral value expressed the same way, which is the amount
-          of unshared memory used for stack space.
-
-     ‘long int ru_minflt’
-          The number of page faults which were serviced without
-          requiring any I/O.
-
-     ‘long int ru_majflt’
-          The number of page faults which were serviced by doing I/O.
-
-     ‘long int ru_nswap’
-          The number of times PROCESSES was swapped entirely out of main
-          memory.
-
-     ‘long int ru_inblock’
-          The number of times the file system had to read from the disk
-          on behalf of PROCESSES.
-
-     ‘long int ru_oublock’
-          The number of times the file system had to write to the disk
-          on behalf of PROCESSES.
-
-     ‘long int ru_msgsnd’
-          Number of IPC messages sent.
-
-     ‘long int ru_msgrcv’
-          Number of IPC messages received.
-
-     ‘long int ru_nsignals’
-          Number of signals received.
-
-     ‘long int ru_nvcsw’
-          The number of times PROCESSES voluntarily invoked a context
-          switch (usually to wait for some service).
-
-     ‘long int ru_nivcsw’
-          The number of times an involuntary context switch took place
-          (because a time slice expired, or another process of higher
-          priority was scheduled).
-
-   ‘vtimes’ is a historical function that does some of what ‘getrusage’
-does.  ‘getrusage’ is a better choice.
-
-   ‘vtimes’ and its ‘vtimes’ data structure are declared in
-‘sys/vtimes.h’.
-
- -- Function: int vtimes (struct vtimes *CURRENT, struct vtimes *CHILD)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     ‘vtimes’ reports resource usage totals for a process.
-
-     If CURRENT is non-null, ‘vtimes’ stores resource usage totals for
-     the invoking process alone in the structure to which it points.  If
-     CHILD is non-null, ‘vtimes’ stores resource usage totals for all
-     past children (which have terminated) of the invoking process in
-     the structure to which it points.
-
-      -- Data Type: struct vtimes
-          This data type contains information about the resource usage
-          of a process.  Each member corresponds to a member of the
-          ‘struct rusage’ data type described above.
-
-          ‘vm_utime’
-               User CPU time.  Analogous to ‘ru_utime’ in ‘struct
-               rusage’
-          ‘vm_stime’
-               System CPU time.  Analogous to ‘ru_stime’ in ‘struct
-               rusage’
-          ‘vm_idsrss’
-               Data and stack memory.  The sum of the values that would
-               be reported as ‘ru_idrss’ and ‘ru_isrss’ in ‘struct
-               rusage’
-          ‘vm_ixrss’
-               Shared memory.  Analogous to ‘ru_ixrss’ in ‘struct
-               rusage’
-          ‘vm_maxrss’
-               Maximent resident set size.  Analogous to ‘ru_maxrss’ in
-               ‘struct rusage’
-          ‘vm_majflt’
-               Major page faults.  Analogous to ‘ru_majflt’ in ‘struct
-               rusage’
-          ‘vm_minflt’
-               Minor page faults.  Analogous to ‘ru_minflt’ in ‘struct
-               rusage’
-          ‘vm_nswap’
-               Swap count.  Analogous to ‘ru_nswap’ in ‘struct rusage’
-          ‘vm_inblk’
-               Disk reads.  Analogous to ‘ru_inblk’ in ‘struct rusage’
-          ‘vm_oublk’
-               Disk writes.  Analogous to ‘ru_oublk’ in ‘struct rusage’
-
-     The return value is zero if the function succeeds; ‘-1’ otherwise.
-
-   An additional historical function for examining resource usage,
-‘vtimes’, is supported but not documented here.  It is declared in
-‘sys/vtimes.h’.
-
-
-File: libc.info,  Node: Limits on Resources,  Next: Priority,  Prev: Resource Usage,  Up: Resource Usage And Limitation
-
-22.2 Limiting Resource Usage
-============================
-
-You can specify limits for the resource usage of a process.  When the
-process tries to exceed a limit, it may get a signal, or the system call
-by which it tried to do so may fail, depending on the resource.  Each
-process initially inherits its limit values from its parent, but it can
-subsequently change them.
-
-   There are two per-process limits associated with a resource:
-
-“current limit”
-     The current limit is the value the system will not allow usage to
-     exceed.  It is also called the “soft limit” because the process
-     being limited can generally raise the current limit at will.
-
-“maximum limit”
-     The maximum limit is the maximum value to which a process is
-     allowed to set its current limit.  It is also called the “hard
-     limit” because there is no way for a process to get around it.  A
-     process may lower its own maximum limit, but only the superuser may
-     increase a maximum limit.
-
-   The symbols for use with ‘getrlimit’, ‘setrlimit’, ‘getrlimit64’, and
-‘setrlimit64’ are defined in ‘sys/resource.h’.
-
- -- Function: int getrlimit (int RESOURCE, struct rlimit *RLP)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     Read the current and maximum limits for the resource RESOURCE and
-     store them in ‘*RLP’.
-
-     The return value is ‘0’ on success and ‘-1’ on failure.  The only
-     possible ‘errno’ error condition is ‘EFAULT’.
-
-     When the sources are compiled with ‘_FILE_OFFSET_BITS == 64’ on a
-     32-bit system this function is in fact ‘getrlimit64’.  Thus, the
-     LFS interface transparently replaces the old interface.
-
- -- Function: int getrlimit64 (int RESOURCE, struct rlimit64 *RLP)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function is similar to ‘getrlimit’ but its second parameter is
-     a pointer to a variable of type ‘struct rlimit64’, which allows it
-     to read values which wouldn’t fit in the member of a ‘struct
-     rlimit’.
-
-     If the sources are compiled with ‘_FILE_OFFSET_BITS == 64’ on a
-     32-bit machine, this function is available under the name
-     ‘getrlimit’ and so transparently replaces the old interface.
-
- -- Function: int setrlimit (int RESOURCE, const struct rlimit *RLP)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     Store the current and maximum limits for the resource RESOURCE in
-     ‘*RLP’.
-
-     The return value is ‘0’ on success and ‘-1’ on failure.  The
-     following ‘errno’ error condition is possible:
-
-     ‘EPERM’
-             • The process tried to raise a current limit beyond the
-               maximum limit.
-
-             • The process tried to raise a maximum limit, but is not
-               superuser.
-
-     When the sources are compiled with ‘_FILE_OFFSET_BITS == 64’ on a
-     32-bit system this function is in fact ‘setrlimit64’.  Thus, the
-     LFS interface transparently replaces the old interface.
-
- -- Function: int setrlimit64 (int RESOURCE, const struct rlimit64 *RLP)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function is similar to ‘setrlimit’ but its second parameter is
-     a pointer to a variable of type ‘struct rlimit64’ which allows it
-     to set values which wouldn’t fit in the member of a ‘struct
-     rlimit’.
-
-     If the sources are compiled with ‘_FILE_OFFSET_BITS == 64’ on a
-     32-bit machine this function is available under the name
-     ‘setrlimit’ and so transparently replaces the old interface.
-
- -- Data Type: struct rlimit
-
-     This structure is used with ‘getrlimit’ to receive limit values,
-     and with ‘setrlimit’ to specify limit values for a particular
-     process and resource.  It has two fields:
-
-     ‘rlim_t rlim_cur’
-          The current limit
-
-     ‘rlim_t rlim_max’
-          The maximum limit.
-
-     For ‘getrlimit’, the structure is an output; it receives the
-     current values.  For ‘setrlimit’, it specifies the new values.
-
-   For the LFS functions a similar type is defined in ‘sys/resource.h’.
-
- -- Data Type: struct rlimit64
-
-     This structure is analogous to the ‘rlimit’ structure above, but
-     its components have wider ranges.  It has two fields:
-
-     ‘rlim64_t rlim_cur’
-          This is analogous to ‘rlimit.rlim_cur’, but with a different
-          type.
-
-     ‘rlim64_t rlim_max’
-          This is analogous to ‘rlimit.rlim_max’, but with a different
-          type.
-
-   Here is a list of resources for which you can specify a limit.
-Memory and file sizes are measured in bytes.
-
-‘RLIMIT_CPU’
-
-     The maximum amount of CPU time the process can use.  If it runs for
-     longer than this, it gets a signal: ‘SIGXCPU’.  The value is
-     measured in seconds.  *Note Operation Error Signals::.
-
-‘RLIMIT_FSIZE’
-
-     The maximum size of file the process can create.  Trying to write a
-     larger file causes a signal: ‘SIGXFSZ’.  *Note Operation Error
-     Signals::.
-
-‘RLIMIT_DATA’
-
-     The maximum size of data memory for the process.  If the process
-     tries to allocate data memory beyond this amount, the allocation
-     function fails.
-
-‘RLIMIT_STACK’
-
-     The maximum stack size for the process.  If the process tries to
-     extend its stack past this size, it gets a ‘SIGSEGV’ signal.  *Note
-     Program Error Signals::.
-
-‘RLIMIT_CORE’
-
-     The maximum size core file that this process can create.  If the
-     process terminates and would dump a core file larger than this,
-     then no core file is created.  So setting this limit to zero
-     prevents core files from ever being created.
-
-‘RLIMIT_RSS’
-
-     The maximum amount of physical memory that this process should get.
-     This parameter is a guide for the system’s scheduler and memory
-     allocator; the system may give the process more memory when there
-     is a surplus.
-
-‘RLIMIT_MEMLOCK’
-
-     The maximum amount of memory that can be locked into physical
-     memory (so it will never be paged out).
-
-‘RLIMIT_NPROC’
-
-     The maximum number of processes that can be created with the same
-     user ID. If you have reached the limit for your user ID, ‘fork’
-     will fail with ‘EAGAIN’.  *Note Creating a Process::.
-
-‘RLIMIT_NOFILE’
-‘RLIMIT_OFILE’
-
-     The maximum number of files that the process can open.  If it tries
-     to open more files than this, its open attempt fails with ‘errno’
-     ‘EMFILE’.  *Note Error Codes::.  Not all systems support this
-     limit; GNU does, and 4.4 BSD does.
-
-‘RLIMIT_AS’
-
-     The maximum size of total memory that this process should get.  If
-     the process tries to allocate more memory beyond this amount with,
-     for example, ‘brk’, ‘malloc’, ‘mmap’ or ‘sbrk’, the allocation
-     function fails.
-
-‘RLIM_NLIMITS’
-
-     The number of different resource limits.  Any valid RESOURCE
-     operand must be less than ‘RLIM_NLIMITS’.
-
- -- Constant: rlim_t RLIM_INFINITY
-
-     This constant stands for a value of “infinity” when supplied as the
-     limit value in ‘setrlimit’.
-
-   The following are historical functions to do some of what the
-functions above do.  The functions above are better choices.
-
-   ‘ulimit’ and the command symbols are declared in ‘ulimit.h’.
-
- -- Function: long int ulimit (int CMD, ...)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     ‘ulimit’ gets the current limit or sets the current and maximum
-     limit for a particular resource for the calling process according
-     to the command CMD.
-
-     If you are getting a limit, the command argument is the only
-     argument.  If you are setting a limit, there is a second argument:
-     ‘long int’ LIMIT which is the value to which you are setting the
-     limit.
-
-     The CMD values and the operations they specify are:
-
-     ‘GETFSIZE’
-          Get the current limit on the size of a file, in units of 512
-          bytes.
-
-     ‘SETFSIZE’
-          Set the current and maximum limit on the size of a file to
-          LIMIT * 512 bytes.
-
-     There are also some other CMD values that may do things on some
-     systems, but they are not supported.
-
-     Only the superuser may increase a maximum limit.
-
-     When you successfully get a limit, the return value of ‘ulimit’ is
-     that limit, which is never negative.  When you successfully set a
-     limit, the return value is zero.  When the function fails, the
-     return value is ‘-1’ and ‘errno’ is set according to the reason:
-
-     ‘EPERM’
-          A process tried to increase a maximum limit, but is not
-          superuser.
-
-   ‘vlimit’ and its resource symbols are declared in ‘sys/vlimit.h’.
-
- -- Function: int vlimit (int RESOURCE, int LIMIT)
-
-     Preliminary: | MT-Unsafe race:setrlimit | AS-Unsafe | AC-Safe |
-     *Note POSIX Safety Concepts::.
-
-     ‘vlimit’ sets the current limit for a resource for a process.
-
-     RESOURCE identifies the resource:
-
-     ‘LIM_CPU’
-          Maximum CPU time.  Same as ‘RLIMIT_CPU’ for ‘setrlimit’.
-     ‘LIM_FSIZE’
-          Maximum file size.  Same as ‘RLIMIT_FSIZE’ for ‘setrlimit’.
-     ‘LIM_DATA’
-          Maximum data memory.  Same as ‘RLIMIT_DATA’ for ‘setrlimit’.
-     ‘LIM_STACK’
-          Maximum stack size.  Same as ‘RLIMIT_STACK’ for ‘setrlimit’.
-     ‘LIM_CORE’
-          Maximum core file size.  Same as ‘RLIMIT_COR’ for ‘setrlimit’.
-     ‘LIM_MAXRSS’
-          Maximum physical memory.  Same as ‘RLIMIT_RSS’ for
-          ‘setrlimit’.
-
-     The return value is zero for success, and ‘-1’ with ‘errno’ set
-     accordingly for failure:
-
-     ‘EPERM’
-          The process tried to set its current limit beyond its maximum
-          limit.
-
-
-File: libc.info,  Node: Priority,  Next: Memory Resources,  Prev: Limits on Resources,  Up: Resource Usage And Limitation
-
-22.3 Process CPU Priority And Scheduling
-========================================
-
-When multiple processes simultaneously require CPU time, the system’s
-scheduling policy and process CPU priorities determine which processes
-get it.  This section describes how that determination is made and GNU C
-Library functions to control it.
-
-   It is common to refer to CPU scheduling simply as scheduling and a
-process’ CPU priority simply as the process’ priority, with the CPU
-resource being implied.  Bear in mind, though, that CPU time is not the
-only resource a process uses or that processes contend for.  In some
-cases, it is not even particularly important.  Giving a process a high
-“priority” may have very little effect on how fast a process runs with
-respect to other processes.  The priorities discussed in this section
-apply only to CPU time.
-
-   CPU scheduling is a complex issue and different systems do it in
-wildly different ways.  New ideas continually develop and find their way
-into the intricacies of the various systems’ scheduling algorithms.
-This section discusses the general concepts, some specifics of systems
-that commonly use the GNU C Library, and some standards.
-
-   For simplicity, we talk about CPU contention as if there is only one
-CPU in the system.  But all the same principles apply when a processor
-has multiple CPUs, and knowing that the number of processes that can run
-at any one time is equal to the number of CPUs, you can easily
-extrapolate the information.
-
-   The functions described in this section are all defined by the
-POSIX.1 and POSIX.1b standards (the ‘sched...’ functions are POSIX.1b).
-However, POSIX does not define any semantics for the values that these
-functions get and set.  In this chapter, the semantics are based on the
-Linux kernel’s implementation of the POSIX standard.  As you will see,
-the Linux implementation is quite the inverse of what the authors of the
-POSIX syntax had in mind.
-
-* Menu:
-
-* Absolute Priority::               The first tier of priority.  Posix
-* Realtime Scheduling::             Scheduling among the process nobility
-* Basic Scheduling Functions::      Get/set scheduling policy, priority
-* Traditional Scheduling::          Scheduling among the vulgar masses
-* CPU Affinity::                    Limiting execution to certain CPUs
-
-
-File: libc.info,  Node: Absolute Priority,  Next: Realtime Scheduling,  Up: Priority
-
-22.3.1 Absolute Priority
-------------------------
-
-Every process has an absolute priority, and it is represented by a
-number.  The higher the number, the higher the absolute priority.
-
-   On systems of the past, and most systems today, all processes have
-absolute priority 0 and this section is irrelevant.  In that case, *Note
-Traditional Scheduling::.  Absolute priorities were invented to
-accommodate realtime systems, in which it is vital that certain
-processes be able to respond to external events happening in real time,
-which means they cannot wait around while some other process that _wants
-to_, but doesn’t _need to_ run occupies the CPU.
-
-   When two processes are in contention to use the CPU at any instant,
-the one with the higher absolute priority always gets it.  This is true
-even if the process with the lower priority is already using the CPU
-(i.e., the scheduling is preemptive).  Of course, we’re only talking
-about processes that are running or “ready to run,” which means they are
-ready to execute instructions right now.  When a process blocks to wait
-for something like I/O, its absolute priority is irrelevant.
-
-   *NB:* The term “runnable” is a synonym for “ready to run.”
-
-   When two processes are running or ready to run and both have the same
-absolute priority, it’s more interesting.  In that case, who gets the
-CPU is determined by the scheduling policy.  If the processes have
-absolute priority 0, the traditional scheduling policy described in
-*note Traditional Scheduling:: applies.  Otherwise, the policies
-described in *note Realtime Scheduling:: apply.
-
-   You normally give an absolute priority above 0 only to a process that
-can be trusted not to hog the CPU. Such processes are designed to block
-(or terminate) after relatively short CPU runs.
-
-   A process begins life with the same absolute priority as its parent
-process.  Functions described in *note Basic Scheduling Functions:: can
-change it.
-
-   Only a privileged process can change a process’ absolute priority to
-something other than ‘0’.  Only a privileged process or the target
-process’ owner can change its absolute priority at all.
-
-   POSIX requires absolute priority values used with the realtime
-scheduling policies to be consecutive with a range of at least 32.  On
-Linux, they are 1 through 99.  The functions ‘sched_get_priority_max’
-and ‘sched_set_priority_min’ portably tell you what the range is on a
-particular system.
-
-22.3.1.1 Using Absolute Priority
-................................
-
-One thing you must keep in mind when designing real time applications is
-that having higher absolute priority than any other process doesn’t
-guarantee the process can run continuously.  Two things that can wreck a
-good CPU run are interrupts and page faults.
-
-   Interrupt handlers live in that limbo between processes.  The CPU is
-executing instructions, but they aren’t part of any process.  An
-interrupt will stop even the highest priority process.  So you must
-allow for slight delays and make sure that no device in the system has
-an interrupt handler that could cause too long a delay between
-instructions for your process.
-
-   Similarly, a page fault causes what looks like a straightforward
-sequence of instructions to take a long time.  The fact that other
-processes get to run while the page faults in is of no consequence,
-because as soon as the I/O is complete, the higher priority process will
-kick them out and run again, but the wait for the I/O itself could be a
-problem.  To neutralize this threat, use ‘mlock’ or ‘mlockall’.
-
-   There are a few ramifications of the absoluteness of this priority on
-a single-CPU system that you need to keep in mind when you choose to set
-a priority and also when you’re working on a program that runs with high
-absolute priority.  Consider a process that has higher absolute priority
-than any other process in the system and due to a bug in its program, it
-gets into an infinite loop.  It will never cede the CPU. You can’t run a
-command to kill it because your command would need to get the CPU in
-order to run.  The errant program is in complete control.  It controls
-the vertical, it controls the horizontal.
-
-   There are two ways to avoid this: 1) keep a shell running somewhere
-with a higher absolute priority or 2) keep a controlling terminal
-attached to the high priority process group.  All the priority in the
-world won’t stop an interrupt handler from running and delivering a
-signal to the process if you hit Control-C.
-
-   Some systems use absolute priority as a means of allocating a fixed
-percentage of CPU time to a process.  To do this, a super high priority
-privileged process constantly monitors the process’ CPU usage and raises
-its absolute priority when the process isn’t getting its entitled share
-and lowers it when the process is exceeding it.
-
-   *NB:* The absolute priority is sometimes called the “static
-priority.” We don’t use that term in this manual because it misses the
-most important feature of the absolute priority: its absoluteness.
-
-
-File: libc.info,  Node: Realtime Scheduling,  Next: Basic Scheduling Functions,  Prev: Absolute Priority,  Up: Priority
-
-22.3.2 Realtime Scheduling
---------------------------
-
-Whenever two processes with the same absolute priority are ready to run,
-the kernel has a decision to make, because only one can run at a time.
-If the processes have absolute priority 0, the kernel makes this
-decision as described in *note Traditional Scheduling::.  Otherwise, the
-decision is as described in this section.
-
-   If two processes are ready to run but have different absolute
-priorities, the decision is much simpler, and is described in *note
-Absolute Priority::.
-
-   Each process has a scheduling policy.  For processes with absolute
-priority other than zero, there are two available:
-
-  1. First Come First Served
-  2. Round Robin
-
-   The most sensible case is where all the processes with a certain
-absolute priority have the same scheduling policy.  We’ll discuss that
-first.
-
-   In Round Robin, processes share the CPU, each one running for a small
-quantum of time (“time slice”) and then yielding to another in a
-circular fashion.  Of course, only processes that are ready to run and
-have the same absolute priority are in this circle.
-
-   In First Come First Served, the process that has been waiting the
-longest to run gets the CPU, and it keeps it until it voluntarily
-relinquishes the CPU, runs out of things to do (blocks), or gets
-preempted by a higher priority process.
-
-   First Come First Served, along with maximal absolute priority and
-careful control of interrupts and page faults, is the one to use when a
-process absolutely, positively has to run at full CPU speed or not at
-all.
-
-   Judicious use of ‘sched_yield’ function invocations by processes with
-First Come First Served scheduling policy forms a good compromise
-between Round Robin and First Come First Served.
-
-   To understand how scheduling works when processes of different
-scheduling policies occupy the same absolute priority, you have to know
-the nitty gritty details of how processes enter and exit the ready to
-run list.
-
-   In both cases, the ready to run list is organized as a true queue,
-where a process gets pushed onto the tail when it becomes ready to run
-and is popped off the head when the scheduler decides to run it.  Note
-that ready to run and running are two mutually exclusive states.  When
-the scheduler runs a process, that process is no longer ready to run and
-no longer in the ready to run list.  When the process stops running, it
-may go back to being ready to run again.
-
-   The only difference between a process that is assigned the Round
-Robin scheduling policy and a process that is assigned First Come First
-Serve is that in the former case, the process is automatically booted
-off the CPU after a certain amount of time.  When that happens, the
-process goes back to being ready to run, which means it enters the queue
-at the tail.  The time quantum we’re talking about is small.  Really
-small.  This is not your father’s timesharing.  For example, with the
-Linux kernel, the round robin time slice is a thousand times shorter
-than its typical time slice for traditional scheduling.
-
-   A process begins life with the same scheduling policy as its parent
-process.  Functions described in *note Basic Scheduling Functions:: can
-change it.
-
-   Only a privileged process can set the scheduling policy of a process
-that has absolute priority higher than 0.
-
-
-File: libc.info,  Node: Basic Scheduling Functions,  Next: Traditional Scheduling,  Prev: Realtime Scheduling,  Up: Priority
-
-22.3.3 Basic Scheduling Functions
----------------------------------
-
-This section describes functions in the GNU C Library for setting the
-absolute priority and scheduling policy of a process.
-
-   *Portability Note:* On systems that have the functions in this
-section, the macro _POSIX_PRIORITY_SCHEDULING is defined in
-‘<unistd.h>’.
-
-   For the case that the scheduling policy is traditional scheduling,
-more functions to fine tune the scheduling are in *note Traditional
-Scheduling::.
-
-   Don’t try to make too much out of the naming and structure of these
-functions.  They don’t match the concepts described in this manual
-because the functions are as defined by POSIX.1b, but the implementation
-on systems that use the GNU C Library is the inverse of what the POSIX
-structure contemplates.  The POSIX scheme assumes that the primary
-scheduling parameter is the scheduling policy and that the priority
-value, if any, is a parameter of the scheduling policy.  In the
-implementation, though, the priority value is king and the scheduling
-policy, if anything, only fine tunes the effect of that priority.
-
-   The symbols in this section are declared by including file ‘sched.h’.
-
- -- Data Type: struct sched_param
-
-     This structure describes an absolute priority.
-     ‘int sched_priority’
-          absolute priority value
-
- -- Function: int sched_setscheduler (pid_t PID, int POLICY, const
-          struct sched_param *PARAM)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function sets both the absolute priority and the scheduling
-     policy for a process.
-
-     It assigns the absolute priority value given by PARAM and the
-     scheduling policy POLICY to the process with Process ID PID, or the
-     calling process if PID is zero.  If POLICY is negative,
-     ‘sched_setscheduler’ keeps the existing scheduling policy.
-
-     The following macros represent the valid values for POLICY:
-
-     ‘SCHED_OTHER’
-          Traditional Scheduling
-     ‘SCHED_FIFO’
-          First In First Out
-     ‘SCHED_RR’
-          Round Robin
-
-     On success, the return value is ‘0’.  Otherwise, it is ‘-1’ and
-     ‘ERRNO’ is set accordingly.  The ‘errno’ values specific to this
-     function are:
-
-     ‘EPERM’
-             • The calling process does not have ‘CAP_SYS_NICE’
-               permission and POLICY is not ‘SCHED_OTHER’ (or it’s
-               negative and the existing policy is not ‘SCHED_OTHER’.
-
-             • The calling process does not have ‘CAP_SYS_NICE’
-               permission and its owner is not the target process’
-               owner.  I.e., the effective uid of the calling process is
-               neither the effective nor the real uid of process PID.
-
-     ‘ESRCH’
-          There is no process with pid PID and PID is not zero.
-
-     ‘EINVAL’
-             • POLICY does not identify an existing scheduling policy.
-
-             • The absolute priority value identified by *PARAM is
-               outside the valid range for the scheduling policy POLICY
-               (or the existing scheduling policy if POLICY is negative)
-               or PARAM is null.  ‘sched_get_priority_max’ and
-               ‘sched_get_priority_min’ tell you what the valid range
-               is.
-
-             • PID is negative.
-
- -- Function: int sched_getscheduler (pid_t PID)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function returns the scheduling policy assigned to the process
-     with Process ID (pid) PID, or the calling process if PID is zero.
-
-     The return value is the scheduling policy.  See
-     ‘sched_setscheduler’ for the possible values.
-
-     If the function fails, the return value is instead ‘-1’ and ‘errno’
-     is set accordingly.
-
-     The ‘errno’ values specific to this function are:
-
-     ‘ESRCH’
-          There is no process with pid PID and it is not zero.
-
-     ‘EINVAL’
-          PID is negative.
-
-     Note that this function is not an exact mate to
-     ‘sched_setscheduler’ because while that function sets the
-     scheduling policy and the absolute priority, this function gets
-     only the scheduling policy.  To get the absolute priority, use
-     ‘sched_getparam’.
-
- -- Function: int sched_setparam (pid_t PID, const struct sched_param
-          *PARAM)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function sets a process’ absolute priority.
-
-     It is functionally identical to ‘sched_setscheduler’ with POLICY =
-     ‘-1’.
-
- -- Function: int sched_getparam (pid_t PID, struct sched_param *PARAM)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function returns a process’ absolute priority.
-
-     PID is the Process ID (pid) of the process whose absolute priority
-     you want to know.
-
-     PARAM is a pointer to a structure in which the function stores the
-     absolute priority of the process.
-
-     On success, the return value is ‘0’.  Otherwise, it is ‘-1’ and
-     ‘errno’ is set accordingly.  The ‘errno’ values specific to this
-     function are:
-
-     ‘ESRCH’
-          There is no process with pid PID and it is not zero.
-
-     ‘EINVAL’
-          PID is negative.
-
- -- Function: int sched_get_priority_min (int POLICY)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function returns the lowest absolute priority value that is
-     allowable for a process with scheduling policy POLICY.
-
-     On Linux, it is 0 for SCHED_OTHER and 1 for everything else.
-
-     On success, the return value is ‘0’.  Otherwise, it is ‘-1’ and
-     ‘ERRNO’ is set accordingly.  The ‘errno’ values specific to this
-     function are:
-
-     ‘EINVAL’
-          POLICY does not identify an existing scheduling policy.
-
- -- Function: int sched_get_priority_max (int POLICY)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function returns the highest absolute priority value that is
-     allowable for a process that with scheduling policy POLICY.
-
-     On Linux, it is 0 for SCHED_OTHER and 99 for everything else.
-
-     On success, the return value is ‘0’.  Otherwise, it is ‘-1’ and
-     ‘ERRNO’ is set accordingly.  The ‘errno’ values specific to this
-     function are:
-
-     ‘EINVAL’
-          POLICY does not identify an existing scheduling policy.
-
- -- Function: int sched_rr_get_interval (pid_t PID, struct timespec
-          *INTERVAL)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function returns the length of the quantum (time slice) used
-     with the Round Robin scheduling policy, if it is used, for the
-     process with Process ID PID.
-
-     It returns the length of time as INTERVAL.
-
-     With a Linux kernel, the round robin time slice is always 150
-     microseconds, and PID need not even be a real pid.
-
-     The return value is ‘0’ on success and in the pathological case
-     that it fails, the return value is ‘-1’ and ‘errno’ is set
-     accordingly.  There is nothing specific that can go wrong with this
-     function, so there are no specific ‘errno’ values.
-
- -- Function: int sched_yield (void)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     This function voluntarily gives up the process’ claim on the CPU.
-
-     Technically, ‘sched_yield’ causes the calling process to be made
-     immediately ready to run (as opposed to running, which is what it
-     was before).  This means that if it has absolute priority higher
-     than 0, it gets pushed onto the tail of the queue of processes that
-     share its absolute priority and are ready to run, and it will run
-     again when its turn next arrives.  If its absolute priority is 0,
-     it is more complicated, but still has the effect of yielding the
-     CPU to other processes.
-
-     If there are no other processes that share the calling process’
-     absolute priority, this function doesn’t have any effect.
-
-     To the extent that the containing program is oblivious to what
-     other processes in the system are doing and how fast it executes,
-     this function appears as a no-op.
-
-     The return value is ‘0’ on success and in the pathological case
-     that it fails, the return value is ‘-1’ and ‘errno’ is set
-     accordingly.  There is nothing specific that can go wrong with this
-     function, so there are no specific ‘errno’ values.
-
-
-File: libc.info,  Node: Traditional Scheduling,  Next: CPU Affinity,  Prev: Basic Scheduling Functions,  Up: Priority
-
-22.3.4 Traditional Scheduling
------------------------------
-
-This section is about the scheduling among processes whose absolute
-priority is 0.  When the system hands out the scraps of CPU time that
-are left over after the processes with higher absolute priority have
-taken all they want, the scheduling described herein determines who
-among the great unwashed processes gets them.
-
-* Menu:
-
-* Traditional Scheduling Intro::
-* Traditional Scheduling Functions::
-
-
-File: libc.info,  Node: Traditional Scheduling Intro,  Next: Traditional Scheduling Functions,  Up: Traditional Scheduling
-
-22.3.4.1 Introduction To Traditional Scheduling
-...............................................
-
-Long before there was absolute priority (See *note Absolute Priority::),
-Unix systems were scheduling the CPU using this system.  When POSIX came
-in like the Romans and imposed absolute priorities to accommodate the
-needs of realtime processing, it left the indigenous Absolute Priority
-Zero processes to govern themselves by their own familiar scheduling
-policy.
-
-   Indeed, absolute priorities higher than zero are not available on
-many systems today and are not typically used when they are, being
-intended mainly for computers that do realtime processing.  So this
-section describes the only scheduling many programmers need to be
-concerned about.
-
-   But just to be clear about the scope of this scheduling: Any time a
-process with an absolute priority of 0 and a process with an absolute
-priority higher than 0 are ready to run at the same time, the one with
-absolute priority 0 does not run.  If it’s already running when the
-higher priority ready-to-run process comes into existence, it stops
-immediately.
-
-   In addition to its absolute priority of zero, every process has
-another priority, which we will refer to as "dynamic priority" because
-it changes over time.  The dynamic priority is meaningless for processes
-with an absolute priority higher than zero.
-
-   The dynamic priority sometimes determines who gets the next turn on
-the CPU. Sometimes it determines how long turns last.  Sometimes it
-determines whether a process can kick another off the CPU.
-
-   In Linux, the value is a combination of these things, but mostly it
-just determines the length of the time slice.  The higher a process’
-dynamic priority, the longer a shot it gets on the CPU when it gets one.
-If it doesn’t use up its time slice before giving up the CPU to do
-something like wait for I/O, it is favored for getting the CPU back when
-it’s ready for it, to finish out its time slice.  Other than that,
-selection of processes for new time slices is basically round robin.
-But the scheduler does throw a bone to the low priority processes: A
-process’ dynamic priority rises every time it is snubbed in the
-scheduling process.  In Linux, even the fat kid gets to play.
-
-   The fluctuation of a process’ dynamic priority is regulated by
-another value: The “nice” value.  The nice value is an integer, usually
-in the range -20 to 20, and represents an upper limit on a process’
-dynamic priority.  The higher the nice number, the lower that limit.
-
-   On a typical Linux system, for example, a process with a nice value
-of 20 can get only 10 milliseconds on the CPU at a time, whereas a
-process with a nice value of -20 can achieve a high enough priority to
-get 400 milliseconds.
-
-   The idea of the nice value is deferential courtesy.  In the
-beginning, in the Unix garden of Eden, all processes shared equally in
-the bounty of the computer system.  But not all processes really need
-the same share of CPU time, so the nice value gave a courteous process
-the ability to refuse its equal share of CPU time that others might
-prosper.  Hence, the higher a process’ nice value, the nicer the process
-is.  (Then a snake came along and offered some process a negative nice
-value and the system became the crass resource allocation system we know
-today.)
-
-   Dynamic priorities tend upward and downward with an objective of
-smoothing out allocation of CPU time and giving quick response time to
-infrequent requests.  But they never exceed their nice limits, so on a
-heavily loaded CPU, the nice value effectively determines how fast a
-process runs.
-
-   In keeping with the socialistic heritage of Unix process priority, a
-process begins life with the same nice value as its parent process and
-can raise it at will.  A process can also raise the nice value of any
-other process owned by the same user (or effective user).  But only a
-privileged process can lower its nice value.  A privileged process can
-also raise or lower another process’ nice value.
-
-   GNU C Library functions for getting and setting nice values are
-described in *Note Traditional Scheduling Functions::.
 

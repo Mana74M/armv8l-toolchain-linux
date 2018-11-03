@@ -2,10 +2,10 @@ This is libc.info, produced by makeinfo version 6.5 from libc.texinfo.
 
 This file documents the GNU C Library.
 
-   This is ‘The GNU C Library Reference Manual’, for version 2.26
-(crosstool-NG 1.23.0.420-f79b).
+   This is ‘The GNU C Library Reference Manual’, for version 2.28
+(crosstool-NG 1.23.0.511-576f).
 
-   Copyright © 1993–2017 Free Software Foundation, Inc.
+   Copyright © 1993–2018 Free Software Foundation, Inc.
 
    Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3 or
@@ -56,7 +56,6 @@ START-INFO-DIR-ENTRY
 * CS8: (libc)Control Modes.
 * CSIZE: (libc)Control Modes.
 * CSTOPB: (libc)Control Modes.
-* DES_FAILED: (libc)DES Encryption.
 * DTTOIF: (libc)Directory Entries.
 * E2BIG: (libc)Error Codes.
 * EACCES: (libc)Error Codes.
@@ -326,6 +325,7 @@ START-INFO-DIR-ENTRY
 * O_READ: (libc)Access Modes.
 * O_SHLOCK: (libc)Open-time Flags.
 * O_SYNC: (libc)Operating Modes.
+* O_TMPFILE: (libc)Open-time Flags.
 * O_TRUNC: (libc)Open-time Flags.
 * O_WRITE: (libc)Access Modes.
 * O_WRONLY: (libc)Access Modes.
@@ -489,6 +489,7 @@ START-INFO-DIR-ENTRY
 * __ppc_set_ppr_med_low: (libc)PowerPC.
 * __ppc_set_ppr_very_low: (libc)PowerPC.
 * __ppc_yield: (libc)PowerPC.
+* __riscv_flush_icache: (libc)RISC-V.
 * __va_copy: (libc)Argument Macros.
 * _exit: (libc)Termination Internals.
 * _flushlbf: (libc)Flushing Buffers.
@@ -615,6 +616,7 @@ START-INFO-DIR-ENTRY
 * cacoshfNx: (libc)Hyperbolic Functions.
 * cacoshl: (libc)Hyperbolic Functions.
 * cacosl: (libc)Inverse Trig Functions.
+* call_once: (libc)Call Once.
 * calloc: (libc)Allocating Cleared Space.
 * canonicalize: (libc)FP Bit Twiddling.
 * canonicalize_file_name: (libc)Symbolic Links.
@@ -650,7 +652,6 @@ START-INFO-DIR-ENTRY
 * catclose: (libc)The catgets Functions.
 * catgets: (libc)The catgets Functions.
 * catopen: (libc)The catgets Functions.
-* cbc_crypt: (libc)DES Encryption.
 * cbrt: (libc)Exponents and Logarithms.
 * cbrtf: (libc)Exponents and Logarithms.
 * cbrtfN: (libc)Exponents and Logarithms.
@@ -707,6 +708,12 @@ START-INFO-DIR-ENTRY
 * close: (libc)Opening and Closing Files.
 * closedir: (libc)Reading/Closing Directory.
 * closelog: (libc)closelog.
+* cnd_broadcast: (libc)ISO C Condition Variables.
+* cnd_destroy: (libc)ISO C Condition Variables.
+* cnd_init: (libc)ISO C Condition Variables.
+* cnd_signal: (libc)ISO C Condition Variables.
+* cnd_timedwait: (libc)ISO C Condition Variables.
+* cnd_wait: (libc)ISO C Condition Variables.
 * confstr: (libc)String Parameters.
 * conj: (libc)Operations on Complex.
 * conjf: (libc)Operations on Complex.
@@ -714,6 +721,7 @@ START-INFO-DIR-ENTRY
 * conjfNx: (libc)Operations on Complex.
 * conjl: (libc)Operations on Complex.
 * connect: (libc)Connecting.
+* copy_file_range: (libc)Copying File Data.
 * copysign: (libc)FP Bit Twiddling.
 * copysignf: (libc)FP Bit Twiddling.
 * copysignfN: (libc)FP Bit Twiddling.
@@ -746,8 +754,8 @@ START-INFO-DIR-ENTRY
 * creall: (libc)Operations on Complex.
 * creat64: (libc)Opening and Closing Files.
 * creat: (libc)Opening and Closing Files.
-* crypt: (libc)crypt.
-* crypt_r: (libc)crypt.
+* crypt: (libc)Passphrase Storage.
+* crypt_r: (libc)Passphrase Storage.
 * csin: (libc)Trig Functions.
 * csinf: (libc)Trig Functions.
 * csinfN: (libc)Trig Functions.
@@ -777,27 +785,27 @@ START-INFO-DIR-ENTRY
 * ctime: (libc)Formatting Calendar Time.
 * ctime_r: (libc)Formatting Calendar Time.
 * cuserid: (libc)Who Logged In.
+* daddl: (libc)Misc FP Arithmetic.
 * dcgettext: (libc)Translation with gettext.
 * dcngettext: (libc)Advanced gettext functions.
-* des_setparity: (libc)DES Encryption.
+* ddivl: (libc)Misc FP Arithmetic.
 * dgettext: (libc)Translation with gettext.
 * difftime: (libc)Elapsed Time.
 * dirfd: (libc)Opening a Directory.
 * dirname: (libc)Finding Tokens in a String.
 * div: (libc)Integer Division.
+* dmull: (libc)Misc FP Arithmetic.
 * dngettext: (libc)Advanced gettext functions.
 * drand48: (libc)SVID Random.
 * drand48_r: (libc)SVID Random.
 * drem: (libc)Remainder Functions.
 * dremf: (libc)Remainder Functions.
 * dreml: (libc)Remainder Functions.
+* dsubl: (libc)Misc FP Arithmetic.
 * dup2: (libc)Duplicating Descriptors.
 * dup: (libc)Duplicating Descriptors.
-* ecb_crypt: (libc)DES Encryption.
 * ecvt: (libc)System V Number Conversion.
 * ecvt_r: (libc)System V Number Conversion.
-* encrypt: (libc)DES Encryption.
-* encrypt_r: (libc)DES Encryption.
 * endfsent: (libc)fstab.
 * endgrent: (libc)Scanning All Groups.
 * endhostent: (libc)Host Names.
@@ -860,11 +868,29 @@ START-INFO-DIR-ENTRY
 * expm1fN: (libc)Exponents and Logarithms.
 * expm1fNx: (libc)Exponents and Logarithms.
 * expm1l: (libc)Exponents and Logarithms.
+* fMaddfN: (libc)Misc FP Arithmetic.
+* fMaddfNx: (libc)Misc FP Arithmetic.
+* fMdivfN: (libc)Misc FP Arithmetic.
+* fMdivfNx: (libc)Misc FP Arithmetic.
+* fMmulfN: (libc)Misc FP Arithmetic.
+* fMmulfNx: (libc)Misc FP Arithmetic.
+* fMsubfN: (libc)Misc FP Arithmetic.
+* fMsubfNx: (libc)Misc FP Arithmetic.
+* fMxaddfN: (libc)Misc FP Arithmetic.
+* fMxaddfNx: (libc)Misc FP Arithmetic.
+* fMxdivfN: (libc)Misc FP Arithmetic.
+* fMxdivfNx: (libc)Misc FP Arithmetic.
+* fMxmulfN: (libc)Misc FP Arithmetic.
+* fMxmulfNx: (libc)Misc FP Arithmetic.
+* fMxsubfN: (libc)Misc FP Arithmetic.
+* fMxsubfNx: (libc)Misc FP Arithmetic.
 * fabs: (libc)Absolute Value.
 * fabsf: (libc)Absolute Value.
 * fabsfN: (libc)Absolute Value.
 * fabsfNx: (libc)Absolute Value.
 * fabsl: (libc)Absolute Value.
+* fadd: (libc)Misc FP Arithmetic.
+* faddl: (libc)Misc FP Arithmetic.
 * fchdir: (libc)Working Directory.
 * fchmod: (libc)Setting Permissions.
 * fchown: (libc)File Owner.
@@ -879,6 +905,8 @@ START-INFO-DIR-ENTRY
 * fdimfN: (libc)Misc FP Arithmetic.
 * fdimfNx: (libc)Misc FP Arithmetic.
 * fdiml: (libc)Misc FP Arithmetic.
+* fdiv: (libc)Misc FP Arithmetic.
+* fdivl: (libc)Misc FP Arithmetic.
 * fdopen: (libc)Descriptors and Streams.
 * fdopendir: (libc)Opening a Directory.
 * feclearexcept: (libc)Status bit operations.
@@ -962,6 +990,8 @@ START-INFO-DIR-ENTRY
 * fmodfNx: (libc)Remainder Functions.
 * fmodl: (libc)Remainder Functions.
 * fmtmsg: (libc)Printing Formatted Messages.
+* fmul: (libc)Misc FP Arithmetic.
+* fmull: (libc)Misc FP Arithmetic.
 * fnmatch: (libc)Wildcard Matching.
 * fopen64: (libc)Opening Streams.
 * fopen: (libc)Opening Streams.
@@ -1007,6 +1037,8 @@ START-INFO-DIR-ENTRY
 * fsetpos: (libc)Portable Positioning.
 * fstat64: (libc)Reading Attributes.
 * fstat: (libc)Reading Attributes.
+* fsub: (libc)Misc FP Arithmetic.
+* fsubl: (libc)Misc FP Arithmetic.
 * fsync: (libc)Synchronizing I/O.
 * ftell: (libc)File Positioning.
 * ftello64: (libc)File Positioning.
@@ -1280,6 +1312,7 @@ START-INFO-DIR-ENTRY
 * lgammal: (libc)Special Functions.
 * lgammal_r: (libc)Special Functions.
 * link: (libc)Hard Links.
+* linkat: (libc)Hard Links.
 * lio_listio64: (libc)Asynchronous Reads/Writes.
 * lio_listio: (libc)Asynchronous Reads/Writes.
 * listen: (libc)Listening.
@@ -1370,7 +1403,8 @@ START-INFO-DIR-ENTRY
 * memchr: (libc)Search Functions.
 * memcmp: (libc)String/Array Comparison.
 * memcpy: (libc)Copying Strings and Arrays.
-* memfrob: (libc)Trivial Encryption.
+* memfd_create: (libc)Memory-mapped I/O.
+* memfrob: (libc)Obfuscating Data.
 * memmem: (libc)Search Functions.
 * memmove: (libc)Copying Strings and Arrays.
 * mempcpy: (libc)Copying Strings and Arrays.
@@ -1383,6 +1417,7 @@ START-INFO-DIR-ENTRY
 * mkstemp: (libc)Temporary Files.
 * mktemp: (libc)Temporary Files.
 * mktime: (libc)Broken-down Time.
+* mlock2: (libc)Page Lock Functions.
 * mlock: (libc)Page Lock Functions.
 * mlockall: (libc)Page Lock Functions.
 * mmap64: (libc)Memory-mapped I/O.
@@ -1394,11 +1429,18 @@ START-INFO-DIR-ENTRY
 * modfl: (libc)Rounding Functions.
 * mount: (libc)Mount-Unmount-Remount.
 * mprobe: (libc)Heap Consistency Checking.
+* mprotect: (libc)Memory Protection.
 * mrand48: (libc)SVID Random.
 * mrand48_r: (libc)SVID Random.
 * mremap: (libc)Memory-mapped I/O.
 * msync: (libc)Memory-mapped I/O.
 * mtrace: (libc)Tracing malloc.
+* mtx_destroy: (libc)ISO C Mutexes.
+* mtx_init: (libc)ISO C Mutexes.
+* mtx_lock: (libc)ISO C Mutexes.
+* mtx_timedlock: (libc)ISO C Mutexes.
+* mtx_trylock: (libc)ISO C Mutexes.
+* mtx_unlock: (libc)ISO C Mutexes.
 * munlock: (libc)Page Lock Functions.
 * munlockall: (libc)Page Lock Functions.
 * munmap: (libc)Memory-mapped I/O.
@@ -1482,13 +1524,15 @@ START-INFO-DIR-ENTRY
 * pclose: (libc)Pipe to a Subprocess.
 * perror: (libc)Error Messages.
 * pipe: (libc)Creating a Pipe.
+* pkey_alloc: (libc)Memory Protection.
+* pkey_free: (libc)Memory Protection.
+* pkey_get: (libc)Memory Protection.
+* pkey_mprotect: (libc)Memory Protection.
+* pkey_set: (libc)Memory Protection.
 * popen: (libc)Pipe to a Subprocess.
 * posix_fallocate64: (libc)Storage Allocation.
 * posix_fallocate: (libc)Storage Allocation.
 * posix_memalign: (libc)Aligned Memory Blocks.
-* pow10: (libc)Exponents and Logarithms.
-* pow10f: (libc)Exponents and Logarithms.
-* pow10l: (libc)Exponents and Logarithms.
 * pow: (libc)Exponents and Logarithms.
 * powf: (libc)Exponents and Logarithms.
 * powfN: (libc)Exponents and Logarithms.
@@ -1496,10 +1540,10 @@ START-INFO-DIR-ENTRY
 * powl: (libc)Exponents and Logarithms.
 * pread64: (libc)I/O Primitives.
 * pread: (libc)I/O Primitives.
-* preadv2: (libc)I/O Primitives.
-* preadv64: (libc)I/O Primitives.
-* preadv64v2: (libc)I/O Primitives.
-* preadv: (libc)I/O Primitives.
+* preadv2: (libc)Scatter-Gather.
+* preadv64: (libc)Scatter-Gather.
+* preadv64v2: (libc)Scatter-Gather.
+* preadv: (libc)Scatter-Gather.
 * printf: (libc)Formatted Output Functions.
 * printf_size: (libc)Predefined Printf Handlers.
 * printf_size_info: (libc)Predefined Printf Handlers.
@@ -1528,10 +1572,10 @@ START-INFO-DIR-ENTRY
 * putwchar_unlocked: (libc)Simple Output.
 * pwrite64: (libc)I/O Primitives.
 * pwrite: (libc)I/O Primitives.
-* pwritev2: (libc)I/O Primitives.
-* pwritev64: (libc)I/O Primitives.
-* pwritev64v2: (libc)I/O Primitives.
-* pwritev: (libc)I/O Primitives.
+* pwritev2: (libc)Scatter-Gather.
+* pwritev64: (libc)Scatter-Gather.
+* pwritev64v2: (libc)Scatter-Gather.
+* pwritev: (libc)Scatter-Gather.
 * qecvt: (libc)System V Number Conversion.
 * qecvt_r: (libc)System V Number Conversion.
 * qfcvt: (libc)System V Number Conversion.
@@ -1654,8 +1698,6 @@ START-INFO-DIR-ENTRY
 * sethostname: (libc)Host Identification.
 * setitimer: (libc)Setting an Alarm.
 * setjmp: (libc)Non-Local Details.
-* setkey: (libc)DES Encryption.
-* setkey_r: (libc)DES Encryption.
 * setlinebuf: (libc)Controlling Buffering.
 * setlocale: (libc)Setting the Locale.
 * setlogmask: (libc)setlogmask.
@@ -1773,7 +1815,7 @@ START-INFO-DIR-ENTRY
 * strfromfN: (libc)Printing of Floats.
 * strfromfNx: (libc)Printing of Floats.
 * strfroml: (libc)Printing of Floats.
-* strfry: (libc)strfry.
+* strfry: (libc)Shuffling Bytes.
 * strftime: (libc)Formatting Calendar Time.
 * strlen: (libc)String Length.
 * strncasecmp: (libc)String/Array Comparison.
@@ -1849,6 +1891,14 @@ START-INFO-DIR-ENTRY
 * tgammafN: (libc)Special Functions.
 * tgammafNx: (libc)Special Functions.
 * tgammal: (libc)Special Functions.
+* thrd_create: (libc)ISO C Thread Management.
+* thrd_current: (libc)ISO C Thread Management.
+* thrd_detach: (libc)ISO C Thread Management.
+* thrd_equal: (libc)ISO C Thread Management.
+* thrd_exit: (libc)ISO C Thread Management.
+* thrd_join: (libc)ISO C Thread Management.
+* thrd_sleep: (libc)ISO C Thread Management.
+* thrd_yield: (libc)ISO C Thread Management.
 * time: (libc)Simple Calendar Time.
 * timegm: (libc)Broken-down Time.
 * timelocal: (libc)Broken-down Time.
@@ -1881,6 +1931,10 @@ START-INFO-DIR-ENTRY
 * truncfNx: (libc)Rounding Functions.
 * truncl: (libc)Rounding Functions.
 * tsearch: (libc)Tree Search Function.
+* tss_create: (libc)ISO C Thread-local Storage.
+* tss_delete: (libc)ISO C Thread-local Storage.
+* tss_get: (libc)ISO C Thread-local Storage.
+* tss_set: (libc)ISO C Thread-local Storage.
 * ttyname: (libc)Is It a Terminal.
 * ttyname_r: (libc)Is It a Terminal.
 * twalk: (libc)Tree Search Function.
@@ -2019,6 +2073,156 @@ START-INFO-DIR-ENTRY
 * ynfNx: (libc)Special Functions.
 * ynl: (libc)Special Functions.
 END-INFO-DIR-ENTRY
+
+
+File: libc.info,  Node: Hooks for Malloc,  Next: Statistics of Malloc,  Prev: Heap Consistency Checking,  Up: Unconstrained Allocation
+
+3.2.3.9 Memory Allocation Hooks
+...............................
+
+The GNU C Library lets you modify the behavior of ‘malloc’, ‘realloc’,
+and ‘free’ by specifying appropriate hook functions.  You can use these
+hooks to help you debug programs that use dynamic memory allocation, for
+example.
+
+   The hook variables are declared in ‘malloc.h’.
+
+ -- Variable: __malloc_hook
+
+     The value of this variable is a pointer to the function that
+     ‘malloc’ uses whenever it is called.  You should define this
+     function to look like ‘malloc’; that is, like:
+
+          void *FUNCTION (size_t SIZE, const void *CALLER)
+
+     The value of CALLER is the return address found on the stack when
+     the ‘malloc’ function was called.  This value allows you to trace
+     the memory consumption of the program.
+
+ -- Variable: __realloc_hook
+
+     The value of this variable is a pointer to function that ‘realloc’
+     uses whenever it is called.  You should define this function to
+     look like ‘realloc’; that is, like:
+
+          void *FUNCTION (void *PTR, size_t SIZE, const void *CALLER)
+
+     The value of CALLER is the return address found on the stack when
+     the ‘realloc’ function was called.  This value allows you to trace
+     the memory consumption of the program.
+
+ -- Variable: __free_hook
+
+     The value of this variable is a pointer to function that ‘free’
+     uses whenever it is called.  You should define this function to
+     look like ‘free’; that is, like:
+
+          void FUNCTION (void *PTR, const void *CALLER)
+
+     The value of CALLER is the return address found on the stack when
+     the ‘free’ function was called.  This value allows you to trace the
+     memory consumption of the program.
+
+ -- Variable: __memalign_hook
+
+     The value of this variable is a pointer to function that
+     ‘aligned_alloc’, ‘memalign’, ‘posix_memalign’ and ‘valloc’ use
+     whenever they are called.  You should define this function to look
+     like ‘aligned_alloc’; that is, like:
+
+          void *FUNCTION (size_t ALIGNMENT, size_t SIZE, const void *CALLER)
+
+     The value of CALLER is the return address found on the stack when
+     the ‘aligned_alloc’, ‘memalign’, ‘posix_memalign’ or ‘valloc’
+     functions are called.  This value allows you to trace the memory
+     consumption of the program.
+
+   You must make sure that the function you install as a hook for one of
+these functions does not call that function recursively without
+restoring the old value of the hook first!  Otherwise, your program will
+get stuck in an infinite recursion.  Before calling the function
+recursively, one should make sure to restore all the hooks to their
+previous value.  When coming back from the recursive call, all the hooks
+should be resaved since a hook might modify itself.
+
+   An issue to look out for is the time at which the malloc hook
+functions can be safely installed.  If the hook functions call the
+malloc-related functions recursively, it is necessary that malloc has
+already properly initialized itself at the time when ‘__malloc_hook’
+etc.  is assigned to.  On the other hand, if the hook functions provide
+a complete malloc implementation of their own, it is vital that the
+hooks are assigned to _before_ the very first ‘malloc’ call has
+completed, because otherwise a chunk obtained from the ordinary,
+un-hooked malloc may later be handed to ‘__free_hook’, for example.
+
+   Here is an example showing how to use ‘__malloc_hook’ and
+‘__free_hook’ properly.  It installs a function that prints out
+information every time ‘malloc’ or ‘free’ is called.  We just assume
+here that ‘realloc’ and ‘memalign’ are not used in our program.
+
+     /* Prototypes for __malloc_hook, __free_hook */
+     #include <malloc.h>
+
+     /* Prototypes for our hooks.  */
+     static void my_init_hook (void);
+     static void *my_malloc_hook (size_t, const void *);
+     static void my_free_hook (void*, const void *);
+
+     static void
+     my_init (void)
+     {
+       old_malloc_hook = __malloc_hook;
+       old_free_hook = __free_hook;
+       __malloc_hook = my_malloc_hook;
+       __free_hook = my_free_hook;
+     }
+
+     static void *
+     my_malloc_hook (size_t size, const void *caller)
+     {
+       void *result;
+       /* Restore all old hooks */
+       __malloc_hook = old_malloc_hook;
+       __free_hook = old_free_hook;
+       /* Call recursively */
+       result = malloc (size);
+       /* Save underlying hooks */
+       old_malloc_hook = __malloc_hook;
+       old_free_hook = __free_hook;
+       /* ‘printf’ might call ‘malloc’, so protect it too. */
+       printf ("malloc (%u) returns %p\n", (unsigned int) size, result);
+       /* Restore our own hooks */
+       __malloc_hook = my_malloc_hook;
+       __free_hook = my_free_hook;
+       return result;
+     }
+
+     static void
+     my_free_hook (void *ptr, const void *caller)
+     {
+       /* Restore all old hooks */
+       __malloc_hook = old_malloc_hook;
+       __free_hook = old_free_hook;
+       /* Call recursively */
+       free (ptr);
+       /* Save underlying hooks */
+       old_malloc_hook = __malloc_hook;
+       old_free_hook = __free_hook;
+       /* ‘printf’ might call ‘free’, so protect it too. */
+       printf ("freed pointer %p\n", ptr);
+       /* Restore our own hooks */
+       __malloc_hook = my_malloc_hook;
+       __free_hook = my_free_hook;
+     }
+
+     main ()
+     {
+       my_init ();
+       ...
+     }
+
+   The ‘mcheck’ function (*note Heap Consistency Checking::) works by
+installing such hooks.
 
 
 File: libc.info,  Node: Statistics of Malloc,  Next: Summary of Malloc,  Prev: Hooks for Malloc,  Up: Unconstrained Allocation
@@ -3403,7 +3607,7 @@ frees all blocks allocated with ‘alloca’ during the execution of that
 scope.
 
 
-File: libc.info,  Node: Resizing the Data Segment,  Next: Locking Pages,  Prev: Memory Allocation,  Up: Memory
+File: libc.info,  Node: Resizing the Data Segment,  Next: Memory Protection,  Prev: Memory Allocation,  Up: Memory
 
 3.3 Resizing the Data Segment
 =============================
@@ -3462,9 +3666,347 @@ system calls.
      of the data segment is.
 
 
-File: libc.info,  Node: Locking Pages,  Prev: Resizing the Data Segment,  Up: Memory
+File: libc.info,  Node: Memory Protection,  Next: Locking Pages,  Prev: Resizing the Data Segment,  Up: Memory
 
-3.4 Locking Pages
+3.4 Memory Protection
+=====================
+
+When a page is mapped using ‘mmap’, page protection flags can be
+specified using the protection flags argument.  *Note Memory-mapped
+I/O::.
+
+   The following flags are available:
+
+‘PROT_WRITE’
+
+     The memory can be written to.
+
+‘PROT_READ’
+
+     The memory can be read.  On some architectures, this flag implies
+     that the memory can be executed as well (as if ‘PROT_EXEC’ had been
+     specified at the same time).
+
+‘PROT_EXEC’
+
+     The memory can be used to store instructions which can then be
+     executed.  On most architectures, this flag implies that the memory
+     can be read (as if ‘PROT_READ’ had been specified).
+
+‘PROT_NONE’
+
+     This flag must be specified on its own.
+
+     The memory is reserved, but cannot be read, written, or executed.
+     If this flag is specified in a call to ‘mmap’, a virtual memory
+     area will be set aside for future use in the process, and ‘mmap’
+     calls without the ‘MAP_FIXED’ flag will not use it for subsequent
+     allocations.  For anonymous mappings, the kernel will not reserve
+     any physical memory for the allocation at the time the mapping is
+     created.
+
+   The operating system may keep track of these flags separately even if
+the underlying hardware treats them the same for the purposes of access
+checking (as happens with ‘PROT_READ’ and ‘PROT_EXEC’ on some
+platforms).  On GNU systems, ‘PROT_EXEC’ always implies ‘PROT_READ’, so
+that users can view the machine code which is executing on their system.
+
+   Inappropriate access will cause a segfault (*note Program Error
+Signals::).
+
+   After allocation, protection flags can be changed using the
+‘mprotect’ function.
+
+ -- Function: int mprotect (void *ADDRESS, size_t LENGTH, int
+          PROTECTION)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     A successful call to the ‘mprotect’ function changes the protection
+     flags of at least LENGTH bytes of memory, starting at ADDRESS.
+
+     ADDRESS must be aligned to the page size for the mapping.  The
+     system page size can be obtained by calling ‘sysconf’ with the
+     ‘_SC_PAGESIZE’ parameter (*note Sysconf Definition::).  The system
+     page size is the granularity in which the page protection of
+     anonymous memory mappings and most file mappings can be changed.
+     Memory which is mapped from special files or devices may have
+     larger page granularity than the system page size and may require
+     larger alignment.
+
+     LENGTH is the number of bytes whose protection flags must be
+     changed.  It is automatically rounded up to the next multiple of
+     the system page size.
+
+     PROTECTION is a combination of the ‘PROT_*’ flags described above.
+
+     The ‘mprotect’ function returns 0 on success and -1 on failure.
+
+     The following ‘errno’ error conditions are defined for this
+     function:
+
+     ‘ENOMEM’
+          The system was not able to allocate resources to fulfill the
+          request.  This can happen if there is not enough physical
+          memory in the system for the allocation of backing storage.
+          The error can also occur if the new protection flags would
+          cause the memory region to be split from its neighbors, and
+          the process limit for the number of such distinct memory
+          regions would be exceeded.
+
+     ‘EINVAL’
+          ADDRESS is not properly aligned to a page boundary for the
+          mapping, or LENGTH (after rounding up to the system page size)
+          is not a multiple of the applicable page size for the mapping,
+          or the combination of flags in PROTECTION is not valid.
+
+     ‘EACCES’
+          The file for a file-based mapping was not opened with open
+          flags which are compatible with PROTECTION.
+
+     ‘EPERM’
+          The system security policy does not allow a mapping with the
+          specified flags.  For example, mappings which are both
+          ‘PROT_EXEC’ and ‘PROT_WRITE’ at the same time might not be
+          allowed.
+
+   If the ‘mprotect’ function is used to make a region of memory
+inaccessible by specifying the ‘PROT_NONE’ protection flag and access is
+later restored, the memory retains its previous contents.
+
+   On some systems, it may not be possible to specify additional flags
+which were not present when the mapping was first created.  For example,
+an attempt to make a region of memory executable could fail if the
+initial protection flags were ‘PROT_READ | PROT_WRITE’.
+
+   In general, the ‘mprotect’ function can be used to change any process
+memory, no matter how it was allocated.  However, portable use of the
+function requires that it is only used with memory regions returned by
+‘mmap’ or ‘mmap64’.
+
+3.4.1 Memory Protection Keys
+----------------------------
+
+On some systems, further restrictions can be added to specific pages
+using “memory protection keys”.  These restrictions work as follows:
+
+   • All memory pages are associated with a protection key.  The default
+     protection key does not cause any additional protections to be
+     applied during memory accesses.  New keys can be allocated with the
+     ‘pkey_alloc’ function, and applied to pages using ‘pkey_mprotect’.
+
+   • Each thread has a set of separate access right restriction for each
+     protection key.  These access rights can be manipulated using the
+     ‘pkey_set’ and ‘pkey_get’ functions.
+
+   • During a memory access, the system obtains the protection key for
+     the accessed page and uses that to determine the applicable access
+     rights, as configured for the current thread.  If the access is
+     restricted, a segmentation fault is the result ((*note Program
+     Error Signals::).  These checks happen in addition to the ‘PROT_’*
+     protection flags set by ‘mprotect’ or ‘pkey_mprotect’.
+
+   New threads and subprocesses inherit the access rights of the current
+thread.  If a protection key is allocated subsequently, existing threads
+(except the current) will use an unspecified system default for the
+access rights associated with newly allocated keys.
+
+   Upon entering a signal handler, the system resets the access rights
+of the current thread so that pages with the default key can be
+accessed, but the access rights for other protection keys are
+unspecified.
+
+   Applications are expected to allocate a key once using ‘pkey_alloc’,
+and apply the key to memory regions which need special protection with
+‘pkey_mprotect’:
+
+       int key = pkey_alloc (0, PKEY_DISABLE_ACCESS);
+       if (key < 0)
+         /* Perform error checking, including fallback for lack of support.  */
+         ...;
+
+       /* Apply the key to a special memory region used to store critical
+          data.  */
+       if (pkey_mprotect (region, region_length,
+                          PROT_READ | PROT_WRITE, key) < 0)
+         ...; /* Perform error checking (generally fatal).  */
+
+   If the key allocation fails due to lack of support for memory
+protection keys, the ‘pkey_mprotect’ call can usually be skipped.  In
+this case, the region will not be protected by default.  It is also
+possible to call ‘pkey_mprotect’ with a key value of -1, in which case
+it will behave in the same way as ‘mprotect’.
+
+   After key allocation assignment to memory pages, ‘pkey_set’ can be
+used to temporarily acquire access to the memory region and relinquish
+it again:
+
+       if (key >= 0 && pkey_set (key, 0) < 0)
+         ...; /* Perform error checking (generally fatal).  */
+       /* At this point, the current thread has read-write access to the
+          memory region.  */
+       ...
+       /* Revoke access again.  */
+       if (key >= 0 && pkey_set (key, PKEY_DISABLE_ACCESS) < 0)
+         ...; /* Perform error checking (generally fatal).  */
+
+   In this example, a negative key value indicates that no key had been
+allocated, which means that the system lacks support for memory
+protection keys and it is not necessary to change the the access rights
+of the current thread (because it always has access).
+
+   Compared to using ‘mprotect’ to change the page protection flags,
+this approach has two advantages: It is thread-safe in the sense that
+the access rights are only changed for the current thread, so another
+thread which changes its own access rights concurrently to gain access
+to the mapping will not suddenly see its access rights revoked.  And
+‘pkey_set’ typically does not involve a call into the kernel and a
+context switch, so it is more efficient.
+
+ -- Function: int pkey_alloc (unsigned int FLAGS, unsigned int
+          RESTRICTIONS)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Unsafe corrupt | *Note POSIX
+     Safety Concepts::.
+
+     Allocate a new protection key.  The FLAGS argument is reserved and
+     must be zero.  The RESTRICTIONS argument specifies access rights
+     which are applied to the current thread (as if with ‘pkey_set’
+     below).  Access rights of other threads are not changed.
+
+     The function returns the new protection key, a non-negative number,
+     or -1 on error.
+
+     The following ‘errno’ error conditions are defined for this
+     function:
+
+     ‘ENOSYS’
+          The system does not implement memory protection keys.
+
+     ‘EINVAL’
+          The FLAGS argument is not zero.
+
+          The RESTRICTIONS argument is invalid.
+
+          The system does not implement memory protection keys or runs
+          in a mode in which memory protection keys are disabled.
+
+     ‘ENOSPC’
+          All available protection keys already have been allocated.
+
+ -- Function: int pkey_free (int KEY)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Deallocate the protection key, so that it can be reused by
+     ‘pkey_alloc’.
+
+     Calling this function does not change the access rights of the
+     freed protection key.  The calling thread and other threads may
+     retain access to it, even if it is subsequently allocated again.
+     For this reason, it is not recommended to call the ‘pkey_free’
+     function.
+
+     ‘ENOSYS’
+          The system does not implement memory protection keys.
+
+     ‘EINVAL’
+          The KEY argument is not a valid protection key.
+
+ -- Function: int pkey_mprotect (void *ADDRESS, size_t LENGTH, int
+          PROTECTION, int KEY)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Similar to ‘mprotect’, but also set the memory protection key for
+     the memory region to ‘key’.
+
+     Some systems use memory protection keys to emulate certain
+     combinations of PROTECTION flags.  Under such circumstances,
+     specifying an explicit protection key may behave as if additional
+     flags have been specified in PROTECTION, even though this does not
+     happen with the default protection key.  For example, some systems
+     can support ‘PROT_EXEC’-only mappings only with a default
+     protection key, and memory with a key which was allocated using
+     ‘pkey_alloc’ will still be readable if ‘PROT_EXEC’ is specified
+     without ‘PROT_READ’.
+
+     If KEY is -1, the default protection key is applied to the mapping,
+     just as if ‘mprotect’ had been called.
+
+     The ‘pkey_mprotect’ function returns 0 on success and -1 on
+     failure.  The same ‘errno’ error conditions as for ‘mprotect’ are
+     defined for this function, with the following addition:
+
+     ‘EINVAL’
+          The KEY argument is not -1 or a valid memory protection key
+          allocated using ‘pkey_alloc’.
+
+     ‘ENOSYS’
+          The system does not implement memory protection keys, and KEY
+          is not -1.
+
+ -- Function: int pkey_set (int KEY, unsigned int RIGHTS)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Change the access rights of the current thread for memory pages
+     with the protection key KEY to RIGHTS.  If RIGHTS is zero, no
+     additional access restrictions on top of the page protection flags
+     are applied.  Otherwise, RIGHTS is a combination of the following
+     flags:
+
+     ‘PKEY_DISABLE_WRITE’
+
+          Subsequent attempts to write to memory with the specified
+          protection key will fault.
+
+     ‘PKEY_DISABLE_ACCESS’
+
+          Subsequent attempts to write to or read from memory with the
+          specified protection key will fault.
+
+     Operations not specified as flags are not restricted.  In
+     particular, this means that the memory region will remain
+     executable if it was mapped with the ‘PROT_EXEC’ protection flag
+     and ‘PKEY_DISABLE_ACCESS’ has been specified.
+
+     Calling the ‘pkey_set’ function with a protection key which was not
+     allocated by ‘pkey_alloc’ results in undefined behavior.  This
+     means that calling this function on systems which do not support
+     memory protection keys is undefined.
+
+     The ‘pkey_set’ function returns 0 on success and -1 on failure.
+
+     The following ‘errno’ error conditions are defined for this
+     function:
+
+     ‘EINVAL’
+          The system does not support the access rights restrictions
+          expressed in the RIGHTS argument.
+
+ -- Function: int pkey_get (int KEY)
+
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     Return the access rights of the current thread for memory pages
+     with protection key KEY.  The return value is zero or a combination
+     of the ‘PKEY_DISABLE_’* flags; see the ‘pkey_set’ function.
+
+     Calling the ‘pkey_get’ function with a protection key which was not
+     allocated by ‘pkey_alloc’ results in undefined behavior.  This
+     means that calling this function on systems which do not support
+     memory protection keys is undefined.
+
+
+File: libc.info,  Node: Locking Pages,  Prev: Memory Protection,  Up: Memory
+
+3.5 Locking Pages
 =================
 
 You can tell the system to associate a particular virtual memory page
@@ -3486,7 +4028,7 @@ pages.
 
 File: libc.info,  Node: Why Lock Pages,  Next: Locked Memory Details,  Up: Locking Pages
 
-3.4.1 Why Lock Pages
+3.5.1 Why Lock Pages
 --------------------
 
 Because page faults cause paged out pages to be paged in transparently,
@@ -3509,7 +4051,7 @@ there are two reasons people sometimes are:
 
    • Privacy.  If you keep secrets in virtual memory and that virtual
      memory gets paged out, that increases the chance that the secrets
-     will get out.  If a password gets written out to disk swap space,
+     will get out.  If a passphrase gets written out to disk swap space,
      for example, it might still be there long after virtual and real
      memory have been wiped clean.
 
@@ -3522,7 +4064,7 @@ be able to run at all for lack of real memory.
 
 File: libc.info,  Node: Locked Memory Details,  Next: Page Lock Functions,  Prev: Why Lock Pages,  Up: Locking Pages
 
-3.4.2 Locked Memory Details
+3.5.2 Locked Memory Details
 ---------------------------
 
 A memory lock is associated with a virtual page, not a real frame.  The
@@ -3571,7 +4113,7 @@ its scope.
 
 File: libc.info,  Node: Page Lock Functions,  Prev: Locked Memory Details,  Up: Locking Pages
 
-3.4.3 Functions To Lock And Unlock Pages
+3.5.3 Functions To Lock And Unlock Pages
 ----------------------------------------
 
 The symbols in this section are declared in ‘sys/mman.h’.  These
@@ -3625,13 +4167,40 @@ conforms to this requirement.
      ‘ENOSYS’
           The kernel does not provide ‘mlock’ capability.
 
-     You can lock _all_ a process’ memory with ‘mlockall’.  You unlock
-     memory with ‘munlock’ or ‘munlockall’.
+ -- Function: int mlock2 (const void *ADDR, size_t LEN, unsigned int
+          FLAGS)
 
-     To avoid all page faults in a C program, you have to use
-     ‘mlockall’, because some of the memory a program uses is hidden
-     from the C code, e.g.  the stack and automatic variables, and you
-     wouldn’t know what address to tell ‘mlock’.
+     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
+     Concepts::.
+
+     This function is similar to ‘mlock’.  If FLAGS is zero, a call to
+     ‘mlock2’ behaves exactly as the equivalent call to ‘mlock’.
+
+     The FLAGS argument must be a combination of zero or more of the
+     following flags:
+
+     ‘MLOCK_ONFAULT’
+
+          Only those pages in the specified address range which are
+          already in memory are locked immediately.  Additional pages in
+          the range are automatically locked in case of a page fault and
+          allocation of memory.
+
+     Like ‘mlock’, ‘mlock2’ returns zero on success and ‘-1’ on failure,
+     setting ‘errno’ accordingly.  Additional ‘errno’ values defined for
+     ‘mlock2’ are:
+
+     ‘EINVAL’
+          The specified (non-zero) FLAGS argument is not supported by
+          this system.
+
+   You can lock _all_ a process’ memory with ‘mlockall’.  You unlock
+memory with ‘munlock’ or ‘munlockall’.
+
+   To avoid all page faults in a C program, you have to use ‘mlockall’,
+because some of the memory a program uses is hidden from the C code,
+e.g.  the stack and automatic variables, and you wouldn’t know what
+address to tell ‘mlock’.
 
  -- Function: int munlock (const void *ADDR, size_t LEN)
 
@@ -4451,8 +5020,8 @@ typically highly optimized, your program may run faster too.
 				 for delimiters.
 * Erasing Sensitive Data::      Clearing memory which contains sensitive
                                  data, after it’s no longer needed.
-* strfry::                      Function for flash-cooking a string.
-* Trivial Encryption::          Obscuring data.
+* Shuffling Bytes::             Or how to flash-cook a string.
+* Obfuscating Data::            Reversibly obscuring data from casual view.
 * Encode Binary Data::          Encoding and Decoding of Binary Data.
 * Argz and Envz Vectors::       Null-separated string vectors.
 
@@ -5513,9 +6082,9 @@ calls to copying functions with calls to truncation functions, there are
 often easier and safer automatic techniques that cause buffer overruns
 to reliably terminate a program, such as GCC’s ‘-fcheck-pointer-bounds’
 and ‘-fsanitize=address’ options.  *Note Options for Debugging Your
-Program or GCC: (gcc.info)Debugging Options.  Because truncation
-functions can mask application bugs that would otherwise be caught by
-the automatic techniques, these functions should be used only when the
+Program or GCC: (gcc)Debugging Options.  Because truncation functions
+can mask application bugs that would otherwise be caught by the
+automatic techniques, these functions should be used only when the
 application’s underlying logic requires truncation.
 
    *Note:* GNU programs should not truncate strings or wide strings to
@@ -6734,7 +7303,7 @@ available for wide strings.
      be found in ‘libgen.h’.
 
 
-File: libc.info,  Node: Erasing Sensitive Data,  Next: strfry,  Prev: Finding Tokens in a String,  Up: String and Array Utilities
+File: libc.info,  Node: Erasing Sensitive Data,  Next: Shuffling Bytes,  Prev: Finding Tokens in a String,  Up: String and Array Utilities
 
 5.11 Erasing Sensitive Data
 ===========================
@@ -6825,74 +7394,77 @@ the affected data, whereever they may be.
      other systems it may be in ‘strings.h’ instead.
 
 
-File: libc.info,  Node: strfry,  Next: Trivial Encryption,  Prev: Erasing Sensitive Data,  Up: String and Array Utilities
+File: libc.info,  Node: Shuffling Bytes,  Next: Obfuscating Data,  Prev: Erasing Sensitive Data,  Up: String and Array Utilities
 
-5.12 strfry
-===========
+5.12 Shuffling Bytes
+====================
 
 The function below addresses the perennial programming quandary: “How do
 I take good data in string form and painlessly turn it into garbage?”
-This is actually a fairly simple task for C programmers who do not use
-the GNU C Library string functions, but for programs based on the GNU C
-Library, the ‘strfry’ function is the preferred method for destroying
-string data.
+This is not a difficult thing to code for oneself, but the authors of
+the GNU C Library wish to make it as convenient as possible.
 
-   The prototype for this function is in ‘string.h’.
+   To _erase_ data, use ‘explicit_bzero’ (*note Erasing Sensitive
+Data::); to obfuscate it reversibly, use ‘memfrob’ (*note Obfuscating
+Data::).
 
  -- Function: char * strfry (char *STRING)
 
      Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
      Concepts::.
 
-     ‘strfry’ creates a pseudorandom anagram of a string, replacing the
-     input with the anagram in place.  For each position in the string,
-     ‘strfry’ swaps it with a position in the string selected at random
-     (from a uniform distribution).  The two positions may be the same.
+     ‘strfry’ performs an in-place shuffle on STRING.  Each character is
+     swapped to a position selected at random, within the portion of the
+     string starting with the character’s original position.  (This is
+     the Fisher-Yates algorithm for unbiased shuffling.)
+
+     Calling ‘strfry’ will not disturb any of the random number
+     generators that have global state (*note Pseudo-Random Numbers::).
 
      The return value of ‘strfry’ is always STRING.
 
      *Portability Note:* This function is unique to the GNU C Library.
+     It is declared in ‘string.h’.
 
 
-File: libc.info,  Node: Trivial Encryption,  Next: Encode Binary Data,  Prev: strfry,  Up: String and Array Utilities
+File: libc.info,  Node: Obfuscating Data,  Next: Encode Binary Data,  Prev: Shuffling Bytes,  Up: String and Array Utilities
 
-5.13 Trivial Encryption
-=======================
+5.13 Obfuscating Data
+=====================
 
-The ‘memfrob’ function converts an array of data to something
-unrecognizable and back again.  It is not encryption in its usual sense
-since it is easy for someone to convert the encrypted data back to clear
-text.  The transformation is analogous to Usenet’s “Rot13” encryption
-method for obscuring offensive jokes from sensitive eyes and such.
-Unlike Rot13, ‘memfrob’ works on arbitrary binary data, not just text.
+The ‘memfrob’ function reversibly obfuscates an array of binary data.
+This is not true encryption; the obfuscated data still bears a clear
+relationship to the original, and no secret key is required to undo the
+obfuscation.  It is analogous to the “Rot13” cipher used on Usenet for
+obscuring offensive jokes, spoilers for works of fiction, and so on, but
+it can be applied to arbitrary binary data.
 
-   For true encryption, *Note Cryptographic Functions::.
+   Programs that need true encryption—a transformation that completely
+obscures the original and cannot be reversed without knowledge of a
+secret key—should use a dedicated cryptography library, such as
+libgcrypt.
 
-   This function is declared in ‘string.h’.
+   Programs that need to _destroy_ data should use ‘explicit_bzero’
+(*note Erasing Sensitive Data::), or possibly ‘strfry’ (*note Shuffling
+Bytes::).
 
  -- Function: void * memfrob (void *MEM, size_t LENGTH)
 
      Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
      Concepts::.
 
-     ‘memfrob’ transforms (frobnicates) each byte of the data structure
-     at MEM, which is LENGTH bytes long, by bitwise exclusive oring it
-     with binary 00101010.  It does the transformation in place and its
-     return value is always MEM.
+     The function ‘memfrob’ obfuscates LENGTH bytes of data beginning at
+     MEM, in place.  Each byte is bitwise xor-ed with the binary pattern
+     00101010 (hexadecimal 0x2A). The return value is always MEM.
 
-     Note that ‘memfrob’ a second time on the same data structure
-     returns it to its original state.
-
-     This is a good function for hiding information from someone who
-     doesn’t want to see it or doesn’t want to see it very much.  To
-     really prevent people from retrieving the information, use stronger
-     encryption such as that described in *Note Cryptographic
-     Functions::.
+     ‘memfrob’ a second time on the same data returns it to its original
+     state.
 
      *Portability Note:* This function is unique to the GNU C Library.
+     It is declared in ‘string.h’.
 
 
-File: libc.info,  Node: Encode Binary Data,  Next: Argz and Envz Vectors,  Prev: Trivial Encryption,  Up: String and Array Utilities
+File: libc.info,  Node: Encode Binary Data,  Next: Argz and Envz Vectors,  Prev: Obfuscating Data,  Up: String and Array Utilities
 
 5.14 Encode Binary Data
 =======================
@@ -7006,586 +7578,4 @@ symbols are used for the base 64 digits:
    This encoding scheme is not standard.  There are some other encoding
 methods which are much more widely used (UU encoding, MIME encoding).
 Generally, it is better to use one of these encodings.
-
-
-File: libc.info,  Node: Argz and Envz Vectors,  Prev: Encode Binary Data,  Up: String and Array Utilities
-
-5.15 Argz and Envz Vectors
-==========================
-
-“argz vectors” are vectors of strings in a contiguous block of memory,
-each element separated from its neighbors by null bytes (‘'\0'’).
-
-   “Envz vectors” are an extension of argz vectors where each element is
-a name-value pair, separated by a ‘'='’ byte (as in a Unix environment).
-
-* Menu:
-
-* Argz Functions::              Operations on argz vectors.
-* Envz Functions::              Additional operations on environment vectors.
-
-
-File: libc.info,  Node: Argz Functions,  Next: Envz Functions,  Up: Argz and Envz Vectors
-
-5.15.1 Argz Functions
----------------------
-
-Each argz vector is represented by a pointer to the first element, of
-type ‘char *’, and a size, of type ‘size_t’, both of which can be
-initialized to ‘0’ to represent an empty argz vector.  All argz
-functions accept either a pointer and a size argument, or pointers to
-them, if they will be modified.
-
-   The argz functions use ‘malloc’/‘realloc’ to allocate/grow argz
-vectors, and so any argz vector created using these functions may be
-freed by using ‘free’; conversely, any argz function that may grow a
-string expects that string to have been allocated using ‘malloc’ (those
-argz functions that only examine their arguments or modify them in place
-will work on any sort of memory).  *Note Unconstrained Allocation::.
-
-   All argz functions that do memory allocation have a return type of
-‘error_t’, and return ‘0’ for success, and ‘ENOMEM’ if an allocation
-error occurs.
-
-   These functions are declared in the standard include file ‘argz.h’.
-
- -- Function: error_t argz_create (char *const ARGV[], char **ARGZ,
-          size_t *ARGZ_LEN)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap | AC-Unsafe mem | *Note
-     POSIX Safety Concepts::.
-
-     The ‘argz_create’ function converts the Unix-style argument vector
-     ARGV (a vector of pointers to normal C strings, terminated by
-     ‘(char *)0’; *note Program Arguments::) into an argz vector with
-     the same elements, which is returned in ARGZ and ARGZ_LEN.
-
- -- Function: error_t argz_create_sep (const char *STRING, int SEP, char
-          **ARGZ, size_t *ARGZ_LEN)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap | AC-Unsafe mem | *Note
-     POSIX Safety Concepts::.
-
-     The ‘argz_create_sep’ function converts the string STRING into an
-     argz vector (returned in ARGZ and ARGZ_LEN) by splitting it into
-     elements at every occurrence of the byte SEP.
-
- -- Function: size_t argz_count (const char *ARGZ, size_t ARGZ_LEN)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     Returns the number of elements in the argz vector ARGZ and
-     ARGZ_LEN.
-
- -- Function: void argz_extract (const char *ARGZ, size_t ARGZ_LEN, char
-          **ARGV)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘argz_extract’ function converts the argz vector ARGZ and
-     ARGZ_LEN into a Unix-style argument vector stored in ARGV, by
-     putting pointers to every element in ARGZ into successive positions
-     in ARGV, followed by a terminator of ‘0’.  ARGV must be
-     pre-allocated with enough space to hold all the elements in ARGZ
-     plus the terminating ‘(char *)0’ (‘(argz_count (ARGZ, ARGZ_LEN) +
-     1) * sizeof (char *)’ bytes should be enough).  Note that the
-     string pointers stored into ARGV point into ARGZ—they are not
-     copies—and so ARGZ must be copied if it will be changed while ARGV
-     is still active.  This function is useful for passing the elements
-     in ARGZ to an exec function (*note Executing a File::).
-
- -- Function: void argz_stringify (char *ARGZ, size_t LEN, int SEP)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘argz_stringify’ converts ARGZ into a normal string with the
-     elements separated by the byte SEP, by replacing each ‘'\0'’ inside
-     ARGZ (except the last one, which terminates the string) with SEP.
-     This is handy for printing ARGZ in a readable manner.
-
- -- Function: error_t argz_add (char **ARGZ, size_t *ARGZ_LEN, const
-          char *STR)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap | AC-Unsafe mem | *Note
-     POSIX Safety Concepts::.
-
-     The ‘argz_add’ function adds the string STR to the end of the argz
-     vector ‘*ARGZ’, and updates ‘*ARGZ’ and ‘*ARGZ_LEN’ accordingly.
-
- -- Function: error_t argz_add_sep (char **ARGZ, size_t *ARGZ_LEN, const
-          char *STR, int DELIM)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap | AC-Unsafe mem | *Note
-     POSIX Safety Concepts::.
-
-     The ‘argz_add_sep’ function is similar to ‘argz_add’, but STR is
-     split into separate elements in the result at occurrences of the
-     byte DELIM.  This is useful, for instance, for adding the
-     components of a Unix search path to an argz vector, by using a
-     value of ‘':'’ for DELIM.
-
- -- Function: error_t argz_append (char **ARGZ, size_t *ARGZ_LEN, const
-          char *BUF, size_t BUF_LEN)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap | AC-Unsafe mem | *Note
-     POSIX Safety Concepts::.
-
-     The ‘argz_append’ function appends BUF_LEN bytes starting at BUF to
-     the argz vector ‘*ARGZ’, reallocating ‘*ARGZ’ to accommodate it,
-     and adding BUF_LEN to ‘*ARGZ_LEN’.
-
- -- Function: void argz_delete (char **ARGZ, size_t *ARGZ_LEN, char
-          *ENTRY)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap | AC-Unsafe mem | *Note
-     POSIX Safety Concepts::.
-
-     If ENTRY points to the beginning of one of the elements in the argz
-     vector ‘*ARGZ’, the ‘argz_delete’ function will remove this entry
-     and reallocate ‘*ARGZ’, modifying ‘*ARGZ’ and ‘*ARGZ_LEN’
-     accordingly.  Note that as destructive argz functions usually
-     reallocate their argz argument, pointers into argz vectors such as
-     ENTRY will then become invalid.
-
- -- Function: error_t argz_insert (char **ARGZ, size_t *ARGZ_LEN, char
-          *BEFORE, const char *ENTRY)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap | AC-Unsafe mem | *Note
-     POSIX Safety Concepts::.
-
-     The ‘argz_insert’ function inserts the string ENTRY into the argz
-     vector ‘*ARGZ’ at a point just before the existing element pointed
-     to by BEFORE, reallocating ‘*ARGZ’ and updating ‘*ARGZ’ and
-     ‘*ARGZ_LEN’.  If BEFORE is ‘0’, ENTRY is added to the end instead
-     (as if by ‘argz_add’).  Since the first element is in fact the same
-     as ‘*ARGZ’, passing in ‘*ARGZ’ as the value of BEFORE will result
-     in ENTRY being inserted at the beginning.
-
- -- Function: char * argz_next (const char *ARGZ, size_t ARGZ_LEN, const
-          char *ENTRY)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘argz_next’ function provides a convenient way of iterating
-     over the elements in the argz vector ARGZ.  It returns a pointer to
-     the next element in ARGZ after the element ENTRY, or ‘0’ if there
-     are no elements following ENTRY.  If ENTRY is ‘0’, the first
-     element of ARGZ is returned.
-
-     This behavior suggests two styles of iteration:
-
-              char *entry = 0;
-              while ((entry = argz_next (ARGZ, ARGZ_LEN, entry)))
-                ACTION;
-
-     (the double parentheses are necessary to make some C compilers shut
-     up about what they consider a questionable ‘while’-test) and:
-
-              char *entry;
-              for (entry = ARGZ;
-                   entry;
-                   entry = argz_next (ARGZ, ARGZ_LEN, entry))
-                ACTION;
-
-     Note that the latter depends on ARGZ having a value of ‘0’ if it is
-     empty (rather than a pointer to an empty block of memory); this
-     invariant is maintained for argz vectors created by the functions
-     here.
-
- -- Function: error_t argz_replace (char **ARGZ, size_t *ARGZ_LEN,
-          const char *STR, const char *WITH, unsigned *REPLACE_COUNT)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap | AC-Unsafe mem | *Note
-     POSIX Safety Concepts::.
-
-     Replace any occurrences of the string STR in ARGZ with WITH,
-     reallocating ARGZ as necessary.  If REPLACE_COUNT is non-zero,
-     ‘*REPLACE_COUNT’ will be incremented by the number of replacements
-     performed.
-
-
-File: libc.info,  Node: Envz Functions,  Prev: Argz Functions,  Up: Argz and Envz Vectors
-
-5.15.2 Envz Functions
----------------------
-
-Envz vectors are just argz vectors with additional constraints on the
-form of each element; as such, argz functions can also be used on them,
-where it makes sense.
-
-   Each element in an envz vector is a name-value pair, separated by a
-‘'='’ byte; if multiple ‘'='’ bytes are present in an element, those
-after the first are considered part of the value, and treated like all
-other non-‘'\0'’ bytes.
-
-   If _no_ ‘'='’ bytes are present in an element, that element is
-considered the name of a “null” entry, as distinct from an entry with an
-empty value: ‘envz_get’ will return ‘0’ if given the name of null entry,
-whereas an entry with an empty value would result in a value of ‘""’;
-‘envz_entry’ will still find such entries, however.  Null entries can be
-removed with the ‘envz_strip’ function.
-
-   As with argz functions, envz functions that may allocate memory (and
-thus fail) have a return type of ‘error_t’, and return either ‘0’ or
-‘ENOMEM’.
-
-   These functions are declared in the standard include file ‘envz.h’.
-
- -- Function: char * envz_entry (const char *ENVZ, size_t ENVZ_LEN,
-          const char *NAME)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘envz_entry’ function finds the entry in ENVZ with the name
-     NAME, and returns a pointer to the whole entry—that is, the argz
-     element which begins with NAME followed by a ‘'='’ byte.  If there
-     is no entry with that name, ‘0’ is returned.
-
- -- Function: char * envz_get (const char *ENVZ, size_t ENVZ_LEN, const
-          char *NAME)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘envz_get’ function finds the entry in ENVZ with the name NAME
-     (like ‘envz_entry’), and returns a pointer to the value portion of
-     that entry (following the ‘'='’).  If there is no entry with that
-     name (or only a null entry), ‘0’ is returned.
-
- -- Function: error_t envz_add (char **ENVZ, size_t *ENVZ_LEN, const
-          char *NAME, const char *VALUE)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap | AC-Unsafe mem | *Note
-     POSIX Safety Concepts::.
-
-     The ‘envz_add’ function adds an entry to ‘*ENVZ’ (updating ‘*ENVZ’
-     and ‘*ENVZ_LEN’) with the name NAME, and value VALUE.  If an entry
-     with the same name already exists in ENVZ, it is removed first.  If
-     VALUE is ‘0’, then the new entry will be the special null type of
-     entry (mentioned above).
-
- -- Function: error_t envz_merge (char **ENVZ, size_t *ENVZ_LEN, const
-          char *ENVZ2, size_t ENVZ2_LEN, int OVERRIDE)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap | AC-Unsafe mem | *Note
-     POSIX Safety Concepts::.
-
-     The ‘envz_merge’ function adds each entry in ENVZ2 to ENVZ, as if
-     with ‘envz_add’, updating ‘*ENVZ’ and ‘*ENVZ_LEN’.  If OVERRIDE is
-     true, then values in ENVZ2 will supersede those with the same name
-     in ENVZ, otherwise not.
-
-     Null entries are treated just like other entries in this respect,
-     so a null entry in ENVZ can prevent an entry of the same name in
-     ENVZ2 from being added to ENVZ, if OVERRIDE is false.
-
- -- Function: void envz_strip (char **ENVZ, size_t *ENVZ_LEN)
-
-     Preliminary: | MT-Safe | AS-Safe | AC-Safe | *Note POSIX Safety
-     Concepts::.
-
-     The ‘envz_strip’ function removes any null entries from ENVZ,
-     updating ‘*ENVZ’ and ‘*ENVZ_LEN’.
-
- -- Function: void envz_remove (char **ENVZ, size_t *ENVZ_LEN, const
-          char *NAME)
-
-     Preliminary: | MT-Safe | AS-Unsafe heap | AC-Unsafe mem | *Note
-     POSIX Safety Concepts::.
-
-     The ‘envz_remove’ function removes an entry named NAME from ENVZ,
-     updating ‘*ENVZ’ and ‘*ENVZ_LEN’.
-
-
-File: libc.info,  Node: Character Set Handling,  Next: Locales,  Prev: String and Array Utilities,  Up: Top
-
-6 Character Set Handling
-************************
-
-Character sets used in the early days of computing had only six, seven,
-or eight bits for each character: there was never a case where more than
-eight bits (one byte) were used to represent a single character.  The
-limitations of this approach became more apparent as more people
-grappled with non-Roman character sets, where not all the characters
-that make up a language’s character set can be represented by 2^8
-choices.  This chapter shows the functionality that was added to the C
-library to support multiple character sets.
-
-* Menu:
-
-* Extended Char Intro::              Introduction to Extended Characters.
-* Charset Function Overview::        Overview about Character Handling
-                                      Functions.
-* Restartable multibyte conversion:: Restartable multibyte conversion
-                                      Functions.
-* Non-reentrant Conversion::         Non-reentrant Conversion Function.
-* Generic Charset Conversion::       Generic Charset Conversion.
-
-
-File: libc.info,  Node: Extended Char Intro,  Next: Charset Function Overview,  Up: Character Set Handling
-
-6.1 Introduction to Extended Characters
-=======================================
-
-A variety of solutions are available to overcome the differences between
-character sets with a 1:1 relation between bytes and characters and
-character sets with ratios of 2:1 or 4:1.  The remainder of this section
-gives a few examples to help understand the design decisions made while
-developing the functionality of the C library.
-
-   A distinction we have to make right away is between internal and
-external representation.  “Internal representation” means the
-representation used by a program while keeping the text in memory.
-External representations are used when text is stored or transmitted
-through some communication channel.  Examples of external
-representations include files waiting in a directory to be read and
-parsed.
-
-   Traditionally there has been no difference between the two
-representations.  It was equally comfortable and useful to use the same
-single-byte representation internally and externally.  This comfort
-level decreases with more and larger character sets.
-
-   One of the problems to overcome with the internal representation is
-handling text that is externally encoded using different character sets.
-Assume a program that reads two texts and compares them using some
-metric.  The comparison can be usefully done only if the texts are
-internally kept in a common format.
-
-   For such a common format (= character set) eight bits are certainly
-no longer enough.  So the smallest entity will have to grow: “wide
-characters” will now be used.  Instead of one byte per character, two or
-four will be used instead.  (Three are not good to address in memory and
-more than four bytes seem not to be necessary).
-
-   As shown in some other part of this manual, a completely new family
-has been created of functions that can handle wide character texts in
-memory.  The most commonly used character sets for such internal wide
-character representations are Unicode and ISO 10646 (also known as UCS
-for Universal Character Set).  Unicode was originally planned as a
-16-bit character set; whereas, ISO 10646 was designed to be a 31-bit
-large code space.  The two standards are practically identical.  They
-have the same character repertoire and code table, but Unicode specifies
-added semantics.  At the moment, only characters in the first ‘0x10000’
-code positions (the so-called Basic Multilingual Plane, BMP) have been
-assigned, but the assignment of more specialized characters outside this
-16-bit space is already in progress.  A number of encodings have been
-defined for Unicode and ISO 10646 characters: UCS-2 is a 16-bit word
-that can only represent characters from the BMP, UCS-4 is a 32-bit word
-than can represent any Unicode and ISO 10646 character, UTF-8 is an
-ASCII compatible encoding where ASCII characters are represented by
-ASCII bytes and non-ASCII characters by sequences of 2-6 non-ASCII
-bytes, and finally UTF-16 is an extension of UCS-2 in which pairs of
-certain UCS-2 words can be used to encode non-BMP characters up to
-‘0x10ffff’.
-
-   To represent wide characters the ‘char’ type is not suitable.  For
-this reason the ISO C standard introduces a new type that is designed to
-keep one character of a wide character string.  To maintain the
-similarity there is also a type corresponding to ‘int’ for those
-functions that take a single wide character.
-
- -- Data type: wchar_t
-
-     This data type is used as the base type for wide character strings.
-     In other words, arrays of objects of this type are the equivalent
-     of ‘char[]’ for multibyte character strings.  The type is defined
-     in ‘stddef.h’.
-
-     The ISO C90 standard, where ‘wchar_t’ was introduced, does not say
-     anything specific about the representation.  It only requires that
-     this type is capable of storing all elements of the basic character
-     set.  Therefore it would be legitimate to define ‘wchar_t’ as
-     ‘char’, which might make sense for embedded systems.
-
-     But in the GNU C Library ‘wchar_t’ is always 32 bits wide and,
-     therefore, capable of representing all UCS-4 values and, therefore,
-     covering all of ISO 10646.  Some Unix systems define ‘wchar_t’ as a
-     16-bit type and thereby follow Unicode very strictly.  This
-     definition is perfectly fine with the standard, but it also means
-     that to represent all characters from Unicode and ISO 10646 one has
-     to use UTF-16 surrogate characters, which is in fact a
-     multi-wide-character encoding.  But resorting to
-     multi-wide-character encoding contradicts the purpose of the
-     ‘wchar_t’ type.
-
- -- Data type: wint_t
-
-     ‘wint_t’ is a data type used for parameters and variables that
-     contain a single wide character.  As the name suggests this type is
-     the equivalent of ‘int’ when using the normal ‘char’ strings.  The
-     types ‘wchar_t’ and ‘wint_t’ often have the same representation if
-     their size is 32 bits wide but if ‘wchar_t’ is defined as ‘char’
-     the type ‘wint_t’ must be defined as ‘int’ due to the parameter
-     promotion.
-
-     This type is defined in ‘wchar.h’ and was introduced in Amendment 1
-     to ISO C90.
-
-   As there are for the ‘char’ data type macros are available for
-specifying the minimum and maximum value representable in an object of
-type ‘wchar_t’.
-
- -- Macro: wint_t WCHAR_MIN
-
-     The macro ‘WCHAR_MIN’ evaluates to the minimum value representable
-     by an object of type ‘wint_t’.
-
-     This macro was introduced in Amendment 1 to ISO C90.
-
- -- Macro: wint_t WCHAR_MAX
-
-     The macro ‘WCHAR_MAX’ evaluates to the maximum value representable
-     by an object of type ‘wint_t’.
-
-     This macro was introduced in Amendment 1 to ISO C90.
-
-   Another special wide character value is the equivalent to ‘EOF’.
-
- -- Macro: wint_t WEOF
-
-     The macro ‘WEOF’ evaluates to a constant expression of type
-     ‘wint_t’ whose value is different from any member of the extended
-     character set.
-
-     ‘WEOF’ need not be the same value as ‘EOF’ and unlike ‘EOF’ it also
-     need _not_ be negative.  In other words, sloppy code like
-
-          {
-            int c;
-            ...
-            while ((c = getc (fp)) < 0)
-              ...
-          }
-
-     has to be rewritten to use ‘WEOF’ explicitly when wide characters
-     are used:
-
-          {
-            wint_t c;
-            ...
-            while ((c = wgetc (fp)) != WEOF)
-              ...
-          }
-
-     This macro was introduced in Amendment 1 to ISO C90 and is defined
-     in ‘wchar.h’.
-
-   These internal representations present problems when it comes to
-storage and transmittal.  Because each single wide character consists of
-more than one byte, they are affected by byte-ordering.  Thus, machines
-with different endianesses would see different values when accessing the
-same data.  This byte ordering concern also applies for communication
-protocols that are all byte-based and therefore require that the sender
-has to decide about splitting the wide character in bytes.  A last (but
-not least important) point is that wide characters often require more
-storage space than a customized byte-oriented character set.
-
-   For all the above reasons, an external encoding that is different
-from the internal encoding is often used if the latter is UCS-2 or
-UCS-4.  The external encoding is byte-based and can be chosen
-appropriately for the environment and for the texts to be handled.  A
-variety of different character sets can be used for this external
-encoding (information that will not be exhaustively presented
-here–instead, a description of the major groups will suffice).  All of
-the ASCII-based character sets fulfill one requirement: they are
-"filesystem safe."  This means that the character ‘'/'’ is used in the
-encoding _only_ to represent itself.  Things are a bit different for
-character sets like EBCDIC (Extended Binary Coded Decimal Interchange
-Code, a character set family used by IBM), but if the operating system
-does not understand EBCDIC directly the parameters-to-system calls have
-to be converted first anyhow.
-
-   • The simplest character sets are single-byte character sets.  There
-     can be only up to 256 characters (for 8 bit character sets), which
-     is not sufficient to cover all languages but might be sufficient to
-     handle a specific text.  Handling of a 8 bit character sets is
-     simple.  This is not true for other kinds presented later, and
-     therefore, the application one uses might require the use of 8 bit
-     character sets.
-
-   • The ISO 2022 standard defines a mechanism for extended character
-     sets where one character _can_ be represented by more than one
-     byte.  This is achieved by associating a state with the text.
-     Characters that can be used to change the state can be embedded in
-     the text.  Each byte in the text might have a different
-     interpretation in each state.  The state might even influence
-     whether a given byte stands for a character on its own or whether
-     it has to be combined with some more bytes.
-
-     In most uses of ISO 2022 the defined character sets do not allow
-     state changes that cover more than the next character.  This has
-     the big advantage that whenever one can identify the beginning of
-     the byte sequence of a character one can interpret a text
-     correctly.  Examples of character sets using this policy are the
-     various EUC character sets (used by Sun’s operating systems,
-     EUC-JP, EUC-KR, EUC-TW, and EUC-CN) or Shift_JIS (SJIS, a Japanese
-     encoding).
-
-     But there are also character sets using a state that is valid for
-     more than one character and has to be changed by another byte
-     sequence.  Examples for this are ISO-2022-JP, ISO-2022-KR, and
-     ISO-2022-CN.
-
-   • Early attempts to fix 8 bit character sets for other languages
-     using the Roman alphabet lead to character sets like ISO 6937.
-     Here bytes representing characters like the acute accent do not
-     produce output themselves: one has to combine them with other
-     characters to get the desired result.  For example, the byte
-     sequence ‘0xc2 0x61’ (non-spacing acute accent, followed by
-     lower-case ‘a’) to get the “small a with acute” character.  To get
-     the acute accent character on its own, one has to write ‘0xc2 0x20’
-     (the non-spacing acute followed by a space).
-
-     Character sets like ISO 6937 are used in some embedded systems such
-     as teletex.
-
-   • Instead of converting the Unicode or ISO 10646 text used
-     internally, it is often also sufficient to simply use an encoding
-     different than UCS-2/UCS-4.  The Unicode and ISO 10646 standards
-     even specify such an encoding: UTF-8.  This encoding is able to
-     represent all of ISO 10646 31 bits in a byte string of length one
-     to six.
-
-     There were a few other attempts to encode ISO 10646 such as UTF-7,
-     but UTF-8 is today the only encoding that should be used.  In fact,
-     with any luck UTF-8 will soon be the only external encoding that
-     has to be supported.  It proves to be universally usable and its
-     only disadvantage is that it favors Roman languages by making the
-     byte string representation of other scripts (Cyrillic, Greek, Asian
-     scripts) longer than necessary if using a specific character set
-     for these scripts.  Methods like the Unicode compression scheme can
-     alleviate these problems.
-
-   The question remaining is: how to select the character set or
-encoding to use.  The answer: you cannot decide about it yourself, it is
-decided by the developers of the system or the majority of the users.
-Since the goal is interoperability one has to use whatever the other
-people one works with use.  If there are no constraints, the selection
-is based on the requirements the expected circle of users will have.  In
-other words, if a project is expected to be used in only, say, Russia it
-is fine to use KOI8-R or a similar character set.  But if at the same
-time people from, say, Greece are participating one should use a
-character set that allows all people to collaborate.
-
-   The most widely useful solution seems to be: go with the most general
-character set, namely ISO 10646.  Use UTF-8 as the external encoding and
-problems about users not being able to use their own language adequately
-are a thing of the past.
-
-   One final comment about the choice of the wide character
-representation is necessary at this point.  We have said above that the
-natural choice is using Unicode or ISO 10646.  This is not required, but
-at least encouraged, by the ISO C standard.  The standard defines at
-least a macro ‘__STDC_ISO_10646__’ that is only defined on systems where
-the ‘wchar_t’ type encodes ISO 10646 characters.  If this symbol is not
-defined one should avoid making assumptions about the wide character
-representation.  If the programmer uses only the functions provided by
-the C library to handle wide character strings there should be no
-compatibility problems with other systems.
 
